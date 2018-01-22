@@ -13,6 +13,12 @@ public class Character : Entity
     [SerializeField]
     float runSpeed = 2f;
 
+    [SerializeField]
+    int inventorySize;
+
+    [SerializeField]
+    List<Item> items;
+
     Rigidbody2D rb2D;
 
     private void Start()
@@ -36,5 +42,23 @@ public class Character : Entity
         }
 
         rb2D.velocity = new Vector2(moveHorizontal * speed, rb2D.velocity.y);
+    }
+
+    public bool AddItemToInventory(Item item)
+    {
+        if (items.Count < inventorySize)
+        {
+            items.Add(item);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool RemoveItemFromInventory(Item item)
+    {
+        return items.Remove(item);
     }
 }
