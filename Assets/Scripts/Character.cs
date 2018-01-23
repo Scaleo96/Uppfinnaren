@@ -8,6 +8,9 @@ public class Character : Entity
     [Header("> Character")]
 
     [SerializeField]
+    bool isActive = false;
+
+    [SerializeField]
     float walkSpeed = 1f;
 
     [SerializeField]
@@ -21,14 +24,17 @@ public class Character : Entity
 
     Rigidbody2D rb2D;
 
-    private void Start()
+    private void Awake()
     {
         rb2D = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
     {
-        Move();
+        if (isActive)
+        {
+            Move();
+        }
     }
 
     private void Move()
@@ -36,7 +42,7 @@ public class Character : Entity
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
 
         float speed = walkSpeed;
-        if (Input.GetButton("Fire3"))
+        if (Input.GetButton("Run"))
         {
             speed = runSpeed;
         }
@@ -60,5 +66,28 @@ public class Character : Entity
     public bool RemoveItemFromInventory(Item item)
     {
         return items.Remove(item);
+    }
+
+    public int InventorySize
+    {
+        get
+        {
+            return inventorySize;
+        }
+    }
+
+    public void SetActive(bool value)
+    {
+        isActive = value;
+
+        rb2D.velocity = new Vector2(0, rb2D.velocity.y);
+    }
+
+    public bool IsActive
+    {
+        get
+        {
+            return isActive;
+        }
     }
 }

@@ -9,6 +9,22 @@ public class Item : Entity
     [HideInInspector] public bool idaUse;
     [HideInInspector] public bool jonathanUse;
 
+    [SerializeField]
+    Sprite inventorySprite;
+
+    public Sprite InventorySprite
+    {
+        get
+        {
+            return inventorySprite;
+        }
+
+        set
+        {
+            inventorySprite = value;
+        }
+    }
+
     public override void Interact(Character character)
     {
         if (CanPickup(character))
