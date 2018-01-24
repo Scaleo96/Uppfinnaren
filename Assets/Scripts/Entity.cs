@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(Collider2D))]
 public class Entity : MonoBehaviour
 {
     [Header("> Entity")]
@@ -17,8 +18,8 @@ public class Entity : MonoBehaviour
     /// <summary>
     /// Behaviour when entity is interacted with.
     /// </summary>
-    /// <param name="entity">The entity that is interacting with this entity.</param>
-    public virtual void Interact(Entity entity)
+    /// <param name="character">The entity that is interacting with this entity.</param>
+    public virtual void Interact(Character character)
     {
         interactionEvents.Invoke();
     }
