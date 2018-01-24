@@ -17,6 +17,9 @@ public class Character : Entity
     float runSpeed = 2f;
 
     [SerializeField]
+    float throwForce = 20f;
+
+    [SerializeField]
     int inventorySize;
 
     [SerializeField]
@@ -66,6 +69,17 @@ public class Character : Entity
 
     public bool RemoveItemFromInventory(Item item)
     {
+        return items.Remove(item);
+    }
+
+    public bool DropItem(Item item)
+    {
+        item.gameObject.SetActive(true);
+        item.gameObject.transform.position = transform.position;
+
+        Vector2 throwDir = GameController.instance.CameraComponent.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        item.gameObject.GetComponent<Rigidbody2D>().AddForce(throwDir * throwForce, ForceMode2D.Impulse);
+
         return items.Remove(item);
     }
 

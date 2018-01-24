@@ -156,6 +156,7 @@ MonoBehaviour:
   isActive: 0
   walkSpeed: 4
   runSpeed: 6
+  throwForce: 0.5
   inventorySize: 2
   items: []
 --- !u!212 &212114456223879596

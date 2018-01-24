@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 struct InventorySlot
 {
     public Item item;
     public GameObject slot;
+    public Image image;
+
+    public Button button;
     public bool isSelected;
 }
 
@@ -16,6 +20,13 @@ public class GameController : MonoBehaviour
 
     [SerializeField]
     Camera cameraComponent;
+    public Camera CameraComponent
+    {
+        get
+        {
+            return cameraComponent;
+        }
+    }
 
     [Header("Character Settings")]
     [SerializeField]
@@ -34,6 +45,13 @@ public class GameController : MonoBehaviour
     [SerializeField]
     GameObject hoverTextObject;
     Text hoverText;
+
+    [SerializeField]
+    GameObject hoverImageObject;
+    Image hoverImage;
+
+    InventorySlot selectedInventorySlot;
+    bool isHoldingItem;
 
     [SerializeField]
     bool textFollowMouse = true;
@@ -96,6 +114,7 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         hoverText = hoverTextObject.GetComponentInChildren<Text>();
+        hoverImage = hoverImageObject.GetComponentInChildren<Image>();
 
         inventorySlots = new InventorySlot[characters.Length][];
 
@@ -120,6 +139,8 @@ public class GameController : MonoBehaviour
     {
         RaycastSelect();
 
+        // TODO: Move into own function
+        // Change character on input.
         if (Input.GetButtonDown("Change Character"))
         {
             if (currentCharID < (characters.Length - 1))
@@ -130,6 +151,20 @@ public class GameController : MonoBehaviour
             {
                 ChangeCharacter(0);
             }
+        }
+
+        // Deselect item on click.
+        hoverImageObject.transform.position = Input.mousePosition;
+        if (Input.GetButtonDown("Interact") && isHoldingItem)
+        {
+            if (hoverEntity == false)
+            {
+                currentCharacter.RemoveItemFromInventory(selectedInventorySlot.item);
+                currentCharacter.DropItem(selectedInventorySlot.item);
+            }
+
+            DeselectItem(selectedInventorySlot);
+            UpdateInventory(currentCharID);
         }
     }
 
@@ -142,41 +177,37 @@ public class GameController : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(cameraComponent.ScreenToWorldPoint(Input.mousePosition), Vector3.forward, 20);
 
-        Entity entity;
-        if (hit)
-        {          
-            if (entity = hit.transform.GetComponent<Entity>())
+        Entity entity;      
+        if (hit && hit.transform.GetComponent<Entity>())
+        {
+            entity = hit.transform.GetComponent<Entity>();
+
+            if (!textFollowMouse)
             {
-                if (!textFollowMouse)
-                {
-                    hoverTextObject.transform.position = entity.transform.position;
+                hoverTextObject.transform.position = entity.transform.position;
 
-                    hoverTextObject.transform.position = new Vector2(
-                        hoverTextObject.transform.position.x,
-                        hoverTextObject.transform.position.y + entity.GetComponent<Collider2D>().bounds.extents.y
-                    );
+                hoverTextObject.transform.position = new Vector2(
+                    hoverTextObject.transform.position.x,
+                    hoverTextObject.transform.position.y + entity.GetComponent<Collider2D>().bounds.extents.y
+                );
 
-                    hoverTextObject.transform.position = cameraComponent.WorldToScreenPoint(hoverTextObject.transform.position);
-                }
-
-                hoverEntity = entity;
-
-                if (Input.GetButtonDown("Interact"))
-                {
-                    selectedEntity = entity;
-                    entity.Interact(currentCharacter);
-                }
-
-                hoverText.text = entity.EntityName;
+                hoverTextObject.transform.position = cameraComponent.WorldToScreenPoint(hoverTextObject.transform.position);
             }
-            else
+
+            hoverEntity = entity;
+
+            if (Input.GetButtonDown("Interact"))
             {
-                hoverText.text = "";
+                selectedEntity = entity;
+                entity.Interact(currentCharacter);
             }
+
+            hoverText.text = entity.EntityName;
         }
         else
         {
             hoverText.text = "";
+            hoverEntity = null;
         }
     }
 
@@ -191,7 +222,7 @@ public class GameController : MonoBehaviour
             currentCharacter.SetActive(false);
         }
 
-        SetInventoryUISize(charID);
+        UpdateInventory(charID);
 
         currentCharID = charID;
         currentCharacter = characters[currentCharID];
@@ -209,26 +240,29 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < items.Count; i++)
         {
             inventorySlots[currentCharID][i].item = items[i];
-            SetInventorySlotImage(inventorySlots[currentCharID][i]);
+            UpdateInventory(currentCharID);
+            //UpdateInventorySlotImage(inventorySlots[currentCharID][i]);
         }
     }
 
     /// <summary>
     /// Resets and sets the the UI inventory slots to match the given character's.
     /// </summary>
-    private void SetInventoryUISize(int newCharID)
+    private void UpdateInventory(int charID)
     {
         foreach (InventorySlot inventorySlot in inventorySlots[currentCharID])
         {
             Destroy(inventorySlot.slot);
         }
 
-        for (int i = 0; i < characters[newCharID].InventorySize; i++)
+        for (int i = 0; i < characters[charID].InventorySize; i++)
         {
-            Character character = characters[newCharID];
-            InventorySlot inventorySlot = inventorySlots[newCharID][i];
+            Character character = characters[charID];
+            InventorySlot inventorySlot = inventorySlots[charID][i];
 
             inventorySlot.slot = Instantiate(inventorySlotPrefab, inventoryObject.transform, false);
+            inventorySlot.button = inventorySlot.slot.GetComponent<Button>();
+
 
             if (i < character.GetItemCount())
             {
@@ -239,29 +273,70 @@ public class GameController : MonoBehaviour
                 inventorySlot.item = null;
             }
 
-            SetInventorySlotImage(inventorySlot);
+            UpdateInventorySlotImage(inventorySlot);
+            Debug.Log(inventorySlot.image);
+            inventorySlot.button.onClick.AddListener(new UnityAction( delegate { SelectItem(inventorySlot); } ));
 
-            inventorySlots[newCharID][i] = inventorySlot;
+            inventorySlots[charID][i] = inventorySlot;
         }
     }
 
     /// <summary>
     /// Sets the display image of the given slot to either the specified item sprite or the sprite of the item.
     /// </summary>
-    private void SetInventorySlotImage(InventorySlot slot)
+    private void UpdateInventorySlotImage(InventorySlot slot)
     {
-        if (slot.item)
-        {
-            slot.slot.transform.GetChild(1).GetComponent<Image>().color = new Color(1, 1, 1, 1);
+        slot.image = slot.slot.transform.GetChild(1).GetComponent<Image>();
 
-            slot.slot.transform.GetChild(1).GetComponent<Image>().sprite = slot.item.InventorySprite ?
-                slot.item.InventorySprite :
-                slot.item.gameObject.GetComponent<SpriteRenderer>().sprite;
+        if (slot.item && slot.isSelected == false)
+        {
+            slot.image.color = new Color(1, 1, 1, 1);
+
+            slot.image.sprite = slot.item.InventorySprite ?
+                               slot.item.InventorySprite :
+                               slot.item.gameObject.GetComponent<SpriteRenderer>().sprite;
         }
         else
         {
-            slot.slot.transform.GetChild(1).GetComponent<Image>().color = new Color(1, 1, 1, 0);
+            slot.image.color = new Color(1, 1, 1, 0);
+
+
+            if (slot.isSelected == false)
+            {
+                //slot.sprite = null;
+            }
         }
     }
 
+    private void SelectItem(InventorySlot slot)
+    {
+        isHoldingItem = true;
+        selectedInventorySlot = slot;
+
+        slot.isSelected = true;
+        UpdateInventorySlotImage(slot);
+
+        if (slot.item)
+        {
+            hoverImage.color = new Color(1, 1, 1, 1);
+
+            if (slot.image)
+            {               
+                hoverImage.sprite = slot.image.sprite;
+            }
+        }
+        else
+        {
+            hoverImage.color = new Color(1, 1, 1, 0);
+        }
+    }
+
+    private void DeselectItem(InventorySlot slot)
+    {
+        isHoldingItem = false;
+
+        slot.isSelected = true;
+        UpdateInventorySlotImage(slot);
+        hoverImage.color = new Color(1, 1, 1, 0);
+    }
 }
