@@ -55,6 +55,7 @@ public class Character : Entity
         if (items.Count < inventorySize)
         {
             items.Add(item);
+            GameController.instance.SetInventoryItems(items);
             return true;
         }
         else
@@ -89,5 +90,15 @@ public class Character : Entity
         {
             return isActive;
         }
+    }
+
+    public Item GetItemFromInventory(int index)
+    {
+        return items[index];
+    }
+
+    public int GetItemCount()
+    {
+        return items.Count;
     }
 }

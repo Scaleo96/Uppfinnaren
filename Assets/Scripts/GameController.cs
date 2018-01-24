@@ -122,7 +122,7 @@ public class GameController : MonoBehaviour
 
         if (Input.GetButtonDown("Change Character"))
         {
-            if (currentCharID < 2)
+            if (currentCharID < (characters.Length - 1))
             {
                 ChangeCharacter(currentCharID + 1);
             }
@@ -202,7 +202,19 @@ public class GameController : MonoBehaviour
     }
 
     /// <summary>
-    /// Resets and sets the the UI inventory slots to the given count.
+    /// Sets the items of each inventory slot in the currently active character.
+    /// </summary>
+    public void SetInventoryItems(List<Item> items)
+    {
+        for (int i = 0; i < items.Count; i++)
+        {
+            inventorySlots[currentCharID][i].item = items[i];
+            SetInventorySlotImage(inventorySlots[currentCharID][i]);
+        }
+    }
+
+    /// <summary>
+    /// Resets and sets the the UI inventory slots to match the given character's.
     /// </summary>
     private void SetInventoryUISize(int newCharID)
     {
@@ -213,7 +225,42 @@ public class GameController : MonoBehaviour
 
         for (int i = 0; i < characters[newCharID].InventorySize; i++)
         {
-            inventorySlots[newCharID][i].slot = Instantiate(inventorySlotPrefab, inventoryObject.transform, false);
+            Character character = characters[newCharID];
+            InventorySlot inventorySlot = inventorySlots[newCharID][i];
+
+            inventorySlot.slot = Instantiate(inventorySlotPrefab, inventoryObject.transform, false);
+
+            if (i < character.GetItemCount())
+            {
+                inventorySlot.item = character.GetItemFromInventory(i);
+            }
+            else
+            {
+                inventorySlot.item = null;
+            }
+
+            SetInventorySlotImage(inventorySlot);
+
+            inventorySlots[newCharID][i] = inventorySlot;
+        }
+    }
+
+    /// <summary>
+    /// Sets the display image of the given slot to either the specified item sprite or the sprite of the item.
+    /// </summary>
+    private void SetInventorySlotImage(InventorySlot slot)
+    {
+        if (slot.item)
+        {
+            slot.slot.transform.GetChild(1).GetComponent<Image>().color = new Color(1, 1, 1, 1);
+
+            slot.slot.transform.GetChild(1).GetComponent<Image>().sprite = slot.item.InventorySprite ?
+                slot.item.InventorySprite :
+                slot.item.gameObject.GetComponent<SpriteRenderer>().sprite;
+        }
+        else
+        {
+            slot.slot.transform.GetChild(1).GetComponent<Image>().color = new Color(1, 1, 1, 0);
         }
     }
 
