@@ -1,25 +1,21 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class MusicPlayer : MonoBehaviour {
-
-    [SerializeField]
-    bool autoPopulateTracks;
-
-    [SerializeField]
-    List<MusicTrack> tracks;
-
+public class MusicPlayer : MonoBehaviour
+{    
     [SerializeField]
     AudioMixerGroup musicMixer;
 
-    private void OnValidate()
-    {
-        // TODO: More fitting place than OnValidate?
-        AutoPupulateTracksWithChildren();
-    }
+    [SerializeField]
+    List<MusicTrack> tracks;
+    
+    [Header("Batch adding of tracks")]
+    [SerializeField]
+    public bool autoPopulateTracks;
+
 
     private void Update()
     {
@@ -71,23 +67,75 @@ public class MusicPlayer : MonoBehaviour {
 
     // Find the babies, devour them and put them in our list belly
     // TODO: Fix the comment above
-    private void AutoPupulateTracksWithChildren()
+    public void PopulateTracksWithChildren()
     {
-        // TODO: Make sure preexisting tracks and their settings are removed/overriden
-        if (autoPopulateTracks)
-        {
-            // Find children with audiosources (tracks)
-            AudioSource[] tempTracks = transform.GetComponentsInChildren<AudioSource>();
+        // Make array of all child gameobject with AudioSource components
+        AudioSource[] allChildAudioSources = transform.GetComponentsInChildren<AudioSource>();
 
-            // Make new array with audiosources
-            List<MusicTrack> tempTrackProperties = new List<MusicTrack>();
-            foreach (AudioSource track in tempTracks)
+        RemoveEmptyTracks();
+        FindDuplicateTracks();
+        
+        // TODO: Make check more efficient
+        // Check for new sources and add them to the track list
+        foreach (AudioSource source in allChildAudioSources)
+        {
+            // Assume audiosources are new until proven otherwise
+            bool isNew = true;
+
+            foreach (MusicTrack track in tracks)
             {
-                tempTrackProperties.Add(new MusicTrack(track, musicMixer));
+                // Check if a music track with this source already exists
+                if (track.trackSource == source)
+                {
+                    // If duplicate, mark as not new and move on
+                    isNew = false;
+                    break;
+                }
             }
-            tracks = tempTrackProperties;
+
+            if (isNew)
+            {
+                // Create a new MusicTrack with the unique source
+                tracks.Add(new MusicTrack(source, musicMixer));
+            }
+        }
+        
+        // TODO: Add sorting
+        //tracks.Remove(tracks[4]);
+    }
+
+    /// <summary>
+    /// Remove tracks with no attached source
+    /// </summary>
+    private void RemoveEmptyTracks()
+    {        
+        List<int> safeListOfTracksToRemove = new List<int>();
+
+        // Iterate in reverse
+        for (int i = tracks.Count - 1; i >= 0; i--)
+        {
+            // Find tracks with no attached source
+            if (tracks[i].trackSource == null)
+            {
+                safeListOfTracksToRemove.Add(i);
+            }
+        }
+
+        // Safely remove empty tracks
+        foreach (int indexToRemove in safeListOfTracksToRemove)
+        {
+            tracks.RemoveAt(indexToRemove);
         }
     }
+
+
+    private void FindDuplicateTracks()
+    {
+        // TODO: Find duplicates
+        // TODO: Remove or warn?
+    }
+
+
 
     /// <summary>
     /// Properties of music tracks
@@ -115,12 +163,12 @@ public class MusicPlayer : MonoBehaviour {
 
         public void StartFade(float newTargetVolume, float newFadeDuration)
         {
-            
+
             FadeDuration = newFadeDuration;
         }
 
         /// <summary>
-        /// Change music over time, duration set by FadeDuration
+        /// Change track volume over time, duration set by FadeDuration
         /// </summary>
         public void FadeTrackOverTime()
         {
@@ -128,9 +176,22 @@ public class MusicPlayer : MonoBehaviour {
             {
                 fadeTime += Time.unscaledDeltaTime;
                 float lerpTarget = TargetVolume * (fadeTime / FadeDuration);
-                Volume = Mathf.Lerp(Volume, lerpTarget, 0.5f);             
+                Volume = Mathf.Lerp(Volume, lerpTarget, 0.5f);
             }
             Debug.Log("Volume: " + Volume);
+        }
+
+        /// <summary>
+        /// Change track volume over time
+        /// </summary>
+        /// <param name="newFadeDuration">Fade duration in seconds</param>
+        public void FadeTrackOverTime(float newFadeDuration)
+        {
+            if (FadeDuration != newFadeDuration)
+            {
+                FadeDuration = newFadeDuration;
+            }
+            FadeTrackOverTime();
         }
 
         public float Volume
