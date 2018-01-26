@@ -10,8 +10,6 @@ public class CameraFollow : MonoBehaviour
 
     [Header("Settings")]
 
-    [SerializeField, Tooltip("")]
-    float mouseIdelMargin = 0.1f;
     [SerializeField, Tooltip("Lock the camera y movement.")]
     bool lockY;
     [SerializeField, Tooltip("Lock the camera x movement.")]
@@ -30,6 +28,7 @@ public class CameraFollow : MonoBehaviour
     Vector2 minXAndY;
 
     Vector3 targetPos;
+    Vector3 newPos;
     Camera cameraComponent;
 
     private void Start()
@@ -45,8 +44,7 @@ public class CameraFollow : MonoBehaviour
     private void FollowTarget()
     {
         targetPos = target.position;
-        float newPosX = transform.position.x;
-        float newPosY = transform.position.y;
+        newPos = transform.position;
 
         Vector3 mousePos = cameraComponent.ScreenToWorldPoint(Input.mousePosition);
 
@@ -54,32 +52,32 @@ public class CameraFollow : MonoBehaviour
         if (!lockX && Mathf.Abs((transform.position - target.position).x) > xIdelMargin)
         {
             //Lerp between the camera's current x position and the target's current x position.
-            newPosX = Mathf.Lerp(newPosX, targetPos.x, lerpSpeedX * Time.deltaTime);
+            newPos.x = Mathf.Lerp(newPos.x, targetPos.x, lerpSpeedX * Time.deltaTime);
         }
-        else if(Mathf.Abs(Vector3.Distance(transform.position, mousePos)) > mouseIdelMargin)
+        else
         {
-            newPosX = Mathf.Lerp(newPosX, mousePos.x, lerpSpeedX * Time.deltaTime);
-            newPosX = Mathf.Clamp(newPosX, targetPos.x - xIdelMargin, targetPos.x + xIdelMargin);
+            newPos.x = Mathf.Lerp(newPos.x, mousePos.x, lerpSpeedX * Time.deltaTime);
+            newPos.x = Mathf.Clamp(newPos.x, targetPos.x - xIdelMargin, targetPos.x + xIdelMargin);
         }
 
         // If the player has moved beyond the y margin.
         if (!lockY && Mathf.Abs((transform.position - target.position).y) > yIdelMargin)
         {
             //Lerp between the camera's current y position and the targets's current y position.
-            newPosY = Mathf.Lerp(newPosY, targetPos.y, lerpSpeedY * Time.deltaTime);
+            newPos.y = Mathf.Lerp(newPos.y, targetPos.y, lerpSpeedY * Time.deltaTime);
         }
-        else if (Mathf.Abs(Vector3.Distance(transform.position, mousePos)) > mouseIdelMargin)
+        else
         {
-            newPosY = Mathf.Lerp(newPosY, mousePos.y, lerpSpeedY * Time.deltaTime);
-            newPosY = Mathf.Clamp(newPosY, targetPos.y - yIdelMargin, targetPos.y + yIdelMargin);
+            newPos.y = Mathf.Lerp(newPos.y, mousePos.y, lerpSpeedY * Time.deltaTime);
+            newPos.y = Mathf.Clamp(newPos.y, targetPos.y - yIdelMargin, targetPos.y + yIdelMargin);
         }
 
         // Clamp the camera positon between the max and min size.
-        newPosX = Mathf.Clamp(newPosX, minXAndY.x, maxXAndY.x);
-        newPosY = Mathf.Clamp(newPosY, minXAndY.y, maxXAndY.y);
+        newPos.x = Mathf.Clamp(newPos.x, minXAndY.x, maxXAndY.x);
+        newPos.y = Mathf.Clamp(newPos.y, minXAndY.y, maxXAndY.y);
 
         // Set the new camera position.
-        transform.position = new Vector3(newPosX, newPosY, transform.position.z);
+        transform.position = new Vector3(newPos.x, newPos.y, transform.position.z);
     }
 
     // Draw target idel area.
@@ -87,9 +85,6 @@ public class CameraFollow : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(transform.position, new Vector3(xIdelMargin * 2, yIdelMargin * 2, 0));
-
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, mouseIdelMargin);
     }
 
     /// <summary>
