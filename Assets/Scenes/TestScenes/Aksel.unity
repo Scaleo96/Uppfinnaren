@@ -222,7 +222,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 808a768dfa0d7ea4db6f62c3bc851386, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -304,6 +304,116 @@ Transform:
   m_Father: {fileID: 1248244187}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &878064315
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 878064317}
+  - component: {fileID: 878064316}
+  m_Layer: 0
+  m_Name: Track 2 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &878064316
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 878064315}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 243397838039039640, guid: 0da65e85ae3e14541bb9ef961581f29c,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 46f6a674ec50ea24a83345688319be18, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.76
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!4 &878064317
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 878064315}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1248244187}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1248244185
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,16 +441,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa351c2fdc6b4349ba1e1e2ee6f4ed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoPopulateTracks: 0
-  tracks:
-  - trackSource: {fileID: 542086990}
-    targetVolume: 1
-    fadeDuration: 5
-  - trackSource: {fileID: 1965597811}
-    targetVolume: 0.3
-    fadeDuration: 10
   musicMixer: {fileID: 243397838039039640, guid: 0da65e85ae3e14541bb9ef961581f29c,
     type: 2}
+  startFadingIn: 1
+  tracks:
+  - trackSource: {fileID: 542086990}
+    trackClip: {fileID: 8300000, guid: 808a768dfa0d7ea4db6f62c3bc851386, type: 3}
+    targetVolume: 0.1
+    fadeDuration: 16
+  - trackSource: {fileID: 1965597811}
+    trackClip: {fileID: 8300000, guid: 46f6a674ec50ea24a83345688319be18, type: 3}
+    targetVolume: 0
+    fadeDuration: 3
+  - trackSource: {fileID: 878064316}
+    trackClip: {fileID: 8300000, guid: 46f6a674ec50ea24a83345688319be18, type: 3}
+    targetVolume: 0
+    fadeDuration: 9
+  autoPopulateTracks: 0
 --- !u!4 &1248244187
 Transform:
   m_ObjectHideFlags: 0
@@ -353,6 +470,7 @@ Transform:
   m_Children:
   - {fileID: 542086991}
   - {fileID: 1965597812}
+  - {fileID: 878064317}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -516,7 +634,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 46f6a674ec50ea24a83345688319be18, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0

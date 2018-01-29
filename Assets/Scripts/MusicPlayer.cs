@@ -5,9 +5,14 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class MusicPlayer : MonoBehaviour
-{    
+{
     [SerializeField]
     AudioMixerGroup musicMixer;
+
+    [SerializeField]
+    bool startFadingIn;
+
+    [Header("Music Tracks")]
 
     [SerializeField]
     List<MusicTrack> tracks;
@@ -36,10 +41,15 @@ public class MusicPlayer : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Awake()
     {
-        // Testing TODO: Remove testing
-        BeginTrackFade(tracks[0], 0.8f);
+        if (!startFadingIn)
+        {
+            foreach (MusicTrack track in tracks)
+            {
+                track.StopFadeTimer();
+            }
+        }
     }
 
     /// <summary>
@@ -50,7 +60,8 @@ public class MusicPlayer : MonoBehaviour
     private void BeginTrackFade(MusicTrack track, float targetVolume = .0f)
     {
         track.TargetVolume = targetVolume;
-        track.FadeTrackOverTime();
+        //track.FadeTrackOverTime();
+        track.StartFadeTimer();
     }
 
     /// <summary>
@@ -63,6 +74,15 @@ public class MusicPlayer : MonoBehaviour
     {
         track.FadeDuration = fadeDuration;
         BeginTrackFade(track, targetVolume);
+    }
+
+    /// <summary>
+    /// Fades the music track to the previously set target volume
+    /// </summary>
+    /// <param name="track">Music track to fade</param>
+    private void BeginTrackFade(MusicTrack track)
+    {
+        BeginTrackFade(track, track.TargetVolume, track.FadeDuration);
     }
 
     // Find the babies, devour them and put them in our list belly
@@ -99,9 +119,8 @@ public class MusicPlayer : MonoBehaviour
                 tracks.Add(new MusicTrack(source, musicMixer));
             }
         }
-        
+
         // TODO: Add sorting
-        //tracks.Remove(tracks[4]);
     }
 
     /// <summary>
@@ -135,6 +154,49 @@ public class MusicPlayer : MonoBehaviour
         // TODO: Remove or warn?
     }
 
+    /// <summary>
+    /// Update displayed information for tracks
+    /// </summary>
+    public void UpdateInfo()
+    {
+        foreach (MusicTrack track in tracks)
+        {
+            track.UpdateEditorInfo();
+        }
+    }
+
+    /// <summary>
+    /// Initialize fade on all tracks
+    /// </summary>
+    public void FadeAll()
+    {
+        foreach (MusicTrack track in tracks)
+        {
+            BeginTrackFade(track);
+        }
+    }
+
+    private void OnValidate()
+    {
+        foreach (MusicTrack track in tracks)
+        {
+            // Keep FadeDuration over 0
+            if (track.FadeDuration < .0f)
+            {
+                track.FadeDuration = .0f;
+            }
+
+            // Clamp target volume if needed
+            if (0 > track.TargetVolume || track.TargetVolume > 1)
+            {
+                track.TargetVolume = Mathf.Clamp01(track.TargetVolume);
+            }
+        }
+    }
+
+
+
+
 
 
     /// <summary>
@@ -146,12 +208,16 @@ public class MusicPlayer : MonoBehaviour
         [SerializeField]
         public AudioSource trackSource;
 
+        [ReadOnly] [SerializeField]
+        AudioClip trackClip;
+
         [SerializeField]
         float targetVolume, fadeDuration = 0;
 
-        // Monitors how long the track has been fading to new TargetVolume
-        float fadeTime;
-
+        /// <summary>Monitors how long the track has been fading to new TargetVolume</summary>
+        float fadeTimer;
+        /// <summary>Volume to fade from</summary>
+        float fadeStartVolume;
 
         public MusicTrack(AudioSource track, AudioMixerGroup mixerGroup)
         {
@@ -159,11 +225,13 @@ public class MusicPlayer : MonoBehaviour
 
             // Set the AudioMixerGroup to use the music group
             track.outputAudioMixerGroup = mixerGroup;
+
+            UpdateEditorInfo();
         }
 
         public void StartFade(float newTargetVolume, float newFadeDuration)
         {
-
+            TargetVolume = newTargetVolume;
             FadeDuration = newFadeDuration;
         }
 
@@ -172,13 +240,33 @@ public class MusicPlayer : MonoBehaviour
         /// </summary>
         public void FadeTrackOverTime()
         {
-            if (fadeTime <= fadeDuration)
+            if (fadeTimer < FadeDuration)
             {
-                fadeTime += Time.unscaledDeltaTime;
-                float lerpTarget = TargetVolume * (fadeTime / FadeDuration);
-                Volume = Mathf.Lerp(Volume, lerpTarget, 0.5f);
+                // Advance timer
+                fadeTimer += Time.unscaledDeltaTime;
+
+                float fadeProgress = Mathf.Clamp01(fadeTimer / FadeDuration);
+
+                // Set volume
+                Volume = Mathf.Lerp(fadeStartVolume, TargetVolume, fadeProgress);
+
+                if (Volume == TargetVolume)
+                {
+                    StopFadeTimer();
+                    // "End" timer
+                    fadeTimer = float.MaxValue;
+                }
             }
-            Debug.Log("Volume: " + Volume);
+            else if (fadeTimer != float.MaxValue)
+            {
+                Debug.Log("Timer over: setting volume");
+                Volume = TargetVolume;
+                StopFadeTimer();
+            }
+            else
+            {
+                Debug.Log("Timer maxed for " + trackSource.gameObject.name);
+            }
         }
 
         /// <summary>
@@ -194,6 +282,34 @@ public class MusicPlayer : MonoBehaviour
             FadeTrackOverTime();
         }
 
+        /// <summary>
+        /// Restarts fade timer with the current fade duration with the current volume as starting point
+        /// </summary>
+        public void StartFadeTimer()
+        {
+            // Reset fadeTime when a new target is set
+            fadeTimer = 0f;
+            Debug.Log("Reset fadetimer");
+            fadeStartVolume = Volume;
+        }
+
+        public void StopFadeTimer()
+        {
+            fadeTimer = float.MaxValue;
+        }
+
+        /// <summary>
+        /// Update track information. Mostly used for ReadOnly info
+        /// </summary>
+        public void UpdateEditorInfo()
+        {            
+            // Clip info
+            if (trackClip != trackSource.clip)
+            {
+                trackClip = trackSource.clip;
+            }            
+        }
+
         public float Volume
         {
             get
@@ -203,7 +319,7 @@ public class MusicPlayer : MonoBehaviour
 
             protected set
             {
-                trackSource.volume = value;
+                trackSource.volume = Mathf.Clamp01(value);
             }
         }
 
@@ -211,14 +327,13 @@ public class MusicPlayer : MonoBehaviour
         {
             get
             {
+                targetVolume = Mathf.Clamp01(targetVolume);
                 return targetVolume;
             }
 
             set
             {
-                // Reset fadeTime when a new target is set
-                fadeTime = 0f;
-                targetVolume = value;
+                targetVolume = Mathf.Clamp01(value);
             }
         }
 
