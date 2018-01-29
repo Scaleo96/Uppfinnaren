@@ -196,10 +196,11 @@ public class GameController : MonoBehaviour
 
             hoverEntity = entity;
 
-            if (Input.GetButtonDown("Interact"))
+            // Interact
+            float distance = (entity.transform.position - currentCharacter.transform.position).magnitude;
+            if (Input.GetButtonDown("Interact") && distance <= currentCharacter.ItemPickupDistance)
             {
-                selectedEntity = entity;
-                entity.Interact(currentCharacter);
+                InteractWithEntity(entity);
             }
 
             hoverText.text = entity.EntityName;
@@ -209,6 +210,15 @@ public class GameController : MonoBehaviour
             hoverText.text = "";
             hoverEntity = null;
         }
+    }
+
+    /// <summary>
+    /// Sets the seleted entity as well as calls Interact() on it.
+    /// </summary>
+    private void InteractWithEntity(Entity entity)
+    {
+        selectedEntity = entity;
+        entity.Interact(currentCharacter, selectedInventorySlot.item);
     }
 
     /// <summary>
@@ -274,7 +284,6 @@ public class GameController : MonoBehaviour
             }
 
             UpdateInventorySlotImage(inventorySlot);
-            Debug.Log(inventorySlot.image);
             inventorySlot.button.onClick.AddListener(new UnityAction( delegate { SelectItem(inventorySlot); } ));
 
             inventorySlots[charID][i] = inventorySlot;
@@ -308,16 +317,19 @@ public class GameController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Selects an inventory slot.
+    /// </summary>
     private void SelectItem(InventorySlot slot)
     {
-        isHoldingItem = true;
-        selectedInventorySlot = slot;
-
-        slot.isSelected = true;
-        UpdateInventorySlotImage(slot);
-
         if (slot.item)
         {
+            isHoldingItem = true;
+            selectedInventorySlot = slot;
+
+            slot.isSelected = true;
+            UpdateInventorySlotImage(slot);
+
             hoverImage.color = new Color(1, 1, 1, 1);
 
             if (slot.image)
@@ -331,6 +343,9 @@ public class GameController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Deselects and item when you drop it or try to interact with someting.
+    /// </summary>
     private void DeselectItem(InventorySlot slot)
     {
         isHoldingItem = false;

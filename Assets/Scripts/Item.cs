@@ -5,10 +5,6 @@ using UnityEditor;
 
 public class Item : Entity
 {
-    [HideInInspector] public bool aminaUse;
-    [HideInInspector] public bool idaUse;
-    [HideInInspector] public bool jonathanUse;
-
     [SerializeField]
     Sprite inventorySprite;
 
@@ -25,15 +21,12 @@ public class Item : Entity
         }
     }
 
-    public override void Interact(Character character)
+    public override void Interact(Character character, Item item = null)
     {
-        if (CanPickup(character))
-        {
-            base.Interact(character);
+        base.Interact(character);
 
-            character.AddItemToInventory(this);
-            RemoveFromWorld();
-        }
+        character.AddItemToInventory(this);
+        RemoveFromWorld();
     }
 
     private void RemoveFromWorld()
@@ -41,7 +34,17 @@ public class Item : Entity
         gameObject.SetActive(false);
     }
 
-    private bool CanPickup(Character character)
+    
+}
+
+[System.Serializable]
+public class CanUseCondition
+{
+    public bool aminaUse;
+    public bool idaUse;
+    public bool jonathanUse;
+
+    public bool CanPickup(Character character)
     {
         bool canPickup = false;
 
@@ -73,22 +76,43 @@ public class Item : Entity
     }
 }
 
-[CustomEditor(typeof(Item))]
-public class ItemEditor : Editor
+[CustomPropertyDrawer(typeof(CanUseCondition))]
+public class CanUseConditionDrawer : PropertyDrawer
 {
-    bool isFolded;
-
-    public override void OnInspectorGUI()
+    public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
-        DrawDefaultInspector();
-        Item item = (Item)target;
+        SerializedProperty aminaUse = property.FindPropertyRelative("aminaUse");
+        SerializedProperty idaUse = property.FindPropertyRelative("idaUse");
+        SerializedProperty jonathanUse = property.FindPropertyRelative("jonathanUse");
 
-        isFolded = EditorGUILayout.Foldout(isFolded, "Can be used by:");
-        if (isFolded)
+        float height = 15;
+        if (property.isExpanded)
         {
-            item.aminaUse = EditorGUILayout.Toggle("Amina", item.aminaUse);
-            item.jonathanUse = EditorGUILayout.Toggle("Jonathan", item.jonathanUse);
-            item.idaUse = EditorGUILayout.Toggle("Ida", item.idaUse);
+            height += EditorGUI.GetPropertyHeight(aminaUse) + EditorGUI.GetPropertyHeight(idaUse) + EditorGUI.GetPropertyHeight(jonathanUse) + 15;
+        }
+
+        return height;
+    }
+
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    {   
+        SerializedProperty aminaUse = property.FindPropertyRelative("aminaUse");
+        SerializedProperty idaUse = property.FindPropertyRelative("idaUse");
+        SerializedProperty jonathanUse = property.FindPropertyRelative("jonathanUse");
+
+        float width = EditorGUIUtility.currentViewWidth;
+        
+        position.height = 16;
+        property.isExpanded = EditorGUI.Foldout(position, property.isExpanded, "Can be used by:");
+        if (property.isExpanded)
+        {
+            Rect aminaRect = new Rect(position.x, position.y + 20, width, 20);
+            Rect idaRect = new Rect(position.x, position.y + 40, width, 20);
+            Rect jonathanRect = new Rect(position.x, position.y + 60, width, 20);
+            
+            EditorGUI.PropertyField(aminaRect, aminaUse, new GUIContent("Amina"));
+            EditorGUI.PropertyField(idaRect, idaUse, new GUIContent("Ida"));
+            EditorGUI.PropertyField(jonathanRect, jonathanUse, new GUIContent("Jonathan"));
         }
     }
 }
