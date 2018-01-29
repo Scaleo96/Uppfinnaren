@@ -593,6 +593,8 @@ MonoBehaviour:
   yIdelMargin: 2
   lerpSpeedX: 1.5
   lerpSpeedY: 1.5
+  lerpToMouseSpeedX: 0
+  lerpToMouseSpeedY: 0
   maxXAndY: {x: 100, y: 100}
   minXAndY: {x: -100, y: -100}
 --- !u!1 &403920318
