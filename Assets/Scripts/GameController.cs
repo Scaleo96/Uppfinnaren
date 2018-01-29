@@ -308,12 +308,6 @@ public class GameController : MonoBehaviour
         else
         {
             slot.image.color = new Color(1, 1, 1, 0);
-
-
-            if (slot.isSelected == false)
-            {
-                //slot.sprite = null;
-            }
         }
     }
 
@@ -330,12 +324,10 @@ public class GameController : MonoBehaviour
             slot.isSelected = true;
             UpdateInventorySlotImage(slot);
 
+            hoverImage.sprite = slot.item.InventorySprite;
+
             hoverImage.color = new Color(1, 1, 1, 1);
 
-            if (slot.image)
-            {               
-                hoverImage.sprite = slot.image.sprite;
-            }
         }
         else
         {

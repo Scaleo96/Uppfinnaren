@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Container : Entity
 {
@@ -8,17 +9,30 @@ public class Container : Entity
     Item[] requiredItems;
 
     [SerializeField]
-    List<Item> containedItem;
+    List<Item> containedItems;
+
+    [SerializeField]
+    UnityEvent fullEvent;
+
+    int requiredItemsCount;
 
     public override void Interact(Character character, Item item = null)
     {
         base.Interact(character);
 
+        // Checks if the item that the player is holding is one of the required items. Then adds it.
         foreach (Item requiredItem in requiredItems)
         {
             if (item == requiredItem)
             {
+                containedItems.Add(item);
+                character.RemoveItemFromInventory(item);
+                requiredItemsCount++;
 
+                if (requiredItemsCount >= requiredItems.Length)
+                {
+                    fullEvent.Invoke();
+                }
             }
         }
     }
