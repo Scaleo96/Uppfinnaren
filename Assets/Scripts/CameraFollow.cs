@@ -18,9 +18,9 @@ public class CameraFollow : MonoBehaviour
     Vector2 XAndYIdelMargin;
     [SerializeField, Tooltip("")]
     Vector2 XAndYOffset;
-    [SerializeField, Range(0, 1.5f), Tooltip("How smoothly the camera moves toward the target in the x axis (lower is smoother).")]
+    [SerializeField, Range(0, 10), Tooltip("How smoothly the camera moves toward the target in the x axis (lower is smoother).")]
     float lerpSpeedX;
-    [SerializeField, Range(0, 1.5f), Tooltip("How smoothly the camera moves toward the target in the Y axis (lower is smoother).")]
+    [SerializeField, Range(0, 10), Tooltip("How smoothly the camera moves toward the target in the Y axis (lower is smoother).")]
     float lerpSpeedY;
     [SerializeField, Range(0, 1.5f), Tooltip("How smoothly the camera moves toward the mouse in the x axis (lower is smoother).")]
     float lerpToMouseSpeedX;
@@ -58,9 +58,12 @@ public class CameraFollow : MonoBehaviour
         if (!lockX && Mathf.Abs((pos - targetPos).x) > XAndYIdelMargin.x)
         {
             //Lerp between the camera's current x position and the target's current x position.
-            pos.x = Mathf.Lerp(pos.x, targetPos.x, lerpSpeedX * Time.deltaTime);
+            if (targetPos.x < pos.x)
+                pos.x = Mathf.Lerp(pos.x, targetPos.x + XAndYIdelMargin.x, lerpSpeedX * Time.deltaTime);
+            else
+                pos.x = Mathf.Lerp(pos.x, targetPos.x - XAndYIdelMargin.x, lerpSpeedX * Time.deltaTime);
         }
-        else if(Input.GetButton("Mouse look"))
+        else if (Input.GetButton("Mouse look"))
         {
             pos.x = Mathf.Lerp(pos.x, mousePos.x, lerpToMouseSpeedX * Time.deltaTime);
             pos.x = Mathf.Clamp(pos.x, targetPos.x - XAndYIdelMargin.x, targetPos.x + XAndYIdelMargin.x);
@@ -70,9 +73,12 @@ public class CameraFollow : MonoBehaviour
         if (!lockY && Mathf.Abs((pos - targetPos).y) > XAndYIdelMargin.y)
         {
             //Lerp between the camera's current y position and the targets's current y position.
-            pos.y = Mathf.Lerp(pos.y, targetPos.y, lerpSpeedY * Time.deltaTime);
+            if (targetPos.y < pos.y)
+                pos.y = Mathf.Lerp(pos.y, targetPos.y + XAndYIdelMargin.y, lerpSpeedY * Time.deltaTime);
+            else
+                pos.y = Mathf.Lerp(pos.y, targetPos.y - XAndYIdelMargin.y, lerpSpeedY * Time.deltaTime);
         }
-        else if(Input.GetButton("Mouse look"))
+        else if (Input.GetButton("Mouse look"))
         {
             pos.y = Mathf.Lerp(pos.y, mousePos.y, lerpToMouseSpeedY * Time.deltaTime);
             pos.y = Mathf.Clamp(pos.y, targetPos.y - XAndYIdelMargin.y, targetPos.y + XAndYIdelMargin.y);
