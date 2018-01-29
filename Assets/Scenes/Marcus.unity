@@ -158,6 +158,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114276450105805408, guid: afc46bd7f1b732e4e92006c527001a60,
+        type: 2}
+      propertyPath: canUseCondition.aminaUse
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114276450105805408, guid: afc46bd7f1b732e4e92006c527001a60,
+        type: 2}
+      propertyPath: canUseCondition.idaUse
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: afc46bd7f1b732e4e92006c527001a60, type: 2}
   m_IsPrefabParent: 0
@@ -654,14 +664,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityName: TEST_Item
+  canUseCondition:
+    aminaUse: 0
+    idaUse: 0
+    jonathanUse: 1
   interactionEvents:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  aminaUse: 1
-  idaUse: 0
-  jonathanUse: 1
   inventorySprite: {fileID: 0}
 --- !u!212 &844194654
 SpriteRenderer:
@@ -1027,6 +1038,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityName: ITEM
+  canUseCondition:
+    aminaUse: 0
+    idaUse: 0
+    jonathanUse: 0
   interactionEvents:
     m_PersistentCalls:
       m_Calls:
