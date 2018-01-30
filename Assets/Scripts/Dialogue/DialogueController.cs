@@ -5,12 +5,16 @@ using UnityEngine.UI;
 
 public class DialogueController : MonoBehaviour
 {
+    public enum Language { Svenska, English}
+
     [Tooltip("Choose text gameobject.")]
     [SerializeField]
     Text dialogueText;
     [Tooltip("What is the dialogues position relevant to the source.")]
     [SerializeField]
     Vector3 textPosition;
+
+    public Language language;
 
     ConditionsManager conditionsManager;
     GameObject speaker;
@@ -48,7 +52,14 @@ public class DialogueController : MonoBehaviour
     private void DisplayDialogue(DialogueElements dialogue)
     {
         dialogueText.GetComponentInChildren<SpriteRenderer>().enabled = true;
-        dialogueText.text = dialogue.line;
+        if(language == Language.Svenska)
+        {
+            dialogueText.text = dialogue.line_Swedish;
+        }
+        if (language == Language.English)
+        {
+            dialogueText.text = dialogue.line_English;
+        }
         speaker = dialogue.speaker;
     }
 

@@ -88,6 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -190,6 +191,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityName: Amina Painting
+  canUseCondition:
+    aminaUse: 0
+    idaUse: 0
+    jonathanUse: 0
   interactionEvents:
     m_PersistentCalls:
       m_Calls:
@@ -432,7 +437,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - speaker: {fileID: 1263405861}
-    line: "Det var tr\xE5ngt h\xE4r!"
+    line_Swedish: fsdfggfd
+    line_English: 4323425
     time: 2
 --- !u!114 &120148055 stripped
 MonoBehaviour:
@@ -485,7 +491,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - speaker: {fileID: 2023779311}
-    line: I can't enter here!
+    line_Swedish: fdssdf
+    line_English: 43432554
     time: 2
 --- !u!1 &191809584
 GameObject:
@@ -518,13 +525,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityName: TEST_Item
+  canUseCondition:
+    aminaUse: 0
+    idaUse: 0
+    jonathanUse: 0
   interactionEvents:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  aminaUse: 1
-  idaUse: 0
-  jonathanUse: 1
   pickupEvents:
     m_PersistentCalls:
       m_Calls:
@@ -707,6 +715,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -769,7 +778,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 205441999}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -500, y: 60, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 252645045}
@@ -831,7 +840,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 252645044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -400, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 205442000}
@@ -1190,7 +1199,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - speaker: {fileID: 2023779311}
-    line: BOX
+    line_Swedish: fdsfdg
+    line_English: 54323253
     time: 1
 --- !u!4 &493142398
 Transform:
@@ -1444,6 +1454,11 @@ Prefab:
       propertyPath: throwForce
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 212114456223879596, guid: 699727d3bc932514ab48e4ea50ada3ba,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 699727d3bc932514ab48e4ea50ada3ba, type: 2}
   m_IsPrefabParent: 0
@@ -1552,6 +1567,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityName: DoorTest
+  canUseCondition:
+    aminaUse: 0
+    idaUse: 0
+    jonathanUse: 0
   interactionEvents:
     m_PersistentCalls:
       m_Calls:
@@ -1684,13 +1703,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityName: TEST_Item
+  canUseCondition:
+    aminaUse: 1
+    idaUse: 0
+    jonathanUse: 1
   interactionEvents:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  aminaUse: 1
-  idaUse: 0
-  jonathanUse: 1
   pickupEvents:
     m_PersistentCalls:
       m_Calls:
@@ -1811,7 +1831,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 901508634}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 960, y: 449.00525, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.596875, y: 0.596875, z: 0.596875}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2401,6 +2421,56 @@ Prefab:
       propertyPath: container.Array.data[4].dialogue
       value: 
       objectReference: {fileID: 184845042}
+    - target: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+        type: 2}
+      propertyPath: dialogue.Array.data[0].line_Swedish
+      value: gfdgfd
+      objectReference: {fileID: 0}
+    - target: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+        type: 2}
+      propertyPath: dialogue.Array.data[0].line_English
+      value: 4352432
+      objectReference: {fileID: 0}
+    - target: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+        type: 2}
+      propertyPath: dialogue.Array.data[1].line_Swedish
+      value: fdsfd
+      objectReference: {fileID: 0}
+    - target: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+        type: 2}
+      propertyPath: dialogue.Array.data[1].line_English
+      value: 23466
+      objectReference: {fileID: 0}
+    - target: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+        type: 2}
+      propertyPath: dialogue.Array.data[2].line_Swedish
+      value: treteretr
+      objectReference: {fileID: 0}
+    - target: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+        type: 2}
+      propertyPath: dialogue.Array.data[2].line_English
+      value: 54435432
+      objectReference: {fileID: 0}
+    - target: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+        type: 2}
+      propertyPath: dialogue.Array.data[3].line_Swedish
+      value: trfdfgd
+      objectReference: {fileID: 0}
+    - target: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+        type: 2}
+      propertyPath: dialogue.Array.data[3].line_English
+      value: 54435656
+      objectReference: {fileID: 0}
+    - target: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+        type: 2}
+      propertyPath: dialogue.Array.data[4].line_Swedish
+      value: gfdfgfd
+      objectReference: {fileID: 0}
+    - target: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+        type: 2}
+      propertyPath: dialogue.Array.data[4].line_English
+      value: 453645324353425
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 212320245270609560, guid: 60623dc46d87bdb44bf978a3697314c2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 60623dc46d87bdb44bf978a3697314c2, type: 2}
@@ -2444,6 +2514,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityName: DoorTest
+  canUseCondition:
+    aminaUse: 0
+    idaUse: 0
+    jonathanUse: 0
   interactionEvents:
     m_PersistentCalls:
       m_Calls: []
@@ -2542,6 +2616,11 @@ Prefab:
       propertyPath: throwForce
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 212315976493214992, guid: 181c1ed036ae83544902364ca1dfdd0f,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 181c1ed036ae83544902364ca1dfdd0f, type: 2}
   m_IsPrefabParent: 0
@@ -2627,8 +2706,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1560379896}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 573, y: 268, z: 0}
-  m_LocalScale: {x: 0.596875, y: 0.596875, z: 0.596875}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1929227306}
   - {fileID: 533596280}
@@ -2883,6 +2962,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityName: ITEM
+  canUseCondition:
+    aminaUse: 0
+    idaUse: 0
+    jonathanUse: 0
   interactionEvents:
     m_PersistentCalls:
       m_Calls: []
@@ -3047,7 +3130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - speaker: {fileID: 243895961}
-    line: An amazing painting
+    line_Swedish: fdsdfsg
+    line_English: 32564532
     time: 2
 --- !u!1 &1874969273
 GameObject:
@@ -3367,6 +3451,11 @@ Prefab:
         type: 2}
       propertyPath: isActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212114841060022384, guid: f391372995be34f4e970e0ae4fb1584b,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f391372995be34f4e970e0ae4fb1584b, type: 2}
