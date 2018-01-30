@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Character : Entity
 {
+    [SerializeField]
+    ValueEvent positionEvents;
+
     [Header("> Character")]
 
     [SerializeField]
@@ -41,6 +44,16 @@ public class Character : Entity
         {
             Move();
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        EntityValues values;
+        values.entity = this;
+        values.collider2d = collision;
+        values.character = null;
+        values.trigger = EntityValues.TriggerType.PositionTrigger;
+        positionEvents.Invoke(values);
     }
 
     private void Move()

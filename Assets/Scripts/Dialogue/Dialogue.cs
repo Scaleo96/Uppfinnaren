@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Dialogue System/Dialogue")]
-public class Dialogue : ScriptableObject {
+public class Dialogue : MonoBehaviour
+{
     public DialogueElements[] dialogue;
 }
 [System.Serializable]
 public class DialogueElements
 {
-   public Entity speaker;
-   public string line;
+    public GameObject speaker;
+    public string line;
+    public float time;
 }

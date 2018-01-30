@@ -15,9 +15,11 @@ public class Entity : MonoBehaviour
     [SerializeField]
     protected CanUseCondition canUseCondition;
 
+    [Header("> Events")]
+
     [SerializeField]
-    UnityEvent interactionEvents;
-    
+    ValueEvent interactionEvents;
+
     /// <summary>
     /// Behaviour when entity is interacted with.
     /// </summary>
@@ -26,7 +28,12 @@ public class Entity : MonoBehaviour
     {
         if (canUseCondition.CanPickup(character))
         {
-            interactionEvents.Invoke();
+            EntityValues values;
+            values.entity = this;
+            values.collider2d = null;
+            values.character = character;
+            values.trigger = EntityValues.TriggerType.Inspect;
+            interactionEvents.Invoke(values);
         }
         else
         {
@@ -42,7 +49,7 @@ public class Entity : MonoBehaviour
         }
     }
 
-    public UnityEvent InteractionEvents
+    public ValueEvent InteractionEvents
     {
         get
         {
@@ -54,4 +61,17 @@ public class Entity : MonoBehaviour
             interactionEvents = value;
         }
     }
+}
+
+[System.Serializable]
+public class ValueEvent : UnityEvent<EntityValues> { }
+
+public struct EntityValues
+{
+    public enum TriggerType { PuzzleSloved, Inspect, PositionTrigger, PickupItem, EnterDoor }
+
+    public TriggerType trigger;
+    public Entity entity;
+    public Character character;
+    public Collider2D collider2d;
 }
