@@ -194,7 +194,7 @@ MonoBehaviour:
   canUseCondition:
     aminaUse: 0
     idaUse: 0
-    jonathanUse: 0
+    jonathanUse: 1
   interactionEvents:
     m_PersistentCalls:
       m_Calls:
@@ -2619,6 +2619,11 @@ Prefab:
     - target: {fileID: 212315976493214992, guid: 181c1ed036ae83544902364ca1dfdd0f,
         type: 2}
       propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114430891560001748, guid: 181c1ed036ae83544902364ca1dfdd0f,
+        type: 2}
+      propertyPath: canUseCondition.jonathanUse
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
