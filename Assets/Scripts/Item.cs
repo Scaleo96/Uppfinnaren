@@ -6,6 +6,8 @@ using UnityEditor;
 public class Item : Entity
 {
     [SerializeField]
+    ValueEvent pickupEvents;
+    [SerializeField]
     Sprite inventorySprite;
 
     public Sprite InventorySprite
@@ -27,6 +29,13 @@ public class Item : Entity
 
         character.AddItemToInventory(this);
         RemoveFromWorld();
+
+        EntityValues values;
+        values.entity = this;
+        values.collider2d = null;
+        values.character = character;
+        values.trigger = EntityValues.TriggerType.PickupItem;
+        pickupEvents.Invoke(values);
     }
 
     private void RemoveFromWorld()
