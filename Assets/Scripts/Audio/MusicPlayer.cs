@@ -7,16 +7,25 @@ namespace MusicMixer
 {
     public class MusicPlayer : MonoBehaviour
     {
-        [SerializeField]
-        AudioMixerGroup musicMixer;
+        private const string DEBUG_PREFIX = "<color=darkblue><b>MusicPlayer</b></color> - ";
+
+        // Used for singleton
+        private MusicPlayer instance;
 
         [SerializeField]
-        bool startFadingIn;
+        [Tooltip("Displays debug messages in console")]
+        private bool verbose = true;
+
+        [SerializeField]
+        [Tooltip("What mixer group the music should play from")]
+        private AudioMixerGroup musicMixer;
+
+        [SerializeField]
+        private bool startFadingIn;
 
         [Header("Music Tracks")]
-
         [SerializeField]
-        List<MusicTrack> tracks = new List<MusicTrack>();
+        private List<MusicTrack> tracks = new List<MusicTrack>();
 
         [Header("Batch adding of tracks")]
         [SerializeField]
@@ -43,12 +52,31 @@ namespace MusicMixer
 
         private void Awake()
         {
+            CheckSingleton();
             if (!startFadingIn)
             {
                 foreach (MusicTrack track in tracks)
                 {
                     track.StopFadeTimer();
                 }
+            }
+        }
+
+        private void CheckSingleton()
+        {
+            // Make sure there are no other running instances of the MenUI
+            if (instance)
+            {
+                if (Debug.isDebugBuild) LogWarning("Other instance of MusicPlayer already running. Terminating.");
+                Destroy(gameObject);
+            }
+            else
+            {
+                if (Debug.isDebugBuild) Log("Initializing MenUI", this);
+                instance = this;
+
+                // Set MusicPlayer to be persistant
+                DontDestroyOnLoad(gameObject);
             }
         }
 
@@ -60,7 +88,6 @@ namespace MusicMixer
         private void BeginTrackFade(MusicTrack track, float targetVolume = .0f)
         {
             track.TargetVolume = targetVolume;
-            //track.FadeTrackOverTime();
             track.StartFadeTimer();
         }
 
@@ -115,8 +142,11 @@ namespace MusicMixer
 
                 if (isNew)
                 {
-                    // Create a new MusicTrack with the unique source
-                    tracks.Add(new MusicTrack(source, musicMixer));
+                    if (musicMixer != null)
+                    {
+                        // Create a new MusicTrack with the unique source
+                        tracks.Add(new MusicTrack(source, musicMixer));
+                    }
                 }
             }
 
@@ -146,7 +176,6 @@ namespace MusicMixer
                 tracks.RemoveAt(indexToRemove);
             }
         }
-
 
         private void FindDuplicateTracks()
         {
@@ -217,13 +246,10 @@ namespace MusicMixer
             return PlayTrack(trackToPlay, volume, trackToPlay.FadeDuration);
         }
 
-
-
         internal void StopTrack()
         {
             throw new NotImplementedException();
         }
-
 
         /// <summary>
         /// Initialize fade on all tracks
@@ -259,15 +285,37 @@ namespace MusicMixer
         /// </summary>
         /// <param name="warningMessage">Warning message to send to the console</param>
         /// <param name="context">Defaults to the MusicPlayer</param>
-        void LogWarning(string warningMessage, UnityEngine.Object context = null)
+        private void LogWarning(string warningMessage, UnityEngine.Object context = null)
         {
-            // Default context to MusicPlayer calling it
-            if (context == null)
+            if (verbose)
             {
-                context = this;
-            }
+                // Default context to MusicPlayer calling it
+                if (context == null)
+                {
+                    context = this;
+                }
 
-            Debug.LogWarning("<color=darkblue><b>MusicPlayer</b></color> - " + warningMessage, context);
+                Debug.LogWarning(DEBUG_PREFIX + warningMessage, context);
+            }
+        }
+
+        /// <summary>
+        /// Logs a debug warning message with unified formatting for MusicPlayer
+        /// </summary>
+        /// <param name="warningMessage">Warning message to send to the console</param>
+        /// <param name="context">Defaults to the MusicPlayer</param>
+        private void Log(string warningMessage, UnityEngine.Object context = null)
+        {
+            if (verbose)
+            {
+                // Default context to MusicPlayer calling it
+                if (context == null)
+                {
+                    context = this;
+                }
+
+                Debug.Log(DEBUG_PREFIX + warningMessage, context);
+            }
         }
 
         public List<MusicTrack> Tracks
@@ -290,22 +338,26 @@ namespace MusicMixer
 
         [ReadOnly]
         [SerializeField]
-        AudioClip trackClip;
+        private AudioClip trackClip;
 
         [SerializeField]
-        float targetVolume, fadeDuration = 0;
+        private float targetVolume, fadeDuration = 0;
 
         /// <summary>Monitors how long the track has been fading to new TargetVolume</summary>
-        float fadeTimer;
-        /// <summary>Volume to fade from</summary>
-        float fadeStartVolume;
+        private float fadeTimer;
 
-        public MusicTrack(AudioSource track, AudioMixerGroup mixerGroup)
+        /// <summary>Volume to fade from</summary>
+        private float fadeStartVolume;
+
+        public MusicTrack(AudioSource track, AudioMixerGroup mixerGroup, bool loop = true)
         {
             trackSource = track;
 
             // Set the AudioMixerGroup to use the music group
             track.outputAudioMixerGroup = mixerGroup;
+
+            // Set looping
+            track.loop = loop;
 
             UpdateEditorInfo();
         }
@@ -340,13 +392,9 @@ namespace MusicMixer
             }
             else if (fadeTimer != float.MaxValue)
             {
-                Debug.Log("<color=darkblue><b>MusicPlayer</b></color> - Timer over: setting volume");
+                // Timer over: setting volume
                 Volume = TargetVolume;
                 StopFadeTimer();
-            }
-            else
-            {
-                Debug.Log("<color=darkblue><b>MusicPlayer</b></color> - Timer maxed for " + trackSource.gameObject.name);
             }
         }
 

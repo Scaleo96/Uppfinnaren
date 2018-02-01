@@ -34,8 +34,6 @@ namespace MusicMixer
         }
     }
 
-
-
     /// <summary>
     /// Read only attribute
     /// TODO: Make available project wide
@@ -43,7 +41,6 @@ namespace MusicMixer
 
     public class ReadOnlyAttribute : PropertyAttribute
     {
-
     }
 
     [CustomPropertyDrawer(typeof(ReadOnlyAttribute))]
