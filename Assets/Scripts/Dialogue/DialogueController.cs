@@ -9,7 +9,7 @@ public class DialogueController : MonoBehaviour
 
     [Tooltip("Choose text gameobject.")]
     [SerializeField]
-    Text dialogueText;
+    GameObject dialogueTextPrefab;
     [Tooltip("What is the dialogues position relevant to the source.")]
     [SerializeField]
     Vector3 textPosition;
@@ -17,7 +17,8 @@ public class DialogueController : MonoBehaviour
     public Language language;
 
     ConditionsManager conditionsManager;
-    GameObject speaker;
+    GameObject currentSpeaker;
+    Text currentText;
 
     // Use this for initialization
     void Start()
@@ -38,10 +39,9 @@ public class DialogueController : MonoBehaviour
         {
             for (int j = 0; j < conditionsManager.container[values.containerNumber].dialogue.dialogue.Length; j++)
             {
-                DisplayDialogue(conditionsManager.container[values.containerNumber].dialogue.dialogue[j]);
+                StartCoroutine( DisplayDialogue(conditionsManager.container[values.containerNumber].dialogue.dialogue[j],
+                    conditionsManager.container[values.containerNumber].dialogue.dialogue[j].time) );
                 yield return new WaitForSeconds(conditionsManager.container[values.containerNumber].dialogue.dialogue[j].time);
-                dialogueText.GetComponentInChildren<SpriteRenderer>().enabled = false;
-                dialogueText.text = "";
                 print(j.ToString());
             }
 
@@ -49,9 +49,13 @@ public class DialogueController : MonoBehaviour
     }
 
     //Displays current dialogue and sets current source
-    private void DisplayDialogue(DialogueElements dialogue)
+    private IEnumerator DisplayDialogue(DialogueElements dialogue, float time)
     {
-        dialogueText.GetComponentInChildren<SpriteRenderer>().enabled = true;
+        GameObject textGameobject = Instantiate(dialogueTextPrefab, dialogue.speaker.transform.position, transform.rotation, dialogue.speaker.transform);
+        Text dialogueText = textGameobject.GetComponentInChildren<Text>();
+        textGameobject.GetComponent<Canvas>().worldCamera = Camera.main.GetComponent<Camera>();
+        currentText = dialogueText;
+        currentSpeaker = dialogue.speaker;
         if(language == Language.Svenska)
         {
             dialogueText.text = dialogue.line_Swedish;
@@ -60,15 +64,16 @@ public class DialogueController : MonoBehaviour
         {
             dialogueText.text = dialogue.line_English;
         }
-        speaker = dialogue.speaker;
+        //textGameobject.transform.position = dialogue.speaker.transform.position + textPosition;
+        yield return new WaitForSeconds(time);
+        Destroy(textGameobject);
     }
 
-    //Sets position on the source
     private void DialoguePosition()
     {
-        if (speaker != null)
+        if (currentSpeaker != null && currentText != null)
         {
-            dialogueText.transform.position = speaker.transform.position + textPosition;
+            currentText.gameObject.transform.position = currentSpeaker.transform.position + textPosition;
         }
     }
 
