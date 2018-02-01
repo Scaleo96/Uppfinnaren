@@ -14,9 +14,6 @@ public class Character : Entity
     float walkSpeed = 1f;
 
     [SerializeField]
-    float runSpeed = 2f;
-
-    [SerializeField]
     float throwForce = 20f;
 
     [SerializeField]
@@ -29,10 +26,12 @@ public class Character : Entity
     List<Item> items;
 
     Rigidbody2D rb2D;
+    Animator animator;
 
     private void Awake()
     {
         rb2D = GetComponent<Rigidbody2D>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void FixedUpdate()
@@ -47,13 +46,7 @@ public class Character : Entity
     {
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
 
-        float speed = walkSpeed;
-        if (Input.GetButton("Run"))
-        {
-            speed = runSpeed;
-        }
-
-        rb2D.velocity = new Vector2(moveHorizontal * speed, rb2D.velocity.y);
+        rb2D.velocity = new Vector2(moveHorizontal * walkSpeed, rb2D.velocity.y);
     }
 
     public bool AddItemToInventory(Item item)
@@ -97,6 +90,11 @@ public class Character : Entity
     public void SetActive(bool value)
     {
         isActive = value;
+
+        if (isActive)
+            animator.SetTrigger("toActiveIdle");
+        else
+            animator.SetTrigger("toInactiveIdle");
 
         rb2D.velocity = new Vector2(0, rb2D.velocity.y);
     }
