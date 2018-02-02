@@ -60,6 +60,11 @@ public class Character : Entity
     {
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
 
+        if (moveHorizontal != 0)
+        {
+            GetComponentInChildren<SpriteRenderer>().flipX = moveHorizontal > 0;
+        }
+
         float speed = walkSpeed;
         if (Input.GetButton("Run"))
         {
