@@ -193,7 +193,7 @@ AudioMixerSnapshotController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Unpaused
+  m_Name: Normal
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 080d42b92f0703344b64ff7a6c2cbcb8
   m_FloatValues:
