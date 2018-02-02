@@ -57,7 +57,7 @@ public class CameraFollow : MonoBehaviour
         // If the player has moved beyond the x margin.
         if (!lockX && Mathf.Abs((pos - targetPos).x) > XAndYIdelMargin.x)
         {
-            //Lerp between the camera's current x position and the target's current x position.
+            // Lerp between the camera's current x position and the target's current x position.
             if (targetPos.x < pos.x)
                 pos.x = Mathf.Lerp(pos.x, targetPos.x + XAndYIdelMargin.x, lerpSpeedX * Time.deltaTime);
             else
@@ -72,7 +72,7 @@ public class CameraFollow : MonoBehaviour
         // If the player has moved beyond the y margin.
         if (!lockY && Mathf.Abs((pos - targetPos).y) > XAndYIdelMargin.y)
         {
-            //Lerp between the camera's current y position and the targets's current y position.
+            // Lerp between the camera's current y position and the targets's current y position.
             if (targetPos.y < pos.y)
                 pos.y = Mathf.Lerp(pos.y, targetPos.y + XAndYIdelMargin.y, lerpSpeedY * Time.deltaTime);
             else
