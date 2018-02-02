@@ -10,6 +10,7 @@ public class Dialogue : MonoBehaviour
 public class DialogueElements
 {
     public GameObject speaker;
-    public string line;
+    public string line_Swedish;
+    public string line_English;
     public float time;
 }
