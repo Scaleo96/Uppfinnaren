@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Character : Entity
 {
+    [SerializeField]
+    ValueEvent positionEvents;
+
     [Header("> Character")]
 
     [SerializeField]
@@ -42,11 +45,25 @@ public class Character : Entity
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        EntityValues values;
+        values.entity = this;
+        values.collider2d = collision;
+        values.character = null;
+        values.trigger = EntityValues.TriggerType.PositionTrigger;
+        positionEvents.Invoke(values);
+    }
+
     private void Move()
     {
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
 
         rb2D.velocity = new Vector2(moveHorizontal * walkSpeed, rb2D.velocity.y);
+        if (moveHorizontal != 0)
+        {
+            GetComponentInChildren<SpriteRenderer>().flipX = moveHorizontal > 0;
+        }
     }
 
     public bool AddItemToInventory(Item item)
