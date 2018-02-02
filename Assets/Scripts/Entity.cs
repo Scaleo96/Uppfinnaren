@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -142,4 +142,17 @@ public class CanUseConditionDrawer : PropertyDrawer
             EditorGUI.PropertyField(jonathanRect, jonathanUse, new GUIContent("Jonathan"));
         }
     }
+}
+
+[System.Serializable]
+public class ValueEvent : UnityEvent<EntityValues> { }
+
+public struct EntityValues
+{
+    public enum TriggerType { PuzzleSloved, Inspect, PositionTrigger, PickupItem, EnterDoor }
+
+    public TriggerType trigger;
+    public Entity entity;
+    public Character character;
+    public Collider2D collider2d;
 }
