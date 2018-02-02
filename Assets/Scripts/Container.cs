@@ -16,9 +16,9 @@ public class Container : Entity
 
     int requiredItemsCount;
 
-    public override void Interact(Character character, Item item = null)
+    protected override void OnInteract(Character character, Item item = null)
     {
-        base.Interact(character);
+        base.OnInteract(character);
 
         // Checks if the item that the player is holding is one of the required items. Then adds it.
         foreach (Item requiredItem in requiredItems)

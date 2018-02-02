@@ -20,9 +20,9 @@ public class Item : Entity
         }
     }
 
-    public override void Interact(Character character, Item item = null)
+    protected override void OnInteract(Character character, Item item = null)
     {
-        base.Interact(character);
+        base.OnInteract(character);
 
         character.AddItemToInventory(this);
         RemoveFromWorld();

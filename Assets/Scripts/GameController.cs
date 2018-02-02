@@ -346,4 +346,9 @@ public class GameController : MonoBehaviour
         UpdateInventorySlotImage(slot);
         hoverImage.color = new Color(1, 1, 1, 0);
     }
+
+    public Character GetCurrentCharacter()
+    {
+        return currentCharacter;
+    }
 }

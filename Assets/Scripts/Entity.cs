@@ -20,22 +20,26 @@ public class Entity : MonoBehaviour
     UnityEvent interactionEvents;
 
     bool canBeInteractedWith;
-    
+
     /// <summary>
     /// Behaviour when entity is interacted with.
     /// </summary>
     /// <param name="character">The entity that is interacting with this entity.</param>
-    public virtual void Interact(Character character, Item item = null)
+    public void Interact(Character character, Item item = null)
     {
         if (canUseCondition.CanInteract(character) == true)
         {
-            interactionEvents.Invoke();
+            OnInteract(character, item);
         }
-        else
-        {
-            // Stop interact from running...
-            return;
-        }
+    }
+
+    /// <summary>
+    /// Behaviour when entity is interacted with.
+    /// </summary>
+    /// <param name="character">The entity that is interacting with this entity.</param>
+    protected virtual void OnInteract(Character character, Item item = null)
+    {
+        interactionEvents.Invoke();
     }
 
     public string EntityName
