@@ -32,3 +32,4 @@ public class Item : Entity
     {
         gameObject.SetActive(false);
     }
+}
