@@ -18,7 +18,7 @@ public class DialogueController : MonoBehaviour
 
     ConditionsManager conditionsManager;
     GameObject currentSpeaker;
-    Text currentText;
+    GameObject currentText;
 
     // Use this for initialization
     void Start()
@@ -53,8 +53,8 @@ public class DialogueController : MonoBehaviour
     {
         GameObject textGameobject = Instantiate(dialogueTextPrefab, dialogue.speaker.transform.position, transform.rotation, dialogue.speaker.transform);
         Text dialogueText = textGameobject.GetComponentInChildren<Text>();
-        textGameobject.GetComponent<Canvas>().worldCamera = Camera.main.GetComponent<Camera>();
-        currentText = dialogueText;
+        //textGameobject.GetComponent<Canvas>().worldCamera = Camera.main.GetComponent<Camera>();
+        currentText = textGameobject;
         currentSpeaker = dialogue.speaker;
         if(language == Language.Svenska)
         {
@@ -73,7 +73,9 @@ public class DialogueController : MonoBehaviour
     {
         if (currentSpeaker != null && currentText != null)
         {
-            currentText.gameObject.transform.position = currentSpeaker.transform.position + textPosition;
+            Vector3 screenpos;
+            screenpos = Camera.main.GetComponent<Camera>().WorldToViewportPoint( currentSpeaker.transform.position + textPosition );
+            currentText.transform.GetChild(0).transform.position = Camera.main.GetComponent<Camera>().WorldToScreenPoint( currentSpeaker.transform.position + textPosition );
         }
     }
 

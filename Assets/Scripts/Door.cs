@@ -33,7 +33,7 @@ public class Door : Entity
     [SerializeField]
     float transitionTime = 1;
 
-    protected override void OnInteract(Character character, Item item = null)
+    protected override void OnInteract(Character character, EntityValues entityValues, Item item = null)
     {
         float distance = Vector2.Distance(character.transform.position, transform.position);
         if (distance <= minRadiusDistance && doorLocked == false)
@@ -52,8 +52,9 @@ public class Door : Entity
             EntityValues values;
             values.entity = this;
             values.collider2d = null;
+            values.trigger = EntityValues.TriggerType.Inspect;
             values.character = character;
-            base.Interact(character);
+            base.Interact(character, values);
         }
     }
 
