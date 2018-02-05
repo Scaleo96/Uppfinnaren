@@ -34,6 +34,8 @@ public class GameController : MonoBehaviour
     Character currentCharacter;
     int currentCharID;
 
+    bool canChangeChar;
+
     [Header("Mouse Setting")]
     [SerializeField]
     Entity hoverEntity;
@@ -142,7 +144,7 @@ public class GameController : MonoBehaviour
 
         // TODO: Move into own function
         // Change character on input.
-        if (Input.GetButtonDown("Change Character"))
+        if (Input.GetButtonDown("Change Character") && canChangeChar)
         {
             if (currentCharID < (characters.Length - 1))
             {
@@ -360,5 +362,14 @@ public class GameController : MonoBehaviour
     public Character GetCurrentCharacter()
     {
         return currentCharacter;
+    }
+
+    /// <summary>
+    /// Sets if the player can move the characters or not.
+    /// </summary>
+    public void SetActiveMovement(bool value)
+    {
+        canChangeChar = value;
+        currentCharacter.SetActive(value);
     }
 }
