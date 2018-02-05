@@ -33,7 +33,7 @@ public class Door : Entity
     [SerializeField]
     float transitionTime = 1;
 
-    public override void Interact(Character character, Item item = null)
+    protected override void OnInteract(Character character, Item item = null)
     {
         float distance = Vector2.Distance(character.transform.position, transform.position);
         if (CanEnter(character) && distance <= minRadiusDistance && doorLocked == false)
