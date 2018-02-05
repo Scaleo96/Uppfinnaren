@@ -50,6 +50,7 @@ public class GameController : MonoBehaviour
     GameObject hoverImageObject;
     Image hoverImage;
 
+    [SerializeField]
     InventorySlot selectedInventorySlot;
     bool isHoldingItem;
 
@@ -348,9 +349,12 @@ public class GameController : MonoBehaviour
     {
         isHoldingItem = false;
 
-        slot.isSelected = true;
+        slot.isSelected = false;
         UpdateInventorySlotImage(slot);
         hoverImage.color = new Color(1, 1, 1, 0);
+
+        // FIXME: Maybe do something else here?
+        selectedInventorySlot.item = null;
     }
 
     public Character GetCurrentCharacter()
