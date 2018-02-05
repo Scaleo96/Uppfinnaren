@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -33,10 +33,10 @@ public class Door : Entity
     [SerializeField]
     float transitionTime = 1;
 
-    protected override void OnInteract(Character character, Item item = null)
+    protected override void OnInteract(Character character, EntityValues entityValues, Item item = null)
     {
         float distance = Vector2.Distance(character.transform.position, transform.position);
-        if (CanEnter(character) && distance <= minRadiusDistance && doorLocked == false)
+        if (distance <= minRadiusDistance && doorLocked == false)
         {
             StartCoroutine(EnterDoor(character));
 
@@ -52,8 +52,9 @@ public class Door : Entity
             EntityValues values;
             values.entity = this;
             values.collider2d = null;
+            values.trigger = EntityValues.TriggerType.Inspect;
             values.character = character;
-            base.Interact(character);
+            base.Interact(character, values);
         }
     }
 
@@ -65,61 +66,9 @@ public class Door : Entity
         character.transform.position = new Vector2(exitDoor.transform.position.x, exitDoor.transform.position.y - characterHeight);
     }
 
-    private bool CanEnter(Character character)
-    {
-        bool canEnter = false;
-
-        switch (character.EntityName)
-        {
-            case "Amina":
-                if (aminaUse)
-                {
-                    canEnter = true;
-                }
-                break;
-            case "Jonathan":
-                if (jonathanUse)
-                {
-                    canEnter = true;
-                }
-                break;
-            case "Ida":
-                if (idaUse)
-                {
-                    canEnter = true;
-                }
-                break;
-            default:
-                break;
-        }
-
-        return canEnter;
-    }
-
     private void OnDrawGizmos()
     {
         UnityEditor.Handles.color = Color.green;
         UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.forward, minRadiusDistance);
-    }
-}
-
-[CustomEditor(typeof(Door))]
-[CanEditMultipleObjects]
-public class DoorEditor : Editor
-{
-    bool isFolded;
-
-    public override void OnInspectorGUI()
-    {
-        DrawDefaultInspector();
-        Door door = (Door)target;
-
-        isFolded = EditorGUILayout.Foldout(isFolded, "Can be used by:");
-        if (isFolded)
-        {
-            door.aminaUse = EditorGUILayout.Toggle("Amina", door.aminaUse);
-            door.jonathanUse = EditorGUILayout.Toggle("Jonathan", door.jonathanUse);
-            door.idaUse = EditorGUILayout.Toggle("Ida", door.idaUse);
-        }
     }
 }

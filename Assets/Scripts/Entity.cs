@@ -17,7 +17,7 @@ public class Entity : MonoBehaviour
     protected CanUseCondition canUseCondition;
 
     [SerializeField]
-    UnityEvent interactionEvents;
+    ValueEvent interactionEvents;
 
     bool canBeInteractedWith;
 
@@ -25,11 +25,11 @@ public class Entity : MonoBehaviour
     /// Behaviour when entity is interacted with.
     /// </summary>
     /// <param name="character">The entity that is interacting with this entity.</param>
-    public void Interact(Character character, Item item = null)
+    public void Interact(Character character, EntityValues entityValues, Item item = null)
     {
         if (canUseCondition.CanInteract(character) == true)
         {
-            OnInteract(character, item);
+            OnInteract(character, entityValues, item);
         }
     }
 
@@ -37,9 +37,10 @@ public class Entity : MonoBehaviour
     /// Behaviour when entity is interacted with.
     /// </summary>
     /// <param name="character">The entity that is interacting with this entity.</param>
-    protected virtual void OnInteract(Character character, Item item = null)
+    protected virtual void OnInteract(Character character, EntityValues entityValues, Item item = null)
     {
-        interactionEvents.Invoke();
+        
+        interactionEvents.Invoke(entityValues);
     }
 
     public string EntityName
@@ -50,7 +51,7 @@ public class Entity : MonoBehaviour
         }
     }
 
-    public UnityEvent InteractionEvents
+    public ValueEvent InteractionEvents
     {
         get
         {

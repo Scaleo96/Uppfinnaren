@@ -20,9 +20,15 @@ public class Item : Entity
         }
     }
 
-    protected override void OnInteract(Character character, Item item = null)
+    protected override void OnInteract(Character character, EntityValues entityValues, Item item = null)
     {
-        base.OnInteract(character);
+        EntityValues values;
+        values.trigger = EntityValues.TriggerType.PickupItem;
+        values.entity = this;
+        values.character = character;
+        values.collider2d = null;
+
+        base.OnInteract(character, values);
 
         character.AddItemToInventory(this);
         RemoveFromWorld();

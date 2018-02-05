@@ -163,13 +163,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityName: Amina
+  canUseCondition:
+    aminaUse: 0
+    idaUse: 0
+    jonathanUse: 0
   interactionEvents:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  isActive: 0
   walkSpeed: 4
   runSpeed: 6
+  throwForce: 20
+  itemPickupDistance: 3
   inventorySize: 4
   items: []
 --- !u!70 &62985215
@@ -210,6 +217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 267264373}
   - component: {fileID: 267264374}
+  - component: {fileID: 267264375}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -274,6 +282,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!95 &267264375
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 267264372}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 2ce05ba95ef96fe4fbd179277cf2e829, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &275709792
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,8 +614,8 @@ MonoBehaviour:
   target: {fileID: 62985216}
   lockY: 0
   lockX: 0
-  xIdelMargin: 2
-  yIdelMargin: 2
+  XAndYIdelMargin: {x: 0, y: 0}
+  XAndYOffset: {x: 0, y: 0}
   lerpSpeedX: 1.5
   lerpSpeedY: 1.5
   lerpToMouseSpeedX: 0
@@ -697,13 +722,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9744ff9aa809e459e6e2e489a5b7ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
-  startCharacter: {fileID: 62985214}
-  currentCharacter: {fileID: 0}
+  cameraComponent: {fileID: 0}
+  characters: []
   hoverEntity: {fileID: 0}
   selectedEntity: {fileID: 0}
   hoverTextObject: {fileID: 1591231871}
+  hoverImageObject: {fileID: 0}
   textFollowMouse: 0
+  inventoryObject: {fileID: 0}
+  inventorySlotPrefab: {fileID: 0}
 --- !u!4 &679798865
 Transform:
   m_ObjectHideFlags: 0
