@@ -69,6 +69,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4166068127927316}
   - component: {fileID: 212962297737491148}
+  - component: {fileID: 95657438506005946}
   m_Layer: 0
   m_Name: Ida_88
   m_TagString: Untagged
@@ -96,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1576560200518302}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.54, y: -3.5, z: 0}
+  m_LocalPosition: {x: 0.6133419, y: -2.770348, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4930188491996286}
@@ -166,6 +167,23 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1.3}
   m_Direction: 0
+--- !u!95 &95657438506005946
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1870995403559604}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 36c7643680add064ab220fcb3e717524, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114841715143353428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,11 +203,13 @@ MonoBehaviour:
   interactionEvents:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  positionEvents:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   isActive: 0
   walkSpeed: 4
-  runSpeed: 6
   throwForce: 0.5
   itemPickupDistance: 3
   inventorySize: 2
