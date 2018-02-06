@@ -6,19 +6,27 @@ namespace MusicMixer
 {
     static public class MusicController
     {
+        /// <summary>
+        /// Prefix used for all logged debug messages
+        /// </summary>
+        private static readonly string debugPrefix = "<color=darkblue><b>MusicController</b></color> - ";
 
-        public static MusicPlayer ActiveMusicPlayer
+        /// <summary>
+        /// Finds and returns the active MusicPlayer. 
+        /// If there are no MusicPlayer present a new one will be instantiated from default if possible, empty if resource is missing.
+        /// </summary>
+        private static MusicPlayer ActiveMusicPlayer
         {
             get
             {
+                // Try to find MusicPlayer in scene
                 if (GameObject.FindObjectOfType<MusicPlayer>() != null)
                 {
                     return GameObject.FindObjectOfType<MusicPlayer>();
                 }
                 else
                 {
-                    // TODO: Add Resource for the prefab containing the finished music player
-
+                    // Check for and instantiate default MusicPlayer prefab in Resources folder
                     if (Resources.FindObjectsOfTypeAll(typeof(MusicPlayer)).Length > 0)
                     {
                         LogWarning("No MusicPlayer found in active scene. Instantiating default MusicPlayer located in Resources folder.");
@@ -41,7 +49,7 @@ namespace MusicMixer
                         MusicPlayer newMusicPlayer = newMPGameObj.GetComponent<MusicPlayer>();
                         return newMusicPlayer;
                     }
-                    else
+                    else // If no default resource can be found a new empty one will be instantiated instead to avoid null reference and a warning will be displayed
                     {
                         // Make a new gameobject and attach the music player to it
                         GameObject refObj = new GameObject("New Music Player object");
@@ -52,9 +60,6 @@ namespace MusicMixer
                         LogWarning("No MusicPlayer found in active scenes and default resource is missing! A new (empty) one was created, but you probably don't want this", refObj);
                         return newMusPla;
                     }
-                    //GameObject go = Instantiate(Resources.Load("FadeTransition", typeof(GameObject))) as GameObject;
-
-
                 }
             }
         }
@@ -88,6 +93,15 @@ namespace MusicMixer
         }
 
         // TODO: Fade specific track
+        public static void FadeTrack(MusicTrack trackToFade, float targetVolume = 0f)
+        {
+            ActiveMusicPlayer.BeginTrackFade(trackToFade, targetVolume);
+        }
+
+        public static void FadeTrack(MusicTrack trackToFade, float targetVolume = 0f, float fadeDuration = 0f)
+        {
+            ActiveMusicPlayer.BeginTrackFade(trackToFade, targetVolume, fadeDuration);
+        }
 
 
         /// <summary>
@@ -97,7 +111,7 @@ namespace MusicMixer
         /// <param name="context">Defaults to the MusicPlayer</param>
         static void LogWarning(string warningMessage, UnityEngine.Object context = null)
         {
-            Debug.LogWarning("<color=darkblue><b>MusicController</b></color> - " + warningMessage, context);
+            Debug.LogWarning(debugPrefix + warningMessage, context);
         }
     }
 }
