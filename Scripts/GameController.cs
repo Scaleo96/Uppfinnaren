@@ -50,6 +50,7 @@ public class GameController : MonoBehaviour
     GameObject hoverImageObject;
     Image hoverImage;
 
+    [SerializeField]
     InventorySlot selectedInventorySlot;
     bool isHoldingItem;
 
@@ -218,10 +219,18 @@ public class GameController : MonoBehaviour
     private void InteractWithEntity(Entity entity)
     {
         EntityValues values;
-        values.trigger = EntityValues.TriggerType.Inspect;
         values.entity = entity;
         values.character = currentCharacter;
         values.collider2d = null;
+        values.item = selectedInventorySlot.item;
+        if (selectedInventorySlot.item != null)
+        {
+            values.trigger = EntityValues.TriggerType.UseItem;
+        }
+        else
+        {
+            values.trigger = EntityValues.TriggerType.Inspect;
+        }
 
         selectedEntity = entity;
         entity.Interact(currentCharacter, values, selectedInventorySlot.item);
@@ -348,9 +357,12 @@ public class GameController : MonoBehaviour
     {
         isHoldingItem = false;
 
-        slot.isSelected = true;
+        slot.isSelected = false;
         UpdateInventorySlotImage(slot);
         hoverImage.color = new Color(1, 1, 1, 0);
+
+        // FIXME: Maybe do something else here?
+        selectedInventorySlot.item = null;
     }
 
     public Character GetCurrentCharacter()

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -51,6 +51,7 @@ public class Character : Entity
         values.entity = this;
         values.collider2d = collision;
         values.character = null;
+        values.item = null;
         values.trigger = EntityValues.TriggerType.PositionTrigger;
         positionEvents.Invoke(values);
     }

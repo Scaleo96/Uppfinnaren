@@ -10,7 +10,7 @@ namespace MusicMixer
         private const string DEBUG_PREFIX = "<color=darkblue><b>MusicPlayer</b></color> - ";
 
         // Used for singleton
-        private MusicPlayer instance;
+        private static MusicPlayer instance;
 
         [SerializeField]
         [Tooltip("Displays debug messages in console")]
@@ -65,14 +65,14 @@ namespace MusicMixer
         private void CheckSingleton()
         {
             // Make sure there are no other running instances of the MenUI
-            if (instance)
+            if (instance != null)
             {
                 if (Debug.isDebugBuild) LogWarning("Other instance of MusicPlayer already running. Terminating.");
                 Destroy(gameObject);
             }
             else
             {
-                if (Debug.isDebugBuild) Log("Initializing MenUI", this);
+                if (Debug.isDebugBuild) Log("Initializing MusicPlayer", this);
                 instance = this;
 
                 // Set MusicPlayer to be persistant
