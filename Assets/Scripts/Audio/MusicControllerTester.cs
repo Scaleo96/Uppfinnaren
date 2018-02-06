@@ -16,7 +16,6 @@ class MusicControllerTester : MonoBehaviour {
         {
             Debug.LogWarning("<color=cyan><b>MusicTester</b></color> - I tried playing a track, and it worked!", this);
         }
-        
     }
 	
 	// Update is called once per frame

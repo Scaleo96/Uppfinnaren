@@ -19,14 +19,42 @@ namespace MusicMixer
                 {
                     // TODO: Add Resource for the prefab containing the finished music player
 
-                    // Make a new gameobject and attach the music player to it
-                    GameObject refObj = new GameObject("New Music Player object");
-                    refObj.AddComponent<MusicPlayer>();
-                    MusicPlayer newMusPla = refObj.GetComponent<MusicPlayer>();
+                    if (Resources.FindObjectsOfTypeAll(typeof(MusicPlayer)).Length > 0)
+                    {
+                        LogWarning("No MusicPlayer found in active scene. Instantiating default MusicPlayer located in Resources folder.");
 
-                    // Warn
-                    LogWarning("No MusicPlayer found in active scenes! A new (empty) one was created, but you probably don't want this", refObj);
-                    return newMusPla;
+                        // Fetch/load the first MusicPlayer in the Resources folder
+                        MusicPlayer[] musicPlayerResourceArray = (MusicPlayer[])Resources.FindObjectsOfTypeAll(typeof(MusicPlayer));
+                        MusicPlayer defaultMusicPlayer = musicPlayerResourceArray[0];
+
+                        // Check and warn if there are more than one MusicPlayer in the Resources folder (we don't control which one is loaded)
+                        if (musicPlayerResourceArray.Length > 1)
+                        {
+                            LogWarning("Multiple MusicPlayer located in the Resource folder. Only the first found one will be used, remove the ones you do not wish to use.");
+                        }
+
+                        // Instantiate clone of MusicPlayer prefab
+                        GameObject newMPGameObj = GameObject.Instantiate(defaultMusicPlayer.gameObject);
+                        newMPGameObj.name = "Default Music Player";
+
+                        // Find and return the MusicPlayer
+                        MusicPlayer newMusicPlayer = newMPGameObj.GetComponent<MusicPlayer>();
+                        return newMusicPlayer;
+                    }
+                    else
+                    {
+                        // Make a new gameobject and attach the music player to it
+                        GameObject refObj = new GameObject("New Music Player object");
+                        refObj.AddComponent<MusicPlayer>();
+                        MusicPlayer newMusPla = refObj.GetComponent<MusicPlayer>();
+
+                        // Warn
+                        LogWarning("No MusicPlayer found in active scenes and default resource is missing! A new (empty) one was created, but you probably don't want this", refObj);
+                        return newMusPla;
+                    }
+                    //GameObject go = Instantiate(Resources.Load("FadeTransition", typeof(GameObject))) as GameObject;
+
+
                 }
             }
         }
