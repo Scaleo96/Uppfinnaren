@@ -150,10 +150,11 @@ public class ValueEvent : UnityEvent<EntityValues> { }
 
 public struct EntityValues
 {
-    public enum TriggerType { PuzzleSloved, Inspect, PositionTrigger, PickupItem, EnterDoor }
+    public enum TriggerType { PuzzleSolved, Inspect, PositionTrigger, PickupItem, EnterDoor, UseItem }
 
     public TriggerType trigger;
     public Entity entity;
     public Character character;
     public Collider2D collider2d;
+    public Item item;
 }

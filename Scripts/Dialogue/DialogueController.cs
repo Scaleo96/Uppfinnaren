@@ -53,18 +53,18 @@ public class DialogueController : MonoBehaviour
     {
         GameObject textGameobject = Instantiate(dialogueTextPrefab, dialogue.speaker.transform.position, transform.rotation, dialogue.speaker.transform);
         Text dialogueText = textGameobject.GetComponentInChildren<Text>();
-        //textGameobject.GetComponent<Canvas>().worldCamera = Camera.main.GetComponent<Camera>();
         currentText = textGameobject;
         currentSpeaker = dialogue.speaker;
         if(language == Language.Svenska)
         {
             dialogueText.text = dialogue.line_Swedish;
+            dialogueText.font.material.mainTexture.filterMode = FilterMode.Point;
         }
         if (language == Language.English)
         {
             dialogueText.text = dialogue.line_English;
+            dialogueText.font.material.mainTexture.filterMode = FilterMode.Point;
         }
-        //textGameobject.transform.position = dialogue.speaker.transform.position + textPosition;
         yield return new WaitForSeconds(time);
         Destroy(textGameobject);
     }
