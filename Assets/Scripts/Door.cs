@@ -29,32 +29,22 @@ public class Door : Entity
     [SerializeField]
     float transitionTime = 1;
 
-    protected override void OnInteract(Character character, EntityValues entityValues, Item item = null)
+    protected override void OnInteract(EntityValues values)
     {
-        float distance = Vector2.Distance(character.transform.position, transform.position);
+        float distance = Vector2.Distance(values.character.transform.position, transform.position);
         if (distance <= minRadiusDistance && doorLocked == false)
         {
-            StartCoroutine(EnterDoor(character));
+            StartCoroutine(EnterDoor(values.character));
 
-            EntityValues values;
-            values.entity = this;
-            values.collider2d = null;
-            values.character = character;
-            values.item = item;
             values.trigger = EntityValues.TriggerType.EnterDoor;
-            base.OnInteract(character, values);
+            base.OnInteract(values);
         }
         else if (distance <= minRadiusDistance && doorLocked == true)
         {
-            EntityValues values;
-            values.entity = this;
-            values.collider2d = null;
-            values.character = character;
-            values.item = item;
             values.trigger = EntityValues.TriggerType.UseItem;
-            base.OnInteract(character, values);
+            base.OnInteract(values);
 
-            SetLock(false, item);
+            SetLock(false, values.item);
         }
     }
 

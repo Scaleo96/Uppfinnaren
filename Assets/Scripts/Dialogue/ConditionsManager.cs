@@ -67,7 +67,7 @@ public class ConditionsManager : MonoBehaviour
     {
         if (condition.trigger == Conditions.TriggerType.PositionTrigger && entityValues.trigger == EntityValues.TriggerType.PositionTrigger)
         {
-            if (entityValues.collider2d == condition.collisionTrigger && entityValues.entity == condition.entity)
+            if (entityValues.collider2d == condition.collisionTrigger && entityValues.character == condition.character)
             {
                condition.activated = true;
             }

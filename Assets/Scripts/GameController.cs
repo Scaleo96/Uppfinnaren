@@ -233,7 +233,7 @@ public class GameController : MonoBehaviour
         }
 
         selectedEntity = entity;
-        entity.Interact(currentCharacter, values, selectedInventorySlot.item);
+        entity.Interact(values);
     }
 
     /// <summary>

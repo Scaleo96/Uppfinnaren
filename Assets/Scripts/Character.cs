@@ -48,9 +48,9 @@ public class Character : Entity
     private void OnTriggerEnter2D(Collider2D collision)
     {
         EntityValues values;
-        values.entity = this;
+        values.entity = null;
         values.collider2d = collision;
-        values.character = null;
+        values.character = this;
         values.item = null;
         values.trigger = EntityValues.TriggerType.PositionTrigger;
         positionEvents.Invoke(values);

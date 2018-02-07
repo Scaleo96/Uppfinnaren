@@ -16,29 +16,23 @@ public class Container : Entity
 
     int requiredItemsCount;
 
-    protected override void OnInteract(Character character, EntityValues entityValues, Item item = null)
+    protected override void OnInteract(EntityValues values)
     {
 
-        base.OnInteract(character, entityValues);
+        base.OnInteract(values);
 
         // Checks if the item that the player is holding is one of the required items. Then adds it.
         foreach (Item requiredItem in requiredItems)
         {
-            if (item == requiredItem)
+            if (values.item == requiredItem)
             {
-                containedItems.Add(item);
-                character.RemoveItemFromInventory(item);
+                containedItems.Add(values.item);
+                values.character.RemoveItemFromInventory(values.item);
                 requiredItemsCount++;
 
                 if (requiredItemsCount >= requiredItems.Length)
                 {
-                    EntityValues values;
-                    values.entity = this;
-                    values.character = character;
-                    values.collider2d = null;
-                    values.item = item;
                     values.trigger = EntityValues.TriggerType.PuzzleSolved;
-
                     fullEvent.Invoke(values);
                 }
             }
