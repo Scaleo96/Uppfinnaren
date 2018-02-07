@@ -44,6 +44,7 @@ public class Door : Entity
             values.entity = this;
             values.collider2d = null;
             values.character = character;
+            values.item = item;
             values.trigger = EntityValues.TriggerType.EnterDoor;
             EnterEvents.Invoke(values);
         }
@@ -54,6 +55,7 @@ public class Door : Entity
             values.collider2d = null;
             values.trigger = EntityValues.TriggerType.Inspect;
             values.character = character;
+            values.item = item;
             base.Interact(character, values);
         }
     }
