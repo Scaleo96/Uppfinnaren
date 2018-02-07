@@ -27,16 +27,16 @@ public class Entity : MonoBehaviour
     /// Behaviour when entity is interacted with.
     /// </summary>
     /// <param name="character">The entity that is interacting with this entity.</param>
-    public void Interact(Character character, EntityValues entityValues, Item item = null)
+    public void Interact(EntityValues values)
     {
-        if (canUseCondition.CanInteract(character) == true)
+        if (canUseCondition.CanInteract(values.character) == true)
         {
-            OnInteract(character, entityValues, item);
+            OnInteract(values);
         }
-        else if (canUseCondition.CanInteract(character) == false)
+        else if (canUseCondition.CanInteract(values.character) == false)
         {
-            entityValues.trigger = EntityValues.TriggerType.Inspect;
-            OnInspect(entityValues);
+            values.trigger = EntityValues.TriggerType.Inspect;
+            OnInspect(values);
         }
     }
 
@@ -44,15 +44,15 @@ public class Entity : MonoBehaviour
     /// Behaviour when entity is interacted with.
     /// </summary>
     /// <param name="character">The entity that is interacting with this entity.</param>
-    protected virtual void OnInteract(Character character, EntityValues entityValues, Item item = null)
+    protected virtual void OnInteract(EntityValues values)
     {
         
-        interactionEvents.Invoke(entityValues);
+        interactionEvents.Invoke(values);
     }
 
-    protected virtual void OnInspect(EntityValues entityValues)
+    protected virtual void OnInspect(EntityValues values)
     {
-        inspectEvents.Invoke(entityValues);
+        inspectEvents.Invoke(values);
     }
 
     public string EntityName
