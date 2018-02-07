@@ -27,6 +27,7 @@ public class Item : Entity
         values.entity = this;
         values.character = character;
         values.collider2d = null;
+        values.item = this;
 
         base.OnInteract(character, values);
 

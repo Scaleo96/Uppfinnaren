@@ -12,7 +12,7 @@ public class Container : Entity
     List<Item> containedItems;
 
     [SerializeField]
-    UnityEvent fullEvent;
+    ValueEvent fullEvent;
 
     int requiredItemsCount;
 
@@ -32,7 +32,14 @@ public class Container : Entity
 
                 if (requiredItemsCount >= requiredItems.Length)
                 {
-                    fullEvent.Invoke();
+                    EntityValues values;
+                    values.entity = this;
+                    values.character = character;
+                    values.collider2d = null;
+                    values.item = item;
+                    values.trigger = EntityValues.TriggerType.PuzzleSolved;
+
+                    fullEvent.Invoke(values);
                 }
             }
         }
