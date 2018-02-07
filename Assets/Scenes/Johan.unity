@@ -88,6 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -160,6 +161,7 @@ MonoBehaviour:
   trigger: 1
   activated: 0
   collisionTrigger: {fileID: 50599842}
+  item: {fileID: 0}
 --- !u!1 &33193200
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,8 +193,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityName: Amina Painting
   canUseCondition:
-    aminaUse: 0
-    idaUse: 0
+    aminaUse: 1
+    idaUse: 1
     jonathanUse: 1
   interactionEvents:
     m_PersistentCalls:
@@ -208,6 +210,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  inspectEvents:
+    m_PersistentCalls:
+      m_Calls: []
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!61 &33193202
 BoxCollider2D:
@@ -285,7 +291,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 33193200}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.69, z: 0}
+  m_LocalPosition: {x: 0, y: -3.45, z: 0}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_Children:
   - {fileID: 1977284477}
@@ -445,6 +451,54 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1557286989}
   m_Script: {fileID: 11500000, guid: 1f85beeda534151409017973948da7b5, type: 3}
+--- !u!1 &136295871
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 136295872}
+  - component: {fileID: 136295873}
+  m_Layer: 0
+  m_Name: Dialogue Prefab 6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &136295872
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 136295871}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.00014, y: 1.00014, z: 1.00014}
+  m_Children: []
+  m_Father: {fileID: 1373146636}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &136295873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 136295871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 1263405861}
+    line_Swedish: "Jag l\xE5ste upp d\xF6rren"
+    line_English: 43432554
+    time: 2
 --- !u!1 &184845040
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,9 +580,13 @@ MonoBehaviour:
   entityName: TEST_Item
   canUseCondition:
     aminaUse: 0
-    idaUse: 0
+    idaUse: 1
     jonathanUse: 0
   interactionEvents:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  inspectEvents:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -699,6 +757,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -761,7 +820,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 205441999}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -500, y: 60, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 252645045}
@@ -845,7 +904,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 252645044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -400, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 205442000}
@@ -958,6 +1017,55 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 297933043}
+--- !u!1 &372941987
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 372941988}
+  - component: {fileID: 372941989}
+  m_Layer: 0
+  m_Name: Condition Prefab 7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &372941988
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 372941987}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7991954, y: -1.3042718, z: 0.08837814}
+  m_LocalScale: {x: 1.00014, y: 1.00014, z: 1.00014}
+  m_Children: []
+  m_Father: {fileID: 1373146635}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &372941989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 372941987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 835415395}
+  character: {fileID: 469886447}
+  trigger: 5
+  activated: 0
+  collisionTrigger: {fileID: 50599842}
+  item: {fileID: 191809585}
 --- !u!1 &406431297
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,6 +1114,7 @@ MonoBehaviour:
   trigger: 4
   activated: 0
   collisionTrigger: {fileID: 50599842}
+  item: {fileID: 0}
 --- !u!1 &457434715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1490,6 +1599,7 @@ MonoBehaviour:
   trigger: 1
   activated: 0
   collisionTrigger: {fileID: 50599842}
+  item: {fileID: 0}
 --- !u!1 &833862715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1549,8 +1659,8 @@ MonoBehaviour:
   entityName: DoorTest
   canUseCondition:
     aminaUse: 0
-    idaUse: 0
-    jonathanUse: 0
+    idaUse: 1
+    jonathanUse: 1
   interactionEvents:
     m_PersistentCalls:
       m_Calls:
@@ -1566,10 +1676,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  aminaUse: 0
-  idaUse: 1
-  jonathanUse: 0
-  EnterEvents:
+  inspectEvents:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 538045740}
@@ -1585,7 +1692,8 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   exitDoor: {fileID: 1453911758}
-  doorLocked: 0
+  doorLocked: 1
+  key: {fileID: 191809585}
   minRadiusDistance: 1
   transitionTime: 2
 --- !u!61 &835415396
@@ -1702,6 +1810,10 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  inspectEvents:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   inventorySprite: {fileID: 0}
 --- !u!212 &844194654
 SpriteRenderer:
@@ -1807,7 +1919,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 901508634}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 960, y: 449.00525, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.596875, y: 0.596875, z: 0.596875}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1897,6 +2009,7 @@ MonoBehaviour:
   trigger: 3
   activated: 0
   collisionTrigger: {fileID: 50599842}
+  item: {fileID: 0}
 --- !u!4 &1062471333
 Transform:
   m_ObjectHideFlags: 0
@@ -1945,6 +2058,7 @@ MonoBehaviour:
   trigger: 3
   activated: 0
   collisionTrigger: {fileID: 50599842}
+  item: {fileID: 0}
 --- !u!4 &1201333039
 Transform:
   m_ObjectHideFlags: 0
@@ -1981,8 +2095,9 @@ Transform:
   - {fileID: 4069528}
   - {fileID: 406431298}
   - {fileID: 817811190}
+  - {fileID: 372941988}
   m_Father: {fileID: 1373146636}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1373146636
 Transform:
@@ -2000,6 +2115,7 @@ Transform:
   - {fileID: 1848854921}
   - {fileID: 62107766}
   - {fileID: 184845041}
+  - {fileID: 136295872}
   - {fileID: 1373146635}
   m_Father: {fileID: 0}
   m_RootOrder: 13
@@ -2035,21 +2151,19 @@ MonoBehaviour:
   entityName: DoorTest
   canUseCondition:
     aminaUse: 0
-    idaUse: 0
-    jonathanUse: 0
+    idaUse: 1
+    jonathanUse: 1
   interactionEvents:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  aminaUse: 0
-  idaUse: 1
-  jonathanUse: 0
-  EnterEvents:
+  inspectEvents:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   exitDoor: {fileID: 835415395}
-  doorLocked: 0
+  doorLocked: 1
+  key: {fileID: 0}
   minRadiusDistance: 1
   transitionTime: 2
 --- !u!61 &1453911759
@@ -2230,8 +2344,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1560379896}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 340.5, y: 317, z: 0}
-  m_LocalScale: {x: 0.3546875, y: 0.3546875, z: 0.3546875}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1929227306}
   - {fileID: 533596280}
@@ -2295,6 +2409,10 @@ MonoBehaviour:
   - conditions:
     - {fileID: 817811191}
     dialogue: {fileID: 184845042}
+    isComplete: 0
+  - conditions:
+    - {fileID: 372941989}
+    dialogue: {fileID: 136295873}
     isComplete: 0
 --- !u!1 &1604835644
 GameObject:
@@ -2541,6 +2659,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  inspectEvents:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!4 &1702836436
 Transform:
   m_ObjectHideFlags: 0
@@ -2602,6 +2724,7 @@ MonoBehaviour:
   trigger: 2
   activated: 0
   collisionTrigger: {fileID: 50599842}
+  item: {fileID: 0}
 --- !u!1 &1735306847
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,6 +18,8 @@ public class Entity : MonoBehaviour
 
     [SerializeField]
     ValueEvent interactionEvents;
+    [SerializeField]
+    ValueEvent inspectEvents;
 
     bool canBeInteractedWith;
 
@@ -31,6 +33,11 @@ public class Entity : MonoBehaviour
         {
             OnInteract(character, entityValues, item);
         }
+        else if (canUseCondition.CanInteract(character) == false)
+        {
+            entityValues.trigger = EntityValues.TriggerType.Inspect;
+            OnInspect(entityValues);
+        }
     }
 
     /// <summary>
@@ -41,6 +48,11 @@ public class Entity : MonoBehaviour
     {
         
         interactionEvents.Invoke(entityValues);
+    }
+
+    protected virtual void OnInspect(EntityValues entityValues)
+    {
+        inspectEvents.Invoke(entityValues);
     }
 
     public string EntityName
