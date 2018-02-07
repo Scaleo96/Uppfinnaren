@@ -10,14 +10,6 @@ public class Door : Entity
 
     [Header("> Door")]
 
-    [HideInInspector]
-    public bool aminaUse = true;
-    [HideInInspector] public bool idaUse = true;
-    [HideInInspector] public bool jonathanUse = true;
-
-    [SerializeField]
-    ValueEvent EnterEvents;
-
     [Tooltip("The other door this one leads to.")]
     [SerializeField]
     Door exitDoor;
@@ -25,6 +17,10 @@ public class Door : Entity
     [Tooltip("Is the Door locked?")]
     [SerializeField]
     bool doorLocked;
+
+    [Tooltip("Item that can activate the lock")]
+    [SerializeField]
+    Item key;
 
     [Tooltip("The minumum distance a character has to be from the door to open it.")]
     [SerializeField]
@@ -46,17 +42,19 @@ public class Door : Entity
             values.character = character;
             values.item = item;
             values.trigger = EntityValues.TriggerType.EnterDoor;
-            EnterEvents.Invoke(values);
+            base.OnInteract(character, values);
         }
-        else
+        else if (distance <= minRadiusDistance && doorLocked == true)
         {
             EntityValues values;
             values.entity = this;
             values.collider2d = null;
-            values.trigger = EntityValues.TriggerType.Inspect;
             values.character = character;
             values.item = item;
-            base.Interact(character, values);
+            values.trigger = EntityValues.TriggerType.UseItem;
+            base.OnInteract(character, values);
+
+            SetLock(false, item);
         }
     }
 
@@ -65,7 +63,16 @@ public class Door : Entity
         StartCoroutine(Fade.FadeIn(transitionTime));
         yield return new WaitForSeconds(transitionTime);
         float characterHeight = character.GetComponent<CapsuleCollider2D>().size.y;
-        character.transform.position = new Vector2(exitDoor.transform.position.x, exitDoor.transform.position.y - characterHeight);
+        float doorHeight = exitDoor.GetComponent<BoxCollider2D>().size.y;
+        character.transform.position = new Vector2(exitDoor.transform.position.x, exitDoor.transform.position.y - doorHeight + characterHeight);
+    }
+
+    public void SetLock(bool value, Item item)
+    {
+        if (item == key)
+        {
+            doorLocked = value;
+        }
     }
 
     private void OnDrawGizmos()

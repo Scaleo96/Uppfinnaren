@@ -51,7 +51,7 @@ public class DialogueController : MonoBehaviour
     //Displays current dialogue and sets current source
     private IEnumerator DisplayDialogue(DialogueElements dialogue, float time)
     {
-        GameObject textGameobject = Instantiate(dialogueTextPrefab, dialogue.speaker.transform.position, transform.rotation, dialogue.speaker.transform);
+        GameObject textGameobject = Instantiate(dialogueTextPrefab, new Vector3(0, 0), transform.rotation, dialogue.speaker.transform);
         Text dialogueText = textGameobject.GetComponentInChildren<Text>();
         currentText = textGameobject;
         currentSpeaker = dialogue.speaker;
