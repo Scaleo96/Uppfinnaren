@@ -103,6 +103,16 @@ namespace MusicMixer
             ActiveMusicPlayer.BeginTrackFade(trackToFade, targetVolume, fadeDuration);
         }
 
+        public static void FadeTrack(int trackIndex, float targetVolume = 0f)
+        {
+            FadeTrack(GetAllTracks()[trackIndex], targetVolume);
+        }
+
+        public static void FadeTrack(int trackIndex, float targetVolume, float fadeDuration)
+        {
+            FadeTrack(GetAllTracks()[trackIndex], targetVolume, fadeDuration);
+        }
+
 
         /// <summary>
         /// Logs a debug warning message with unified formatting for MusicController

@@ -508,6 +508,13 @@ namespace MusicMixer
 #endif
         }
 
+        public override string ToString()
+        {
+            string trackName = trackClip.ToString();
+            trackName = trackName.Replace(" (UnityEngine.AudioClip)", "");
+            return trackName;
+        }
+
         public float Volume
         {
             get

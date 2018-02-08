@@ -3,17 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using MusicMixer;
 
-class MusicControllerTester : MonoBehaviour {
+public class MusicControllerTester : MonoBehaviour {
 
-    [SerializeField]
-    int trackIndex;
-    [SerializeField]
-    float testTimer = 5f;
-    [SerializeField]
-    bool didIt;
+    //[SerializeField]
+    //int trackIndex;
+    //[SerializeField]
+    //float testTimer = 5f;
+    //[SerializeField]
+    //bool didIt;
 
-    [SerializeField]
-    float targetVolume, fadeDuration = 0;
+    [HideInInspector] [Range(0,1)]
+    public float targetVolume = 0f;
+    
+    public float fadeDuration = 0f;
+    public bool fadeIn;
+
+    private void Update()
+    {
+        targetVolume = fadeIn ? 1f : 0f;
+    }
 
     //[SerializeField]
     //List<MusicTrack> trackCopy;
@@ -21,7 +29,7 @@ class MusicControllerTester : MonoBehaviour {
     // Use this for initialization
     void Start () {
         // Play first track
-        MusicController.FadeTrack(MusicController.GetAllTracks()[0], 1f, 15);
+        //MusicController.FadeTrack(MusicController.GetAllTracks()[0], 1f, 15);
 
         //trackCopy = MusicController.GetAllTracks();
         //Debug.Log("<color=cyan><b>MusicTester</b></color> - HAHA TESTING FORMATING: " + this.ToString(), this);
@@ -32,13 +40,13 @@ class MusicControllerTester : MonoBehaviour {
 
     }
 	
-	// Update is called once per frame
-	void Update () {
-        if (Time.time > testTimer && !didIt)
-        {
-            MusicController.FadeTrack(MusicController.GetAllTracks()[trackIndex], targetVolume, fadeDuration);
-            //trackCopy[0].StartFade(targetVolume, fadeDuration);
-            didIt = true;
-        }
-    }
+	//// Update is called once per frame
+	//void Update () {
+ //       if (Time.time > testTimer && !didIt)
+ //       {
+ //           MusicController.FadeTrack(MusicController.GetAllTracks()[trackIndex], targetVolume, fadeDuration);
+ //           //trackCopy[0].StartFade(targetVolume, fadeDuration);
+ //           didIt = true;
+ //       }
+ //   }
 }
