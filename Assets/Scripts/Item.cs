@@ -30,8 +30,11 @@ public class Item : Entity
 
         base.OnInteract(character, values);
 
-        character.AddItemToInventory(this);
-        RemoveFromWorld();
+        if (character.IsInventoryFull() == false)
+        {
+            character.AddItemToInventory(this);
+            RemoveFromWorld();
+        }
     }
 
     private void RemoveFromWorld()

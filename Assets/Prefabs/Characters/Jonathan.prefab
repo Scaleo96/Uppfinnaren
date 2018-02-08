@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: 70808364043523942}
   - component: {fileID: 114430891560001748}
   - component: {fileID: 50447927750602312}
+  - component: {fileID: 95266392352463656}
   m_Layer: 10
   m_Name: Jonathan
   m_TagString: Untagged
@@ -96,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1669881382887804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: -3.5, z: 0}
+  m_LocalPosition: {x: -0.49310422, y: -2.43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4667082630478890}
@@ -166,6 +167,23 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!95 &95266392352463656
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1669881382887804}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: bc5b1d5dc2250ea4dbc784c35e2c28aa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114430891560001748
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,12 +203,14 @@ MonoBehaviour:
   interactionEvents:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  positionEvents:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   isActive: 0
   walkSpeed: 4
-  runSpeed: 6
-  throwForce: 1
+  throwForce: 1.8
   itemPickupDistance: 3
   inventorySize: 4
   items: []
