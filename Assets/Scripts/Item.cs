@@ -20,19 +20,14 @@ public class Item : Entity
         }
     }
 
-    protected override void OnInteract(Character character, EntityValues entityValues, Item item = null)
+    protected override void OnInteract(EntityValues values)
     {
-        EntityValues values;
         values.trigger = EntityValues.TriggerType.PickupItem;
-        values.entity = this;
-        values.character = character;
-        values.collider2d = null;
+        base.OnInteract(values);
 
-        base.OnInteract(character, values);
-
-        if (character.IsInventoryFull() == false)
+        if (values.character.IsInventoryFull() == false)
         {
-            character.AddItemToInventory(this);
+            values.character.AddItemToInventory(this);
             RemoveFromWorld();
         }
     }

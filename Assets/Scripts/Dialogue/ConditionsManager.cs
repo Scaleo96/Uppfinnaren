@@ -25,6 +25,8 @@ public class ConditionsManager : MonoBehaviour
                 PositionTrigger(entityValues, container[i].conditions[j]);
                 PickupItem(entityValues, container[i].conditions[j]);
                 EnterDoor(entityValues, container[i].conditions[j]);
+                PuzzleSolved(entityValues, container[i].conditions[j]);
+                UseItem(entityValues, container[i].conditions[j]);
                 if (container[i].conditions[j].activated == false || container[i].isComplete == true)
                 {
                     test = false;
@@ -65,7 +67,7 @@ public class ConditionsManager : MonoBehaviour
     {
         if (condition.trigger == Conditions.TriggerType.PositionTrigger && entityValues.trigger == EntityValues.TriggerType.PositionTrigger)
         {
-            if (entityValues.collider2d == condition.collisionTrigger && entityValues.entity == condition.entity)
+            if (entityValues.collider2d == condition.collisionTrigger && entityValues.character == condition.character)
             {
                condition.activated = true;
             }
@@ -88,6 +90,28 @@ public class ConditionsManager : MonoBehaviour
         if (condition.trigger == Conditions.TriggerType.EnterDoor && entityValues.trigger == EntityValues.TriggerType.EnterDoor)
         {
             if (entityValues.entity == condition.entity && entityValues.character == condition.character)
+            {
+                condition.activated = true;
+            }
+        }
+    }
+
+    private void PuzzleSolved(EntityValues entityValues, Conditions condition)
+    {
+        if (condition.trigger == Conditions.TriggerType.PuzzleSolved && entityValues.trigger == EntityValues.TriggerType.PuzzleSolved)
+        {
+            if (entityValues.entity == condition.entity && entityValues.character == condition.character)
+            {
+                condition.activated = true;
+            }
+        }
+    }
+
+    private void UseItem(EntityValues entityValues, Conditions condition)
+    {
+        if (condition.trigger == Conditions.TriggerType.UseItem && entityValues.trigger == EntityValues.TriggerType.UseItem)
+        {
+            if (entityValues.entity == condition.entity && entityValues.character == condition.character && entityValues.item == condition.item)
             {
                 condition.activated = true;
             }

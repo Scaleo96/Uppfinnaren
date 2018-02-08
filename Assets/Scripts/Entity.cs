@@ -18,6 +18,8 @@ public class Entity : MonoBehaviour
 
     [SerializeField]
     ValueEvent interactionEvents;
+    [SerializeField]
+    ValueEvent inspectEvents;
 
     bool canBeInteractedWith;
 
@@ -25,11 +27,16 @@ public class Entity : MonoBehaviour
     /// Behaviour when entity is interacted with.
     /// </summary>
     /// <param name="character">The entity that is interacting with this entity.</param>
-    public void Interact(Character character, EntityValues entityValues, Item item = null)
+    public void Interact(EntityValues values)
     {
-        if (canUseCondition.CanInteract(character) == true)
+        if (canUseCondition.CanInteract(values.character) == true)
         {
-            OnInteract(character, entityValues, item);
+            OnInteract(values);
+        }
+        else if (canUseCondition.CanInteract(values.character) == false)
+        {
+            values.trigger = EntityValues.TriggerType.Inspect;
+            OnInspect(values);
         }
     }
 
@@ -37,10 +44,15 @@ public class Entity : MonoBehaviour
     /// Behaviour when entity is interacted with.
     /// </summary>
     /// <param name="character">The entity that is interacting with this entity.</param>
-    protected virtual void OnInteract(Character character, EntityValues entityValues, Item item = null)
+    protected virtual void OnInteract(EntityValues values)
     {
         
-        interactionEvents.Invoke(entityValues);
+        interactionEvents.Invoke(values);
+    }
+
+    protected virtual void OnInspect(EntityValues values)
+    {
+        inspectEvents.Invoke(values);
     }
 
     public string EntityName
@@ -150,10 +162,11 @@ public class ValueEvent : UnityEvent<EntityValues> { }
 
 public struct EntityValues
 {
-    public enum TriggerType { PuzzleSloved, Inspect, PositionTrigger, PickupItem, EnterDoor }
+    public enum TriggerType { PuzzleSolved, Inspect, PositionTrigger, PickupItem, EnterDoor, UseItem }
 
     public TriggerType trigger;
     public Entity entity;
     public Character character;
     public Collider2D collider2d;
+    public Item item;
 }

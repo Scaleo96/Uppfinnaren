@@ -1,21 +1,21 @@
 fileFormatVersion: 2
-guid: ca03f0de677b8254083e0cc553576506
-timeCreated: 1516964952
+guid: 22db235635afee3498738bec82761621
+timeCreated: 1517911773
 licenseType: Free
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
-  fontSize: 300
-  forceTextureCase: -1
+  fontSize: 16
+  forceTextureCase: -2
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: BlackChancery
+  fontName: OptimusPrincepsSemiBold
   fontNames:
-  - BlackChancery
+  - OptimusPrincepsSemiBold
   fallbackFontReferences: []
   customCharacters: 
-  fontRenderingMode: 0
+  fontRenderingMode: 1
   ascentCalculationMode: 1
   userData: 
   assetBundleName: 

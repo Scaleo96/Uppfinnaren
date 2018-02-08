@@ -18,28 +18,29 @@ public class Container : Entity
     List<Item> containedItems;
 
     [SerializeField]
-    UnityEvent fullEvent;
+    ValueEvent fullEvent;
 
     int requiredItemsCount;
 
-    protected override void OnInteract(Character character, EntityValues entityValues, Item item = null)
+    protected override void OnInteract(EntityValues values)
     {
-        base.OnInteract(character, entityValues);
+        base.OnInteract(values);
 
         if (input)
         {
             // Checks if the item that the player is holding is one of the required items. Then adds it.
             foreach (Item requiredItem in requiredItems)
             {
-                if (item == requiredItem)
+                if (valuesitem == requiredItem)
                 {
-                    containedItems.Add(item);
-                    character.RemoveItemFromInventory(item);
+                    containedItems.Add(valuesitem);
+                    values.character.RemoveItemFromInventory(values.item);
                     requiredItemsCount++;
 
                     if (requiredItemsCount >= requiredItems.Length)
                     {
-                        fullEvent.Invoke();
+                        values.trigger = EntityValues.TriggerType.PuzzleSolved;
+                        fullEvent.Invoke(values);
                     }
                 }
             }

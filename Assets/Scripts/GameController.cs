@@ -226,13 +226,21 @@ public class GameController : MonoBehaviour
     private void InteractWithEntity(Entity entity)
     {
         EntityValues values;
-        values.trigger = EntityValues.TriggerType.Inspect;
         values.entity = entity;
         values.character = currentCharacter;
         values.collider2d = null;
+        values.item = selectedInventorySlot.item;
+        if (selectedInventorySlot.item != null)
+        {
+            values.trigger = EntityValues.TriggerType.UseItem;
+        }
+        else
+        {
+            values.trigger = EntityValues.TriggerType.Inspect;
+        }
 
         selectedEntity = entity;
-        entity.Interact(currentCharacter, values, selectedInventorySlot.item);
+        entity.Interact(values);
     }
 
     /// <summary>

@@ -10,14 +10,6 @@ public class Door : Entity
 
     [Header("> Door")]
 
-    [HideInInspector]
-    public bool aminaUse = true;
-    [HideInInspector] public bool idaUse = true;
-    [HideInInspector] public bool jonathanUse = true;
-
-    [SerializeField]
-    ValueEvent EnterEvents;
-
     [Tooltip("The other door this one leads to.")]
     [SerializeField]
     Door exitDoor;
@@ -26,6 +18,10 @@ public class Door : Entity
     [SerializeField]
     bool doorLocked;
 
+    [Tooltip("Item that can activate the lock")]
+    [SerializeField]
+    Item key;
+
     [Tooltip("The minumum distance a character has to be from the door to open it.")]
     [SerializeField]
     float minRadiusDistance = 1;
@@ -33,28 +29,22 @@ public class Door : Entity
     [SerializeField]
     float transitionTime = 1;
 
-    protected override void OnInteract(Character character, EntityValues entityValues, Item item = null)
+    protected override void OnInteract(EntityValues values)
     {
-        float distance = Vector2.Distance(character.transform.position, transform.position);
+        float distance = Vector2.Distance(values.character.transform.position, transform.position);
         if (distance <= minRadiusDistance && doorLocked == false)
         {
-            StartCoroutine(EnterDoor(character));
+            StartCoroutine(EnterDoor(values.character));
 
-            EntityValues values;
-            values.entity = this;
-            values.collider2d = null;
-            values.character = character;
             values.trigger = EntityValues.TriggerType.EnterDoor;
-            EnterEvents.Invoke(values);
+            base.OnInteract(values);
         }
-        else
+        else if (distance <= minRadiusDistance && doorLocked == true)
         {
-            EntityValues values;
-            values.entity = this;
-            values.collider2d = null;
-            values.trigger = EntityValues.TriggerType.Inspect;
-            values.character = character;
-            base.Interact(character, values);
+            values.trigger = EntityValues.TriggerType.UseItem;
+            base.OnInteract(values);
+
+            SetLock(false, values.item);
         }
     }
 
@@ -63,7 +53,16 @@ public class Door : Entity
         StartCoroutine(Fade.FadeIn(transitionTime));
         yield return new WaitForSeconds(transitionTime);
         float characterHeight = character.GetComponent<CapsuleCollider2D>().size.y;
-        character.transform.position = new Vector2(exitDoor.transform.position.x, exitDoor.transform.position.y - characterHeight);
+        float doorHeight = exitDoor.GetComponent<BoxCollider2D>().size.y;
+        character.transform.position = new Vector2(exitDoor.transform.position.x, exitDoor.transform.position.y - doorHeight + characterHeight);
+    }
+
+    public void SetLock(bool value, Item item)
+    {
+        if (item == key)
+        {
+            doorLocked = value;
+        }
     }
 
     private void OnDrawGizmos()
