@@ -31,9 +31,9 @@ public class Container : Entity
             // Checks if the item that the player is holding is one of the required items. Then adds it.
             foreach (Item requiredItem in requiredItems)
             {
-                if (valuesitem == requiredItem)
+                if (values.item == requiredItem)
                 {
-                    containedItems.Add(valuesitem);
+                    containedItems.Add(values.item);
                     values.character.RemoveItemFromInventory(values.item);
                     requiredItemsCount++;
 
