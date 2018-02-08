@@ -11,6 +11,8 @@ namespace MusicMixer
         /// </summary>
         private static readonly string debugPrefix = "<color=darkblue><b>MusicController</b></color> - ";
 
+        public static readonly string[] trackNames;
+
         /// <summary>
         /// Finds and returns the active MusicPlayer. 
         /// If there are no MusicPlayer present a new one will be instantiated from default if possible, empty if resource is missing.
@@ -64,10 +66,26 @@ namespace MusicMixer
             }
         }
 
-        // TODO: Get all tracks
+        /// <summary>
+        /// Get all MusicTrack available in the current active MusicPlayer.
+        /// </summary>
+        /// <returns>List with all MusicTrack</returns>
         public static List<MusicTrack> GetAllTracks()
         {
             return ActiveMusicPlayer.Tracks;
+        }
+        /// <summary>
+        /// Get all MusicTracks as strings. Has the same index as GetAllTracks and can be used to find index for a specific track.
+        /// </summary>
+        /// <returns>Array of all clips in active MusicPlayer</returns>
+        public static string[] GetAllTracksAsString()
+        {
+            List<string> trackStrings = new List<string>();
+            foreach (MusicTrack track in MusicController.GetAllTracks())
+            {
+                trackStrings.Add(track.ToString());
+            }
+            return trackStrings.ToArray();
         }
 
         // Play track
@@ -92,25 +110,55 @@ namespace MusicMixer
             ActiveMusicPlayer.StopTrack();
         }
 
-        // TODO: Fade specific track
-        public static void FadeTrack(MusicTrack trackToFade, float targetVolume = 0f)
+        /// <summary>
+        /// Begins a crossfade of the specified track
+        /// </summary>
+        /// <param name="trackToFade">Which track should be crossfaded</param>
+        /// <param name="targetVolume">What volume the track should end up with</param>
+        /// <returns>Name of the track faded</returns>
+        public static string FadeTrack(MusicTrack trackToFade, float targetVolume = 0f)
         {
             ActiveMusicPlayer.BeginTrackFade(trackToFade, targetVolume);
+            return trackToFade.ToString();
         }
 
-        public static void FadeTrack(MusicTrack trackToFade, float targetVolume = 0f, float fadeDuration = 0f)
+        /// <summary>
+        /// Begins a crossfade of the specified track
+        /// </summary>
+        /// <param name="trackToFade">Which track should be crossfaded</param>
+        /// <param name="targetVolume">What volume the track should end up with</param>
+        /// <param name="fadeDuration">Over how many seconds the fade will travel to the target volume</param>
+        /// <returns>Name of the track faded</returns>
+        public static string FadeTrack(MusicTrack trackToFade, float targetVolume = 0f, float fadeDuration = 0f)
         {
             ActiveMusicPlayer.BeginTrackFade(trackToFade, targetVolume, fadeDuration);
+            return trackToFade.ToString();
         }
 
-        public static void FadeTrack(int trackIndex, float targetVolume = 0f)
+        /// <summary>
+        /// Begins a crossfade of the specified track using it's index in the active MusicPlayer
+        /// </summary>
+        /// <param name="trackToFade">Which track should be crossfaded</param>
+        /// <param name="targetVolume">What volume the track should end up with</param>
+        /// <param name="fadeDuration">Over how many seconds the fade will travel to the target volume</param>
+        /// <returns>Name of the track faded</returns>
+        public static string FadeTrack(int trackToFade, float targetVolume = 0f)
         {
-            FadeTrack(GetAllTracks()[trackIndex], targetVolume);
+            // TODO: Resolve missing index
+            return FadeTrack(GetAllTracks()[trackToFade], targetVolume);
         }
 
-        public static void FadeTrack(int trackIndex, float targetVolume, float fadeDuration)
+        /// <summary>
+        /// Begins a crossfade of the specified track using it's index in the active MusicPlayer
+        /// </summary>
+        /// <param name="trackToFade">Which track should be crossfaded</param>
+        /// <param name="targetVolume">What volume the track should end up with</param>
+        /// <param name="fadeDuration">Over how many seconds the fade will travel to the target volume</param>
+        /// <returns>Name of the track faded</returns>
+        public static string FadeTrack(int trackToFade, float targetVolume, float fadeDuration)
         {
-            FadeTrack(GetAllTracks()[trackIndex], targetVolume, fadeDuration);
+            // TODO: Resolve missing index
+            return FadeTrack(GetAllTracks()[trackToFade], targetVolume, fadeDuration);
         }
 
 

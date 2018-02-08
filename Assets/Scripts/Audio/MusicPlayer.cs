@@ -480,7 +480,7 @@ namespace MusicMixer
         {
             // Reset fadeTime when a new target is set
             fadeTimer = 0f;
-            Debug.Log("Reset fadetimer");
+            //Debug.Log("Reset fadetimer");
             fadeStartVolume = Volume;
         }
 

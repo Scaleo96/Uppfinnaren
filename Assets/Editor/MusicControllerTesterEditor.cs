@@ -7,26 +7,24 @@ using MusicMixer;
 [CustomEditor(typeof(MusicControllerTester))]
 public class MusicControllerTesterEditor : Editor {
 
-    int selectedInt;
+    int selectedIndex;
     public override void OnInspectorGUI()
     {
-        
-
+        // Get our testing object
         MusicControllerTester tester = (MusicControllerTester)target;
 
-        List<string> trackStrings = new List<string>();
-        foreach (MusicTrack track in MusicController.GetAllTracks())
-        {
-            trackStrings.Add(track.ToString());
-        }
-
-        selectedInt = EditorGUILayout.Popup(selectedInt, trackStrings.ToArray());
+        // Set selectedIndex based on 
+        selectedIndex = EditorGUILayout.Popup(selectedIndex, MusicController.GetAllTracksAsString());
 
         DrawDefaultInspector();
 
+        // Test button
         if (GUILayout.Button("TEST - Start fade on track"))
         {
-            MusicController.FadeTrack(selectedInt, tester.targetVolume, tester.fadeDuration);
+            // Fade track based on index of selected track, save the name of the track for debugging
+            string debugMessage = MusicController.FadeTrack(selectedIndex, tester.targetVolume, tester.fadeDuration);
+
+            Debug.Log("Fading <b>" + debugMessage + "</b> to target volume '" + tester.targetVolume + "' over '" + tester.fadeDuration + "' seconds");
         }
     }
 }

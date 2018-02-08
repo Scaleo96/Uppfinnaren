@@ -12,16 +12,9 @@ public class MusicControllerTester : MonoBehaviour {
     //[SerializeField]
     //bool didIt;
 
-    [HideInInspector] [Range(0,1)]
+    [Range(0,1)]
     public float targetVolume = 0f;
-    
     public float fadeDuration = 0f;
-    public bool fadeIn;
-
-    private void Update()
-    {
-        targetVolume = fadeIn ? 1f : 0f;
-    }
 
     //[SerializeField]
     //List<MusicTrack> trackCopy;
