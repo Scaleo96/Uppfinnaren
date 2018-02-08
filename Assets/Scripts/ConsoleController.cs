@@ -10,7 +10,7 @@ class Cheat
 {
     string code;
     UnityAction<int> call;
-    
+
     public Cheat(string code, UnityAction<int> call)
     {
         this.code = code;
@@ -22,17 +22,9 @@ class Cheat
         return code;
     }
 
-    public void Call()
+    public void Call(int param = 0)
     {
-        if (call.Method.ContainsGenericParameters)
-        {
-            Debug.Log("Param exists.");
-            call.Invoke((int)call.Method.GetParameters()[0].RawDefaultValue);
-        }
-        else
-        {
-            call.Invoke(0);
-        }      
+        call.Invoke(param);   
     }
 }
 
@@ -67,7 +59,9 @@ public class ConsoleController : MonoBehaviour
         cheats = new Cheat[]
         {
             new Cheat("IvarStrike", delegate { IvarStrike(); } ),
-            new Cheat("SetYPos", delegate { SetYPos(int.Parse(input.Split(' ')[1])); } )
+            new Cheat("SetYPos", delegate { SetYPos(); } ),
+            new Cheat("Godzilla", delegate { ScaleUpCurrentPlayer(); }),
+            new Cheat("Gnome", delegate { ScaleDownCurrentPlayer(); })
         };
 
         inputField.onEndEdit.AddListener( delegate { EnterConsole(inputField); } );
@@ -77,18 +71,23 @@ public class ConsoleController : MonoBehaviour
     {
         if (Input.GetKeyDown(activateKey))
         {
-            if (isActive)
-            {
-                animator.SetTrigger("up");
-            }
-            else
-            {
-                animator.SetTrigger("down");
-                inputField.Select();
-            }
-
-            isActive = !isActive;
+            ToggleConsole();
         }
+    }
+
+    private void ToggleConsole()
+    {
+        if (isActive)
+        {
+            animator.SetTrigger("up");
+        }
+        else
+        {
+            animator.SetTrigger("down");
+            inputField.Select();
+        }
+
+        isActive = !isActive;
     }
 
     private void EnterConsole(InputField inputField)
@@ -97,9 +96,17 @@ public class ConsoleController : MonoBehaviour
 
         for (int i = 0; i < cheats.Length; i++)
         {
-            if (input.ToLower() == cheats[i].GetCode().ToLower())
+            if (input.Split(' ')[0].ToLower() == cheats[i].GetCode().ToLower())
             {
-                cheats[i].Call();
+                if (input.Split(' ').Length > 1)
+                {
+                    cheats[i].Call(int.Parse(input.Split(' ')[1]));
+                }
+                else
+                {
+                    cheats[i].Call();
+                }
+
                 inputField.text = "";
             }
         }
@@ -132,14 +139,24 @@ public class ConsoleController : MonoBehaviour
         }
     }
 
-    private void SetYPos(float yPos)
+    private void SetYPos(int yPos = 10)
     {
-        Debug.Log(yPos);
+        Debug.Log(yPos != 10 ? "it worked!!!!!" : "10");
 
         GameController.instance.GetCurrentCharacter().transform.position = new Vector2
         (
             GameController.instance.GetCurrentCharacter().transform.position.x,
             yPos
         );
+    }
+
+    private void ScaleUpCurrentPlayer()
+    {
+        GameController.instance.GetCurrentCharacter().transform.localScale += Vector3.one * 3;
+    }
+
+    private void ScaleDownCurrentPlayer()
+    {
+        GameController.instance.GetCurrentCharacter().transform.localScale -= Vector3.one * 3;
     }
 }

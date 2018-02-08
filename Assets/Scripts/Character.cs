@@ -86,6 +86,16 @@ public class Character : Entity
         return items.Remove(item);
     }
 
+    public bool IsInventoryFull()
+    {
+        if (items.Count >= inventorySize)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     public bool DropItem(Item item)
     {
         item.gameObject.SetActive(true);

@@ -34,6 +34,8 @@ public class GameController : MonoBehaviour
     Character currentCharacter;
     int currentCharID;
 
+    bool canChangeChar = true;
+
     [Header("Mouse Setting")]
     [SerializeField]
     Entity hoverEntity;
@@ -140,20 +142,6 @@ public class GameController : MonoBehaviour
     {
         RaycastSelect();
 
-        // TODO: Move into own function
-        // Change character on input.
-        if (Input.GetButtonDown("Change Character"))
-        {
-            if (currentCharID < (characters.Length - 1))
-            {
-                ChangeCharacter(currentCharID + 1);
-            }
-            else
-            {
-                ChangeCharacter(0);
-            }
-        }
-
         // Deselect item on click.
         hoverImageObject.transform.position = Input.mousePosition;
         if (Input.GetButtonDown("Interact") && isHoldingItem)
@@ -166,6 +154,25 @@ public class GameController : MonoBehaviour
 
             DeselectItem(selectedInventorySlot);
             UpdateInventory(currentCharID);
+        }
+        else if ((Input.GetButtonDown("Right Click") || Input.GetButtonDown("Change Character")) && isHoldingItem)
+        {
+            DeselectItem(selectedInventorySlot);
+            UpdateInventory(currentCharID);
+        }
+
+        // TODO: Move into own function
+        // Change character on input.
+        if (Input.GetButtonDown("Change Character") && canChangeChar)
+        {
+            if (currentCharID < (characters.Length - 1))
+            {
+                ChangeCharacter(currentCharID + 1);
+            }
+            else
+            {
+                ChangeCharacter(0);
+            }
         }
     }
 
@@ -368,5 +375,14 @@ public class GameController : MonoBehaviour
     public Character GetCurrentCharacter()
     {
         return currentCharacter;
+    }
+
+    /// <summary>
+    /// Sets if the player can move the characters or not.
+    /// </summary>
+    public void SetActiveMovement(bool value)
+    {
+        canChangeChar = value;
+        currentCharacter.SetActive(value);
     }
 }
