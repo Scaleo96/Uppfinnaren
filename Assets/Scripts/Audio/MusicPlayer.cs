@@ -392,15 +392,11 @@ namespace MusicMixer
         [SerializeField]
         public AudioSource trackSource;
 
-#if UNITY_EDITOR
         [ReadOnly]
-#endif
         [SerializeField]
         private AudioClip trackClip;
 
-        #if UNITY_EDITOR
         [ReadOnly]
-#endif
         [SerializeField]
         private float currentVolume;
 

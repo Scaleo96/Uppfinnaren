@@ -13,7 +13,7 @@ class MusicControllerTester : MonoBehaviour {
     bool didIt;
 
     [SerializeField]
-    float targetVolume, fadeDuration;
+    float targetVolume, fadeDuration = 0;
 
     //[SerializeField]
     //List<MusicTrack> trackCopy;
