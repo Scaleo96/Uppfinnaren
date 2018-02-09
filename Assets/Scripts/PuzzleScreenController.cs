@@ -18,12 +18,22 @@ public class PuzzleScreenController : MonoBehaviour
     }
 
     /// <summary>
-    /// Sets if the given screen is active or not.
+    /// Activates the given screen.
     /// </summary>
     /// <param name="id">The id of the screen.</param>
-    public void SetActiveScreen(int id, bool value)
+    public void ActivateScreen(int id)
     {
-        puzzleScreens[id].SetActive(value);
-        GameController.instance.SetActiveMovement(value);
+        puzzleScreens[id].SetActive(true);
+        GameController.instance.SetActiveMovement(false);
+    }
+
+    /// <summary>
+    /// Deactivates the given screen.
+    /// </summary>
+    /// <param name="id">The id of the screen.</param>
+    public void DeactivateScreen(int id)
+    {
+        puzzleScreens[id].SetActive(false);
+        GameController.instance.SetActiveMovement(true);
     }
 }
