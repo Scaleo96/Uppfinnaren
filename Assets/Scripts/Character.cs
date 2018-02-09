@@ -20,9 +20,6 @@ public class Character : Entity
     float throwForce = 20f;
 
     [SerializeField]
-    float itemPickupDistance = 3f;
-
-    [SerializeField]
     int inventorySize;
 
     [SerializeField]
@@ -132,14 +129,6 @@ public class Character : Entity
         get
         {
             return isActive;
-        }
-    }
-
-    public float ItemPickupDistance
-    {
-        get
-        {
-            return itemPickupDistance;
         }
     }
 

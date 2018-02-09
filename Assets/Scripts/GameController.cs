@@ -206,7 +206,7 @@ public class GameController : MonoBehaviour
 
             // Interact
             float distance = (entity.transform.position - currentCharacter.transform.position).magnitude;
-            if (Input.GetButtonDown("Interact") && distance <= currentCharacter.ItemPickupDistance)
+            if (Input.GetButtonDown("Interact") && distance <= entity.InteractDistance)
             {
                 InteractWithEntity(entity);
             }
