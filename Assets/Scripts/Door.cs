@@ -27,7 +27,6 @@ public class Door : Entity
 
     protected override void OnInteract(EntityValues values)
     {
-        float distance = Vector2.Distance(values.character.transform.position, transform.position);
         if (doorLocked == false)
         {
             StartCoroutine(EnterDoor(values.character));
@@ -40,7 +39,10 @@ public class Door : Entity
             values.trigger = EntityValues.TriggerType.UseItem;
             base.OnInteract(values);
 
-            SetLock(false, values.item);
+            if (values.item != null)
+            {
+                SetLock(false, values.item);
+            }
         }
     }
 

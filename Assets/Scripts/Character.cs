@@ -64,18 +64,10 @@ public class Character : Entity
         }
     }
 
-    public bool AddItemToInventory(Item item)
+    public void AddItemToInventory(Item item)
     {
-        if (items.Count < inventorySize)
-        {
-            items.Add(item);
-            GameController.instance.SetInventoryItems(items);
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        items.Add(item);
+        GameController.instance.SetInventoryItems(items);
     }
 
     public bool RemoveItemFromInventory(Item item)
@@ -95,13 +87,17 @@ public class Character : Entity
 
     public bool DropItem(Item item)
     {
-        item.gameObject.SetActive(true);
-        item.gameObject.transform.position = transform.position;
+        if (isActive)
+        {
+            item.gameObject.SetActive(true);
+            item.gameObject.transform.position = transform.position;
 
-        Vector2 throwDir = GameController.instance.CameraComponent.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        item.gameObject.GetComponent<Rigidbody2D>().AddForce(throwDir * throwForce, ForceMode2D.Impulse);
+            Vector2 throwDir = GameController.instance.CameraComponent.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            item.gameObject.GetComponent<Rigidbody2D>().AddForce(throwDir * throwForce, ForceMode2D.Impulse);
 
-        return items.Remove(item);
+            return items.Remove(item);
+        }
+        else return false;
     }
 
     public int InventorySize
