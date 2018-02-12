@@ -28,8 +28,19 @@ public class Character : Entity
     [SerializeField]
     List<Item> items;
 
+    [SerializeField]
+    BigItem bigItem;
+
+    [SerializeField]
+    SpriteRenderer bigItemSR;
+
+    [SerializeField]
+    bool handsFree;
+
     Rigidbody2D rb2D;
     Animator animator;
+
+    bool isFliped = false;
 
     private void Awake()
     {
@@ -64,7 +75,24 @@ public class Character : Entity
         if (moveHorizontal != 0)
         {
             GetComponentInChildren<SpriteRenderer>().flipX = moveHorizontal > 0;
+
+            if (moveHorizontal > 0 && !isFliped)
+                FlipBigItem();
+            else if (moveHorizontal < 0 && isFliped)
+                FlipBigItem();
         }
+    }
+
+    private void FlipBigItem()
+    {
+        isFliped = !isFliped;
+
+        bigItemSR.transform.localPosition = new Vector3
+        (
+            bigItemSR.transform.localPosition.x * -1,
+            bigItemSR.transform.localPosition.y,
+            bigItemSR.transform.localPosition.z
+        );
     }
 
     public bool AddItemToInventory(Item item)
@@ -73,6 +101,28 @@ public class Character : Entity
         {
             items.Add(item);
             GameController.instance.SetInventoryItems(items);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool AddBigItem(BigItem item)
+    {
+        if (bigItem == null)
+        {
+            bigItem = item;
+            bigItemSR.sprite = item.HoldSprite;
+
+            if (!isFliped)
+                bigItemSR.transform.Translate(item.Posoffset);
+            else
+                bigItemSR.transform.Translate(-item.Posoffset);
+
+            handsFree = false;
+
             return true;
         }
         else
@@ -94,6 +144,40 @@ public class Character : Entity
         }
 
         return false;
+    }
+
+    public bool HasBigItem()
+    {
+        if (bigItem != null)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public void DropBigItem()
+    {
+        bigItem.gameObject.SetActive(true);
+        bigItem.gameObject.transform.position = bigItemSR.transform.position;
+
+        Vector2 throwDir = GameController.instance.CameraComponent.ScreenToWorldPoint(Input.mousePosition) - bigItemSR.transform.position;
+        bigItem.gameObject.GetComponent<Rigidbody2D>().AddForce(throwDir * throwForce, ForceMode2D.Impulse);
+
+        if (!isFliped)
+            bigItemSR.transform.Translate(-bigItem.Posoffset);
+        else
+            bigItemSR.transform.Translate(bigItem.Posoffset);
+
+        bigItemSR.sprite = null;
+        bigItem = null;
+        StartCoroutine(HandsFreedom());
+    }
+
+    IEnumerator HandsFreedom()
+    {
+        yield return new WaitForEndOfFrame();
+        handsFree = true;
     }
 
     public bool DropItem(Item item)
@@ -140,6 +224,14 @@ public class Character : Entity
         get
         {
             return itemPickupDistance;
+        }
+    }
+
+    public bool HandsFree
+    {
+        get
+        {
+            return handsFree;
         }
     }
 
