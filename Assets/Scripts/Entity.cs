@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 [RequireComponent(typeof(Collider2D))]
 public class Entity : MonoBehaviour
@@ -87,11 +89,13 @@ public class Entity : MonoBehaviour
             interactionEvents = value;
         }
     }
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         UnityEditor.Handles.color = Color.blue;
         UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.forward, interactDistance);
     }
+#endif
 }
 
 [System.Serializable]
@@ -133,6 +137,7 @@ public class CanUseCondition
     }
 }
 
+#if UNITY_EDITOR
 [CustomPropertyDrawer(typeof(CanUseCondition))]
 public class CanUseConditionDrawer : PropertyDrawer
 {
@@ -173,6 +178,7 @@ public class CanUseConditionDrawer : PropertyDrawer
         }
     }
 }
+#endif
 
 [System.Serializable]
 public class ValueEvent : UnityEvent<EntityValues> { }

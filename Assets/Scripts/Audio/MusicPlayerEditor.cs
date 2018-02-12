@@ -1,8 +1,11 @@
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 namespace MusicMixer
 {
+#if UNITY_EDITOR
     [CustomEditor(typeof(MusicPlayer))]
     public class MusicPlayerEditor : Editor
     {
@@ -33,7 +36,7 @@ namespace MusicMixer
             musicPlayer.UpdateInfo();
         }
     }
-
+#endif
     /// <summary>
     /// Read only attribute
     /// TODO: Make available project wide
@@ -43,6 +46,7 @@ namespace MusicMixer
     {
     }
 
+#if UNITY_EDITOR
     [CustomPropertyDrawer(typeof(ReadOnlyAttribute))]
     public class ReadOnlyDrawer : PropertyDrawer
     {
@@ -61,4 +65,5 @@ namespace MusicMixer
             GUI.enabled = true;
         }
     }
+#endif
 }
