@@ -16,6 +16,9 @@ public class ButtonParameters : MonoBehaviour {
     bool destroyItemOnUse;
 
     [SerializeField]
+    bool alwaysCheck;
+
+    [SerializeField]
     RequiredActivations[] requiredActivations;
 
     public void OnClickParamaters()
@@ -35,7 +38,7 @@ public class ButtonParameters : MonoBehaviour {
         }
     }
 
-    public void Activate(Button button)
+    public void Activate(Button button = null)
     {
         bool allComplete;
         allComplete = Complete(button);
@@ -64,6 +67,30 @@ public class ButtonParameters : MonoBehaviour {
 
         }
         return true;
+    }
+
+    private void Update()
+    {
+        if (alwaysCheck)
+        {
+            CheckButtons();
+        }
+    }
+
+    private void CheckButtons()
+    {
+        for (int i = 0; i < requiredActivations.Length; i++)
+        {
+            if (requiredActivations[i].requiredButton.gameObject.activeInHierarchy)
+            {
+                requiredActivations[i].activated = true;
+                Activate();
+            }
+            else
+            {
+                requiredActivations[i].activated = false;
+            }
+        }
     }
 }
 
