@@ -20,9 +20,6 @@ public class Character : Entity
     float throwForce = 20f;
 
     [SerializeField]
-    float itemPickupDistance = 3f;
-
-    [SerializeField]
     int inventorySize;
 
     [SerializeField]
@@ -48,9 +45,10 @@ public class Character : Entity
     private void OnTriggerEnter2D(Collider2D collision)
     {
         EntityValues values;
-        values.entity = this;
+        values.entity = null;
         values.collider2d = collision;
-        values.character = null;
+        values.character = this;
+        values.item = null;
         values.trigger = EntityValues.TriggerType.PositionTrigger;
         positionEvents.Invoke(values);
     }
@@ -66,18 +64,10 @@ public class Character : Entity
         }
     }
 
-    public bool AddItemToInventory(Item item)
+    public void AddItemToInventory(Item item)
     {
-        if (items.Count < inventorySize)
-        {
-            items.Add(item);
-            GameController.instance.SetInventoryItems(items);
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        items.Add(item);
+        GameController.instance.SetInventoryItems(items);
     }
 
     public bool RemoveItemFromInventory(Item item)
@@ -85,15 +75,29 @@ public class Character : Entity
         return items.Remove(item);
     }
 
+    public bool IsInventoryFull()
+    {
+        if (items.Count >= inventorySize)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     public bool DropItem(Item item)
     {
-        item.gameObject.SetActive(true);
-        item.gameObject.transform.position = transform.position;
+        if (isActive)
+        {
+            item.gameObject.SetActive(true);
+            item.gameObject.transform.position = transform.position;
 
-        Vector2 throwDir = GameController.instance.CameraComponent.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        item.gameObject.GetComponent<Rigidbody2D>().AddForce(throwDir * throwForce, ForceMode2D.Impulse);
+            Vector2 throwDir = GameController.instance.CameraComponent.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            item.gameObject.GetComponent<Rigidbody2D>().AddForce(throwDir * throwForce, ForceMode2D.Impulse);
 
-        return items.Remove(item);
+            return items.Remove(item);
+        }
+        else return false;
     }
 
     public int InventorySize
@@ -121,14 +125,6 @@ public class Character : Entity
         get
         {
             return isActive;
-        }
-    }
-
-    public float ItemPickupDistance
-    {
-        get
-        {
-            return itemPickupDistance;
         }
     }
 

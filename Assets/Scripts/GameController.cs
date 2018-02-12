@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-struct InventorySlot
+public struct InventorySlot
 {
     public Item item;
     public GameObject slot;
@@ -33,6 +33,8 @@ public class GameController : MonoBehaviour
     Character[] characters;
     Character currentCharacter;
     int currentCharID;
+
+    bool canChangeChar = true;
 
     [Header("Mouse Setting")]
     [SerializeField]
@@ -63,6 +65,8 @@ public class GameController : MonoBehaviour
 
     [SerializeField]
     GameObject inventorySlotPrefab;
+
+    bool isActive;
 
 
     /// <summary>
@@ -140,23 +144,9 @@ public class GameController : MonoBehaviour
     {
         RaycastSelect();
 
-        // TODO: Move into own function
-        // Change character on input.
-        if (Input.GetButtonDown("Change Character"))
-        {
-            if (currentCharID < (characters.Length - 1))
-            {
-                ChangeCharacter(currentCharID + 1);
-            }
-            else
-            {
-                ChangeCharacter(0);
-            }
-        }
-
         // Deselect item on click.
         hoverImageObject.transform.position = Input.mousePosition;
-        if (Input.GetButtonDown("Interact") && isHoldingItem)
+        if (Input.GetButtonDown("Interact") && isHoldingItem && isActive)
         {
             if (hoverEntity == false)
             {
@@ -166,6 +156,25 @@ public class GameController : MonoBehaviour
 
             DeselectItem(selectedInventorySlot);
             UpdateInventory(currentCharID);
+        }
+        else if ((Input.GetButtonDown("Right Click") || Input.GetButtonDown("Change Character")) && isHoldingItem)
+        {
+            DeselectItem(selectedInventorySlot);
+            UpdateInventory(currentCharID);
+        }
+
+        // TODO: Move into own function
+        // Change character on input.
+        if (Input.GetButtonDown("Change Character") && canChangeChar)
+        {
+            if (currentCharID < (characters.Length - 1))
+            {
+                ChangeCharacter(currentCharID + 1);
+            }
+            else
+            {
+                ChangeCharacter(0);
+            }
         }
     }
 
@@ -199,7 +208,7 @@ public class GameController : MonoBehaviour
 
             // Interact
             float distance = (entity.transform.position - currentCharacter.transform.position).magnitude;
-            if (Input.GetButtonDown("Interact") && distance <= currentCharacter.ItemPickupDistance)
+            if (Input.GetButtonDown("Interact") && distance <= entity.InteractDistance)
             {
                 InteractWithEntity(entity);
             }
@@ -219,13 +228,21 @@ public class GameController : MonoBehaviour
     private void InteractWithEntity(Entity entity)
     {
         EntityValues values;
-        values.trigger = EntityValues.TriggerType.Inspect;
         values.entity = entity;
         values.character = currentCharacter;
         values.collider2d = null;
+        values.item = selectedInventorySlot.item;
+        if (selectedInventorySlot.item != null)
+        {
+            values.trigger = EntityValues.TriggerType.UseItem;
+        }
+        else
+        {
+            values.trigger = EntityValues.TriggerType.Inspect;
+        }
 
         selectedEntity = entity;
-        entity.Interact(currentCharacter, values, selectedInventorySlot.item);
+        entity.Interact(values);
     }
 
     /// <summary>
@@ -265,7 +282,7 @@ public class GameController : MonoBehaviour
     /// <summary>
     /// Resets and sets the the UI inventory slots to match the given character's.
     /// </summary>
-    private void UpdateInventory(int charID)
+    public void UpdateInventory(int charID)
     {
         foreach (InventorySlot inventorySlot in inventorySlots[currentCharID])
         {
@@ -345,7 +362,7 @@ public class GameController : MonoBehaviour
     /// <summary>
     /// Deselects and item when you drop it or try to interact with someting.
     /// </summary>
-    private void DeselectItem(InventorySlot slot)
+    public void DeselectItem(InventorySlot slot)
     {
         isHoldingItem = false;
 
@@ -360,5 +377,39 @@ public class GameController : MonoBehaviour
     public Character GetCurrentCharacter()
     {
         return currentCharacter;
+    }
+
+    /// <summary>
+    /// Sets if the player can move the characters or not.
+    /// </summary>
+    public void SetActiveMovement(bool value)
+    {
+        isActive = value;
+        canChangeChar = value;
+        currentCharacter.SetActive(value);
+    }
+
+    public Item SelectedItem
+    {
+        get
+        {
+            return selectedInventorySlot.item;
+        }
+    }
+
+    public InventorySlot SelectedInventorySlot
+    {
+        get
+        {
+            return selectedInventorySlot;
+        }
+    }
+
+    public int CurrentCharacterID
+    {
+        get
+        {
+            return currentCharID;
+        }
     }
 }

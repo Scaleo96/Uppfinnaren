@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Conditions : MonoBehaviour
 {
-    public enum TriggerType { PuzzleSloved, Inspect, PositionTrigger, PickupItem, EnterDoor }
+    public enum TriggerType { PuzzleSolved, Inspect, PositionTrigger, PickupItem, EnterDoor, UseItem }
 
     [Header("> Condition")]
 
@@ -19,4 +19,6 @@ public class Conditions : MonoBehaviour
     public bool activated = false;
     [Tooltip("If this is a position condition; select the trigger.")]
     public Collider2D collisionTrigger;
+    [Tooltip("What item is used?")]
+    public Item item;
 }
