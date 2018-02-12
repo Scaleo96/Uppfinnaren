@@ -13,6 +13,10 @@ public class Entity : MonoBehaviour
     [SerializeField]
     string entityName;
 
+    [Tooltip("The minumum distance a character has to be from the entity to interact with it.")]
+    [SerializeField]
+    float interactDistance = 1f;
+
     [SerializeField]
     protected CanUseCondition canUseCondition;
 
@@ -63,6 +67,14 @@ public class Entity : MonoBehaviour
         }
     }
 
+    public float InteractDistance
+    {
+        get
+        {
+            return interactDistance;
+        }
+    }
+
     public ValueEvent InteractionEvents
     {
         get
@@ -74,6 +86,11 @@ public class Entity : MonoBehaviour
         {
             interactionEvents = value;
         }
+    }
+    private void OnDrawGizmos()
+    {
+        UnityEditor.Handles.color = Color.blue;
+        UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.forward, interactDistance);
     }
 }
 
