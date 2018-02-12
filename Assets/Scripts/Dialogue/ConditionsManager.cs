@@ -32,11 +32,16 @@ public class ConditionsManager : MonoBehaviour
                     test = false;
                 }
             }
-            if (container[i].isComplete == false && test == true)
+            if (container[i].isComplete == false && test && container[i].DialogueRunning == false)
             {
-                container[i].isComplete = true;
+                values.dialogueNumber = container[i].dialogueDone;
                 values.meetComplete = true;
                 values.containerNumber = i;
+                container[i].dialogueDone++;
+                if (container[i].dialogueDone >= container[i].dialogue.Length)
+                {
+                    container[i].isComplete = true;
+                }
                 return values;
             }
             else
@@ -48,6 +53,7 @@ public class ConditionsManager : MonoBehaviour
             }
         }
         values.meetComplete = false;
+        values.dialogueNumber = 0;
         values.containerNumber = 0;
         return values;
     }
@@ -123,6 +129,7 @@ public struct ConditionValues
 {
     public bool meetComplete;
     public int containerNumber;
+    public int dialogueNumber;
 }
 
 [System.Serializable]
@@ -131,7 +138,23 @@ public class ConditionContainer
     [Tooltip("What conditions are required to trigger the dialogue.")]
     public Conditions[] conditions;
     [Tooltip("What dialogue is triggered.")]
-    public Dialogue dialogue;
+    public Dialogue[] dialogue;
 
+    [HideInInspector]
+    public int dialogueDone;
+    [HideInInspector]
+    bool dialogueRunning;
     public bool isComplete;
+
+    public bool DialogueRunning
+    {
+        get
+        {
+            return dialogueRunning;
+        }
+        set
+        {
+            dialogueRunning = value;
+        }
+    }
 }
