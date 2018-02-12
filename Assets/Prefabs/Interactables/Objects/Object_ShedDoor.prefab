@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212091099747326750}
   - component: {fileID: 61166341245081294}
   - component: {fileID: 114414455525823648}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Object_ShedDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1943161982552374}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 15.72, y: 1.165, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -54,7 +54,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.1}
+  m_Offset: {x: -0.02, y: -0.1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.55, y: 0.25}
@@ -79,10 +79,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityName: Shed Door
+  interactDistance: 1
   canUseCondition:
-    aminaUse: 0
-    idaUse: 0
-    jonathanUse: 0
+    aminaUse: 1
+    idaUse: 1
+    jonathanUse: 1
   interactionEvents:
     m_PersistentCalls:
       m_Calls: []
@@ -94,7 +95,6 @@ MonoBehaviour:
   exitDoor: {fileID: 0}
   doorLocked: 0
   key: {fileID: 0}
-  minRadiusDistance: 1.42
   transitionTime: 1
 --- !u!212 &212091099747326750
 SpriteRenderer:

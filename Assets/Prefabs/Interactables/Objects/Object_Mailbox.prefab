@@ -109,7 +109,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4057237584446066
 Transform:
   m_ObjectHideFlags: 1
@@ -275,6 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityName: Matches
+  interactDistance: 3
   canUseCondition:
     aminaUse: 1
     idaUse: 1
@@ -300,6 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityName: Mailbox
+  interactDistance: 2
   canUseCondition:
     aminaUse: 1
     idaUse: 1
@@ -313,7 +315,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   input: 0
-  throwForceInterval: {x: 5, y: 10}
+  throwForceInterval: {x: 3, y: 5}
   requiredItems:
   - {fileID: 0}
   containedItems:

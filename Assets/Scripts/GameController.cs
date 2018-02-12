@@ -66,6 +66,7 @@ public class GameController : MonoBehaviour
     [SerializeField]
     GameObject inventorySlotPrefab;
 
+    [SerializeField]
     bool isActive;
 
 
