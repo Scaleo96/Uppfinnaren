@@ -36,4 +36,16 @@ public class PuzzleScreenController : MonoBehaviour
         puzzleScreens[id].SetActive(false);
         GameController.instance.SetActiveMovement(true);
     }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            for (int i = 0; i < puzzleScreens.Length; i++)
+            {
+                puzzleScreens[i].SetActive(false);
+            }
+            GameController.instance.SetActiveMovement(true);
+        }
+    }
 }
