@@ -119,7 +119,7 @@ public class Character : Entity
             if (!isFliped)
                 bigItemSR.transform.Translate(item.Posoffset);
             else
-                bigItemSR.transform.Translate(-item.Posoffset);
+                bigItemSR.transform.Translate(new Vector3(-item.Posoffset.x, item.Posoffset.y, item.Posoffset.z));
 
             handsFree = false;
 
@@ -165,9 +165,9 @@ public class Character : Entity
         bigItem.gameObject.GetComponent<Rigidbody2D>().AddForce(throwDir * throwForce, ForceMode2D.Impulse);
 
         if (!isFliped)
-            bigItemSR.transform.Translate(-bigItem.Posoffset);
+            bigItemSR.transform.Translate(new Vector3(-bigItem.Posoffset.x, -bigItem.Posoffset.y, -bigItem.Posoffset.z));
         else
-            bigItemSR.transform.Translate(bigItem.Posoffset);
+            bigItemSR.transform.Translate(new Vector3(bigItem.Posoffset.x, -bigItem.Posoffset.y, -bigItem.Posoffset.z));
 
         bigItemSR.sprite = null;
         bigItem = null;
