@@ -27,39 +27,22 @@ namespace MusicMixer
         [SerializeField]
         private List<MusicTrack> tracks = new List<MusicTrack>();
 
-        [Header("Batch adding of tracks")]
+        [Header("Batch handling of tracks")]
         [SerializeField]
-        public bool autoPopulateTracks;
+        private bool autoPopulateTracks;
+        [SerializeField]
+        private bool automaticRenaming;
 
-        private void Update()
-        {
-            AdjustTrackVolume();
-        }
+        [SerializeField]
+        float defaultFadeDuration;
 
-        private void AdjustTrackVolume()
-        {
-            // Iterate through trackList
-            foreach (MusicTrack track in tracks)
-            {
-                // Check if it's the correct volume
-                if (track.Volume != track.TargetVolume)
-                {
-                    // Update fade function on track to continue fading
-                    track.FadeTrackOverTime();
-                }
-            }
-        }
+        [Tooltip("Attempt to remove (UnityEngine.AudioClip) appended at the end of renamed children?")]
+        private bool trunctateNameOfRenamedTracks = true;
 
         private void Awake()
         {
             CheckSingleton();
-            if (!startFadingIn)
-            {
-                foreach (MusicTrack track in tracks)
-                {
-                    track.StopFadeTimer();
-                }
-            }
+            StartFadingIn();
         }
 
         private void CheckSingleton()
@@ -80,6 +63,36 @@ namespace MusicMixer
             }
         }
 
+        private void StartFadingIn()
+        {
+            if (!startFadingIn)
+            {
+                foreach (MusicTrack track in tracks)
+                {
+                    track.StopFadeTimer();
+                }
+            }
+        }
+        private void Update()
+        {
+            AdjustTrackVolume();
+        }
+
+        private void AdjustTrackVolume()
+        {
+            // Iterate through trackList
+            foreach (MusicTrack track in tracks)
+            {
+                // Check if it's the correct volume
+                if (track.Volume != track.TargetVolume)
+                {
+                    // Update fade function on track to continue fading
+                    track.FadeTrackOverTime();
+                }
+            }
+        }
+
+
         /// <summary>
         /// Fades the music track to the desired volume
         /// </summary>
@@ -97,7 +110,7 @@ namespace MusicMixer
         /// <param name="track">Music track to fade</param>
         /// <param name="targetVolume">Desired volume</param>
         /// <param name="fadeDuration">New fade duration</param>
-        private void BeginTrackFade(MusicTrack track, float targetVolume = .0f, float fadeDuration = .0f)
+        public void BeginTrackFade(MusicTrack track, float targetVolume = .0f, float fadeDuration = .0f)
         {
             track.FadeDuration = fadeDuration;
             BeginTrackFade(track, targetVolume);
@@ -107,7 +120,7 @@ namespace MusicMixer
         /// Fades the music track to the previously set target volume
         /// </summary>
         /// <param name="track">Music track to fade</param>
-        private void BeginTrackFade(MusicTrack track)
+        public void BeginTrackFade(MusicTrack track)
         {
             BeginTrackFade(track, track.TargetVolume, track.FadeDuration);
         }
@@ -281,6 +294,33 @@ namespace MusicMixer
         }
 
         /// <summary>
+        /// Renames the game object to match the source file of the AudioSource
+        /// </summary>
+        public void RenameObjectsToSourceFile()
+        {
+            foreach (Transform child in transform.GetComponentsInChildren<Transform>())
+            {
+                if (child.GetComponent<AudioSource>())
+                {
+                    string newName = child.GetComponent<AudioSource>().clip.ToString();
+                    if (trunctateNameOfRenamedTracks)
+                    {
+                        newName = newName.Replace(" (UnityEngine.AudioClip)", "");
+                    }
+                    child.name = newName;
+                }
+            }
+        }
+
+        public void SetDefaultFadeDurationOnAllTracks()
+        {
+            foreach (MusicTrack track in tracks)
+            {
+                track.FadeDuration = defaultFadeDuration;
+            }
+        }
+
+        /// <summary>
         /// Logs a debug warning message with unified formatting for MusicPlayer
         /// </summary>
         /// <param name="warningMessage">Warning message to send to the console</param>
@@ -325,6 +365,22 @@ namespace MusicMixer
                 return tracks;
             }
         }
+
+        public bool AutoPopulateTracks
+        {
+            get
+            {
+                return autoPopulateTracks;
+            }
+        }
+
+        public bool AutomaticRenaming
+        {
+            get
+            {
+                return automaticRenaming;
+            }
+        }
     }
 
     /// <summary>
@@ -340,8 +396,14 @@ namespace MusicMixer
         [SerializeField]
         private AudioClip trackClip;
 
+        [ReadOnly]
         [SerializeField]
-        private float targetVolume, fadeDuration = 0;
+        private float currentVolume;
+
+        [SerializeField] [Range(0, 1)]
+        private float targetVolume = 0;
+        [SerializeField]
+        private float fadeDuration = 0;
 
         /// <summary>Monitors how long the track has been fading to new TargetVolume</summary>
         private float fadeTimer;
@@ -418,7 +480,7 @@ namespace MusicMixer
         {
             // Reset fadeTime when a new target is set
             fadeTimer = 0f;
-            Debug.Log("Reset fadetimer");
+            //Debug.Log("Reset fadetimer");
             fadeStartVolume = Volume;
         }
 
@@ -428,15 +490,29 @@ namespace MusicMixer
         }
 
         /// <summary>
-        /// Update track information. Mostly used for ReadOnly info
+        /// Update track information. Mostly used for ReadOnly info and only runs in editor
         /// </summary>
         public void UpdateEditorInfo()
         {
+#if UNITY_EDITOR
             // Clip info
             if (trackClip != trackSource.clip)
             {
                 trackClip = trackSource.clip;
             }
+
+            if (currentVolume != Volume)
+            {
+                currentVolume = Volume;
+            }            
+#endif
+        }
+
+        public override string ToString()
+        {
+            string trackName = trackClip.ToString();
+            trackName = trackName.Replace(" (UnityEngine.AudioClip)", "");
+            return trackName;
         }
 
         public float Volume
