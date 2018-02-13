@@ -38,9 +38,9 @@ public class Door : Entity
             values.trigger = EntityValues.TriggerType.UseItem;
             base.OnInteract(values);
 
-            if (values.item != null)
+            if (values.item != null && values.item == key)
             {
-                SetLock(false, values.item);
+                SetLock(false);
             }
         }
     }
@@ -52,14 +52,11 @@ public class Door : Entity
         float characterHeight = character.GetComponent<CapsuleCollider2D>().size.y;
         float doorHeight = exitDoor.GetComponent<BoxCollider2D>().size.y;
         character.transform.position = new Vector2(exitDoor.transform.position.x, exitDoor.transform.position.y - doorHeight + characterHeight);
-        Camera.main.GetComponent<CameraFollow>().SetPosition(exitDoor.transform);
     }
 
-    public void SetLock(bool value, Item item)
+    public void SetLock(bool value)
     {
-        if (item == key)
-        {
-            doorLocked = value;
-        }
+
+        doorLocked = value;
     }
 }
