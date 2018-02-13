@@ -97,9 +97,9 @@ public class Entity : MonoBehaviour
 [System.Serializable]
 public class CanUseCondition
 {
-    public bool aminaUse;
-    public bool idaUse;
-    public bool jonathanUse;
+    public bool aminaUse = true;
+    public bool idaUse = true;
+    public bool jonathanUse = true;
 
     public bool CanInteract(Character character)
     {
