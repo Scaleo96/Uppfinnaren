@@ -91,6 +91,11 @@ public class CameraFollow : MonoBehaviour
         transform.position = new Vector3(pos.x + XAndYOffset.x, pos.y + XAndYOffset.y, transform.position.z);
     }
 
+    public void SetPosition(Transform targetTransform)
+    {
+        transform.position = new Vector3(targetTransform.position.x, targetTransform.position.y, transform.position.z);
+    }
+
     // Draw target idel area.
     void OnDrawGizmos()
     {

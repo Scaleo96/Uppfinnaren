@@ -24,6 +24,7 @@ public class Entity : MonoBehaviour
 
     [SerializeField]
     ValueEvent interactionEvents;
+    [Tooltip("If the Character is not allowed to use the entity this event will be called on interaction")]
     [SerializeField]
     ValueEvent inspectEvents;
 
