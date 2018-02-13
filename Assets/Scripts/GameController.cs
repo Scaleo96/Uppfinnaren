@@ -282,6 +282,14 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void AddItemToCurrentCharacter(Item item)
+    {
+        if (currentCharacter.IsInventoryFull() == false)
+        {
+            currentCharacter.AddItemToInventory(item);
+        }
+    }
+
     /// <summary>
     /// Resets and sets the the UI inventory slots to match the given character's.
     /// </summary>
