@@ -23,6 +23,8 @@ public class ToggleLanguage : MonoBehaviour
                 break;
         }
 
+        Debug.Log("Language is english: " + isEnglish, gameObject);
+
         // Set toggle as such
         GetComponent<Toggle>().isOn = isEnglish;
     }
