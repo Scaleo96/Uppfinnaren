@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 3404eab03a632e2448b3dd532d690572
-timeCreated: 1518601906
+timeCreated: 1518602651
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -81,7 +81,7 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -91,7 +91,7 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
   - buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -107,10 +107,10 @@ TextureImporter:
       name: jonatan_sprite_0
       rect:
         serializedVersion: 2
-        x: 113
-        y: 5195
-        width: 218
-        height: 926
+        x: 0
+        y: 5120
+        width: 512
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,10 +121,10 @@ TextureImporter:
       name: jonatan_sprite_1
       rect:
         serializedVersion: 2
-        x: 625
-        y: 5192
-        width: 234
-        height: 926
+        x: 512
+        y: 5120
+        width: 512
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -135,10 +135,10 @@ TextureImporter:
       name: jonatan_sprite_2
       rect:
         serializedVersion: 2
-        x: 1135
-        y: 5190
-        width: 261
-        height: 925
+        x: 1024
+        y: 5120
+        width: 512
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,10 +149,10 @@ TextureImporter:
       name: jonatan_sprite_3
       rect:
         serializedVersion: 2
-        x: 1645
-        y: 5192
-        width: 287
-        height: 923
+        x: 1536
+        y: 5120
+        width: 512
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,10 +163,10 @@ TextureImporter:
       name: jonatan_sprite_4
       rect:
         serializedVersion: 2
-        x: 109
-        y: 4166
-        width: 309
-        height: 920
+        x: 0
+        y: 4096
+        width: 512
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,10 +177,10 @@ TextureImporter:
       name: jonatan_sprite_5
       rect:
         serializedVersion: 2
-        x: 619
-        y: 4166
-        width: 336
-        height: 919
+        x: 512
+        y: 4096
+        width: 512
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,10 +191,10 @@ TextureImporter:
       name: jonatan_sprite_6
       rect:
         serializedVersion: 2
-        x: 1129
-        y: 4166
-        width: 360
-        height: 917
+        x: 1024
+        y: 4096
+        width: 512
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,10 +205,10 @@ TextureImporter:
       name: jonatan_sprite_7
       rect:
         serializedVersion: 2
-        x: 1645
-        y: 4166
-        width: 353
-        height: 919
+        x: 1536
+        y: 4096
+        width: 512
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,10 +219,10 @@ TextureImporter:
       name: jonatan_sprite_8
       rect:
         serializedVersion: 2
-        x: 109
-        y: 3143
-        width: 351
-        height: 920
+        x: 0
+        y: 3072
+        width: 512
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,10 +233,10 @@ TextureImporter:
       name: jonatan_sprite_9
       rect:
         serializedVersion: 2
-        x: 622
-        y: 3143
-        width: 336
-        height: 923
+        x: 512
+        y: 3072
+        width: 512
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -247,10 +247,10 @@ TextureImporter:
       name: jonatan_sprite_10
       rect:
         serializedVersion: 2
-        x: 1135
-        y: 3146
-        width: 324
-        height: 923
+        x: 1024
+        y: 3072
+        width: 512
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -261,10 +261,10 @@ TextureImporter:
       name: jonatan_sprite_11
       rect:
         serializedVersion: 2
-        x: 1648
-        y: 3146
-        width: 309
-        height: 926
+        x: 1536
+        y: 3072
+        width: 512
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -275,10 +275,10 @@ TextureImporter:
       name: jonatan_sprite_12
       rect:
         serializedVersion: 2
-        x: 113
-        y: 2126
-        width: 296
-        height: 923
+        x: 0
+        y: 2048
+        width: 512
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -289,10 +289,10 @@ TextureImporter:
       name: jonatan_sprite_13
       rect:
         serializedVersion: 2
-        x: 625
-        y: 2123
-        width: 267
-        height: 923
+        x: 512
+        y: 2048
+        width: 512
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -303,10 +303,10 @@ TextureImporter:
       name: jonatan_sprite_14
       rect:
         serializedVersion: 2
-        x: 1135
-        y: 2120
-        width: 243
-        height: 923
+        x: 1024
+        y: 2048
+        width: 512
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -317,10 +317,10 @@ TextureImporter:
       name: jonatan_sprite_15
       rect:
         serializedVersion: 2
-        x: 1645
-        y: 2120
-        width: 234
-        height: 923
+        x: 1536
+        y: 2048
+        width: 512
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -331,10 +331,10 @@ TextureImporter:
       name: jonatan_sprite_16
       rect:
         serializedVersion: 2
-        x: 109
-        y: 1097
-        width: 243
-        height: 917
+        x: 0
+        y: 1024
+        width: 512
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -345,10 +345,10 @@ TextureImporter:
       name: jonatan_sprite_17
       rect:
         serializedVersion: 2
-        x: 619
-        y: 1097
-        width: 267
-        height: 916
+        x: 512
+        y: 1024
+        width: 512
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -359,10 +359,10 @@ TextureImporter:
       name: jonatan_sprite_18
       rect:
         serializedVersion: 2
-        x: 1129
-        y: 1097
-        width: 288
-        height: 914
+        x: 1024
+        y: 1024
+        width: 512
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -373,10 +373,10 @@ TextureImporter:
       name: jonatan_sprite_19
       rect:
         serializedVersion: 2
-        x: 1645
-        y: 1097
-        width: 279
-        height: 916
+        x: 1536
+        y: 1024
+        width: 512
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -387,10 +387,10 @@ TextureImporter:
       name: jonatan_sprite_20
       rect:
         serializedVersion: 2
-        x: 109
-        y: 74
-        width: 273
-        height: 917
+        x: 0
+        y: 0
+        width: 512
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -401,10 +401,10 @@ TextureImporter:
       name: jonatan_sprite_21
       rect:
         serializedVersion: 2
-        x: 622
-        y: 75
-        width: 261
-        height: 919
+        x: 512
+        y: 0
+        width: 512
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -415,10 +415,10 @@ TextureImporter:
       name: jonatan_sprite_22
       rect:
         serializedVersion: 2
-        x: 1135
-        y: 77
-        width: 246
-        height: 920
+        x: 1024
+        y: 0
+        width: 512
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -429,10 +429,10 @@ TextureImporter:
       name: jonatan_sprite_23
       rect:
         serializedVersion: 2
-        x: 1648
-        y: 77
-        width: 231
-        height: 923
+        x: 1536
+        y: 0
+        width: 512
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
