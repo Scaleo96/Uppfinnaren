@@ -522,7 +522,7 @@ MonoBehaviour:
   target: {fileID: 493045152}
   lockY: 0
   lockX: 0
-  XAndYIdelMargin: {x: 0, y: 0}
+  XAndYIdelMargin: {x: 2, y: 2}
   XAndYOffset: {x: 0, y: 0}
   lerpSpeedX: 5
   lerpSpeedY: 5
@@ -688,9 +688,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16bd35e5b4a67d340a5f960ddb35efc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputField: {fileID: 0}
+  inputField: {fileID: 795052052}
   activateKey: 0
-  IvarPrefab: {fileID: 0}
+  IvarPrefab: {fileID: 1616223971663378, guid: 2061408731825754eafc51fc97f47c29, type: 2}
 --- !u!222 &795052055
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -945,6 +945,26 @@ Prefab:
     - target: {fileID: 4790733292953386, guid: a05db187807bfda4fa72d535dbb98ade, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 61020316030110562, guid: a05db187807bfda4fa72d535dbb98ade,
+        type: 2}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61020316030110562, guid: a05db187807bfda4fa72d535dbb98ade,
+        type: 2}
+      propertyPath: m_UsedByComposite
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61020316030110562, guid: a05db187807bfda4fa72d535dbb98ade,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50792020685643876, guid: a05db187807bfda4fa72d535dbb98ade,
+        type: 2}
+      propertyPath: m_BodyType
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a05db187807bfda4fa72d535dbb98ade, type: 2}
