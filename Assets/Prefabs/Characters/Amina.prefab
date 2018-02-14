@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4535734192398478}
   - component: {fileID: 212748352362794382}
   - component: {fileID: 95924681532721226}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 114338533911277798}
   - component: {fileID: 61754075686704358}
   - component: {fileID: 50971757143108682}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Amina
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1578629008071034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.333667, y: 0.57135415, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4535734192398478}
@@ -92,7 +92,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61754075686704358
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -105,7 +105,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.08624232, y: -0.44199324}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -116,7 +116,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.7679641, y: 8.912719}
   m_EdgeRadius: 0
 --- !u!95 &95924681532721226
 Animator:

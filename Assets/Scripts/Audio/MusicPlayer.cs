@@ -29,7 +29,7 @@ namespace MusicMixer
 
         [Header("Batch handling of tracks")]
         [SerializeField]
-        private bool autoPopulateTracks;
+        public bool autoPopulateTracks;
         [SerializeField]
         private bool automaticRenaming;
 

@@ -58,8 +58,12 @@ public class Character : Entity
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
 
         rb2D.velocity = new Vector2(moveHorizontal * walkSpeed, rb2D.velocity.y);
+
+        animator.SetBool("isWalking", false);
+
         if (moveHorizontal != 0)
         {
+            animator.SetBool("isWalking", true);
             GetComponentInChildren<SpriteRenderer>().flipX = moveHorizontal > 0;
         }
     }
