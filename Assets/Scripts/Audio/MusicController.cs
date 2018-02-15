@@ -10,9 +10,7 @@ namespace MusicMixer
         /// Prefix used for all logged debug messages
         /// </summary>
         private static readonly string debugPrefix = "<color=darkblue><b>MusicController</b></color> - ";
-
-        public static readonly string[] trackNames;
-
+        
         /// <summary>
         /// Finds and returns the active MusicPlayer. 
         /// If there are no MusicPlayer present a new one will be instantiated from default if possible, empty if resource is missing.

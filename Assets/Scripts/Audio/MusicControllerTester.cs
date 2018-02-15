@@ -16,11 +16,16 @@ public class MusicControllerTester : MonoBehaviour {
     public float targetVolume = 0f;
     public float fadeDuration = 0f;
 
+    //public MusicComposition testingMusicComposition;
+
     //[SerializeField]
     //List<MusicTrack> trackCopy;
 
     // Use this for initialization
     void Start () {
+      //  testingMusicComposition = gameObject.AddComponent<MusicComposition>();
+
+        //testingMusicComposition.allTracks = MusicController.GetAllTracks();
         // Play first track
         //MusicController.FadeTrack(MusicController.GetAllTracks()[0], 1f, 15);
 

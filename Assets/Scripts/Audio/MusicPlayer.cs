@@ -27,6 +27,10 @@ namespace MusicMixer
         [SerializeField]
         private bool startFadingIn;
 
+        [Header("Compositions")]
+        [SerializeField]
+        private MusicComposition[] compositions;
+
         [Header("Music Tracks")]
         [SerializeField]
         private List<MusicTrack> tracks = new List<MusicTrack>();
@@ -214,7 +218,19 @@ namespace MusicMixer
         }
 
         /// <summary>
-        /// Starts playing track clip and fade in
+        /// Starts playing track clip and begins fade
+        /// </summary>
+        /// <param name="trackToPlay"></param>
+        /// <param name="fadeIn">Fade in to max volume or min volume?</param>
+        /// <returns></returns>
+        internal bool PlayTrack(MusicTrack trackToPlay, bool fadeIn)
+        {
+            float volume = fadeIn ? 1f : 0f;
+            return PlayTrack(trackToPlay, volume);
+        }
+
+        /// <summary>
+        /// Starts playing track clip and begins fade
         /// </summary>
         /// <param name="trackToPlay"></param>
         /// <param name="volume"></param>
@@ -260,6 +276,12 @@ namespace MusicMixer
             }
         }
 
+        /// <summary>
+        /// Starts playing track clip and begins fade
+        /// </summary>
+        /// <param name="trackToPlay"></param>
+        /// <param name="volume"></param>
+        /// <returns></returns>
         internal bool PlayTrack(MusicTrack trackToPlay, float volume = 1f)
         {
             return PlayTrack(trackToPlay, volume, trackToPlay.FadeDuration);
