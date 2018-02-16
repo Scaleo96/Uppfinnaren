@@ -26,7 +26,7 @@ public class Entity : MonoBehaviour
     ValueEvent interactionEvents;
     [Tooltip("If the Character is not allowed to use the entity this event will be called on interaction")]
     [SerializeField]
-    ValueEvent inspectEvents;
+    ValueEvent cantUseEvents;
 
     bool canBeInteractedWith;
 
@@ -43,7 +43,7 @@ public class Entity : MonoBehaviour
         else if (canUseCondition.CanInteract(values.character) == false)
         {
             values.trigger = EntityValues.TriggerType.Inspect;
-            OnInspect(values);
+            OnCantUse(values);
         }
     }
 
@@ -57,9 +57,9 @@ public class Entity : MonoBehaviour
         interactionEvents.Invoke(values);
     }
 
-    protected virtual void OnInspect(EntityValues values)
+    protected virtual void OnCantUse(EntityValues values)
     {
-        inspectEvents.Invoke(values);
+        cantUseEvents.Invoke(values);
     }
 
     public string EntityName
