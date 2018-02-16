@@ -142,9 +142,7 @@ public class GameController : MonoBehaviour
     }
 
     private void Update()
-    {
-        RaycastSelect();
-
+    {      
         // Deselect item on click.
         hoverImageObject.transform.position = Input.mousePosition;
         if (Input.GetButtonDown("Interact") && isHoldingItem && isActive)
@@ -163,6 +161,9 @@ public class GameController : MonoBehaviour
             DeselectItem(selectedInventorySlot);
             UpdateInventory(currentCharID);
         }
+        // Drop big item.
+        else if (Input.GetButtonDown("Interact") && currentCharacter.HasBigItem())
+            currentCharacter.DropBigItem();
 
         // TODO: Move into own function
         // Change character on input.
@@ -177,6 +178,8 @@ public class GameController : MonoBehaviour
                 ChangeCharacter(0);
             }
         }
+
+        RaycastSelect();
     }
 
     /// <summary>
@@ -233,6 +236,7 @@ public class GameController : MonoBehaviour
         values.character = currentCharacter;
         values.collider2d = null;
         values.item = selectedInventorySlot.item;
+
         if (selectedInventorySlot.item != null)
         {
             values.trigger = EntityValues.TriggerType.UseItem;
