@@ -247,10 +247,11 @@ namespace MusicMixer
                     return false;
                 }
 
-                // Start playing track if it's nto playing
+                // Start playing track at volume 0 if it's not playing already
                 if (!trackToPlay.trackSource.isPlaying)
                 {
                     trackToPlay.trackSource.Play();
+                    trackToPlay.trackSource.volume = 0f;
                 }
 
                 // Initialize fade
