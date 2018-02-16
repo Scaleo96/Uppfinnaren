@@ -4,13 +4,5 @@ using UnityEngine;
 
 public class Amina : Character
 {
-	void Start ()
-    {
-		
-	}
-	
-	void Update ()
-    {
-		
-	}
+
 }

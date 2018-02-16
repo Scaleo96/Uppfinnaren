@@ -7,4 +7,8 @@ AnimatorOverrideController:
   m_PrefabInternal: {fileID: 0}
   m_Name: Ida
   m_Controller: {fileID: 9100000, guid: f6ec48579c636e549ab121aa69878100, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: c730104d861942749999385333df7622, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: bc1fd04eb68dbc943b4ef0619f10851d, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 3d68898a00771a04e988a91de1efd907, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 15e3f5df98e03bf449c76aeacfa60b16, type: 2}
