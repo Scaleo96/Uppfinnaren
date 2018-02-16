@@ -6,35 +6,86 @@ namespace MusicMixer
 {
     static public class MusicController
     {
+        /// <summary>
+        /// Prefix used for all logged debug messages
+        /// </summary>
+        private static readonly string debugPrefix = "<color=darkblue><b>MusicController</b></color> - ";
 
-        public static MusicPlayer ActiveMusicPlayer
+        public static readonly string[] trackNames;
+
+        /// <summary>
+        /// Finds and returns the active MusicPlayer. 
+        /// If there are no MusicPlayer present a new one will be instantiated from default if possible, empty if resource is missing.
+        /// </summary>
+        private static MusicPlayer ActiveMusicPlayer
         {
             get
             {
+                // Try to find MusicPlayer in scene
                 if (GameObject.FindObjectOfType<MusicPlayer>() != null)
                 {
                     return GameObject.FindObjectOfType<MusicPlayer>();
                 }
                 else
                 {
-                    // TODO: Add Resource for the prefab containing the finished music player
+                    // Check for and instantiate default MusicPlayer prefab in Resources folder
+                    if (Resources.FindObjectsOfTypeAll(typeof(MusicPlayer)).Length > 0)
+                    {
+                        LogWarning("No MusicPlayer found in active scene. Instantiating default MusicPlayer located in Resources folder.");
 
-                    // Make a new gameobject and attach the music player to it
-                    GameObject refObj = new GameObject("New Music Player object");
-                    refObj.AddComponent<MusicPlayer>();
-                    MusicPlayer newMusPla = refObj.GetComponent<MusicPlayer>();
+                        // Fetch/load the first MusicPlayer in the Resources folder
+                        MusicPlayer[] musicPlayerResourceArray = (MusicPlayer[])Resources.FindObjectsOfTypeAll(typeof(MusicPlayer));
+                        MusicPlayer defaultMusicPlayer = musicPlayerResourceArray[0];
 
-                    // Warn
-                    LogWarning("No MusicPlayer found in active scenes! A new (empty) one was created, but you probably don't want this", refObj);
-                    return newMusPla;
+                        // Check and warn if there are more than one MusicPlayer in the Resources folder (we don't control which one is loaded)
+                        if (musicPlayerResourceArray.Length > 1)
+                        {
+                            LogWarning("Multiple MusicPlayer located in the Resource folder. Only the first found one will be used, remove the ones you do not wish to use.");
+                        }
+
+                        // Instantiate clone of MusicPlayer prefab
+                        GameObject newMPGameObj = GameObject.Instantiate(defaultMusicPlayer.gameObject);
+                        newMPGameObj.name = "Default Music Player";
+
+                        // Find and return the MusicPlayer
+                        MusicPlayer newMusicPlayer = newMPGameObj.GetComponent<MusicPlayer>();
+                        return newMusicPlayer;
+                    }
+                    else // If no default resource can be found a new empty one will be instantiated instead to avoid null reference and a warning will be displayed
+                    {
+                        // Make a new gameobject and attach the music player to it
+                        GameObject refObj = new GameObject("New Music Player object");
+                        refObj.AddComponent<MusicPlayer>();
+                        MusicPlayer newMusPla = refObj.GetComponent<MusicPlayer>();
+
+                        // Warn
+                        LogWarning("No MusicPlayer found in active scenes and default resource is missing! A new (empty) one was created, but you probably don't want this", refObj);
+                        return newMusPla;
+                    }
                 }
             }
         }
 
-        // TODO: Get all tracks
+        /// <summary>
+        /// Get all MusicTrack available in the current active MusicPlayer.
+        /// </summary>
+        /// <returns>List with all MusicTrack</returns>
         public static List<MusicTrack> GetAllTracks()
         {
             return ActiveMusicPlayer.Tracks;
+        }
+        /// <summary>
+        /// Get all MusicTracks as strings. Has the same index as GetAllTracks and can be used to find index for a specific track.
+        /// </summary>
+        /// <returns>Array of all clips in active MusicPlayer</returns>
+        public static string[] GetAllTracksAsString()
+        {
+            List<string> trackStrings = new List<string>();
+            foreach (MusicTrack track in MusicController.GetAllTracks())
+            {
+                trackStrings.Add(track.ToString());
+            }
+            return trackStrings.ToArray();
         }
 
         // Play track
@@ -59,7 +110,56 @@ namespace MusicMixer
             ActiveMusicPlayer.StopTrack();
         }
 
-        // TODO: Fade specific track
+        /// <summary>
+        /// Begins a crossfade of the specified track
+        /// </summary>
+        /// <param name="trackToFade">Which track should be crossfaded</param>
+        /// <param name="targetVolume">What volume the track should end up with</param>
+        /// <returns>Name of the track faded</returns>
+        public static string FadeTrack(MusicTrack trackToFade, float targetVolume = 0f)
+        {
+            ActiveMusicPlayer.BeginTrackFade(trackToFade, targetVolume);
+            return trackToFade.ToString();
+        }
+
+        /// <summary>
+        /// Begins a crossfade of the specified track
+        /// </summary>
+        /// <param name="trackToFade">Which track should be crossfaded</param>
+        /// <param name="targetVolume">What volume the track should end up with</param>
+        /// <param name="fadeDuration">Over how many seconds the fade will travel to the target volume</param>
+        /// <returns>Name of the track faded</returns>
+        public static string FadeTrack(MusicTrack trackToFade, float targetVolume = 0f, float fadeDuration = 0f)
+        {
+            ActiveMusicPlayer.BeginTrackFade(trackToFade, targetVolume, fadeDuration);
+            return trackToFade.ToString();
+        }
+
+        /// <summary>
+        /// Begins a crossfade of the specified track using it's index in the active MusicPlayer
+        /// </summary>
+        /// <param name="trackToFade">Which track should be crossfaded</param>
+        /// <param name="targetVolume">What volume the track should end up with</param>
+        /// <param name="fadeDuration">Over how many seconds the fade will travel to the target volume</param>
+        /// <returns>Name of the track faded</returns>
+        public static string FadeTrack(int trackToFade, float targetVolume = 0f)
+        {
+            // TODO: Resolve missing index
+            return FadeTrack(GetAllTracks()[trackToFade], targetVolume);
+        }
+
+        /// <summary>
+        /// Begins a crossfade of the specified track using it's index in the active MusicPlayer
+        /// </summary>
+        /// <param name="trackToFade">Which track should be crossfaded</param>
+        /// <param name="targetVolume">What volume the track should end up with</param>
+        /// <param name="fadeDuration">Over how many seconds the fade will travel to the target volume</param>
+        /// <returns>Name of the track faded</returns>
+        public static string FadeTrack(int trackToFade, float targetVolume, float fadeDuration)
+        {
+            // TODO: Resolve missing index
+            return FadeTrack(GetAllTracks()[trackToFade], targetVolume, fadeDuration);
+        }
 
 
         /// <summary>
@@ -69,7 +169,7 @@ namespace MusicMixer
         /// <param name="context">Defaults to the MusicPlayer</param>
         static void LogWarning(string warningMessage, UnityEngine.Object context = null)
         {
-            Debug.LogWarning("<color=darkblue><b>MusicController</b></color> - " + warningMessage, context);
+            Debug.LogWarning(debugPrefix + warningMessage, context);
         }
     }
 }

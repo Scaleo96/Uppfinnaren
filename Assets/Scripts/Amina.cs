@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Amina : MonoBehaviour
+public class Amina : Character
 {
 	void Start ()
     {

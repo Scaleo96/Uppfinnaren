@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-struct InventorySlot
+public struct InventorySlot
 {
     public Item item;
     public GameObject slot;
@@ -65,6 +65,9 @@ public class GameController : MonoBehaviour
 
     [SerializeField]
     GameObject inventorySlotPrefab;
+
+    [SerializeField]
+    bool isActive;
 
 
     /// <summary>
@@ -142,7 +145,7 @@ public class GameController : MonoBehaviour
     {      
         // Deselect item on click.
         hoverImageObject.transform.position = Input.mousePosition;
-        if (Input.GetButtonDown("Interact") && isHoldingItem)
+        if (Input.GetButtonDown("Interact") && isHoldingItem && isActive)
         {
             if (hoverEntity == false)
             {
@@ -209,7 +212,7 @@ public class GameController : MonoBehaviour
 
             // Interact
             float distance = (entity.transform.position - currentCharacter.transform.position).magnitude;
-            if (Input.GetButtonDown("Interact") && distance <= currentCharacter.ItemPickupDistance)
+            if (Input.GetButtonDown("Interact") && distance <= entity.InteractDistance)
             {
                 InteractWithEntity(entity);
             }
@@ -264,6 +267,8 @@ public class GameController : MonoBehaviour
         currentCharacter = characters[currentCharID];
 
         currentCharacter.SetActive(true);
+        cameraComponent.GetComponent<CameraFollow>().Target = currentCharacter.transform;
+        cameraComponent.GetComponent<CameraFollow>().SetPosition(currentCharacter.transform);
 
         // TODO: Do stuff with camera
     }
@@ -281,10 +286,18 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void AddItemToCurrentCharacter(Item item)
+    {
+        if (currentCharacter.IsInventoryFull() == false)
+        {
+            currentCharacter.AddItemToInventory(item);
+        }
+    }
+
     /// <summary>
     /// Resets and sets the the UI inventory slots to match the given character's.
     /// </summary>
-    private void UpdateInventory(int charID)
+    public void UpdateInventory(int charID)
     {
         foreach (InventorySlot inventorySlot in inventorySlots[currentCharID])
         {
@@ -364,7 +377,7 @@ public class GameController : MonoBehaviour
     /// <summary>
     /// Deselects and item when you drop it or try to interact with someting.
     /// </summary>
-    private void DeselectItem(InventorySlot slot)
+    public void DeselectItem(InventorySlot slot)
     {
         isHoldingItem = false;
 
@@ -386,7 +399,32 @@ public class GameController : MonoBehaviour
     /// </summary>
     public void SetActiveMovement(bool value)
     {
+        isActive = value;
         canChangeChar = value;
         currentCharacter.SetActive(value);
+    }
+
+    public Item SelectedItem
+    {
+        get
+        {
+            return selectedInventorySlot.item;
+        }
+    }
+
+    public InventorySlot SelectedInventorySlot
+    {
+        get
+        {
+            return selectedInventorySlot;
+        }
+    }
+
+    public int CurrentCharacterID
+    {
+        get
+        {
+            return currentCharID;
+        }
     }
 }

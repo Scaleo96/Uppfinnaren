@@ -20,9 +20,6 @@ public class Character : Entity
     float throwForce = 20f;
 
     [SerializeField]
-    float itemPickupDistance = 3f;
-
-    [SerializeField]
     int inventorySize;
 
     [SerializeField]
@@ -204,9 +201,13 @@ public class Character : Entity
         isActive = value;
 
         if (isActive)
+        {
             animator.SetTrigger("toActiveIdle");
+        }
         else
+        {
             animator.SetTrigger("toInactiveIdle");
+        }
 
         rb2D.velocity = new Vector2(0, rb2D.velocity.y);
     }
@@ -216,14 +217,6 @@ public class Character : Entity
         get
         {
             return isActive;
-        }
-    }
-
-    public float ItemPickupDistance
-    {
-        get
-        {
-            return itemPickupDistance;
         }
     }
 

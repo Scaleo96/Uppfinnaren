@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 [RequireComponent(typeof(Camera))]
 public class CameraFollow : MonoBehaviour
@@ -90,6 +89,11 @@ public class CameraFollow : MonoBehaviour
 
         // Set the new camera position.
         transform.position = new Vector3(pos.x + XAndYOffset.x, pos.y + XAndYOffset.y, transform.position.z);
+    }
+
+    public void SetPosition(Transform targetTransform)
+    {
+        transform.position = new Vector3(targetTransform.position.x, targetTransform.position.y, transform.position.z);
     }
 
     // Draw target idel area.

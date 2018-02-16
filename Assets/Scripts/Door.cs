@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEditor;
 using UnityEngine.UI;
 
 public class Door : Entity
@@ -22,29 +21,27 @@ public class Door : Entity
     [SerializeField]
     Item key;
 
-    [Tooltip("The minumum distance a character has to be from the door to open it.")]
-    [SerializeField]
-    float minRadiusDistance = 1;
-
     [SerializeField]
     float transitionTime = 1;
 
     protected override void OnInteract(EntityValues values)
     {
-        float distance = Vector2.Distance(values.character.transform.position, transform.position);
-        if (distance <= minRadiusDistance && doorLocked == false)
+        if (doorLocked == false)
         {
             StartCoroutine(EnterDoor(values.character));
 
             values.trigger = EntityValues.TriggerType.EnterDoor;
             base.OnInteract(values);
         }
-        else if (distance <= minRadiusDistance && doorLocked == true)
+        else if (doorLocked == true)
         {
             values.trigger = EntityValues.TriggerType.UseItem;
             base.OnInteract(values);
 
-            SetLock(false, values.item);
+            if (values.item != null && values.item == key)
+            {
+                SetLock(false);
+            }
         }
     }
 
@@ -57,17 +54,9 @@ public class Door : Entity
         character.transform.position = new Vector2(exitDoor.transform.position.x, exitDoor.transform.position.y - doorHeight + characterHeight);
     }
 
-    public void SetLock(bool value, Item item)
+    public void SetLock(bool value)
     {
-        if (item == key)
-        {
-            doorLocked = value;
-        }
-    }
 
-    private void OnDrawGizmos()
-    {
-        UnityEditor.Handles.color = Color.green;
-        UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.forward, minRadiusDistance);
+        doorLocked = value;
     }
 }
