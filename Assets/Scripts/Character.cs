@@ -25,8 +25,19 @@ public class Character : Entity
     [SerializeField]
     List<Item> items;
 
+    [SerializeField]
+    BigItem bigItem;
+
+    [SerializeField]
+    SpriteRenderer bigItemSR;
+
+    [SerializeField]
+    bool handsFree;
+
     Rigidbody2D rb2D;
     Animator animator;
+
+    bool isFliped = false;
 
     private void Awake()
     {
@@ -61,13 +72,60 @@ public class Character : Entity
         if (moveHorizontal != 0)
         {
             GetComponentInChildren<SpriteRenderer>().flipX = moveHorizontal > 0;
+
+            if (moveHorizontal > 0 && !isFliped)
+                FlipBigItem();
+            else if (moveHorizontal < 0 && isFliped)
+                FlipBigItem();
         }
     }
 
-    public void AddItemToInventory(Item item)
+    private void FlipBigItem()
     {
-        items.Add(item);
-        GameController.instance.SetInventoryItems(items);
+        isFliped = !isFliped;
+
+        bigItemSR.transform.localPosition = new Vector3
+        (
+            bigItemSR.transform.localPosition.x * -1,
+            bigItemSR.transform.localPosition.y,
+            bigItemSR.transform.localPosition.z
+        );
+    }
+
+    public bool AddItemToInventory(Item item)
+    {
+        if (items.Count < inventorySize)
+        {
+            items.Add(item);
+            GameController.instance.SetInventoryItems(items);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool AddBigItem(BigItem item)
+    {
+        if (bigItem == null)
+        {
+            bigItem = item;
+            bigItemSR.sprite = item.HoldSprite;
+
+            if (!isFliped)
+                bigItemSR.transform.Translate(item.Posoffset);
+            else
+                bigItemSR.transform.Translate(new Vector3(-item.Posoffset.x, item.Posoffset.y, item.Posoffset.z));
+
+            handsFree = false;
+
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public bool RemoveItemFromInventory(Item item)
@@ -85,19 +143,49 @@ public class Character : Entity
         return false;
     }
 
+    public bool HasBigItem()
+    {
+        if (bigItem != null)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public void DropBigItem()
+    {
+        bigItem.gameObject.SetActive(true);
+        bigItem.gameObject.transform.position = bigItemSR.transform.position;
+
+        Vector2 throwDir = GameController.instance.CameraComponent.ScreenToWorldPoint(Input.mousePosition) - bigItemSR.transform.position;
+        bigItem.gameObject.GetComponent<Rigidbody2D>().AddForce(throwDir * throwForce, ForceMode2D.Impulse);
+
+        if (!isFliped)
+            bigItemSR.transform.Translate(new Vector3(-bigItem.Posoffset.x, -bigItem.Posoffset.y, -bigItem.Posoffset.z));
+        else
+            bigItemSR.transform.Translate(new Vector3(bigItem.Posoffset.x, -bigItem.Posoffset.y, -bigItem.Posoffset.z));
+
+        bigItemSR.sprite = null;
+        bigItem = null;
+        StartCoroutine(HandsFreedom());
+    }
+
+    IEnumerator HandsFreedom()
+    {
+        yield return new WaitForEndOfFrame();
+        handsFree = true;
+    }
+
     public bool DropItem(Item item)
     {
-        if (isActive)
-        {
-            item.gameObject.SetActive(true);
-            item.gameObject.transform.position = transform.position;
+        item.gameObject.SetActive(true);
+        item.gameObject.transform.position = transform.position;
 
-            Vector2 throwDir = GameController.instance.CameraComponent.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-            item.gameObject.GetComponent<Rigidbody2D>().AddForce(throwDir * throwForce, ForceMode2D.Impulse);
+        Vector2 throwDir = GameController.instance.CameraComponent.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        item.gameObject.GetComponent<Rigidbody2D>().AddForce(throwDir * throwForce, ForceMode2D.Impulse);
 
-            return items.Remove(item);
-        }
-        else return false;
+        return items.Remove(item);
     }
 
     public int InventorySize
@@ -113,9 +201,13 @@ public class Character : Entity
         isActive = value;
 
         if (isActive)
+        {
             animator.SetTrigger("toActiveIdle");
+        }
         else
+        {
             animator.SetTrigger("toInactiveIdle");
+        }
 
         rb2D.velocity = new Vector2(0, rb2D.velocity.y);
     }
@@ -125,6 +217,14 @@ public class Character : Entity
         get
         {
             return isActive;
+        }
+    }
+
+    public bool HandsFree
+    {
+        get
+        {
+            return handsFree;
         }
     }
 

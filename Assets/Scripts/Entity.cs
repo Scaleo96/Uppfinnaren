@@ -52,8 +52,7 @@ public class Entity : MonoBehaviour
     /// </summary>
     /// <param name="character">The entity that is interacting with this entity.</param>
     protected virtual void OnInteract(EntityValues values)
-    {
-        
+    {      
         interactionEvents.Invoke(values);
     }
 
