@@ -74,6 +74,12 @@ namespace MusicMixer
             }
         }
 
+        private void OnDestroy()
+        {
+            // Reset singleton
+            instance = null;
+        }
+
         private void StartFadingIn()
         {
             if (!startFadingIn)
