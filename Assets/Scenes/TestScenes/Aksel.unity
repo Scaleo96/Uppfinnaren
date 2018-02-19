@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 542086991}
   - component: {fileID: 542086990}
   m_Layer: 0
-  m_Name: Base Track
+  m_Name: base track
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -222,7 +222,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 5bf2e1a015a8a8f40854e8af7a30ef05, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.8
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -331,7 +331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70d59c1336c6d8e469d4b54d5162c140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackCopy: []
+  targetVolume: 0
+  fadeDuration: 0
 --- !u!4 &936470662
 Transform:
   m_ObjectHideFlags: 0
@@ -376,24 +377,35 @@ MonoBehaviour:
   musicMixer: {fileID: 243397838039039640, guid: 0da65e85ae3e14541bb9ef961581f29c,
     type: 2}
   startFadingIn: 1
+  compositions:
+  - baseTrackIndex: 1
+    accompanyingTracks: 010000000200000003000000
+  - baseTrackIndex: 3
+    accompanyingTracks: 
   tracks:
   - trackSource: {fileID: 542086990}
     trackClip: {fileID: 8300000, guid: 5bf2e1a015a8a8f40854e8af7a30ef05, type: 3}
+    currentVolume: 0
     targetVolume: 1
     fadeDuration: 5
   - trackSource: {fileID: 1965597811}
     trackClip: {fileID: 8300000, guid: eb97ef68df051f241a48f1b6d9324360, type: 3}
+    currentVolume: 0
     targetVolume: 0
     fadeDuration: 5
   - trackSource: {fileID: 2030170652}
     trackClip: {fileID: 8300000, guid: 1716e5d2099011f4fbdbc08e20492e86, type: 3}
+    currentVolume: 0
     targetVolume: 0
     fadeDuration: 5
   - trackSource: {fileID: 1958973564}
     trackClip: {fileID: 8300000, guid: e74bec8b03750ac46841d7cfad49fd7d, type: 3}
+    currentVolume: 0
     targetVolume: 0
     fadeDuration: 5
   autoPopulateTracks: 1
+  automaticRenaming: 1
+  defaultFadeDuration: 5
 --- !u!4 &1248244187
 Transform:
   m_ObjectHideFlags: 0
@@ -558,7 +570,7 @@ GameObject:
   - component: {fileID: 1958973565}
   - component: {fileID: 1958973564}
   m_Layer: 0
-  m_Name: Ida
+  m_Name: vibraphone (ida)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -576,7 +588,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: e74bec8b03750ac46841d7cfad49fd7d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.8
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -668,7 +680,7 @@ GameObject:
   - component: {fileID: 1965597812}
   - component: {fileID: 1965597811}
   m_Layer: 0
-  m_Name: Track 2
+  m_Name: bas (amina)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -686,7 +698,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: eb97ef68df051f241a48f1b6d9324360, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.8
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -778,7 +790,7 @@ GameObject:
   - component: {fileID: 2030170651}
   - component: {fileID: 2030170652}
   m_Layer: 0
-  m_Name: Track 1 (1)
+  m_Name: piano (jonatan)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -809,7 +821,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 1716e5d2099011f4fbdbc08e20492e86, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.8
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0

@@ -8,12 +8,10 @@ namespace MusicMixer
     public class MusicComposition
     {
         [SerializeField]
-        private int baseTrackIndex;
+        public int baseTrackIndex;
 
         [SerializeField]
-        private int accompanyingTracksNumbers;
-
-        private Dictionary<int, float> accompanyingTracks;
+        public int[] accompanyingTracks;
 
         private MusicPlayer musicPlayer;
 
@@ -30,15 +28,24 @@ namespace MusicMixer
             ActivateTrack(baseTrackIndex);
             foreach (var track in accompanyingTracks)
             {
-                ActivateTrack(track.Key, track.Value);
+                ActivateTrack(track);
             }
         }
 
+        /// <summary>
+        /// Begins playing track and fade in at full volume
+        /// </summary>
+        /// <param name="index">Index in MusicPlayer's track list</param>
         private void ActivateTrack(int index)
         {
             ActivateTrack(index, 1f);
         }
 
+        /// <summary>
+        /// Begins playing track and fade
+        /// </summary>
+        /// <param name="index">Index in MusicPlayer's track list</param>
+        /// <param name="volume">Volume to fade to</param>
         private void ActivateTrack(int index, float volume)
         {
             MusicTrack activatingMusicTrack = musicPlayer.Tracks[index];

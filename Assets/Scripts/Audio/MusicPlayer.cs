@@ -29,7 +29,7 @@ namespace MusicMixer
 
         [Header("Compositions")]
         [SerializeField]
-        private MusicComposition[] compositions;
+        public MusicComposition[] compositions;
 
         [Header("Music Tracks")]
         [SerializeField]
