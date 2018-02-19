@@ -49,9 +49,12 @@ public class Door : Entity
     {
         StartCoroutine(Fade.FadeIn(transitionTime));
         yield return new WaitForSeconds(transitionTime);
-        float characterHeight = character.GetComponent<CapsuleCollider2D>().size.y;
+        float characterHeight = character.GetComponent<BoxCollider2D>().size.y;
         float doorHeight = exitDoor.GetComponent<BoxCollider2D>().size.y;
-        character.transform.position = new Vector2(exitDoor.transform.position.x, exitDoor.transform.position.y - doorHeight + characterHeight);
+        float scaleCharacter = character.transform.localScale.y;
+        float doorScale = exitDoor.transform.localScale.y;
+        character.transform.position = new Vector2(exitDoor.transform.position.x, exitDoor.transform.position.y - (doorHeight * doorScale) + (characterHeight * scaleCharacter));
+        Camera.main.GetComponent<CameraFollow>().SetPosition(character.transform);
     }
 
     public void SetLock(bool value)

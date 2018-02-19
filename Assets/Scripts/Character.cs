@@ -34,6 +34,9 @@ public class Character : Entity
     [SerializeField]
     bool handsFree;
 
+    [SerializeField]
+    float tolerance = 0.3f;
+
     Rigidbody2D rb2D;
     Animator animator;
 
@@ -66,9 +69,19 @@ public class Character : Entity
 
     private void Move()
     {
-        float moveHorizontal = Input.GetAxisRaw("Horizontal");
+        float moveHorizontal = Input.GetAxis("Horizontal");
 
         rb2D.velocity = new Vector2(moveHorizontal * walkSpeed, rb2D.velocity.y);
+
+        animator.SetBool("isWalking", false);
+        animator.speed = 1;
+
+        if (moveHorizontal > tolerance || moveHorizontal < -tolerance)
+        {
+            animator.SetBool("isWalking", true);
+            animator.speed = Mathf.Abs(moveHorizontal);
+        }
+
         if (moveHorizontal != 0)
         {
             GetComponentInChildren<SpriteRenderer>().flipX = moveHorizontal > 0;
