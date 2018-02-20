@@ -28,7 +28,7 @@ public class Scrolling : MonoBehaviour
 
         if (direction.magnitude != 0)
         {
-            transform.position = startPos + new Vector2(distance.x / direction.magnitude * speedMultiplier, 0);
+            transform.position = startPos - new Vector2(distance.x / direction.magnitude * speedMultiplier, 0);
             //transform.position = startPos + new Vector2(distance.x / direction.magnitude * speed, distance.y / direction.magnitude * speed);
         }
     }
