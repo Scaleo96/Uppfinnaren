@@ -14,33 +14,48 @@ public class ConditionsManager : MonoBehaviour
 
     public ConditionValues IsAllComplete(EntityValues entityValues)
     {
-        int i = 0;
         ConditionValues values;
-        for (i = 0; i < container.Length;)
+        for (int i = 0; i < container.Length;)
         {
-            bool test = true;
+            // Everything breaks if you remove this
+            bool failSafe = true;
+
             for (int j = 0; j < container[i].conditions.Length; j++)
             {
-                Inspect(entityValues, container[i].conditions[j]);
-                PositionTrigger(entityValues, container[i].conditions[j]);
-                PickupItem(entityValues, container[i].conditions[j]);
-                EnterDoor(entityValues, container[i].conditions[j]);
-                PuzzleSolved(entityValues, container[i].conditions[j]);
-                UseItem(entityValues, container[i].conditions[j]);
+                if (container[i].DialogueRunning == false)
+                {
+                    Inspect(entityValues, container[i].conditions[j]);
+                    PositionTrigger(entityValues, container[i].conditions[j]);
+                    PickupItem(entityValues, container[i].conditions[j]);
+                    EnterDoor(entityValues, container[i].conditions[j]);
+                    PuzzleSolved(entityValues, container[i].conditions[j]);
+                    UseItem(entityValues, container[i].conditions[j]);
+                }
+
                 if (container[i].conditions[j].activated == false || container[i].isComplete == true)
                 {
-                    test = false;
+                    failSafe = false;
                 }
             }
-            if (container[i].isComplete == false && test && container[i].DialogueRunning == false)
+            if (container[i].isComplete == false && failSafe && container[i].DialogueRunning == false)
             {
                 values.dialogueNumber = container[i].dialogueDone;
                 values.meetComplete = true;
                 values.containerNumber = i;
                 container[i].dialogueDone++;
-                if (container[i].dialogueDone >= container[i].dialogue.Length)
+
+                for (int k = 0; k < container[i].conditions.Length; k++)
+                {
+                    container[i].conditions[k].activated = false;
+                }
+
+                if (container[i].dialogueDone >= container[i].dialogue.Length && container[i].repeatable == false)
                 {
                     container[i].isComplete = true;
+                }
+                else if (container[i].dialogueDone >= container[i].dialogue.Length && container[i].repeatable == true)
+                {
+                    container[i].dialogueDone = 0;
                 }
                 return values;
             }
@@ -65,6 +80,7 @@ public class ConditionsManager : MonoBehaviour
             if (entityValues.entity == condition.entity && entityValues.character == condition.character)
             {
                 condition.activated = true;
+                Debug.Log("activations");
             }
         }
     }
@@ -75,7 +91,7 @@ public class ConditionsManager : MonoBehaviour
         {
             if (entityValues.collider2d == condition.collisionTrigger && entityValues.character == condition.character)
             {
-               condition.activated = true;
+                condition.activated = true;
             }
         }
     }
@@ -145,6 +161,8 @@ public class ConditionContainer
     [HideInInspector]
     bool dialogueRunning;
     public bool isComplete;
+
+    public bool repeatable;
 
     public bool DialogueRunning
     {

@@ -17,10 +17,10 @@ public class DialogueController : MonoBehaviour
     public Language language;
 
     ConditionsManager conditionsManager;
-    GameObject currentSpeaker;
-    GameObject currentText;
 
-    bool dialogueRunning;
+    List<SpeakerAndText> currentSpeakers = new List<SpeakerAndText>();
+
+    Coroutine currentCoroutine;
 
     // Use this for initialization
     void Start()
@@ -30,10 +30,11 @@ public class DialogueController : MonoBehaviour
 
     public void RunDialogue(EntityValues entityValues)
     {
-        if (!dialogueRunning)
+        if (currentCoroutine != null)
         {
-            StartCoroutine(CheckConditions(entityValues));
+            StopCoroutine(currentCoroutine);
         }
+        currentCoroutine = StartCoroutine(CheckConditions(entityValues));
     }
 
     //Checks all Conditions and returns the values of the first successful
@@ -59,8 +60,12 @@ public class DialogueController : MonoBehaviour
         conditionsManager.container[values.containerNumber].DialogueRunning = true;
         GameObject textGameobject = Instantiate(dialogueTextPrefab, new Vector3(0, 0), transform.rotation, dialogue.speaker.transform);
         Text dialogueText = textGameobject.GetComponentInChildren<Text>();
-        currentText = textGameobject;
-        currentSpeaker = dialogue.speaker;
+        //currentText = textGameobject;
+        SpeakerAndText speakerAndText = new SpeakerAndText();
+        speakerAndText.currentSpeaker = dialogue.speaker;
+        speakerAndText.currentText = textGameobject;
+        currentSpeakers.Add(speakerAndText);
+        //currentSpeaker = dialogue.speaker;
         if (language == Language.Svenska)
         {
             dialogueText.text = dialogue.line_Swedish;
@@ -72,18 +77,24 @@ public class DialogueController : MonoBehaviour
             dialogueText.font.material.mainTexture.filterMode = FilterMode.Point;
         }
         yield return new WaitForSeconds(time);
+        currentSpeakers.Remove(speakerAndText);
         Destroy(textGameobject);
         conditionsManager.container[values.containerNumber].DialogueRunning = false;
     }
 
     private void DialoguePosition()
     {
-        if (currentSpeaker != null && currentText != null)
+        if (currentSpeakers != null)
         {
-            Vector3 screenpos;
-            screenpos = Camera.main.GetComponent<Camera>().WorldToViewportPoint(currentSpeaker.transform.position + textPosition);
-            currentText.transform.GetChild(0).transform.position = Camera.main.GetComponent<Camera>().WorldToScreenPoint(currentSpeaker.transform.position + textPosition);
+            currentSpeakers.ForEach(ChangePosition);
         }
+    }
+
+    private void ChangePosition(SpeakerAndText speakerAndText)
+    {
+        Vector3 screenpos;
+        screenpos = Camera.main.GetComponent<Camera>().WorldToViewportPoint(speakerAndText.currentSpeaker.transform.position + textPosition);
+        speakerAndText.currentText.transform.GetChild(0).transform.position = Camera.main.GetComponent<Camera>().WorldToScreenPoint(speakerAndText.currentSpeaker.transform.position + textPosition);
     }
 
     // Update is called once per frame
@@ -91,4 +102,10 @@ public class DialogueController : MonoBehaviour
     {
         DialoguePosition();
     }
+}
+
+public class SpeakerAndText
+{
+    public GameObject currentSpeaker;
+    public GameObject currentText;
 }
