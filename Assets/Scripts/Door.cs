@@ -22,6 +22,9 @@ public class Door : Entity
     Item key;
 
     [SerializeField]
+    bool destroyKeyOnUse;
+
+    [SerializeField]
     float transitionTime = 1;
 
     protected override void OnInteract(EntityValues values)
@@ -41,6 +44,12 @@ public class Door : Entity
             if (values.item != null && values.item == key)
             {
                 SetLock(false);
+                if (destroyKeyOnUse)
+                {
+                    GameController.instance.GetCurrentCharacter().RemoveItemFromInventory(GameController.instance.SelectedItem);
+                    GameController.instance.DeselectItem(GameController.instance.SelectedInventorySlot);
+                    GameController.instance.UpdateInventory(GameController.instance.CurrentCharacterID);
+                }
             }
         }
     }

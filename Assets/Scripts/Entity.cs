@@ -28,6 +28,12 @@ public class Entity : MonoBehaviour
     [SerializeField]
     ValueEvent cantUseEvents;
 
+    [SerializeField]
+    bool destroyItemOnUse;
+
+    [SerializeField]
+    Item[] requiredItem;
+
     bool canBeInteractedWith;
 
     /// <summary>
@@ -52,8 +58,27 @@ public class Entity : MonoBehaviour
     /// </summary>
     /// <param name="character">The entity that is interacting with this entity.</param>
     protected virtual void OnInteract(EntityValues values)
-    {      
-        interactionEvents.Invoke(values);
+    {
+        if (requiredItem.Length != 0)
+        {
+            for (int i = 0; i < requiredItem.Length; i++)
+            {
+                if (values.item == requiredItem[i])
+                {
+                    interactionEvents.Invoke(values);
+                    if (destroyItemOnUse)
+                    {
+                        GameController.instance.GetCurrentCharacter().RemoveItemFromInventory(GameController.instance.SelectedItem);
+                        GameController.instance.DeselectItem(GameController.instance.SelectedInventorySlot);
+                        GameController.instance.UpdateInventory(GameController.instance.CurrentCharacterID);
+                    }
+                }
+            }
+        }
+        else
+        {
+            interactionEvents.Invoke(values);
+        }
     }
 
     protected virtual void OnCantUse(EntityValues values)
@@ -185,7 +210,7 @@ public class ValueEvent : UnityEvent<EntityValues> { }
 
 public struct EntityValues
 {
-    public enum TriggerType { PuzzleSolved, Inspect, PositionTrigger, PickupItem, EnterDoor, UseItem }
+    public enum TriggerType { PuzzleSolved, Inspect, PositionTrigger, PickupItem, EnterDoor, UseItem, FailedUse }
 
     public TriggerType trigger;
     public Entity entity;
