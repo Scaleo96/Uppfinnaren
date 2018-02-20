@@ -24,6 +24,7 @@ public class ConditionsManager : MonoBehaviour
             {
                 if (container[i].DialogueRunning == false)
                 {
+                    FailedUse(entityValues, container[i].conditions[j]);
                     Inspect(entityValues, container[i].conditions[j]);
                     PositionTrigger(entityValues, container[i].conditions[j]);
                     PickupItem(entityValues, container[i].conditions[j]);
@@ -73,6 +74,17 @@ public class ConditionsManager : MonoBehaviour
         return values;
     }
 
+    private void FailedUse(EntityValues entityValues, Conditions condition)
+    {
+        if (condition.trigger == Conditions.TriggerType.FailedUse && entityValues.trigger == EntityValues.TriggerType.FailedUse)
+        {
+            if (entityValues.entity == condition.entity && entityValues.character == condition.character)
+            {
+                condition.activated = true;
+            }
+        }
+    }
+
     private void Inspect(EntityValues entityValues, Conditions condition)
     {
         if (condition.trigger == Conditions.TriggerType.Inspect && entityValues.trigger == EntityValues.TriggerType.Inspect)
@@ -80,7 +92,6 @@ public class ConditionsManager : MonoBehaviour
             if (entityValues.entity == condition.entity && entityValues.character == condition.character)
             {
                 condition.activated = true;
-                Debug.Log("activations");
             }
         }
     }

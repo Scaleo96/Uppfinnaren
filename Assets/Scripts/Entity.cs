@@ -44,7 +44,36 @@ public class Entity : MonoBehaviour
     {
         if (canUseCondition.CanInteract(values.character) == true)
         {
-            OnInteract(values);
+            if (requiredItem.Length != 0)
+            {
+                int end = 0;
+                for (int i = 0; i < requiredItem.Length; i++)
+                {
+                    if (values.item == requiredItem[i])
+                    {
+                        OnInteract(values);
+                        if (destroyItemOnUse)
+                        {
+                            GameController.instance.GetCurrentCharacter().RemoveItemFromInventory(GameController.instance.SelectedItem);
+                            GameController.instance.DeselectItem(GameController.instance.SelectedInventorySlot);
+                            GameController.instance.UpdateInventory(GameController.instance.CurrentCharacterID);
+                        }
+                    }
+                    else
+                    {
+                        end++;
+                    }
+                }
+                if(end >= requiredItem.Length)
+                {
+                    values.trigger = EntityValues.TriggerType.FailedUse;
+                    OnCantUse(values);
+                }
+            }
+            else
+            {
+                OnInteract(values);
+            }
         }
         else if (canUseCondition.CanInteract(values.character) == false)
         {
@@ -59,26 +88,7 @@ public class Entity : MonoBehaviour
     /// <param name="character">The entity that is interacting with this entity.</param>
     protected virtual void OnInteract(EntityValues values)
     {
-        if (requiredItem.Length != 0)
-        {
-            for (int i = 0; i < requiredItem.Length; i++)
-            {
-                if (values.item == requiredItem[i])
-                {
-                    interactionEvents.Invoke(values);
-                    if (destroyItemOnUse)
-                    {
-                        GameController.instance.GetCurrentCharacter().RemoveItemFromInventory(GameController.instance.SelectedItem);
-                        GameController.instance.DeselectItem(GameController.instance.SelectedInventorySlot);
-                        GameController.instance.UpdateInventory(GameController.instance.CurrentCharacterID);
-                    }
-                }
-            }
-        }
-        else
-        {
-            interactionEvents.Invoke(values);
-        }
+        interactionEvents.Invoke(values);
     }
 
     protected virtual void OnCantUse(EntityValues values)

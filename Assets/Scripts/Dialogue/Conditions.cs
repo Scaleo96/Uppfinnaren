@@ -15,7 +15,7 @@ public class Conditions : MonoBehaviour
     public Character character;
     [Tooltip("What type of condition is this.")]
     public TriggerType trigger;
-    //[HideInInspector]
+    [HideInInspector]
     public bool activated = false;
     [Tooltip("If this is a position condition; select the trigger.")]
     public Collider2D collisionTrigger;
