@@ -273,6 +273,9 @@ public class GameController : MonoBehaviour
         cameraComponent.GetComponent<CameraFollow>().Target = currentCharacter.transform;
         cameraComponent.GetComponent<CameraFollow>().SetPosition(currentCharacter.transform);
 
+        // Change music
+        MusicMixer.MusicController.ActivateAccompanyingTrackExclusive(charID);
+
         // TODO: Do stuff with camera
     }
 

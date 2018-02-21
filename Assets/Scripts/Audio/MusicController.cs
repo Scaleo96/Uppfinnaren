@@ -202,5 +202,10 @@ namespace MusicMixer
             ActiveMusicPlayer.ActivateCompositionGroup(composition);
             return composition.ToString();
         }
+
+        public static void ActivateAccompanyingTrackExclusive(int compIndex)
+        {
+            ActiveMusicPlayer.ActiveAccompanyingTrack = compIndex;
+        }
     }
 }

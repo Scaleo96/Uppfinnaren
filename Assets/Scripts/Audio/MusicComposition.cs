@@ -52,13 +52,22 @@ namespace MusicMixer
         /// <summary>
         /// Begins playing base track and accompanying tracks, setting volume 
         /// </summary>
-        public void ActivateGroup()
+        public void ActivateGroup(int accompanyingTrackIndex)
         {
             ActivateTrack(baseTrackIndex);
-            foreach (int track in accompanyingTracks)
+            for (int i = 0; i < accompanyingTracks.Length; i++)
             {
                 // TODO: Find and use appropriate target volume
-                ActivateTrack(track, 0f);
+                if (i != accompanyingTrackIndex)
+                {
+                    // Activate at 0 volume
+                    ActivateTrack(accompanyingTracks[i], 0f);
+                }
+                else
+                {
+                    // Activate att full volume
+                    ActivateTrack(accompanyingTracks[i]);
+                }
             }
         }
 
@@ -76,13 +85,36 @@ namespace MusicMixer
         /// </summary>
         /// <param name="index">Index in MusicPlayer's track list</param>
         /// <param name="volume">Volume to fade to</param>
-        public void ActivateTrack(int index, float volume)
+        private void ActivateTrack(int index, float volume)
         {
             MusicTrack activatingMusicTrack = GetMusicTrack(index);
             musicPlayer.PlayTrack(activatingMusicTrack, volume);
         }
 
-        public void DeactivateGroup()
+        /// <summary>
+        /// Fades in one accompanying track to full volume and fades out the rest to 0 volume.
+        /// Leaves the base track alone.
+        /// </summary>
+        /// <param name="accompanyingTrackIndex"></param>
+        internal void FadeToTrackExlusive(int accompanyingTrackIndex)
+        {
+            for (int i = 0; i < accompanyingTracks.Length; i++)
+            {
+                if (i != accompanyingTrackIndex)
+                {
+                    // Activate at 0 volume
+                    ActivateTrack(accompanyingTracks[i], 0f);
+                }
+                else
+                {
+                    // Activate att full volume
+                    ActivateTrack(accompanyingTracks[i]);
+                }
+            }
+        }
+    
+
+    public void DeactivateGroup()
         {
             DeactivateTrack(baseTrackIndex);
             foreach (int trackIndex in accompanyingTracks)
