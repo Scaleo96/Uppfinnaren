@@ -392,6 +392,16 @@ namespace MusicMixer
             }
         }
 
+        public void ActivateCompositionGroup(MusicComposition composition)
+        {
+            composition.ActivateGroup();
+        }
+
+        public void DeactivateCompositionGroup(MusicComposition composition)
+        {
+            composition.DeactivateGroup();
+        }
+
         public List<MusicTrack> Tracks
         {
             get
@@ -413,6 +423,19 @@ namespace MusicMixer
             get
             {
                 return automaticRenaming;
+            }
+        }
+
+        public static MusicPlayer Instance
+        {
+            get
+            {
+                return instance;
+            }
+
+            private set
+            {
+                instance = value;
             }
         }
     }

@@ -36,15 +36,23 @@ public class MusicControllerTester : MonoBehaviour {
         //    Debug.LogWarning("<color=cyan><b>MusicTester</b></color> - I tried playing a track, and it worked!", this);
         //}
 
+
+
     }
-	
-	//// Update is called once per frame
-	//void Update () {
- //       if (Time.time > testTimer && !didIt)
- //       {
- //           MusicController.FadeTrack(MusicController.GetAllTracks()[trackIndex], targetVolume, fadeDuration);
- //           //trackCopy[0].StartFade(targetVolume, fadeDuration);
- //           didIt = true;
- //       }
- //   }
+    private void Update()
+    {
+        Debug.Log("Activating composition: " +
+    MusicController.ActivateMusicComposition(MusicController.Compositions[0])
+    );
+    }
+
+    //// Update is called once per frame
+    //void Update () {
+    //       if (Time.time > testTimer && !didIt)
+    //       {
+    //           MusicController.FadeTrack(MusicController.GetAllTracks()[trackIndex], targetVolume, fadeDuration);
+    //           //trackCopy[0].StartFade(targetVolume, fadeDuration);
+    //           didIt = true;
+    //       }
+    //   }
 }

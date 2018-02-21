@@ -21,6 +21,27 @@ namespace MusicMixer
 
         private MusicPlayer musicPlayer;
 
+        public MusicPlayer MusicPlayer
+        {
+            get
+            {
+                if (musicPlayer != null)
+                {
+                    return musicPlayer;
+                }
+                else if (MusicPlayer.Instance == null)
+                {
+                    Debug.LogError("No MusicPlayer available.");
+                    return null;
+                }
+                else
+                {
+                    musicPlayer = MusicPlayer.Instance;
+                    return musicPlayer;
+                }
+            }
+        }
+
         // TODO: Add functionality to stop composition tracks after a set amount of time. Suggestion: Co-routine?
 
         public MusicComposition(MusicPlayer musicPlayer)
@@ -36,7 +57,8 @@ namespace MusicMixer
             ActivateTrack(baseTrackIndex);
             foreach (int track in accompanyingTracks)
             {
-                ActivateTrack(track);
+                // TODO: Find and use appropriate target volume
+                ActivateTrack(track, 0f);
             }
         }
 

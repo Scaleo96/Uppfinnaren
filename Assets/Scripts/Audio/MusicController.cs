@@ -188,5 +188,19 @@ namespace MusicMixer
         {
             Debug.LogWarning(debugPrefix + warningMessage, context);
         }
+
+        public static MusicComposition[] Compositions
+        {
+            get
+            {
+                return ActiveMusicPlayer.compositions;
+            }
+        }
+
+        public static string ActivateMusicComposition(MusicComposition composition)
+        {
+            ActiveMusicPlayer.ActivateCompositionGroup(composition);
+            return composition.ToString();
+        }
     }
 }
