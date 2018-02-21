@@ -99,7 +99,7 @@ namespace MusicMixer
 
         private MusicTrack GetMusicTrack(int trackIndex)
         {
-            bool indexWithinBounds = musicPlayer.Tracks.Count > trackIndex;
+            bool indexWithinBounds = MusicPlayer.Tracks.Count > trackIndex;
             if (!indexWithinBounds)
             {
                 // TODO: Implement exception
@@ -107,13 +107,13 @@ namespace MusicMixer
             }
             else
             {
-                return musicPlayer.Tracks[trackIndex];
+                return MusicPlayer.Tracks[trackIndex];
             }
         }
 
         public override string ToString()
         {
-            string baseTrackName = musicPlayer.Tracks[baseTrackIndex].ToString();
+            string baseTrackName = MusicPlayer.Tracks[baseTrackIndex].ToString();
             baseTrackName += " - Composition";
             return baseTrackName;
         }

@@ -41,9 +41,9 @@ public class MusicControllerTester : MonoBehaviour {
     }
     private void Update()
     {
-        Debug.Log("Activating composition: " +
-    MusicController.ActivateMusicComposition(MusicController.Compositions[0])
-    );
+        MusicComposition testCompo = MusicController.Compositions[0];
+        string testCompName = MusicController.ActivateMusicComposition(testCompo);
+        Debug.Log("Activating composition: " + testCompName);
     }
 
     //// Update is called once per frame

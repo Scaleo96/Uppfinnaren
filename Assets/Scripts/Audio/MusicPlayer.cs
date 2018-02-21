@@ -58,7 +58,7 @@ namespace MusicMixer
         private void CheckSingleton()
         {
             // Make sure there are no other running instances of the MenUI
-            if (instance != null)
+            if (Instance != null)
             {
                 if (Debug.isDebugBuild) LogWarning("Other instance of MusicPlayer already running. Terminating.");
                 Destroy(gameObject);
@@ -66,7 +66,7 @@ namespace MusicMixer
             else
             {
                 if (Debug.isDebugBuild) Log("Initializing MusicPlayer", this);
-                instance = this;
+                Instance = this;
 
                 // Set MusicPlayer to be persistant
                 DontDestroyOnLoad(gameObject);
@@ -76,7 +76,10 @@ namespace MusicMixer
         private void OnDestroy()
         {
             // Reset singleton
-            instance = null;
+            if (Instance == this)
+            {
+                Instance = null;
+            }
         }
 
         private void StartFadingIn()
