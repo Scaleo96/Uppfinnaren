@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,10 +10,8 @@ namespace MusicMixer
         /// </summary>
         private static readonly string debugPrefix = "<color=darkblue><b>MusicController</b></color> - ";
 
-        public static readonly string[] trackNames;
-
         /// <summary>
-        /// Finds and returns the active MusicPlayer. 
+        /// Finds and returns the active MusicPlayer.
         /// If there are no MusicPlayer present a new one will be instantiated from default if possible, empty if resource is missing.
         /// </summary>
         private static MusicPlayer ActiveMusicPlayer
@@ -28,42 +25,62 @@ namespace MusicMixer
                 }
                 else
                 {
-                    // Check for and instantiate default MusicPlayer prefab in Resources folder
-                    if (Resources.FindObjectsOfTypeAll(typeof(MusicPlayer)).Length > 0)
-                    {
-                        LogWarning("No MusicPlayer found in active scene. Instantiating default MusicPlayer located in Resources folder.");
-
-                        // Fetch/load the first MusicPlayer in the Resources folder
-                        MusicPlayer[] musicPlayerResourceArray = (MusicPlayer[])Resources.FindObjectsOfTypeAll(typeof(MusicPlayer));
-                        MusicPlayer defaultMusicPlayer = musicPlayerResourceArray[0];
-
-                        // Check and warn if there are more than one MusicPlayer in the Resources folder (we don't control which one is loaded)
-                        if (musicPlayerResourceArray.Length > 1)
-                        {
-                            LogWarning("Multiple MusicPlayer located in the Resource folder. Only the first found one will be used, remove the ones you do not wish to use.");
-                        }
-
-                        // Instantiate clone of MusicPlayer prefab
-                        GameObject newMPGameObj = GameObject.Instantiate(defaultMusicPlayer.gameObject);
-                        newMPGameObj.name = "Default Music Player";
-
-                        // Find and return the MusicPlayer
-                        MusicPlayer newMusicPlayer = newMPGameObj.GetComponent<MusicPlayer>();
-                        return newMusicPlayer;
-                    }
-                    else // If no default resource can be found a new empty one will be instantiated instead to avoid null reference and a warning will be displayed
-                    {
-                        // Make a new gameobject and attach the music player to it
-                        GameObject refObj = new GameObject("New Music Player object");
-                        refObj.AddComponent<MusicPlayer>();
-                        MusicPlayer newMusPla = refObj.GetComponent<MusicPlayer>();
-
-                        // Warn
-                        LogWarning("No MusicPlayer found in active scenes and default resource is missing! A new (empty) one was created, but you probably don't want this", refObj);
-                        return newMusPla;
-                    }
+                    return SpawnMusicPlayer();
                 }
             }
+        }
+
+        private static MusicPlayer SpawnMusicPlayer()
+        {
+            // Check for and instantiate default MusicPlayer prefab in Resources folder
+            if (Resources.FindObjectsOfTypeAll(typeof(MusicPlayer)).Length > 0)
+            {
+                return SpawnDefaultMusicPlayer();
+            }
+            else
+            {
+                // If no default resource can be found a new empty one will be instantiated instead to avoid null reference and a warning will be displayed
+                return SpawnEmptyMusicPlayer();
+            }
+        }
+
+        private static MusicPlayer SpawnEmptyMusicPlayer()
+        {
+            // Make a new gameobject and attach the music player to it
+            GameObject refObj = new GameObject("New Music Player object");
+            refObj.AddComponent<MusicPlayer>();
+            MusicPlayer newMusPla = refObj.GetComponent<MusicPlayer>();
+
+            // Warn
+            LogWarning("No MusicPlayer found in active scenes and default resource is missing! A new (empty) one was created, but you probably don't want this", refObj);
+            return newMusPla;
+        }
+
+        /// <summary>
+        /// Spawns default MusicPlayer from prefab in Resources
+        /// </summary>
+        /// <returns>Default MusicPlayer</returns>
+        private static MusicPlayer SpawnDefaultMusicPlayer()
+        {
+            LogWarning("No MusicPlayer found in active scene. Instantiating default MusicPlayer located in Resources folder.");
+
+            // Fetch/load the first MusicPlayer in the Resources folder
+            MusicPlayer[] musicPlayerResourceArray = (MusicPlayer[])Resources.FindObjectsOfTypeAll(typeof(MusicPlayer));
+            MusicPlayer defaultMusicPlayer = musicPlayerResourceArray[0];
+
+            // Check and warn if there are more than one MusicPlayer in the Resources folder (we don't control which one is loaded)
+            if (musicPlayerResourceArray.Length > 1)
+            {
+                LogWarning("Multiple MusicPlayer located in the Resource folder. Only the first found one will be used, remove the ones you do not wish to use.");
+            }
+
+            // Instantiate clone of MusicPlayer prefab
+            GameObject newMPGameObj = GameObject.Instantiate(defaultMusicPlayer.gameObject);
+            newMPGameObj.name = "Default Music Player";
+
+            // Find and return the MusicPlayer
+            MusicPlayer newMusicPlayer = newMPGameObj.GetComponent<MusicPlayer>();
+            return newMusicPlayer;
         }
 
         /// <summary>
@@ -74,6 +91,7 @@ namespace MusicMixer
         {
             return ActiveMusicPlayer.Tracks;
         }
+
         /// <summary>
         /// Get all MusicTracks as strings. Has the same index as GetAllTracks and can be used to find index for a specific track.
         /// </summary>
@@ -161,15 +179,28 @@ namespace MusicMixer
             return FadeTrack(GetAllTracks()[trackToFade], targetVolume, fadeDuration);
         }
 
-
         /// <summary>
         /// Logs a debug warning message with unified formatting for MusicController
         /// </summary>
         /// <param name="warningMessage">Warning message to send to the console</param>
         /// <param name="context">Defaults to the MusicPlayer</param>
-        static void LogWarning(string warningMessage, UnityEngine.Object context = null)
+        private static void LogWarning(string warningMessage, UnityEngine.Object context = null)
         {
             Debug.LogWarning(debugPrefix + warningMessage, context);
+        }
+
+        public static MusicComposition[] Compositions
+        {
+            get
+            {
+                return ActiveMusicPlayer.compositions;
+            }
+        }
+
+        public static string ActivateMusicComposition(MusicComposition composition)
+        {
+            ActiveMusicPlayer.ActivateCompositionGroup(composition);
+            return composition.ToString();
         }
     }
 }
