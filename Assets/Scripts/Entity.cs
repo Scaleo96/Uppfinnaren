@@ -190,7 +190,7 @@ public class ValueEvent : UnityEvent<EntityValues> { }
 
 public struct EntityValues
 {
-    public enum TriggerType { PuzzleSolved, Inspect, PositionTrigger, PickupItem, EnterDoor, UseItem, FailedUse }
+    public enum TriggerType { PuzzleSolved, Inspect, PositionTrigger, PickupItem, EnterDoor, UseItem, FailedUse, AlreadyUsed }
 
     public TriggerType trigger;
     public Entity entity;

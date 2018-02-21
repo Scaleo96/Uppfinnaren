@@ -38,7 +38,6 @@ public class Door : Entity
         }
         else if (doorLocked == true)
         {
-            values.trigger = EntityValues.TriggerType.UseItem;
             base.OnInteract(values);
 
             if (values.item != null && values.item == key)

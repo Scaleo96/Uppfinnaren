@@ -59,6 +59,10 @@ public class Container : Entity
             {
                 DropItem(containedItems[containedItems.Count - 1]);
             }
+            else if (containedItems.Count == 0)
+            {
+                values.trigger = EntityValues.TriggerType.AlreadyUsed;
+            }
         }
 
         base.OnInteract(values);

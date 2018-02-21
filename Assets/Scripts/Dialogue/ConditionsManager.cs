@@ -24,6 +24,7 @@ public class ConditionsManager : MonoBehaviour
             {
                 if (container[i].DialogueRunning == false)
                 {
+                    AlreadyUsed(entityValues, container[i].conditions[j]);
                     FailedUse(entityValues, container[i].conditions[j]);
                     Inspect(entityValues, container[i].conditions[j]);
                     PositionTrigger(entityValues, container[i].conditions[j]);
@@ -72,6 +73,17 @@ public class ConditionsManager : MonoBehaviour
         values.dialogueNumber = 0;
         values.containerNumber = 0;
         return values;
+    }
+
+    private void AlreadyUsed(EntityValues entityValues, Conditions condition)
+    {
+        if (condition.trigger == Conditions.TriggerType.AlreadyUsed && entityValues.trigger == EntityValues.TriggerType.AlreadyUsed)
+        {
+            if (entityValues.entity == condition.entity && entityValues.character == condition.character)
+            {
+                condition.activated = true;
+            }
+        }
     }
 
     private void FailedUse(EntityValues entityValues, Conditions condition)
