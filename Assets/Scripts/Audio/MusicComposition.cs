@@ -81,7 +81,7 @@ namespace MusicMixer
             if (!indexWithinBounds)
             {
                 // TODO: Implement exception
-                throw new NotImplementedException;
+                throw new NotImplementedException();
             }
             else
             {
