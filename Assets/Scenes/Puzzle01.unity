@@ -583,6 +583,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &54775203 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1817792378054562, guid: 131176a22e85037458e405d4952b4e76,
+    type: 2}
+  m_PrefabInternal: {fileID: 1054540506}
 --- !u!4 &60444621 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4230959253415784, guid: 131176a22e85037458e405d4952b4e76,
@@ -668,6 +673,55 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &76988360
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 76988362}
+  - component: {fileID: 76988361}
+  m_Layer: 0
+  m_Name: E15_Amina_Garden
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &76988361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 76988360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 0}
+  character: {fileID: 1361693362}
+  trigger: 2
+  activated: 0
+  collisionTrigger: {fileID: 614701568}
+  item: {fileID: 0}
+--- !u!4 &76988362
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 76988360}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 615111850}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &79635768
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,6 +1014,56 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &104442853
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 104442854}
+  - component: {fileID: 104442855}
+  m_Layer: 0
+  m_Name: Amina_Mailbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &104442854
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 104442853}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1945770326}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &104442855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 104442853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 517375621}
+    line_Swedish: "Tidningen ligger kvar, jag undrar hur han klarar sig d\xE4ruppe
+      utan sin dagliga sudoku."
+    line_English: The newspaper is still here, I wonder how he's doing up there without
+      his daily sudoku.
+    time: 5
 --- !u!1001 &109257298
 Prefab:
   m_ObjectHideFlags: 0
@@ -967,6 +1071,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1649691017}
     m_Modifications:
+    - target: {fileID: 114280111051947786, guid: 61479672d6cc57b48ac19d7dfa177ca1,
+        type: 2}
+      propertyPath: cantUseEvents.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4668089087772036, guid: 61479672d6cc57b48ac19d7dfa177ca1, type: 2}
       propertyPath: m_LocalPosition.x
       value: 4.694
@@ -1026,6 +1135,31 @@ Prefab:
         type: 2}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114280111051947786, guid: 61479672d6cc57b48ac19d7dfa177ca1,
+        type: 2}
+      propertyPath: cantUseEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114280111051947786, guid: 61479672d6cc57b48ac19d7dfa177ca1,
+        type: 2}
+      propertyPath: cantUseEvents.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114280111051947786, guid: 61479672d6cc57b48ac19d7dfa177ca1,
+        type: 2}
+      propertyPath: cantUseEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 241637444}
+    - target: {fileID: 114280111051947786, guid: 61479672d6cc57b48ac19d7dfa177ca1,
+        type: 2}
+      propertyPath: cantUseEvents.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RunDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 114280111051947786, guid: 61479672d6cc57b48ac19d7dfa177ca1,
+        type: 2}
+      propertyPath: cantUseEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 61479672d6cc57b48ac19d7dfa177ca1, type: 2}
@@ -1108,6 +1242,54 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 113494840}
+--- !u!1 &117808808
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 117808810}
+  - component: {fileID: 117808809}
+  m_Layer: 0
+  m_Name: 'Amina_Drainspout '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &117808809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 117808808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 517375621}
+    line_Swedish: Den ser lika ranglig ut som resten av huset.
+    line_English: It looks just as unsteady as the rest of the house.
+    time: 3
+--- !u!4 &117808810
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 117808808}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1945770326}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &128433674
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,6 +1441,55 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 134565554}
+--- !u!1 &156660227
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 156660229}
+  - component: {fileID: 156660228}
+  m_Layer: 0
+  m_Name: E20_Jonatan_Gate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &156660228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 156660227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 0}
+  character: {fileID: 977030939}
+  trigger: 2
+  activated: 0
+  collisionTrigger: {fileID: 1148272643}
+  item: {fileID: 0}
+--- !u!4 &156660229
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 156660227}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 615111850}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &160459467
 GameObject:
   m_ObjectHideFlags: 0
@@ -1332,6 +1563,55 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
+--- !u!1 &168605875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 168605877}
+  - component: {fileID: 168605876}
+  m_Layer: 0
+  m_Name: E10_Amina_Shed_Door
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &168605876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 168605875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 272514555}
+  character: {fileID: 1361693362}
+  trigger: 1
+  activated: 0
+  collisionTrigger: {fileID: 0}
+  item: {fileID: 0}
+--- !u!4 &168605877
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 168605875}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 615111850}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &171370338
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,6 +1686,56 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &185122205
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 185122207}
+  - component: {fileID: 185122206}
+  m_Layer: 0
+  m_Name: Amina_Drainspout_Cog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &185122206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 185122205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 517375621}
+    line_Swedish: "Ett\u2026kugghjul? Varf\xF6r i hela v\xE4rlden l\xC5g det ett kugghjul
+      i stupr\xE4nnan? "
+    line_English: "A\u2026coghweel? Why on earth is there a cogwheel in the drain
+      pipe? "
+    time: 4
+--- !u!4 &185122207
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 185122205}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1945770326}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &199113449
 GameObject:
   m_ObjectHideFlags: 0
@@ -2091,17 +2421,149 @@ MonoBehaviour:
     - {fileID: 415672466}
     dialogue:
     - {fileID: 1817911458}
-    - {fileID: 666715530}
     dialogueDone: 0
     isComplete: 0
     repeatable: 1
   - conditions:
-    - {fileID: 1071370313}
+    - {fileID: 545717364}
     dialogue:
-    - {fileID: 1888504183}
+    - {fileID: 883808833}
     dialogueDone: 0
     isComplete: 0
     repeatable: 1
+  - conditions:
+    - {fileID: 889234588}
+    dialogue:
+    - {fileID: 1463146652}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 1
+  - conditions:
+    - {fileID: 526629155}
+    dialogue:
+    - {fileID: 452676933}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 1
+  - conditions:
+    - {fileID: 478095375}
+    dialogue:
+    - {fileID: 399778009}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 1
+  - conditions:
+    - {fileID: 1768167591}
+    dialogue:
+    - {fileID: 104442855}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 0
+  - conditions:
+    - {fileID: 1866422464}
+    dialogue:
+    - {fileID: 1699474054}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 0
+  - conditions:
+    - {fileID: 1233355425}
+    dialogue:
+    - {fileID: 820928568}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 0
+  - conditions:
+    - {fileID: 1937726870}
+    dialogue:
+    - {fileID: 185122206}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 0
+  - conditions:
+    - {fileID: 1404315047}
+    dialogue:
+    - {fileID: 1905535793}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 1
+  - conditions:
+    - {fileID: 168605876}
+    dialogue:
+    - {fileID: 318280574}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 1
+  - conditions:
+    - {fileID: 300546893}
+    dialogue:
+    - {fileID: 384628454}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 1
+  - conditions:
+    - {fileID: 593879797}
+    dialogue:
+    - {fileID: 1924311982}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 1
+  - conditions:
+    - {fileID: 1185271968}
+    dialogue:
+    - {fileID: 1550711074}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 1
+  - conditions:
+    - {fileID: 1197789142}
+    dialogue:
+    - {fileID: 1469798332}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 1
+  - conditions:
+    - {fileID: 76988361}
+    dialogue:
+    - {fileID: 1327607193}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 0
+  - conditions:
+    - {fileID: 814723681}
+    dialogue:
+    - {fileID: 918205806}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 1
+  - conditions:
+    - {fileID: 1869847097}
+    dialogue:
+    - {fileID: 1908965876}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 1
+  - conditions:
+    - {fileID: 1275263761}
+    dialogue:
+    - {fileID: 117808809}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 1
+  - conditions:
+    - {fileID: 889632402}
+    dialogue:
+    - {fileID: 926840694}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 1
+  - conditions:
+    - {fileID: 156660228}
+    dialogue:
+    - {fileID: 1837511570}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 0
 --- !u!4 &241637446
 Transform:
   m_ObjectHideFlags: 0
@@ -2113,10 +2575,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1817911459}
-  - {fileID: 1888504184}
-  - {fileID: 666715531}
   - {fileID: 615111850}
+  - {fileID: 1945770326}
+  - {fileID: 2128616004}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2663,6 +3124,55 @@ Transform:
   m_Father: {fileID: 1075985358}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &300546892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 300546894}
+  - component: {fileID: 300546893}
+  m_Layer: 0
+  m_Name: E11_Jonatan_Shed_Door
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &300546893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 300546892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 272514555}
+  character: {fileID: 977030939}
+  trigger: 1
+  activated: 0
+  collisionTrigger: {fileID: 1142798960}
+  item: {fileID: 0}
+--- !u!4 &300546894
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 300546892}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 615111850}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &301155129
 GameObject:
   m_ObjectHideFlags: 0
@@ -2840,6 +3350,54 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 317684518}
+--- !u!1 &318280573
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 318280575}
+  - component: {fileID: 318280574}
+  m_Layer: 0
+  m_Name: Amina_Shed_Door
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &318280574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 318280573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 517375621}
+    line_Swedish: "Det \xE4r nog h\xE4r inne han har alla verktyg. "
+    line_English: 'This is probably where he stores all his tools.  '
+    time: 4
+--- !u!4 &318280575
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 318280573}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1945770326}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &329953494
 GameObject:
   m_ObjectHideFlags: 0
@@ -3071,6 +3629,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1649691017}
     m_Modifications:
+    - target: {fileID: 114129971231030468, guid: a67d6a251af81fb40860033374698927,
+        type: 2}
+      propertyPath: cantUseEvents.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114129971231030468, guid: a67d6a251af81fb40860033374698927,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4643777762780164, guid: a67d6a251af81fb40860033374698927, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0.09
@@ -3127,6 +3695,61 @@ Prefab:
         type: 2}
       propertyPath: destroyKeyOnUse
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114129971231030468, guid: a67d6a251af81fb40860033374698927,
+        type: 2}
+      propertyPath: cantUseEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114129971231030468, guid: a67d6a251af81fb40860033374698927,
+        type: 2}
+      propertyPath: cantUseEvents.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114129971231030468, guid: a67d6a251af81fb40860033374698927,
+        type: 2}
+      propertyPath: cantUseEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 241637444}
+    - target: {fileID: 114129971231030468, guid: a67d6a251af81fb40860033374698927,
+        type: 2}
+      propertyPath: cantUseEvents.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RunDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 114129971231030468, guid: a67d6a251af81fb40860033374698927,
+        type: 2}
+      propertyPath: cantUseEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114129971231030468, guid: a67d6a251af81fb40860033374698927,
+        type: 2}
+      propertyPath: canUseCondition.aminaUse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114129971231030468, guid: a67d6a251af81fb40860033374698927,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114129971231030468, guid: a67d6a251af81fb40860033374698927,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114129971231030468, guid: a67d6a251af81fb40860033374698927,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 241637444}
+    - target: {fileID: 114129971231030468, guid: a67d6a251af81fb40860033374698927,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RunDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 114129971231030468, guid: a67d6a251af81fb40860033374698927,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a67d6a251af81fb40860033374698927, type: 2}
@@ -3534,11 +4157,22 @@ MonoBehaviour:
   interactDistance: 167.58
   canUseCondition:
     aminaUse: 1
-    idaUse: 1
+    idaUse: 0
     jonathanUse: 1
   interactionEvents:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 241637444}
+        m_MethodName: RunDialogue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   cantUseEvents:
     m_PersistentCalls:
@@ -3582,6 +4216,54 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &384628453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 384628455}
+  - component: {fileID: 384628454}
+  m_Layer: 0
+  m_Name: Jonatan_Shed_Door
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &384628454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 384628453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 1872657160}
+    line_Swedish: "Allting \xE4r visst l\xE5st. Nu beh\xF6ver jag en kod ocks\xE5. "
+    line_English: 'Apparently everything is locked. Now I need a code as well.  '
+    time: 4
+--- !u!4 &384628455
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 384628453}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1945770326}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &385835520
 GameObject:
   m_ObjectHideFlags: 0
@@ -3733,6 +4415,54 @@ Transform:
   m_PrefabParentObject: {fileID: 4786653628350764, guid: 1ad8bcca801d06c4e817bb77966edce3,
     type: 2}
   m_PrefabInternal: {fileID: 966931970}
+--- !u!1 &399778008
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 399778010}
+  - component: {fileID: 399778009}
+  m_Layer: 0
+  m_Name: Amina_Outside_Door
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &399778009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 399778008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 517375621}
+    line_Swedish: "Han brukar ju aldrig l\xC5sa d\xF6rren, vad har han planerat egentligen? "
+    line_English: 'He usually never lock the door, what has he really planned? '
+    time: 4
+--- !u!4 &399778010
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 399778008}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1945770326}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &405484028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3890,7 +4620,7 @@ GameObject:
   - component: {fileID: 415672467}
   - component: {fileID: 415672466}
   m_Layer: 0
-  m_Name: Condition Prefab
+  m_Name: E0_Ida_Board
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3908,8 +4638,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 1828359026}
-  character: {fileID: 1361693362}
+  entity: {fileID: 1692075637}
+  character: {fileID: 60444624}
   trigger: 1
   activated: 0
   collisionTrigger: {fileID: 0}
@@ -4310,6 +5040,54 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &452676931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 452676932}
+  - component: {fileID: 452676933}
+  m_Layer: 0
+  m_Name: Ida_Shed_Door
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &452676932
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 452676931}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1945770326}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &452676933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 452676931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 54775203}
+    line_Swedish: "Farfar brukar inte l\xE5sa den h\xE4r d\xF6rren. "
+    line_English: 'Grandpa usually don''t lock this door.  '
+    time: 3
 --- !u!1 &473802636
 GameObject:
   m_ObjectHideFlags: 0
@@ -4383,6 +5161,55 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 473802636}
+--- !u!1 &478095374
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 478095376}
+  - component: {fileID: 478095375}
+  m_Layer: 0
+  m_Name: E4_Amina_Outside_Door
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &478095375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 478095374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 942205624}
+  character: {fileID: 1361693362}
+  trigger: 1
+  activated: 0
+  collisionTrigger: {fileID: 0}
+  item: {fileID: 0}
+--- !u!4 &478095376
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 478095374}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 615111850}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &489665416
 GameObject:
   m_ObjectHideFlags: 0
@@ -4860,6 +5687,55 @@ GameObject:
   m_PrefabParentObject: {fileID: 1578629008071034, guid: 0a21799549a92c44a8243abe15072150,
     type: 2}
   m_PrefabInternal: {fileID: 632637115}
+--- !u!1 &526629153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 526629154}
+  - component: {fileID: 526629155}
+  m_Layer: 0
+  m_Name: E3_Ida_Shed_Door
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &526629154
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 526629153}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 615111850}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &526629155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 526629153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 272514555}
+  character: {fileID: 60444624}
+  trigger: 1
+  activated: 0
+  collisionTrigger: {fileID: 0}
+  item: {fileID: 0}
 --- !u!1 &526948909
 GameObject:
   m_ObjectHideFlags: 0
@@ -5221,6 +6097,55 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &545717362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 545717363}
+  - component: {fileID: 545717364}
+  m_Layer: 0
+  m_Name: E1_Ida_Outside_Door
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &545717363
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 545717362}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 615111850}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &545717364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 545717362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 942205624}
+  character: {fileID: 60444624}
+  trigger: 1
+  activated: 0
+  collisionTrigger: {fileID: 0}
+  item: {fileID: 0}
 --- !u!1 &550156887
 GameObject:
   m_ObjectHideFlags: 0
@@ -5471,6 +6396,55 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &593879795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 593879796}
+  - component: {fileID: 593879797}
+  m_Layer: 0
+  m_Name: E12_Jonatan_Clock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &593879796
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 593879795}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 615111850}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &593879797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 593879795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 1828359026}
+  character: {fileID: 977030939}
+  trigger: 1
+  activated: 0
+  collisionTrigger: {fileID: 1142798960}
+  item: {fileID: 0}
 --- !u!1 &595811679
 GameObject:
   m_ObjectHideFlags: 0
@@ -5762,6 +6736,60 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 602619629}
+--- !u!1 &614701567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 614701569}
+  - component: {fileID: 614701568}
+  m_Layer: 0
+  m_Name: Garden_Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &614701568
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 614701567}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2}
+  m_EdgeRadius: 0
+--- !u!4 &614701569
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 614701567}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 20, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2128616004}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &615111849
 GameObject:
   m_ObjectHideFlags: 0
@@ -5790,9 +6818,28 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 415672467}
-  - {fileID: 1071370314}
+  - {fileID: 545717363}
+  - {fileID: 889234587}
+  - {fileID: 526629154}
+  - {fileID: 1866422465}
+  - {fileID: 889632403}
+  - {fileID: 478095376}
+  - {fileID: 1768167590}
+  - {fileID: 1937726871}
+  - {fileID: 1404315048}
+  - {fileID: 168605877}
+  - {fileID: 76988362}
+  - {fileID: 1275263762}
+  - {fileID: 1233355426}
+  - {fileID: 300546894}
+  - {fileID: 593879796}
+  - {fileID: 1185271969}
+  - {fileID: 1197789141}
+  - {fileID: 814723682}
+  - {fileID: 1869847098}
+  - {fileID: 156660229}
   m_Father: {fileID: 241637446}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &621971090
 GameObject:
@@ -5948,6 +6995,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 550970095}
     m_Modifications:
+    - target: {fileID: 114338533911277798, guid: 0a21799549a92c44a8243abe15072150,
+        type: 2}
+      propertyPath: positionEvents.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4631552628258688, guid: 0a21799549a92c44a8243abe15072150, type: 2}
       propertyPath: m_LocalPosition.x
       value: 8.11
@@ -5983,7 +7035,7 @@ Prefab:
     - target: {fileID: 114338533911277798, guid: 0a21799549a92c44a8243abe15072150,
         type: 2}
       propertyPath: walkSpeed
-      value: 1.2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4119805674190928, guid: 0a21799549a92c44a8243abe15072150, type: 2}
       propertyPath: m_LocalPosition.y
@@ -6024,6 +7076,31 @@ Prefab:
     - target: {fileID: 4119805674190928, guid: 0a21799549a92c44a8243abe15072150, type: 2}
       propertyPath: m_LocalScale.y
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114338533911277798, guid: 0a21799549a92c44a8243abe15072150,
+        type: 2}
+      propertyPath: positionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114338533911277798, guid: 0a21799549a92c44a8243abe15072150,
+        type: 2}
+      propertyPath: positionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114338533911277798, guid: 0a21799549a92c44a8243abe15072150,
+        type: 2}
+      propertyPath: positionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 241637444}
+    - target: {fileID: 114338533911277798, guid: 0a21799549a92c44a8243abe15072150,
+        type: 2}
+      propertyPath: positionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RunDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 114338533911277798, guid: 0a21799549a92c44a8243abe15072150,
+        type: 2}
+      propertyPath: positionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a21799549a92c44a8243abe15072150, type: 2}
@@ -6461,8 +7538,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 686425318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 137.5, y: 319.5, z: 0}
-  m_LocalScale: {x: 0.14322917, y: 0.14322917, z: 0.14322917}
+  m_LocalPosition: {x: 569, y: 263, z: 0}
+  m_LocalScale: {x: 0.59270835, y: 0.59270835, z: 0.59270835}
   m_Children:
   - {fileID: 2037746170}
   - {fileID: 1585383301}
@@ -7610,6 +8687,103 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &814723680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 814723682}
+  - component: {fileID: 814723681}
+  m_Layer: 0
+  m_Name: E16_Jonatan_Outside_Door
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &814723681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 814723680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 942205624}
+  character: {fileID: 977030939}
+  trigger: 1
+  activated: 0
+  collisionTrigger: {fileID: 1142798960}
+  item: {fileID: 0}
+--- !u!4 &814723682
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 814723680}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 615111850}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &820928567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 820928569}
+  - component: {fileID: 820928568}
+  m_Layer: 0
+  m_Name: Jonatan_Shed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &820928568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 820928567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 1872657160}
+    line_Swedish: "Jag har aldrig gillat det h\xE4r skjulet. "
+    line_English: 'I never liked this shed.  '
+    time: 3
+--- !u!4 &820928569
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 820928567}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1945770326}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &842421091
 GameObject:
   m_ObjectHideFlags: 0
@@ -7940,6 +9114,105 @@ Transform:
   m_Father: {fileID: 1075985358}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &883808831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 883808832}
+  - component: {fileID: 883808833}
+  m_Layer: 0
+  m_Name: Ida_Outside_Door
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &883808832
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 883808831}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1945770326}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &883808833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 883808831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 54775203}
+    line_Swedish: "Tja, det g\xE5r inte att komma in den h\xE4r v\xE4gen. Jag m\xE5ste
+      hitta en annan v\xE4g! "
+    line_English: 'Well there''s no entering through this door. Let''s find another
+      way! '
+    time: 3
+--- !u!1 &889234586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 889234587}
+  - component: {fileID: 889234588}
+  m_Layer: 0
+  m_Name: E2_Ida_Matches
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &889234587
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 889234586}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 615111850}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &889234588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 889234586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 1152056128}
+  character: {fileID: 60444624}
+  trigger: 3
+  activated: 0
+  collisionTrigger: {fileID: 0}
+  item: {fileID: 0}
 --- !u!1 &889427308
 GameObject:
   m_ObjectHideFlags: 0
@@ -8013,6 +9286,55 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &889632401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 889632403}
+  - component: {fileID: 889632402}
+  m_Layer: 0
+  m_Name: E19_Ida_Crookadoodle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &889632402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 889632401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 1837766582}
+  character: {fileID: 60444624}
+  trigger: 1
+  activated: 0
+  collisionTrigger: {fileID: 0}
+  item: {fileID: 0}
+--- !u!4 &889632403
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 889632401}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 615111850}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &892909073
 GameObject:
   m_ObjectHideFlags: 0
@@ -8371,6 +9693,56 @@ Transform:
   m_Father: {fileID: 542108279}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &918205805
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 918205807}
+  - component: {fileID: 918205806}
+  m_Layer: 0
+  m_Name: Jonatan_Outside_Door
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &918205806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 918205805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 1872657160}
+    line_Swedish: "Jag trodde pappa ville att jag skulle komma hit. Jag f\xF6rst\xE5r
+      mig inte p\xE5 honom. Som vanligt."
+    line_English: And here I thought dad wanted me to come. I can't make sense of
+      him. As usual.
+    time: 6
+--- !u!4 &918205807
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 918205805}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1945770326}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &919978685
 GameObject:
   m_ObjectHideFlags: 0
@@ -8444,6 +9816,54 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &926840693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 926840695}
+  - component: {fileID: 926840694}
+  m_Layer: 0
+  m_Name: Ida_Crookadoodle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &926840694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 926840693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 54775203}
+    line_Swedish: "Det \xE4r kolsvart. Jag beh\xF6ver n\xE5got att lysa med. "
+    line_English: 'It''s very dark. I''m not sure I can explore without a light.  '
+    time: 3
+--- !u!4 &926840695
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 926840693}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1945770326}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &928288402
 GameObject:
   m_ObjectHideFlags: 0
@@ -8517,6 +9937,12 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &934173595 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114855475775214644, guid: 1ad8bcca801d06c4e817bb77966edce3,
+    type: 2}
+  m_PrefabInternal: {fileID: 966931970}
+  m_Script: {fileID: 11500000, guid: c1d6fa6ee4ef76542b7b497fb8c5197b, type: 3}
 --- !u!1 &938560441
 GameObject:
   m_ObjectHideFlags: 0
@@ -8546,7 +9972,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 938560441}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -959.99994, y: 2325.691, z: 0}
+  m_LocalPosition: {x: -960, y: 538.7258, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 113494841}
@@ -8691,6 +10117,12 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 938560441}
+--- !u!114 &942205624 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114129971231030468, guid: a67d6a251af81fb40860033374698927,
+    type: 2}
+  m_PrefabInternal: {fileID: 342247239}
+  m_Script: {fileID: 11500000, guid: ea01928b23d6ccf41a7a86e4949f7da4, type: 3}
 --- !u!1 &945791831
 GameObject:
   m_ObjectHideFlags: 0
@@ -9118,6 +10550,21 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1649691017}
     m_Modifications:
+    - target: {fileID: 114855475775214644, guid: 1ad8bcca801d06c4e817bb77966edce3,
+        type: 2}
+      propertyPath: cantUseEvents.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114682653661853412, guid: 1ad8bcca801d06c4e817bb77966edce3,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114855475775214644, guid: 1ad8bcca801d06c4e817bb77966edce3,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4786653628350764, guid: 1ad8bcca801d06c4e817bb77966edce3, type: 2}
       propertyPath: m_LocalPosition.x
       value: -4.46
@@ -9168,6 +10615,101 @@ Prefab:
         type: 2}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114682653661853412, guid: 1ad8bcca801d06c4e817bb77966edce3,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114682653661853412, guid: 1ad8bcca801d06c4e817bb77966edce3,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114682653661853412, guid: 1ad8bcca801d06c4e817bb77966edce3,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 241637444}
+    - target: {fileID: 114682653661853412, guid: 1ad8bcca801d06c4e817bb77966edce3,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RunDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 114682653661853412, guid: 1ad8bcca801d06c4e817bb77966edce3,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114682653661853412, guid: 1ad8bcca801d06c4e817bb77966edce3,
+        type: 2}
+      propertyPath: canUseCondition.aminaUse
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114682653661853412, guid: 1ad8bcca801d06c4e817bb77966edce3,
+        type: 2}
+      propertyPath: canUseCondition.jonathanUse
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114855475775214644, guid: 1ad8bcca801d06c4e817bb77966edce3,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114855475775214644, guid: 1ad8bcca801d06c4e817bb77966edce3,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114855475775214644, guid: 1ad8bcca801d06c4e817bb77966edce3,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 241637444}
+    - target: {fileID: 114855475775214644, guid: 1ad8bcca801d06c4e817bb77966edce3,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RunDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 114855475775214644, guid: 1ad8bcca801d06c4e817bb77966edce3,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114855475775214644, guid: 1ad8bcca801d06c4e817bb77966edce3,
+        type: 2}
+      propertyPath: canUseCondition.jonathanUse
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114855475775214644, guid: 1ad8bcca801d06c4e817bb77966edce3,
+        type: 2}
+      propertyPath: canUseCondition.aminaUse
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114855475775214644, guid: 1ad8bcca801d06c4e817bb77966edce3,
+        type: 2}
+      propertyPath: cantUseEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114855475775214644, guid: 1ad8bcca801d06c4e817bb77966edce3,
+        type: 2}
+      propertyPath: cantUseEvents.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114855475775214644, guid: 1ad8bcca801d06c4e817bb77966edce3,
+        type: 2}
+      propertyPath: cantUseEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 241637444}
+    - target: {fileID: 114855475775214644, guid: 1ad8bcca801d06c4e817bb77966edce3,
+        type: 2}
+      propertyPath: cantUseEvents.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RunDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 114855475775214644, guid: 1ad8bcca801d06c4e817bb77966edce3,
+        type: 2}
+      propertyPath: cantUseEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ad8bcca801d06c4e817bb77966edce3, type: 2}
@@ -10100,7 +11642,7 @@ Prefab:
     - target: {fileID: 114974175973115814, guid: 131176a22e85037458e405d4952b4e76,
         type: 2}
       propertyPath: walkSpeed
-      value: 1.2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4230959253415784, guid: 131176a22e85037458e405d4952b4e76, type: 2}
       propertyPath: m_LocalScale.x
@@ -10281,55 +11823,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1 &1071370312
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1071370314}
-  - component: {fileID: 1071370313}
-  m_Layer: 0
-  m_Name: Condition Prefab (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1071370313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1071370312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entity: {fileID: 0}
-  character: {fileID: 1361693362}
-  trigger: 1
-  activated: 0
-  collisionTrigger: {fileID: 0}
-  item: {fileID: 0}
---- !u!4 &1071370314
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1071370312}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 615111850}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1075985356
 GameObject:
   m_ObjectHideFlags: 0
@@ -10975,6 +12468,114 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1142798958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1142798959}
+  - component: {fileID: 1142798960}
+  m_Layer: 0
+  m_Name: Shed_Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1142798959
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1142798958}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.3, y: -20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2128616004}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1142798960
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1142798958}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2}
+  m_EdgeRadius: 0
+--- !u!1 &1148272642
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1148272644}
+  - component: {fileID: 1148272643}
+  m_Layer: 0
+  m_Name: Gate_Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &1148272643
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1148272642}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2}
+  m_EdgeRadius: 0
+--- !u!4 &1148272644
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1148272642}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -16, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2128616004}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1149963142
 GameObject:
   m_ObjectHideFlags: 0
@@ -11314,6 +12915,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5723e67a5ba01194490ab580a29faea3, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1152056128 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114682653661853412, guid: 1ad8bcca801d06c4e817bb77966edce3,
+    type: 2}
+  m_PrefabInternal: {fileID: 966931970}
+  m_Script: {fileID: 11500000, guid: eec0484d2d65b8245b4064acd01e1b28, type: 3}
 --- !u!1 &1154637703
 GameObject:
   m_ObjectHideFlags: 0
@@ -11387,6 +12994,55 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1185271967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1185271969}
+  - component: {fileID: 1185271968}
+  m_Layer: 0
+  m_Name: E13_Jonatan_Mailbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1185271968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1185271967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 934173595}
+  character: {fileID: 977030939}
+  trigger: 1
+  activated: 0
+  collisionTrigger: {fileID: 1142798960}
+  item: {fileID: 0}
+--- !u!4 &1185271969
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1185271967}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 615111850}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1185514237
 GameObject:
   m_ObjectHideFlags: 0
@@ -11533,6 +13189,55 @@ Transform:
   m_Father: {fileID: 1810873077}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1197789140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1197789141}
+  - component: {fileID: 1197789142}
+  m_Layer: 0
+  m_Name: E14_Jonatan_Drainspout_Cog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1197789141
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1197789140}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 615111850}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1197789142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1197789140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 1252084880}
+  character: {fileID: 977030939}
+  trigger: 1
+  activated: 0
+  collisionTrigger: {fileID: 1142798960}
+  item: {fileID: 0}
 --- !u!1 &1206965094
 GameObject:
   m_ObjectHideFlags: 0
@@ -11900,6 +13605,55 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1233355424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1233355426}
+  - component: {fileID: 1233355425}
+  m_Layer: 0
+  m_Name: E7_Jonatan_Shed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1233355425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1233355424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 0}
+  character: {fileID: 977030939}
+  trigger: 2
+  activated: 0
+  collisionTrigger: {fileID: 1142798960}
+  item: {fileID: 0}
+--- !u!4 &1233355426
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1233355424}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 615111850}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1233834204
 GameObject:
   m_ObjectHideFlags: 0
@@ -12092,11 +13846,22 @@ MonoBehaviour:
   interactDistance: 2
   canUseCondition:
     aminaUse: 1
-    idaUse: 1
+    idaUse: 0
     jonathanUse: 1
   interactionEvents:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 241637444}
+        m_MethodName: RunDialogue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   cantUseEvents:
     m_PersistentCalls:
@@ -12391,6 +14156,55 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1275263760
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1275263762}
+  - component: {fileID: 1275263761}
+  m_Layer: 0
+  m_Name: E18_Amina_Drainspout
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1275263761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1275263760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 1252084880}
+  character: {fileID: 1361693362}
+  trigger: 7
+  activated: 0
+  collisionTrigger: {fileID: 1142798960}
+  item: {fileID: 0}
+--- !u!4 &1275263762
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1275263760}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 615111850}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1281946660
 GameObject:
   m_ObjectHideFlags: 0
@@ -12920,6 +14734,56 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1327607192
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1327607194}
+  - component: {fileID: 1327607193}
+  m_Layer: 0
+  m_Name: Amina_Garden
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1327607193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1327607192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 517375621}
+    line_Swedish: "Vilka fina f\xE4rger, jag ins\xE5g aldrig hur stor den h\xE4r tomten
+      var! "
+    line_English: 'These colors are beautiful, I never realized how big this yard
+      is! '
+    time: 3
+--- !u!4 &1327607194
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1327607192}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1945770326}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1336117201
 GameObject:
   m_ObjectHideFlags: 0
@@ -13833,6 +15697,55 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1404315046
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1404315048}
+  - component: {fileID: 1404315047}
+  m_Layer: 0
+  m_Name: E9_Amina_Clock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1404315047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1404315046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 1828359026}
+  character: {fileID: 1361693362}
+  trigger: 1
+  activated: 0
+  collisionTrigger: {fileID: 0}
+  item: {fileID: 0}
+--- !u!4 &1404315048
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1404315046}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 615111850}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1409254017
 GameObject:
   m_ObjectHideFlags: 0
@@ -14422,8 +16335,13 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114414455525823648, guid: f03572871ef9e3a44a57f1062ee2da2d,
         type: 2}
-      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.size
+      propertyPath: cantUseEvents.m_PersistentCalls.m_Calls.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114414455525823648, guid: f03572871ef9e3a44a57f1062ee2da2d,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4907997107430228, guid: f03572871ef9e3a44a57f1062ee2da2d, type: 2}
       propertyPath: m_LocalPosition.x
@@ -14546,6 +16464,61 @@ Prefab:
         type: 2}
       propertyPath: m_FlipX
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114414455525823648, guid: f03572871ef9e3a44a57f1062ee2da2d,
+        type: 2}
+      propertyPath: canUseCondition.idaUse
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114414455525823648, guid: f03572871ef9e3a44a57f1062ee2da2d,
+        type: 2}
+      propertyPath: cantUseEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114414455525823648, guid: f03572871ef9e3a44a57f1062ee2da2d,
+        type: 2}
+      propertyPath: cantUseEvents.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114414455525823648, guid: f03572871ef9e3a44a57f1062ee2da2d,
+        type: 2}
+      propertyPath: cantUseEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 241637444}
+    - target: {fileID: 114414455525823648, guid: f03572871ef9e3a44a57f1062ee2da2d,
+        type: 2}
+      propertyPath: cantUseEvents.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RunDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 114414455525823648, guid: f03572871ef9e3a44a57f1062ee2da2d,
+        type: 2}
+      propertyPath: cantUseEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114414455525823648, guid: f03572871ef9e3a44a57f1062ee2da2d,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114414455525823648, guid: f03572871ef9e3a44a57f1062ee2da2d,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114414455525823648, guid: f03572871ef9e3a44a57f1062ee2da2d,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 241637444}
+    - target: {fileID: 114414455525823648, guid: f03572871ef9e3a44a57f1062ee2da2d,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: RunDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 114414455525823648, guid: f03572871ef9e3a44a57f1062ee2da2d,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f03572871ef9e3a44a57f1062ee2da2d, type: 2}
@@ -14801,6 +16774,54 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1462763594}
+--- !u!1 &1463146650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1463146651}
+  - component: {fileID: 1463146652}
+  m_Layer: 0
+  m_Name: Ida_Matches
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1463146651
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1463146650}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1945770326}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1463146652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1463146650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 54775203}
+    line_Swedish: "T\xE4ndstickor? Jag l\xC5nar dem en stund. "
+    line_English: 'Matches? I''ll borrow these. '
+    time: 3
 --- !u!1 &1466094579
 GameObject:
   m_ObjectHideFlags: 0
@@ -14928,6 +16949,54 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1469798331
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1469798333}
+  - component: {fileID: 1469798332}
+  m_Layer: 0
+  m_Name: Jonatan_Drainspout_Cog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1469798332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1469798331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 1872657160}
+    line_Swedish: "Hmm, vad \xE4r det h\xE4r? Ett kugghjul? "
+    line_English: 'Hmm, what is this? A cogwheel? '
+    time: 2
+--- !u!4 &1469798333
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1469798331}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1945770326}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1473783586
 GameObject:
   m_ObjectHideFlags: 0
@@ -15587,6 +17656,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 903308630}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1550711073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1550711075}
+  - component: {fileID: 1550711074}
+  m_Layer: 0
+  m_Name: Jonatan_Mailbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1550711074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1550711073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 1872657160}
+    line_Swedish: "Posten f\xE5r han ta in sj\xE4lv."
+    line_English: He can bring in the mail himself.
+    time: 3
+--- !u!4 &1550711075
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1550711073}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1945770326}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1556637079
 GameObject:
@@ -17298,6 +19415,61 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1692075637 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114280111051947786, guid: 61479672d6cc57b48ac19d7dfa177ca1,
+    type: 2}
+  m_PrefabInternal: {fileID: 109257298}
+  m_Script: {fileID: 11500000, guid: eec0484d2d65b8245b4064acd01e1b28, type: 3}
+--- !u!1 &1699474053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1699474055}
+  - component: {fileID: 1699474054}
+  m_Layer: 0
+  m_Name: Ida_Shed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1699474054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1699474053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 54775203}
+    line_Swedish: "Jag l\xE4ngtar tills farfar och jag kan bygga grejer tillsammans
+      igen. "
+    line_English: 'I hope I can build stuff with grandpa again soon! '
+    time: 4
+--- !u!4 &1699474055
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1699474053}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1945770326}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1741019978
 GameObject:
   m_ObjectHideFlags: 0
@@ -17571,6 +19743,55 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1768167589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1768167590}
+  - component: {fileID: 1768167591}
+  m_Layer: 0
+  m_Name: E5_Amina_Mailbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1768167590
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1768167589}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 615111850}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1768167591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1768167589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 934173595}
+  character: {fileID: 1361693362}
+  trigger: 1
+  activated: 0
+  collisionTrigger: {fileID: 0}
+  item: {fileID: 0}
 --- !u!1 &1770648909
 GameObject:
   m_ObjectHideFlags: 0
@@ -17926,7 +20147,7 @@ GameObject:
   - component: {fileID: 1817911459}
   - component: {fileID: 1817911458}
   m_Layer: 0
-  m_Name: Dialogue Prefab
+  m_Name: Ida_Board
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17945,14 +20166,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-  - speaker: {fileID: 517375621}
-    line_Swedish: Hej
-    line_English: 
-    time: 1
-  - speaker: {fileID: 517375621}
-    line_Swedish: Hej Hej
-    line_English: 
-    time: 1
+  - speaker: {fileID: 54775203}
+    line_Swedish: "\xC5, den h\xE4r br\xE4dan sitter l\xF6st. Kanske finns det n\xE5t
+      s\xE4tt att ta bort den. "
+    line_English: 'Huh, there''s  a loose board here? Maybe we can remove it.  '
+    time: 3
 --- !u!4 &1817911459
 Transform:
   m_ObjectHideFlags: 0
@@ -17960,11 +20178,11 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1817911457}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 241637446}
+  m_Father: {fileID: 1945770326}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1823251606
@@ -17974,6 +20192,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 550970095}
     m_Modifications:
+    - target: {fileID: 114625092569386606, guid: a05db187807bfda4fa72d535dbb98ade,
+        type: 2}
+      propertyPath: positionEvents.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4790733292953386, guid: a05db187807bfda4fa72d535dbb98ade, type: 2}
       propertyPath: m_LocalPosition.x
       value: 11.66
@@ -18041,6 +20264,31 @@ Prefab:
         type: 2}
       propertyPath: m_Size.x
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114625092569386606, guid: a05db187807bfda4fa72d535dbb98ade,
+        type: 2}
+      propertyPath: positionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114625092569386606, guid: a05db187807bfda4fa72d535dbb98ade,
+        type: 2}
+      propertyPath: positionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114625092569386606, guid: a05db187807bfda4fa72d535dbb98ade,
+        type: 2}
+      propertyPath: positionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 241637444}
+    - target: {fileID: 114625092569386606, guid: a05db187807bfda4fa72d535dbb98ade,
+        type: 2}
+      propertyPath: positionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RunDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 114625092569386606, guid: a05db187807bfda4fa72d535dbb98ade,
+        type: 2}
+      propertyPath: positionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a05db187807bfda4fa72d535dbb98ade, type: 2}
@@ -18167,10 +20415,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 241637444}
+        m_MethodName: RunDialogue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   cantUseEvents:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 241637444}
+        m_MethodName: RunDialogue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   destroyItemOnUse: 0
   requiredItem: []
@@ -18478,6 +20748,61 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1837511568
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1837511569}
+  - component: {fileID: 1837511570}
+  m_Layer: 0
+  m_Name: Jonatan_Gate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1837511569
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1837511568}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1945770326}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1837511570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1837511568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 1872657160}
+    line_Swedish: "Jag vill bara l\xF6sa den h\xE4r situationen och sedan \xE5ka hem
+      s\xE5 fort som m\xF6jligt."
+    line_English: 'I just want to solve this mess and go home as fast as possible. '
+    time: 5
+--- !u!114 &1837766582 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114931631007718942, guid: 7519d43c99261014fad32d88f168dfd1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1901244904}
+  m_Script: {fileID: 11500000, guid: ea01928b23d6ccf41a7a86e4949f7da4, type: 3}
 --- !u!1 &1843784786
 GameObject:
   m_ObjectHideFlags: 0
@@ -18771,6 +21096,104 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1866422463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1866422465}
+  - component: {fileID: 1866422464}
+  m_Layer: 0
+  m_Name: E6_Ida_Shed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1866422464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1866422463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 0}
+  character: {fileID: 60444624}
+  trigger: 2
+  activated: 0
+  collisionTrigger: {fileID: 1142798960}
+  item: {fileID: 0}
+--- !u!4 &1866422465
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1866422463}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 615111850}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1869847096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1869847098}
+  - component: {fileID: 1869847097}
+  m_Layer: 0
+  m_Name: E17_Jonatan_Drainspout
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1869847097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1869847096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 1252084880}
+  character: {fileID: 977030939}
+  trigger: 7
+  activated: 0
+  collisionTrigger: {fileID: 1142798960}
+  item: {fileID: 0}
+--- !u!4 &1869847098
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1869847096}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 615111850}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1870182341
 GameObject:
   m_ObjectHideFlags: 0
@@ -18844,6 +21267,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1872657160 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1418902408159276, guid: a05db187807bfda4fa72d535dbb98ade,
+    type: 2}
+  m_PrefabInternal: {fileID: 1823251606}
 --- !u!1 &1877870311
 GameObject:
   m_ObjectHideFlags: 0
@@ -18918,58 +21346,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1 &1888504182
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1888504184}
-  - component: {fileID: 1888504183}
-  m_Layer: 0
-  m_Name: Dialogue Prefab (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1888504183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1888504182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-  - speaker: {fileID: 517375621}
-    line_Swedish: sup'
-    line_English: 
-    time: 1
-  - speaker: {fileID: 517375621}
-    line_Swedish: sup' sup'
-    line_English: 
-    time: 1
---- !u!4 &1888504184
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1888504182}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 241637446}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1892367148
 GameObject:
   m_ObjectHideFlags: 0
@@ -19031,6 +21407,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1649691017}
     m_Modifications:
+    - target: {fileID: 114931631007718942, guid: 7519d43c99261014fad32d88f168dfd1,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4624238766591502, guid: 7519d43c99261014fad32d88f168dfd1, type: 2}
       propertyPath: m_LocalPosition.x
       value: 4.67
@@ -19087,6 +21468,31 @@ Prefab:
         type: 2}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114931631007718942, guid: 7519d43c99261014fad32d88f168dfd1,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114931631007718942, guid: 7519d43c99261014fad32d88f168dfd1,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114931631007718942, guid: 7519d43c99261014fad32d88f168dfd1,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 241637444}
+    - target: {fileID: 114931631007718942, guid: 7519d43c99261014fad32d88f168dfd1,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RunDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 114931631007718942, guid: 7519d43c99261014fad32d88f168dfd1,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7519d43c99261014fad32d88f168dfd1, type: 2}
@@ -19165,6 +21571,56 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1905535792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1905535794}
+  - component: {fileID: 1905535793}
+  m_Layer: 0
+  m_Name: Amina_Clock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1905535793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1905535792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 517375621}
+    line_Swedish: "En klocka i tr\xE4dg\xC5rden, helt normalt! Enligt Ivar i alla
+      fall. "
+    line_English: 'A clock in the garden, completely normal! According to Ivar, at
+      least.  '
+    time: 4
+--- !u!4 &1905535794
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1905535792}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1945770326}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1906696406
 GameObject:
   m_ObjectHideFlags: 0
@@ -19238,6 +21694,55 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1908965875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1908965877}
+  - component: {fileID: 1908965876}
+  m_Layer: 0
+  m_Name: Jonatan_Drainspout
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1908965876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1908965875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 1872657160}
+    line_Swedish: "Stupr\xF6ren beh\xF6ver rensas, men jag t\xE4nker inte g\xF6ra
+      det. "
+    line_English: 'The drainpipes need to be cleaned, but I refuse to do it.  '
+    time: 4
+--- !u!4 &1908965877
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1908965875}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1945770326}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1913054678
 GameObject:
   m_ObjectHideFlags: 0
@@ -19490,6 +21995,58 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1924311980
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1924311981}
+  - component: {fileID: 1924311982}
+  m_Layer: 0
+  m_Name: Jonatan_Clock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1924311981
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1924311980}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1945770326}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1924311982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1924311980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 1872657160}
+    line_Swedish: "Varf\xF6r st\xE5r det en klocka i tr\xE4dg\xE5rden? "
+    line_English: 'Why is there a clock in the garden? '
+    time: 3
+  - speaker: {fileID: 1872657160}
+    line_Swedish: 'Den fungerar inte ens. '
+    line_English: 'It doesn''t even work.  '
+    time: 3
 --- !u!1 &1925107158
 GameObject:
   m_ObjectHideFlags: 0
@@ -19641,6 +22198,104 @@ Transform:
   m_PrefabParentObject: {fileID: 4668089087772036, guid: 61479672d6cc57b48ac19d7dfa177ca1,
     type: 2}
   m_PrefabInternal: {fileID: 109257298}
+--- !u!1 &1937726869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1937726871}
+  - component: {fileID: 1937726870}
+  m_Layer: 0
+  m_Name: E8_Amina_Drainspout_Cog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1937726870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1937726869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 1252084880}
+  character: {fileID: 1361693362}
+  trigger: 1
+  activated: 0
+  collisionTrigger: {fileID: 0}
+  item: {fileID: 0}
+--- !u!4 &1937726871
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1937726869}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 615111850}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1945770325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1945770326}
+  m_Layer: 0
+  m_Name: Dialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1945770326
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1945770325}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1817911459}
+  - {fileID: 883808832}
+  - {fileID: 1463146651}
+  - {fileID: 452676932}
+  - {fileID: 1699474055}
+  - {fileID: 399778010}
+  - {fileID: 104442854}
+  - {fileID: 185122207}
+  - {fileID: 1905535794}
+  - {fileID: 318280575}
+  - {fileID: 1327607194}
+  - {fileID: 820928569}
+  - {fileID: 384628455}
+  - {fileID: 1924311981}
+  - {fileID: 1550711075}
+  - {fileID: 1469798333}
+  - {fileID: 918205807}
+  - {fileID: 1837511569}
+  - {fileID: 1908965877}
+  - {fileID: 117808810}
+  - {fileID: 926840695}
+  m_Father: {fileID: 241637446}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1959535940
 GameObject:
   m_ObjectHideFlags: 0
@@ -21034,4 +23689,35 @@ Transform:
   - {fileID: 960612093}
   m_Father: {fileID: 542108279}
   m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2128616003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2128616004}
+  m_Layer: 0
+  m_Name: Position Triggers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2128616004
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2128616003}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1142798959}
+  - {fileID: 614701569}
+  - {fileID: 1148272644}
+  m_Father: {fileID: 241637446}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
