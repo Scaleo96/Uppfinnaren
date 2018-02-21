@@ -44,40 +44,10 @@ public class Entity : MonoBehaviour
     {
         if (canUseCondition.CanInteract(values.character) == true)
         {
-            if (requiredItem.Length != 0)
-            {
-                int end = 0;
-                for (int i = 0; i < requiredItem.Length; i++)
-                {
-                    if (values.item == requiredItem[i])
-                    {
-                        OnInteract(values);
-                        if (destroyItemOnUse)
-                        {
-                            GameController.instance.GetCurrentCharacter().RemoveItemFromInventory(GameController.instance.SelectedItem);
-                            GameController.instance.DeselectItem(GameController.instance.SelectedInventorySlot);
-                            GameController.instance.UpdateInventory(GameController.instance.CurrentCharacterID);
-                        }
-                    }
-                    else
-                    {
-                        end++;
-                    }
-                }
-                if(end >= requiredItem.Length)
-                {
-                    values.trigger = EntityValues.TriggerType.FailedUse;
-                    OnCantUse(values);
-                }
-            }
-            else
-            {
-                OnInteract(values);
-            }
+            OnInteract(values);
         }
         else if (canUseCondition.CanInteract(values.character) == false)
         {
-            values.trigger = EntityValues.TriggerType.Inspect;
             OnCantUse(values);
         }
     }
