@@ -27,8 +27,7 @@ namespace MusicMixer
         [SerializeField]
         private bool startFadingIn;
 
-        [Header("Compositions")]
-        [SerializeField]
+        [HideInInspector]
         public MusicComposition[] compositions;
 
         [Header("Music Tracks")]

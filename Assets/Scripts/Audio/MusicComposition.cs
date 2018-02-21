@@ -4,6 +4,10 @@ using UnityEngine;
 
 namespace MusicMixer
 {
+    /// <summary>
+    /// A collection of music tracks part of the same music composition.
+    /// Employs a base track that is meant to always be active with additional accompanying tracks that can be faded in and out.
+    /// </summary>
     [Serializable]
     public class MusicComposition
     {
@@ -12,6 +16,8 @@ namespace MusicMixer
 
         [SerializeField]
         public int[] accompanyingTracks;
+
+        public bool expandInEditor;
 
         private MusicPlayer musicPlayer;
 
@@ -23,7 +29,7 @@ namespace MusicMixer
         /// <summary>
         /// Begins playing base track and accompanying tracks, setting volume 
         /// </summary>
-        private void ActivateGroup()
+        public void ActivateGroup()
         {
             ActivateTrack(baseTrackIndex);
             foreach (var track in accompanyingTracks)
@@ -46,10 +52,17 @@ namespace MusicMixer
         /// </summary>
         /// <param name="index">Index in MusicPlayer's track list</param>
         /// <param name="volume">Volume to fade to</param>
-        private void ActivateTrack(int index, float volume)
+        public void ActivateTrack(int index, float volume)
         {
             MusicTrack activatingMusicTrack = musicPlayer.Tracks[index];
             musicPlayer.PlayTrack(activatingMusicTrack, volume);
+        }
+
+        public override string ToString()
+        {
+            string baseTrackName = musicPlayer.Tracks[baseTrackIndex].ToString();
+            baseTrackName += " - Composition";
+            return baseTrackName;
         }
     }
 }

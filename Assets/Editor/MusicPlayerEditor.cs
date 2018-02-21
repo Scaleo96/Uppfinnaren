@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -8,13 +8,12 @@ namespace MusicMixer
     [CustomEditor(typeof(MusicPlayer))]
     public class MusicPlayerEditor : Editor
     {
+        // TODO: Implement advanced setting toggle
         [SerializeField]
-        private bool testBool;
+        private bool showAdvancedSettings;
 
         private MusicPlayer musicPlayer;
         private List<string> trackNames = new List<string>();
-
-        bool[] compExpand;
 
         public override void OnInspectorGUI()
         {
@@ -36,16 +35,19 @@ namespace MusicMixer
         {
             RefreshTrackNames();
 
+            EditorGUILayout.LabelField("Music compositions", EditorStyles.boldLabel);
+            // Size of music compos
+            SetSizeOfCompositionsArray();
 
             foreach (MusicComposition composition in musicPlayer.compositions)
             {
+                EditorGUILayout.Separator();
                 string baseTrackName = musicPlayer.Tracks[composition.baseTrackIndex].ToString();
 
-                testBool = EditorGUILayout.Foldout(testBool, "Music composition - " + baseTrackName, EditorStyles.boldLabel);
-                if (testBool)
+                // Foldout
+                composition.expandInEditor = EditorGUILayout.Foldout(composition.expandInEditor, "Music composition - " + baseTrackName);
+                if (composition.expandInEditor)
                 {
-                    EditorGUILayout.Separator();
-
                     EditorGUILayout.LabelField("Music composition - " + baseTrackName, EditorStyles.boldLabel);
 
                     // Select base track
@@ -62,15 +64,43 @@ namespace MusicMixer
 
                         EditorGUILayout.PrefixLabel("Acomp. track #" + i + ": ");
 
-
                         trackIndex = EditorGUILayout.Popup(trackIndex, trackNames.ToArray());
 
                         composition.accompanyingTracks[i] = trackIndex;
                         EditorGUILayout.EndHorizontal();
                     }
+                }
+                EditorGUILayout.Space();
+            }
+        }
 
+        private void SetSizeOfCompositionsArray()
+        {
+            MusicComposition[] compArray = musicPlayer.compositions;
+            int arraySize = compArray.Length;
 
-                }                EditorGUILayout.Space();
+            // Editor GUI
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.PrefixLabel("Amount of compositions");
+            arraySize = EditorGUILayout.DelayedIntField(arraySize);
+            EditorGUILayout.EndHorizontal();
+
+            if (compArray.Length != arraySize)
+            {
+                // TODO: Cleanup comments
+                //MusicComposition[] newArray = new MusicComposition[arraySize - 1];
+                //Debug.Log("Attempting resizing");
+                Array.Resize<MusicComposition>(ref musicPlayer.compositions, arraySize);
+
+                //for (int i = 0; i < newArray.Length; i++)
+                //{
+                //    if (compArray.Length > i)
+                //    {
+                //        newArray[i] = compArray[i];
+                //    }
+                //}
+
+                //compArray = newArray;
             }
         }
 
