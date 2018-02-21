@@ -21,6 +21,8 @@ namespace MusicMixer
 
         private MusicPlayer musicPlayer;
 
+        // TODO: Add functionality to stop composition tracks after a set amount of time. Suggestion: Co-routine?
+
         public MusicComposition(MusicPlayer musicPlayer)
         {
             this.musicPlayer = musicPlayer;
@@ -32,7 +34,7 @@ namespace MusicMixer
         public void ActivateGroup()
         {
             ActivateTrack(baseTrackIndex);
-            foreach (var track in accompanyingTracks)
+            foreach (int track in accompanyingTracks)
             {
                 ActivateTrack(track);
             }
@@ -54,8 +56,37 @@ namespace MusicMixer
         /// <param name="volume">Volume to fade to</param>
         public void ActivateTrack(int index, float volume)
         {
-            MusicTrack activatingMusicTrack = musicPlayer.Tracks[index];
+            MusicTrack activatingMusicTrack = GetMusicTrack(index);
             musicPlayer.PlayTrack(activatingMusicTrack, volume);
+        }
+
+        public void DeactivateGroup()
+        {
+            DeactivateTrack(baseTrackIndex);
+            foreach (int trackIndex in accompanyingTracks)
+            {
+                DeactivateTrack(trackIndex);
+            }
+        }
+
+        private void DeactivateTrack(int baseTrackIndex)
+        {
+            MusicTrack deactivatingMusicTrack = GetMusicTrack(baseTrackIndex);
+            deactivatingMusicTrack.StartFade(0f, deactivatingMusicTrack.FadeDuration);
+        }
+
+        private MusicTrack GetMusicTrack(int trackIndex)
+        {
+            bool indexWithinBounds = musicPlayer.Tracks.Count > trackIndex;
+            if (!indexWithinBounds)
+            {
+                // TODO: Implement exception
+                throw new NotImplementedException;
+            }
+            else
+            {
+                return musicPlayer.Tracks[trackIndex];
+            }
         }
 
         public override string ToString()
