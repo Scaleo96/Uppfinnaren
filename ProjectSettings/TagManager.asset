@@ -56,3 +56,6 @@ TagManager:
   - name: Characters
     uniqueID: 4260761813
     locked: 0
+  - name: Superforeground
+    uniqueID: 3908894265
+    locked: 0
