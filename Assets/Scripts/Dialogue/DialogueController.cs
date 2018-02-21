@@ -92,8 +92,7 @@ public class DialogueController : MonoBehaviour
 
     private void ChangePosition(SpeakerAndText speakerAndText)
     {
-        Vector3 screenpos;
-        screenpos = Camera.main.GetComponent<Camera>().WorldToViewportPoint(speakerAndText.currentSpeaker.transform.position + textPosition);
+        Camera.main.GetComponent<Camera>().WorldToViewportPoint(speakerAndText.currentSpeaker.transform.position + textPosition);
         speakerAndText.currentText.transform.GetChild(0).transform.position = Camera.main.GetComponent<Camera>().WorldToScreenPoint(speakerAndText.currentSpeaker.transform.position + textPosition);
     }
 
