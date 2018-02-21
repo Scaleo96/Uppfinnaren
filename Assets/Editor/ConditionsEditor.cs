@@ -14,7 +14,8 @@ public class ConditionsEditor : Editor
     private void SetFieldCondition()
     {
 
-        ShowOnEnum("trigger", "PositionTrigger", "collisionTrigger"); //type1Var is only visible when type == Type1
+        ShowOnEnum("trigger", "PositionTrigger", "collisionTrigger");
+        ShowOnEnum("trigger", "UseItem", "item");
 
     }
 

@@ -183,6 +183,7 @@ public class ConditionContainer
     public int dialogueDone;
     [HideInInspector]
     bool dialogueRunning;
+    [HideInInspector]
     public bool isComplete;
 
     public bool repeatable;
