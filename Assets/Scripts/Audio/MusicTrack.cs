@@ -51,6 +51,7 @@ namespace MusicMixer
         {
             TargetVolume = newTargetVolume;
             FadeDuration = newFadeDuration;
+            StartFadeTimer();
         }
 
         /// <summary>

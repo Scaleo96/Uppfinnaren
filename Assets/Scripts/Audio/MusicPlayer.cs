@@ -49,6 +49,9 @@ namespace MusicMixer
         [Tooltip("Attempt to remove (UnityEngine.AudioClip) appended at the end of renamed children?")]
         private bool trunctateNameOfRenamedTracks = true;
 
+        private MusicComposition activeMusicComposition;
+        private int activeAccompanyingTrack;
+
         private void Awake()
         {
             CheckSingleton();
@@ -395,12 +398,27 @@ namespace MusicMixer
             }
         }
 
-        public void ActivateCompositionGroup(MusicComposition composition)
+        public void ActivateCompositionGroup(MusicComposition activatingComposition)
         {
-            composition.ActivateGroup();
+            if (activeMusicComposition != null)
+            {
+                bool compositionIsAlreadyActive = activatingComposition == activeMusicComposition;
+                if (compositionIsAlreadyActive)
+                {
+                    LogWarning("Composition <i>" + activatingComposition.ToString() + "</i> is already active, aborting activation.");
+                    return;
+                }
+                else
+                {
+                    DeactivateCompositionGroup(activeMusicComposition);
+                    activeMusicComposition = activatingComposition;
+                    activeMusicComposition.ActivateGroup(ActiveAccompanyingTrack);
+                }
+            }
+            activatingComposition.ActivateGroup(ActiveAccompanyingTrack);
         }
 
-        public void DeactivateCompositionGroup(MusicComposition composition)
+        private void DeactivateCompositionGroup(MusicComposition composition)
         {
             composition.DeactivateGroup();
         }
@@ -439,6 +457,23 @@ namespace MusicMixer
             private set
             {
                 instance = value;
+            }
+        }
+
+        public int ActiveAccompanyingTrack
+        {
+            get
+            {
+                return activeAccompanyingTrack;
+            }
+
+            set
+            {
+                activeAccompanyingTrack = value;
+                if (activeMusicComposition != null)
+                {
+                    activeMusicComposition.FadeToTrackExlusive(activeAccompanyingTrack);
+                }                
             }
         }
     }
