@@ -19,6 +19,10 @@ public class Entity : MonoBehaviour
     [SerializeField]
     float interactDistance = 1f;
 
+    [Tooltip("The character needed to active the setCanuse function")]
+    [SerializeField]
+    Character conditionCharacter;
+
     [SerializeField]
     protected CanUseCondition canUseCondition;
 
@@ -27,12 +31,6 @@ public class Entity : MonoBehaviour
     [Tooltip("If the Character is not allowed to use the entity this event will be called on interaction")]
     [SerializeField]
     ValueEvent cantUseEvents;
-
-    [SerializeField]
-    bool destroyItemOnUse;
-
-    [SerializeField]
-    Item[] requiredItem;
 
     bool canBeInteractedWith;
 
@@ -49,6 +47,55 @@ public class Entity : MonoBehaviour
         else if (canUseCondition.CanInteract(values.character) == false)
         {
             OnCantUse(values);
+        }
+    }
+
+    // Call function to toggle entities can use variable
+    public void SetCanUseAmina(EntityValues values)
+    {
+        if (conditionCharacter == values.character)
+        {
+            if (canUseCondition.aminaUse)
+            {
+                canUseCondition.aminaUse = false;
+            }
+
+            else if (!canUseCondition.aminaUse)
+            {
+                canUseCondition.aminaUse = true;
+            }
+        }
+    }
+
+    public void SetCanUseIda(EntityValues values)
+    {
+        if (conditionCharacter == values.character)
+        {
+            if (canUseCondition.idaUse)
+            {
+                canUseCondition.idaUse = false;
+            }
+
+            else if (!canUseCondition.idaUse)
+            {
+                canUseCondition.idaUse = true;
+            }
+        }
+    }
+
+    public void SetCanUsejonathan(EntityValues values)
+    {
+        if (conditionCharacter == values.character)
+        {
+            if (canUseCondition.jonathanUse)
+            {
+                canUseCondition.jonathanUse = false;
+            }
+
+            else if (!canUseCondition.jonathanUse)
+            {
+                canUseCondition.jonathanUse = true;
+            }
         }
     }
 
