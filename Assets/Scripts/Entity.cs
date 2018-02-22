@@ -19,10 +19,6 @@ public class Entity : MonoBehaviour
     [SerializeField]
     float interactDistance = 1f;
 
-    [Tooltip("The character needed to active the setCanuse function")]
-    [SerializeField]
-    Character conditionCharacter;
-
     [SerializeField]
     protected CanUseCondition canUseCondition;
 
@@ -51,51 +47,42 @@ public class Entity : MonoBehaviour
     }
 
     // Call function to toggle entities can use variable
-    public void SetCanUseAmina(EntityValues values)
+    public void SetCanUseAmina()
     {
-        if (conditionCharacter == values.character)
+        if (canUseCondition.aminaUse)
         {
-            if (canUseCondition.aminaUse)
-            {
-                canUseCondition.aminaUse = false;
-            }
+            canUseCondition.aminaUse = false;
+        }
 
-            else if (!canUseCondition.aminaUse)
-            {
-                canUseCondition.aminaUse = true;
-            }
+        else if (!canUseCondition.aminaUse)
+        {
+            canUseCondition.aminaUse = true;
         }
     }
 
-    public void SetCanUseIda(EntityValues values)
+    public void SetCanUseIda()
     {
-        if (conditionCharacter == values.character)
+        if (canUseCondition.idaUse)
         {
-            if (canUseCondition.idaUse)
-            {
-                canUseCondition.idaUse = false;
-            }
+            canUseCondition.idaUse = false;
+        }
 
-            else if (!canUseCondition.idaUse)
-            {
-                canUseCondition.idaUse = true;
-            }
+        else if (!canUseCondition.idaUse)
+        {
+            canUseCondition.idaUse = true;
         }
     }
 
-    public void SetCanUsejonathan(EntityValues values)
+    public void SetCanUseJonathan()
     {
-        if (conditionCharacter == values.character)
+        if (canUseCondition.jonathanUse)
         {
-            if (canUseCondition.jonathanUse)
-            {
-                canUseCondition.jonathanUse = false;
-            }
+            canUseCondition.jonathanUse = false;
+        }
 
-            else if (!canUseCondition.jonathanUse)
-            {
-                canUseCondition.jonathanUse = true;
-            }
+        else if (!canUseCondition.jonathanUse)
+        {
+            canUseCondition.jonathanUse = true;
         }
     }
 
