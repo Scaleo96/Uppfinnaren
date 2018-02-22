@@ -37,6 +37,21 @@ public class Character : Entity
     [SerializeField]
     float tolerance = 0.3f;
 
+    [SerializeField]
+    AudioSource stepSoundSource;
+
+    [SerializeField]
+    AudioClip stepSoundGrass;
+
+    [SerializeField]
+    AudioClip stepSoundWood;
+
+    [SerializeField]
+    AudioClip stepSoundStone;
+
+    [SerializeField]
+    AudioClip stepSoundForest;
+
     Rigidbody2D rb2D;
     Animator animator;
 
@@ -86,6 +101,7 @@ public class Character : Entity
         {
             GetComponentInChildren<SpriteRenderer>().flipX = moveHorizontal > 0;
 
+            // Flip big item;
             if (moveHorizontal > 0 && !isFliped)
                 FlipBigItem();
             else if (moveHorizontal < 0 && isFliped)
@@ -93,6 +109,7 @@ public class Character : Entity
         }
     }
 
+    // Flip big item when character turns.
     private void FlipBigItem()
     {
         isFliped = !isFliped;
@@ -119,6 +136,11 @@ public class Character : Entity
         }
     }
 
+    /// <summary>
+    /// Set the big item.
+    /// </summary>
+    /// <param Big item to add="item"></param>
+    /// <returns></returns>
     public bool AddBigItem(BigItem item)
     {
         if (bigItem == null)
@@ -156,6 +178,10 @@ public class Character : Entity
         return false;
     }
 
+    /// <summary>
+    /// Returns true if the active player has a big item.
+    /// </summary>
+    /// <returns></returns>
     public bool HasBigItem()
     {
         if (bigItem != null)
@@ -166,6 +192,9 @@ public class Character : Entity
         return false;
     }
 
+    /// <summary>
+    /// Drops the big item from the active character.
+    /// </summary>
     public void DropBigItem()
     {
         bigItem.gameObject.SetActive(true);
@@ -188,6 +217,15 @@ public class Character : Entity
     {
         yield return new WaitForEndOfFrame();
         handsFree = true;
+    }
+
+    public void PlayStepSound()
+    {
+        // get ground material
+
+        // set sound on audio source
+
+        stepSoundSource.Play();
     }
 
     public bool DropItem(Item item)
