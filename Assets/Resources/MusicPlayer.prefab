@@ -609,13 +609,13 @@ MonoBehaviour:
   verbose: 1
   musicMixer: {fileID: 243397838039039640, guid: 0da65e85ae3e14541bb9ef961581f29c,
     type: 2}
-  startFadingIn: 1
+  startFadingIn: 0
   compositions:
   - baseTrackIndex: 4
     accompanyingTracks: 
     expandInEditor: 1
   - baseTrackIndex: 0
-    accompanyingTracks: 010000000200000003000000
+    accompanyingTracks: 020000000300000001000000
     expandInEditor: 1
   tracks:
   - trackSource: {fileID: 82237408952747676}
@@ -642,7 +642,7 @@ MonoBehaviour:
     trackClip: {fileID: 8300000, guid: 46f6a674ec50ea24a83345688319be18, type: 3}
     currentVolume: 0
     targetVolume: 0
-    fadeDuration: 0
+    fadeDuration: 7
   autoPopulateTracks: 1
   automaticRenaming: 1
   defaultFadeDuration: 2

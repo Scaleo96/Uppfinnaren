@@ -410,12 +410,12 @@ namespace MusicMixer
                 }
                 else
                 {
-                    DeactivateCompositionGroup(activeMusicComposition);
-                    activeMusicComposition = activatingComposition;
-                    activeMusicComposition.ActivateGroup(ActiveAccompanyingTrack);
+                    activeMusicComposition.DeactivateGroup();
                 }
             }
-            activatingComposition.ActivateGroup(ActiveAccompanyingTrack);
+            
+            activeMusicComposition = activatingComposition;
+            activeMusicComposition.ActivateGroup(ActiveAccompanyingTrack);
         }
 
         private void DeactivateCompositionGroup(MusicComposition composition)
