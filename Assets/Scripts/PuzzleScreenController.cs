@@ -6,6 +6,8 @@ public class PuzzleScreenController : MonoBehaviour
 {
     GameObject[] puzzleScreens;
 
+    List<int> deactivatedId = new List<int>();
+
     private void Awake()
     {
         puzzleScreens = new GameObject[transform.childCount];
@@ -23,8 +25,11 @@ public class PuzzleScreenController : MonoBehaviour
     /// <param name="id">The id of the screen.</param>
     public void ActivateScreen(int id)
     {
-        puzzleScreens[id].SetActive(true);
-        GameController.instance.SetActiveMovement(false);
+        if (!deactivatedId.Contains(id))
+        {
+            puzzleScreens[id].SetActive(true);
+            GameController.instance.SetActiveMovement(false);
+        }
     }
 
     /// <summary>
@@ -33,8 +38,14 @@ public class PuzzleScreenController : MonoBehaviour
     /// <param name="id">The id of the screen.</param>
     public void DeactivateScreen(int id)
     {
+
         puzzleScreens[id].SetActive(false);
         GameController.instance.SetActiveMovement(true);
+    }
+
+    public void PermenentDeactivate(int id)
+    {
+        deactivatedId.Add(id);
     }
 
     private void Update()

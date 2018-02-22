@@ -26,7 +26,7 @@ public class Item : Entity
         values.trigger = EntityValues.TriggerType.PickupItem;
         base.OnInteract(values);
 
-        if (values.character.IsInventoryFull() == false)
+        if (values.character.IsInventoryFull() == false && values.character.HandsFree)
         {
             values.character.AddItemToInventory(this);
             RemoveFromWorld();

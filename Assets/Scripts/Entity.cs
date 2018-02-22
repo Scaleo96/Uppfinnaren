@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 [RequireComponent(typeof(Collider2D))]
 public class Entity : MonoBehaviour
@@ -22,8 +24,9 @@ public class Entity : MonoBehaviour
 
     [SerializeField]
     ValueEvent interactionEvents;
+    [Tooltip("If the Character is not allowed to use the entity this event will be called on interaction")]
     [SerializeField]
-    ValueEvent inspectEvents;
+    ValueEvent cantUseEvents;
 
     bool canBeInteractedWith;
 
@@ -39,8 +42,47 @@ public class Entity : MonoBehaviour
         }
         else if (canUseCondition.CanInteract(values.character) == false)
         {
-            values.trigger = EntityValues.TriggerType.Inspect;
-            OnInspect(values);
+            OnCantUse(values);
+        }
+    }
+
+    // Call function to toggle entities can use variable
+    public void SetCanUseAmina()
+    {
+        if (canUseCondition.aminaUse)
+        {
+            canUseCondition.aminaUse = false;
+        }
+
+        else if (!canUseCondition.aminaUse)
+        {
+            canUseCondition.aminaUse = true;
+        }
+    }
+
+    public void SetCanUseIda()
+    {
+        if (canUseCondition.idaUse)
+        {
+            canUseCondition.idaUse = false;
+        }
+
+        else if (!canUseCondition.idaUse)
+        {
+            canUseCondition.idaUse = true;
+        }
+    }
+
+    public void SetCanUseJonathan()
+    {
+        if (canUseCondition.jonathanUse)
+        {
+            canUseCondition.jonathanUse = false;
+        }
+
+        else if (!canUseCondition.jonathanUse)
+        {
+            canUseCondition.jonathanUse = true;
         }
     }
 
@@ -49,13 +91,13 @@ public class Entity : MonoBehaviour
     /// </summary>
     /// <param name="character">The entity that is interacting with this entity.</param>
     protected virtual void OnInteract(EntityValues values)
-    {     
+    {
         interactionEvents.Invoke(values);
     }
 
-    protected virtual void OnInspect(EntityValues values)
+    protected virtual void OnCantUse(EntityValues values)
     {
-        inspectEvents.Invoke(values);
+        cantUseEvents.Invoke(values);
     }
 
     public string EntityName
@@ -86,11 +128,13 @@ public class Entity : MonoBehaviour
             interactionEvents = value;
         }
     }
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         UnityEditor.Handles.color = Color.blue;
         UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.forward, interactDistance);
     }
+#endif
 }
 
 [System.Serializable]
@@ -132,6 +176,7 @@ public class CanUseCondition
     }
 }
 
+#if UNITY_EDITOR
 [CustomPropertyDrawer(typeof(CanUseCondition))]
 public class CanUseConditionDrawer : PropertyDrawer
 {
@@ -172,13 +217,14 @@ public class CanUseConditionDrawer : PropertyDrawer
         }
     }
 }
+#endif
 
 [System.Serializable]
 public class ValueEvent : UnityEvent<EntityValues> { }
 
 public struct EntityValues
 {
-    public enum TriggerType { PuzzleSolved, Inspect, PositionTrigger, PickupItem, EnterDoor, UseItem }
+    public enum TriggerType { PuzzleSolved, Inspect, PositionTrigger, PickupItem, EnterDoor, UseItem, FailedUse, AlreadyUsed }
 
     public TriggerType trigger;
     public Entity entity;

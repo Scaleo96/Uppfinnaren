@@ -24,10 +24,10 @@ public class Container : Entity
 
     protected override void OnInteract(EntityValues values)
     {
-        base.OnInteract(values);
-
         if (input)
         {
+            int count = 0;
+
             // Checks if the item that the player is holding is one of the required items. Then adds it.
             foreach (Item requiredItem in requiredItems)
             {
@@ -43,6 +43,14 @@ public class Container : Entity
                         fullEvent.Invoke(values);
                     }
                 }
+                else
+                {
+                    count++;
+                }
+            }
+            if (count >= requiredItems.Length)
+            {
+                values.trigger = EntityValues.TriggerType.FailedUse;
             }
         }
         else
@@ -51,7 +59,13 @@ public class Container : Entity
             {
                 DropItem(containedItems[containedItems.Count - 1]);
             }
+            else if (containedItems.Count == 0)
+            {
+                values.trigger = EntityValues.TriggerType.AlreadyUsed;
+            }
         }
+
+        base.OnInteract(values);
     }
 
     public bool DropItem(Item item)

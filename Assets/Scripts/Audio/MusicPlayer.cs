@@ -7,6 +7,10 @@ namespace MusicMixer
 {
     public class MusicPlayer : MonoBehaviour
     {
+        /// <summary>
+        /// Prefix used for debug messages displayer by the MusicPlayer.
+        /// Accepts RichText formatting.
+        /// </summary>
         private const string DEBUG_PREFIX = "<color=darkblue><b>MusicPlayer</b></color> - ";
 
         // Used for singleton
@@ -23,36 +27,66 @@ namespace MusicMixer
         [SerializeField]
         private bool startFadingIn;
 
+        [HideInInspector]
+        public MusicComposition[] compositions;
+
         [Header("Music Tracks")]
         [SerializeField]
         private List<MusicTrack> tracks = new List<MusicTrack>();
 
-        [Header("Batch adding of tracks")]
+        [Header("Batch handling of tracks")]
         [SerializeField]
-        public bool autoPopulateTracks;
+        [Tooltip("Automatically add and generate music tracks from any viable child GameObjects?")]
+        private bool autoPopulateTracks;
 
-        private void Update()
-        {
-            AdjustTrackVolume();
-        }
+        [SerializeField]
+        private bool automaticRenaming;
 
-        private void AdjustTrackVolume()
-        {
-            // Iterate through trackList
-            foreach (MusicTrack track in tracks)
-            {
-                // Check if it's the correct volume
-                if (track.Volume != track.TargetVolume)
-                {
-                    // Update fade function on track to continue fading
-                    track.FadeTrackOverTime();
-                }
-            }
-        }
+        [SerializeField]
+        [Tooltip("What is the default fade duration of music tracks")]
+        private float defaultFadeDuration;
+
+        [Tooltip("Attempt to remove (UnityEngine.AudioClip) appended at the end of renamed children?")]
+        private bool trunctateNameOfRenamedTracks = true;
+
+        private MusicComposition activeMusicComposition;
+        private int activeAccompanyingTrack;
 
         private void Awake()
         {
             CheckSingleton();
+            StartFadingIn();
+        }
+
+        private void CheckSingleton()
+        {
+            // Make sure there are no other running instances of the MenUI
+            if (Instance != null)
+            {
+                if (Debug.isDebugBuild) LogWarning("Other instance of MusicPlayer already running. Terminating.");
+                Destroy(gameObject);
+            }
+            else
+            {
+                if (Debug.isDebugBuild) Log("Initializing MusicPlayer", this);
+                Instance = this;
+
+                // Set MusicPlayer to be persistant
+                DontDestroyOnLoad(gameObject);
+            }
+        }
+
+        private void OnDestroy()
+        {
+            // Reset singleton
+            if (Instance == this)
+            {
+                Instance = null;
+            }
+        }
+
+        private void StartFadingIn()
+        {
             if (!startFadingIn)
             {
                 foreach (MusicTrack track in tracks)
@@ -62,21 +96,21 @@ namespace MusicMixer
             }
         }
 
-        private void CheckSingleton()
+        private void Update()
         {
-            // Make sure there are no other running instances of the MenUI
-            if (instance != null)
-            {
-                if (Debug.isDebugBuild) LogWarning("Other instance of MusicPlayer already running. Terminating.");
-                Destroy(gameObject);
-            }
-            else
-            {
-                if (Debug.isDebugBuild) Log("Initializing MusicPlayer", this);
-                instance = this;
+            AdjustTrackVolume();
+        }
 
-                // Set MusicPlayer to be persistant
-                DontDestroyOnLoad(gameObject);
+        private void AdjustTrackVolume()
+        {
+            foreach (MusicTrack track in tracks)
+            {
+                // Check if it's the correct volume
+                if (track.Volume != track.TargetVolume)
+                {
+                    // Update fade function on track to continue fading
+                    track.FadeTrackOverTime();
+                }
             }
         }
 
@@ -97,7 +131,7 @@ namespace MusicMixer
         /// <param name="track">Music track to fade</param>
         /// <param name="targetVolume">Desired volume</param>
         /// <param name="fadeDuration">New fade duration</param>
-        private void BeginTrackFade(MusicTrack track, float targetVolume = .0f, float fadeDuration = .0f)
+        public void BeginTrackFade(MusicTrack track, float targetVolume = .0f, float fadeDuration = .0f)
         {
             track.FadeDuration = fadeDuration;
             BeginTrackFade(track, targetVolume);
@@ -107,7 +141,7 @@ namespace MusicMixer
         /// Fades the music track to the previously set target volume
         /// </summary>
         /// <param name="track">Music track to fade</param>
-        private void BeginTrackFade(MusicTrack track)
+        public void BeginTrackFade(MusicTrack track)
         {
             BeginTrackFade(track, track.TargetVolume, track.FadeDuration);
         }
@@ -195,7 +229,19 @@ namespace MusicMixer
         }
 
         /// <summary>
-        /// Starts playing track clip and fade in
+        /// Starts playing track clip and begins fade
+        /// </summary>
+        /// <param name="trackToPlay"></param>
+        /// <param name="fadeIn">Fade in to max volume or min volume?</param>
+        /// <returns></returns>
+        internal bool PlayTrack(MusicTrack trackToPlay, bool fadeIn)
+        {
+            float volume = fadeIn ? 1f : 0f;
+            return PlayTrack(trackToPlay, volume);
+        }
+
+        /// <summary>
+        /// Starts playing track clip and begins fade
         /// </summary>
         /// <param name="trackToPlay"></param>
         /// <param name="volume"></param>
@@ -212,10 +258,11 @@ namespace MusicMixer
                     return false;
                 }
 
-                // Start playing track if it's nto playing
+                // Start playing track at volume 0 if it's not playing already
                 if (!trackToPlay.trackSource.isPlaying)
                 {
                     trackToPlay.trackSource.Play();
+                    trackToPlay.trackSource.volume = 0f;
                 }
 
                 // Initialize fade
@@ -241,6 +288,12 @@ namespace MusicMixer
             }
         }
 
+        /// <summary>
+        /// Starts playing track clip and begins fade
+        /// </summary>
+        /// <param name="trackToPlay"></param>
+        /// <param name="volume"></param>
+        /// <returns></returns>
         internal bool PlayTrack(MusicTrack trackToPlay, float volume = 1f)
         {
             return PlayTrack(trackToPlay, volume, trackToPlay.FadeDuration);
@@ -277,6 +330,33 @@ namespace MusicMixer
                 {
                     track.TargetVolume = Mathf.Clamp01(track.TargetVolume);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Renames the game object to match the source file of the AudioSource
+        /// </summary>
+        public void RenameObjectsToSourceFile()
+        {
+            foreach (Transform child in transform.GetComponentsInChildren<Transform>())
+            {
+                if (child.GetComponent<AudioSource>())
+                {
+                    string newName = child.GetComponent<AudioSource>().clip.ToString();
+                    if (trunctateNameOfRenamedTracks)
+                    {
+                        newName = newName.Replace(" (UnityEngine.AudioClip)", "");
+                    }
+                    child.name = newName;
+                }
+            }
+        }
+
+        public void SetDefaultFadeDurationOnAllTracks()
+        {
+            foreach (MusicTrack track in tracks)
+            {
+                track.FadeDuration = defaultFadeDuration;
             }
         }
 
@@ -318,6 +398,31 @@ namespace MusicMixer
             }
         }
 
+        public void ActivateCompositionGroup(MusicComposition activatingComposition)
+        {
+            if (activeMusicComposition != null)
+            {
+                bool compositionIsAlreadyActive = activatingComposition == activeMusicComposition;
+                if (compositionIsAlreadyActive)
+                {
+                    LogWarning("Composition <i>" + activatingComposition.ToString() + "</i> is already active, aborting activation.");
+                    return;
+                }
+                else
+                {
+                    activeMusicComposition.DeactivateGroup();
+                }
+            }
+            
+            activeMusicComposition = activatingComposition;
+            activeMusicComposition.ActivateGroup(ActiveAccompanyingTrack);
+        }
+
+        private void DeactivateCompositionGroup(MusicComposition composition)
+        {
+            composition.DeactivateGroup();
+        }
+
         public List<MusicTrack> Tracks
         {
             get
@@ -325,157 +430,50 @@ namespace MusicMixer
                 return tracks;
             }
         }
-    }
 
-    /// <summary>
-    /// Properties of music tracks
-    /// </summary>
-    [Serializable]
-    public class MusicTrack
-    {
-        [SerializeField]
-        public AudioSource trackSource;
-
-        [ReadOnly]
-        [SerializeField]
-        private AudioClip trackClip;
-
-        [SerializeField]
-        private float targetVolume, fadeDuration = 0;
-
-        /// <summary>Monitors how long the track has been fading to new TargetVolume</summary>
-        private float fadeTimer;
-
-        /// <summary>Volume to fade from</summary>
-        private float fadeStartVolume;
-
-        public MusicTrack(AudioSource track, AudioMixerGroup mixerGroup, bool loop = true)
+        public bool AutoPopulateTracks
         {
-            trackSource = track;
-
-            // Set the AudioMixerGroup to use the music group
-            track.outputAudioMixerGroup = mixerGroup;
-
-            // Set looping
-            track.loop = loop;
-
-            UpdateEditorInfo();
-        }
-
-        public void StartFade(float newTargetVolume, float newFadeDuration)
-        {
-            TargetVolume = newTargetVolume;
-            FadeDuration = newFadeDuration;
-        }
-
-        /// <summary>
-        /// Change track volume over time, duration set by FadeDuration
-        /// </summary>
-        public void FadeTrackOverTime()
-        {
-            if (fadeTimer < FadeDuration)
+            get
             {
-                // Advance timer
-                fadeTimer += Time.unscaledDeltaTime;
+                return autoPopulateTracks;
+            }
+        }
 
-                float fadeProgress = Mathf.Clamp01(fadeTimer / FadeDuration);
+        public bool AutomaticRenaming
+        {
+            get
+            {
+                return automaticRenaming;
+            }
+        }
 
-                // Set volume
-                Volume = Mathf.Lerp(fadeStartVolume, TargetVolume, fadeProgress);
+        public static MusicPlayer Instance
+        {
+            get
+            {
+                return instance;
+            }
 
-                if (Volume == TargetVolume)
+            private set
+            {
+                instance = value;
+            }
+        }
+
+        public int ActiveAccompanyingTrack
+        {
+            get
+            {
+                return activeAccompanyingTrack;
+            }
+
+            set
+            {
+                activeAccompanyingTrack = value;
+                if (activeMusicComposition != null)
                 {
-                    StopFadeTimer();
-                    // "End" timer
-                    fadeTimer = float.MaxValue;
-                }
-            }
-            else if (fadeTimer != float.MaxValue)
-            {
-                // Timer over: setting volume
-                Volume = TargetVolume;
-                StopFadeTimer();
-            }
-        }
-
-        /// <summary>
-        /// Change track volume over time
-        /// </summary>
-        /// <param name="newFadeDuration">Fade duration in seconds</param>
-        public void FadeTrackOverTime(float newFadeDuration)
-        {
-            if (FadeDuration != newFadeDuration)
-            {
-                FadeDuration = newFadeDuration;
-            }
-            FadeTrackOverTime();
-        }
-
-        /// <summary>
-        /// Restarts fade timer with the current fade duration with the current volume as starting point
-        /// </summary>
-        public void StartFadeTimer()
-        {
-            // Reset fadeTime when a new target is set
-            fadeTimer = 0f;
-            Debug.Log("Reset fadetimer");
-            fadeStartVolume = Volume;
-        }
-
-        public void StopFadeTimer()
-        {
-            fadeTimer = float.MaxValue;
-        }
-
-        /// <summary>
-        /// Update track information. Mostly used for ReadOnly info
-        /// </summary>
-        public void UpdateEditorInfo()
-        {
-            // Clip info
-            if (trackClip != trackSource.clip)
-            {
-                trackClip = trackSource.clip;
-            }
-        }
-
-        public float Volume
-        {
-            get
-            {
-                return trackSource.volume;
-            }
-
-            protected set
-            {
-                trackSource.volume = Mathf.Clamp01(value);
-            }
-        }
-
-        public float TargetVolume
-        {
-            get
-            {
-                targetVolume = Mathf.Clamp01(targetVolume);
-                return targetVolume;
-            }
-
-            set
-            {
-                targetVolume = Mathf.Clamp01(value);
-            }
-        }
-
-        public float FadeDuration
-        {
-            get
-            {
-                return fadeDuration;
-            }
-
-            set
-            {
-                fadeDuration = value;
+                    activeMusicComposition.FadeToTrackExlusive(activeAccompanyingTrack);
+                }                
             }
         }
     }

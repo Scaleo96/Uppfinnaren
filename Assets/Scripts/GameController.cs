@@ -54,6 +54,7 @@ public class GameController : MonoBehaviour
 
     [SerializeField]
     InventorySlot selectedInventorySlot;
+    [SerializeField]
     bool isHoldingItem;
 
     [SerializeField]
@@ -113,8 +114,6 @@ public class GameController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
@@ -143,7 +142,8 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        RaycastSelect();
+        if (SelectedInventorySlot.item != null)
+        Debug.Log(selectedInventorySlot.item.ToString());
 
         // Deselect item on click.
         hoverImageObject.transform.position = Input.mousePosition;
@@ -153,16 +153,18 @@ public class GameController : MonoBehaviour
             {
                 currentCharacter.RemoveItemFromInventory(selectedInventorySlot.item);
                 currentCharacter.DropItem(selectedInventorySlot.item);
+                DeselectItem(selectedInventorySlot);
+                UpdateInventory(currentCharID);
             }
-
-            DeselectItem(selectedInventorySlot);
-            UpdateInventory(currentCharID);
         }
         else if ((Input.GetButtonDown("Right Click") || Input.GetButtonDown("Change Character")) && isHoldingItem)
         {
             DeselectItem(selectedInventorySlot);
             UpdateInventory(currentCharID);
         }
+        // Drop big item.
+        else if (Input.GetButtonDown("Interact") && currentCharacter.HasBigItem())
+            currentCharacter.DropBigItem();
 
         // TODO: Move into own function
         // Change character on input.
@@ -177,6 +179,8 @@ public class GameController : MonoBehaviour
                 ChangeCharacter(0);
             }
         }
+
+        RaycastSelect();
     }
 
     /// <summary>
@@ -233,6 +237,7 @@ public class GameController : MonoBehaviour
         values.character = currentCharacter;
         values.collider2d = null;
         values.item = selectedInventorySlot.item;
+
         if (selectedInventorySlot.item != null)
         {
             values.trigger = EntityValues.TriggerType.UseItem;
@@ -263,6 +268,11 @@ public class GameController : MonoBehaviour
         currentCharacter = characters[currentCharID];
 
         currentCharacter.SetActive(true);
+        cameraComponent.GetComponent<CameraFollow>().Target = currentCharacter.transform;
+        cameraComponent.GetComponent<CameraFollow>().SetPosition(currentCharacter.transform);
+
+        // Change music
+        MusicMixer.MusicController.ActivateAccompanyingTrackExclusive(charID);
 
         // TODO: Do stuff with camera
     }
@@ -277,6 +287,14 @@ public class GameController : MonoBehaviour
             inventorySlots[currentCharID][i].item = items[i];
             UpdateInventory(currentCharID);
             //UpdateInventorySlotImage(inventorySlots[currentCharID][i]);
+        }
+    }
+
+    public void AddItemToCurrentCharacter(Item item)
+    {
+        if (currentCharacter.IsInventoryFull() == false)
+        {
+            currentCharacter.AddItemToInventory(item);
         }
     }
 

@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-public class ButtonParameters : MonoBehaviour {
+public class ButtonParameters : MonoBehaviour
+{
 
     [SerializeField]
     UnityEvent ContinueEvent;
@@ -19,21 +20,53 @@ public class ButtonParameters : MonoBehaviour {
     bool alwaysCheck;
 
     [SerializeField]
+    bool requireInventoryRoom;
+
+    [SerializeField]
     RequiredActivations[] requiredActivations;
 
     public void OnClickParamaters()
     {
-        for (int i = 0; i < requiredItem.Length; i++)
+        if (requiredItem.Length >= 1)
         {
-            if (GameController.instance.SelectedItem == requiredItem[i])
+            for (int i = 0; i < requiredItem.Length; i++)
+            {
+                if (GameController.instance.SelectedItem == requiredItem[i])
+                {
+                    if (requireInventoryRoom)
+                    {
+                        if (GameController.instance.GetCurrentCharacter().IsInventoryFull() == false)
+                        {
+                            ContinueEvent.Invoke();
+                        }
+                    }
+                    else
+                    {
+                        ContinueEvent.Invoke();
+                    }
+
+                    if (destroyItemOnUse == true)
+                    {
+                        GameController.instance.GetCurrentCharacter().RemoveItemFromInventory(GameController.instance.SelectedItem);
+                        GameController.instance.DeselectItem(GameController.instance.SelectedInventorySlot);
+                        GameController.instance.UpdateInventory(GameController.instance.CurrentCharacterID);
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (requireInventoryRoom)
+            {
+                if (GameController.instance.GetCurrentCharacter().IsInventoryFull() == false)
+                {
+                    Debug.Log("test");
+                    ContinueEvent.Invoke();
+                }
+            }
+            else
             {
                 ContinueEvent.Invoke();
-                if (destroyItemOnUse == true)
-                {
-                    GameController.instance.GetCurrentCharacter().RemoveItemFromInventory(GameController.instance.SelectedItem);
-                    GameController.instance.DeselectItem(GameController.instance.SelectedInventorySlot);
-                    GameController.instance.UpdateInventory(GameController.instance.CurrentCharacterID);
-                }
             }
         }
     }
@@ -44,7 +77,18 @@ public class ButtonParameters : MonoBehaviour {
         allComplete = Complete(button);
         if (allComplete)
         {
-            ContinueEvent.Invoke();
+            if (requireInventoryRoom)
+            {
+                if (GameController.instance.GetCurrentCharacter().IsInventoryFull() == false)
+                {
+                    ContinueEvent.Invoke();
+                }
+            }
+            else
+            {
+                ContinueEvent.Invoke();
+            }
+
         }
     }
 
@@ -95,4 +139,4 @@ public class ButtonParameters : MonoBehaviour {
 }
 
 [System.Serializable]
-public struct RequiredActivations{ public Button requiredButton; [HideInInspector] public bool activated; }
+public struct RequiredActivations { public Button requiredButton;[HideInInspector] public bool activated; }

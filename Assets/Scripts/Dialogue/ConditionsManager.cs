@@ -14,29 +14,51 @@ public class ConditionsManager : MonoBehaviour
 
     public ConditionValues IsAllComplete(EntityValues entityValues)
     {
-        int i = 0;
         ConditionValues values;
-        for (i = 0; i < container.Length;)
+        for (int i = 0; i < container.Length;)
         {
-            bool test = true;
+            // Everything breaks if you remove this
+            bool failSafe = true;
+
             for (int j = 0; j < container[i].conditions.Length; j++)
             {
-                Inspect(entityValues, container[i].conditions[j]);
-                PositionTrigger(entityValues, container[i].conditions[j]);
-                PickupItem(entityValues, container[i].conditions[j]);
-                EnterDoor(entityValues, container[i].conditions[j]);
-                PuzzleSolved(entityValues, container[i].conditions[j]);
-                UseItem(entityValues, container[i].conditions[j]);
+                if (container[i].DialogueRunning == false)
+                {
+                    AlreadyUsed(entityValues, container[i].conditions[j]);
+                    FailedUse(entityValues, container[i].conditions[j]);
+                    Inspect(entityValues, container[i].conditions[j]);
+                    PositionTrigger(entityValues, container[i].conditions[j]);
+                    PickupItem(entityValues, container[i].conditions[j]);
+                    EnterDoor(entityValues, container[i].conditions[j]);
+                    PuzzleSolved(entityValues, container[i].conditions[j]);
+                    UseItem(entityValues, container[i].conditions[j]);
+                }
+
                 if (container[i].conditions[j].activated == false || container[i].isComplete == true)
                 {
-                    test = false;
+                    failSafe = false;
                 }
             }
-            if (container[i].isComplete == false && test == true)
+            if (container[i].isComplete == false && failSafe && container[i].DialogueRunning == false)
             {
-                container[i].isComplete = true;
+                values.dialogueNumber = container[i].dialogueDone;
                 values.meetComplete = true;
                 values.containerNumber = i;
+                container[i].dialogueDone++;
+
+                for (int k = 0; k < container[i].conditions.Length; k++)
+                {
+                    container[i].conditions[k].activated = false;
+                }
+
+                if (container[i].dialogueDone >= container[i].dialogue.Length && container[i].repeatable == false)
+                {
+                    container[i].isComplete = true;
+                }
+                else if (container[i].dialogueDone >= container[i].dialogue.Length && container[i].repeatable == true)
+                {
+                    container[i].dialogueDone = 0;
+                }
                 return values;
             }
             else
@@ -48,8 +70,31 @@ public class ConditionsManager : MonoBehaviour
             }
         }
         values.meetComplete = false;
+        values.dialogueNumber = 0;
         values.containerNumber = 0;
         return values;
+    }
+
+    private void AlreadyUsed(EntityValues entityValues, Conditions condition)
+    {
+        if (condition.trigger == Conditions.TriggerType.AlreadyUsed && entityValues.trigger == EntityValues.TriggerType.AlreadyUsed)
+        {
+            if (entityValues.entity == condition.entity && entityValues.character == condition.character)
+            {
+                condition.activated = true;
+            }
+        }
+    }
+
+    private void FailedUse(EntityValues entityValues, Conditions condition)
+    {
+        if (condition.trigger == Conditions.TriggerType.FailedUse && entityValues.trigger == EntityValues.TriggerType.FailedUse)
+        {
+            if (entityValues.entity == condition.entity && entityValues.character == condition.character)
+            {
+                condition.activated = true;
+            }
+        }
     }
 
     private void Inspect(EntityValues entityValues, Conditions condition)
@@ -69,7 +114,7 @@ public class ConditionsManager : MonoBehaviour
         {
             if (entityValues.collider2d == condition.collisionTrigger && entityValues.character == condition.character)
             {
-               condition.activated = true;
+                condition.activated = true;
             }
         }
     }
@@ -123,6 +168,7 @@ public struct ConditionValues
 {
     public bool meetComplete;
     public int containerNumber;
+    public int dialogueNumber;
 }
 
 [System.Serializable]
@@ -131,7 +177,26 @@ public class ConditionContainer
     [Tooltip("What conditions are required to trigger the dialogue.")]
     public Conditions[] conditions;
     [Tooltip("What dialogue is triggered.")]
-    public Dialogue dialogue;
+    public Dialogue[] dialogue;
 
+    [HideInInspector]
+    public int dialogueDone;
+    [HideInInspector]
+    bool dialogueRunning;
+    [HideInInspector]
     public bool isComplete;
+
+    public bool repeatable;
+
+    public bool DialogueRunning
+    {
+        get
+        {
+            return dialogueRunning;
+        }
+        set
+        {
+            dialogueRunning = value;
+        }
+    }
 }
