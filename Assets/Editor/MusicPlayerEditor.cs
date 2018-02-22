@@ -24,7 +24,10 @@ namespace MusicMixer
 
             musicPlayer = (MusicPlayer)target;
 
-            MusicCompositions();
+            if (musicPlayer.compositions != null)
+            {
+                MusicCompositions();
+            }
 
             DrawButtons();
 
