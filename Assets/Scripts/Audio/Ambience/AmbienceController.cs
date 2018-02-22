@@ -68,8 +68,14 @@ namespace AmbienceMixer
             {
                 if (!IsInBounds(mainCamera.transform.position, ambienceAreas[currentAmbienceAreas[i]].area.bounds))
                 {
-                    Debug.Log("outside");
-                    SetFadeOutAmbienceTracks(ambienceAreas[currentAmbienceAreas[i]], 2f);
+                    if (ambienceAreas[currentAmbienceAreas[i]].ambienceTracks[0] != null)
+                    {
+                        if (ambienceAreas[currentAmbienceAreas[i]].ambienceTracks[0].trackSource.volume == ambienceAreas[currentAmbienceAreas[i]].ambienceTracks[0].TargetVolume)
+                        {
+                            Debug.Log("outside");
+                            SetFadeOutAmbienceTracks(ambienceAreas[currentAmbienceAreas[i]], 2f);
+                        }
+                    }
                 }
 
                 foreach (MusicTrack ambienceTrack in ambienceAreas[currentAmbienceAreas[i]].ambienceTracks)
@@ -117,7 +123,7 @@ namespace AmbienceMixer
             foreach (MusicTrack musicTrack in ambienceArea.ambienceTracks)
             {
                 Debug.Log("<color=red>Fading</color> " + musicTrack + " and " + musicTrack.trackSource);
-                musicTrack.StartFade(0, fadeDuration);
+                musicTrack.StartFade(0f, fadeDuration);
             }        
         }
 
@@ -126,7 +132,7 @@ namespace AmbienceMixer
         /// </summary>
         private void SpawnAudioSources(AmbienceArea ambienceArea, float fadeDuration)
         {
-            //ambienceArea.ambienceTracks = new List<MusicTrack>();
+            ambienceArea.ambienceTracks.Clear();
 
             for (int i = 0; i < ambienceArea.ambienceClips.Length; i++)
             {
