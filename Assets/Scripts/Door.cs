@@ -10,7 +10,6 @@ public class Door : Entity
     [Header("> Door")]
 
     [Tooltip("The other door this one leads to.")]
-    [ConditionalHide("setExitManually", false)]
     [SerializeField]
     Door exitDoor;
 
