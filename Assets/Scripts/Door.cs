@@ -10,6 +10,7 @@ public class Door : Entity
     [Header("> Door")]
 
     [Tooltip("The other door this one leads to.")]
+    [ConditionalHide("setExitManually", false)]
     [SerializeField]
     Door exitDoor;
 
@@ -26,6 +27,13 @@ public class Door : Entity
 
     [SerializeField]
     float transitionTime = 1;
+
+    [SerializeField]
+    public bool setExitManually;
+
+    [ConditionalHide("setExitManually", true)]
+    public Transform manualExit;
+
 
     protected override void OnInteract(EntityValues values)
     {
@@ -57,11 +65,19 @@ public class Door : Entity
     {
         StartCoroutine(Fade.FadeIn(transitionTime));
         yield return new WaitForSeconds(transitionTime);
-        float characterHeight = character.GetComponent<BoxCollider2D>().size.y;
-        float doorHeight = exitDoor.GetComponent<BoxCollider2D>().size.y;
-        float scaleCharacter = character.transform.localScale.y;
-        float doorScale = exitDoor.transform.localScale.y;
-        character.transform.position = new Vector2(exitDoor.transform.position.x, exitDoor.transform.position.y - (doorHeight * doorScale) + (characterHeight * scaleCharacter));
+        if (!setExitManually)
+        {
+            float characterHeight = character.GetComponent<BoxCollider2D>().size.y;
+            float doorHeight = exitDoor.GetComponent<BoxCollider2D>().size.y;
+            float scaleCharacter = character.transform.localScale.y;
+            float doorScale = exitDoor.transform.localScale.y;
+            character.transform.position = new Vector2(exitDoor.transform.position.x, exitDoor.transform.position.y - (doorHeight * doorScale) + (characterHeight * scaleCharacter));
+        }
+        else
+        {
+            character.transform.position = manualExit.transform.position;
+        }
+
         Camera.main.GetComponent<CameraFollow>().SetPosition(character.transform);
     }
 

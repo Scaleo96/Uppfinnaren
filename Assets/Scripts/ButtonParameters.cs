@@ -25,9 +25,16 @@ public class ButtonParameters : MonoBehaviour
     [SerializeField]
     RequiredActivations[] requiredActivations;
 
+    [SerializeField]
+    bool useTags;
+
+    [ConditionalHide("useTags", true)]
+    public string tagName;
+
+
     public void OnClickParamaters()
     {
-        if (requiredItem.Length >= 1)
+        if (requiredItem.Length >= 1 && !useTags && GameController.instance.SelectedItem != null)
         {
             for (int i = 0; i < requiredItem.Length; i++)
             {
@@ -54,13 +61,37 @@ public class ButtonParameters : MonoBehaviour
                 }
             }
         }
-        else
+        else if (useTags && GameController.instance.SelectedItem != null)
+        {
+            if (GameController.instance.SelectedItem.tag == tagName)
+            {
+                if (requireInventoryRoom)
+                {
+                    if (GameController.instance.GetCurrentCharacter().IsInventoryFull() == false)
+                    {
+                        ContinueEvent.Invoke();
+                    }
+                }
+                else
+                {
+                    ContinueEvent.Invoke();
+                }
+
+                if (destroyItemOnUse == true)
+                {
+                    GameController.instance.GetCurrentCharacter().RemoveItemFromInventory(GameController.instance.SelectedItem);
+                    GameController.instance.DeselectItem(GameController.instance.SelectedInventorySlot);
+                    GameController.instance.UpdateInventory(GameController.instance.CurrentCharacterID);
+                }
+            }
+        }
+
+        else if (requiredItem.Length <= 0 && !useTags)
         {
             if (requireInventoryRoom)
             {
                 if (GameController.instance.GetCurrentCharacter().IsInventoryFull() == false)
                 {
-                    Debug.Log("test");
                     ContinueEvent.Invoke();
                 }
             }

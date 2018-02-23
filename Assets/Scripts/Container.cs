@@ -3,6 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[System.Serializable]
+public struct RequiredItem
+{
+    [ConditionalHide("useTags", true)]
+    public string tagName;
+    public Item item;
+    public bool useTags;
+}
+
+[System.Serializable]
 public class Container : Entity
 {
     [SerializeField]
@@ -12,7 +22,7 @@ public class Container : Entity
     Vector2 throwForceInterval;
 
     [SerializeField]
-    Item[] requiredItems;
+    RequiredItem[] requiredItems;
 
     [SerializeField]
     List<Item> containedItems;
@@ -29,12 +39,14 @@ public class Container : Entity
             int count = 0;
 
             // Checks if the item that the player is holding is one of the required items. Then adds it.
-            foreach (Item requiredItem in requiredItems)
+            foreach (RequiredItem requiredItem in requiredItems)
             {
-                if (values.item == requiredItem)
+                if (requiredItem.useTags ? (values.item.tag == requiredItem.tagName) : (values.item == requiredItem.item))
                 {
                     containedItems.Add(values.item);
                     values.character.RemoveItemFromInventory(values.item);
+                    GameController.instance.DeselectItem(GameController.instance.SelectedInventorySlot);
+                    GameController.instance.UpdateInventory(GameController.instance.CurrentCharacterID);
                     requiredItemsCount++;
 
                     if (requiredItemsCount >= requiredItems.Length)
