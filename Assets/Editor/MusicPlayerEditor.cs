@@ -90,20 +90,7 @@ namespace MusicMixer
 
             if (compArray.Length != arraySize)
             {
-                // TODO: Cleanup comments
-                //MusicComposition[] newArray = new MusicComposition[arraySize - 1];
-                //Debug.Log("Attempting resizing");
                 Array.Resize<MusicComposition>(ref musicPlayer.compositions, arraySize);
-
-                //for (int i = 0; i < newArray.Length; i++)
-                //{
-                //    if (compArray.Length > i)
-                //    {
-                //        newArray[i] = compArray[i];
-                //    }
-                //}
-
-                //compArray = newArray;
             }
         }
 
