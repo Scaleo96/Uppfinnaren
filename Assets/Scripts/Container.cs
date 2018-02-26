@@ -34,7 +34,7 @@ public class Container : Entity
 
     protected override void OnInteract(EntityValues values)
     {
-        if (input)
+        if (input && values.item != null)
         {
             int count = 0;
 
