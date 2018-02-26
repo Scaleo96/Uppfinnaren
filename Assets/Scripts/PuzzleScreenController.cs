@@ -27,6 +27,7 @@ public class PuzzleScreenController : MonoBehaviour
     {
         if (!deactivatedId.Contains(id))
         {
+            Logger.Log("Activated PS [" + puzzleScreens[id].gameObject.name + "] with [" + GameController.instance.GetCurrentCharacter().EntityName + "].");
             puzzleScreens[id].SetActive(true);
             GameController.instance.SetActiveMovement(false);
         }
@@ -38,7 +39,7 @@ public class PuzzleScreenController : MonoBehaviour
     /// <param name="id">The id of the screen.</param>
     public void DeactivateScreen(int id)
     {
-
+        Logger.Log("Deactivated PS [" + puzzleScreens[id].gameObject.name + "] with [" + GameController.instance.GetCurrentCharacter().EntityName + "].");
         puzzleScreens[id].SetActive(false);
         GameController.instance.SetActiveMovement(true);
     }

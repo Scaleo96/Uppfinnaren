@@ -198,6 +198,7 @@ public class Character : Entity
         Vector2 throwDir = GameController.instance.CameraComponent.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         item.gameObject.GetComponent<Rigidbody2D>().AddForce(throwDir * throwForce, ForceMode2D.Impulse);
 
+        Logger.Log("Player dropped item [" + item.EntityName + "] with [" + EntityName + "].");
         return items.Remove(item);
     }
 

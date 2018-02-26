@@ -28,6 +28,7 @@ public class Item : Entity
 
         if (values.character.IsInventoryFull() == false && values.character.HandsFree)
         {
+            Logger.Log("Item [" + EntityName + "] was picked up.");
             values.character.AddItemToInventory(this);
             RemoveFromWorld();
         }

@@ -1,0 +1,39 @@
+New log initialized at 2/26/2018 2:52:40 PM
+==============================================
+
+[8.243571] Player clicked [Drainspout] with [Jonathan] successfully.
+[9.158018] Player clicked [Cog] with [Jonathan] successfully.
+[9.158018] Item [Cog] was picked up.
+[10.39492] Player clicked [Mailbox] with [Jonathan] unsuccessfully.
+[16.72636] Player clicked [Shed Door] with [Jonathan] successfully.
+[16.72636] Activated PS [PS_Lock(2)] with [Jonathan].
+[17.43155] Player clicked [Shed Door] with [Jonathan] successfully.
+[17.43155] Activated PS [PS_Lock(2)] with [Jonathan].
+[17.7203] Player clicked [Shed Door] with [Jonathan] successfully.
+[17.7203] Activated PS [PS_Lock(2)] with [Jonathan].
+[18.37733] Player clicked [Shed Door] with [Jonathan] successfully.
+[18.37733] Activated PS [PS_Lock(2)] with [Jonathan].
+[19.51028] Player clicked [Shed Door] with [Jonathan] successfully.
+[19.51028] Activated PS [PS_Lock(2)] with [Jonathan].
+[20.13644] Player clicked [Shed Door] with [Jonathan] successfully.
+[20.13644] Activated PS [PS_Lock(2)] with [Jonathan].
+[20.27302] Player clicked [Shed Door] with [Jonathan] successfully.
+[20.27302] Activated PS [PS_Lock(2)] with [Jonathan].
+[20.78022] Player clicked [Shed Door] with [Jonathan] successfully.
+[20.78022] Activated PS [PS_Lock(2)] with [Jonathan].
+[20.79821] Deactivated PS [PS_Lock(2)] with [Jonathan].
+[21.25364] Player clicked [Shed Door] with [Jonathan] successfully.
+[24.90058] Player clicked [Cog] with [Jonathan] successfully.
+[24.90058] Item [Cog] was picked up.
+[25.77035] Player clicked [Exit] with [Jonathan] successfully.
+[28.98405] Player clicked [Clock] with [Jonathan] successfully.
+[28.98405] Activated PS [PS_Clock (0)] with [Jonathan].
+[29.52707] Player clicked [Jonathan] with [Jonathan] unsuccessfully.
+[29.59424] Deactivated PS [PS_Clock (0)] with [Jonathan].
+[29.59424] Activated PS [PS_Clock_Inside (1)] with [Jonathan].
+
+==============================================
+Ending log at 2/26/2018 2:53:13 PM
+
+
+

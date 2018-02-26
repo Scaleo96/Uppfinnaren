@@ -38,10 +38,12 @@ public class Entity : MonoBehaviour
     {
         if (canUseCondition.CanInteract(values.character) == true)
         {
+            Logger.Log("Player clicked [" + EntityName + "] with [" + GameController.instance.GetCurrentCharacter().EntityName + "] successfully.");
             OnInteract(values);
         }
         else if (canUseCondition.CanInteract(values.character) == false)
         {
+            Logger.Log("Player clicked [" + EntityName + "] with [" + GameController.instance.GetCurrentCharacter().EntityName + "] unsuccessfully.");
             OnCantUse(values);
         }
     }
