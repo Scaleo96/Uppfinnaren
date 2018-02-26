@@ -1,20 +1,30 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace MenUI
 {
     [RequireComponent(typeof(MenUI))]
     public class Pause : MonoBehaviour
     {
-
-        MenUI menUI;
+        private MenUI menUI;
 
         [SerializeField]
-        MenuParameters pauseMenuParameters;
+        private MenuParameters pauseMenuParameters;
 
         private bool isPaused = false;
 
+        [Header("Audio snapshots")]
+        [SerializeField]
+        private float snapshotTransitionTime = 1f;
+
+        [SerializeField]
+        private AudioMixerSnapshot pauseSnapshot;
+
+        [SerializeField]
+        private AudioMixerSnapshot normalSnapshot;
+
         // Use this for initialization
-        void Start()
+        private void Start()
         {
             if (menUI == null)
             {
@@ -28,9 +38,13 @@ namespace MenUI
         }
 
         // Update is called once per frame
-        void LateUpdate() 
+        private void LateUpdate()
         {
+            HandleInput();
+        }
 
+        private void HandleInput()
+        {
             // If the "Cancel" input is used
             if (Input.GetButtonDown("Cancel"))
             {
@@ -51,7 +65,6 @@ namespace MenUI
                     }
                 }
             }
-
         }
 
         /// <summary>
@@ -63,19 +76,28 @@ namespace MenUI
             if (Debug.isDebugBuild) Debug.Log("Unpaused", this);
             // Update time normally
             Time.timeScale = 1;
+            ChangeAudioSnapshot(normalSnapshot);
             menUI.CloseMenu();
+        }
+
+        private void ChangeAudioSnapshot(AudioMixerSnapshot snapshot)
+        {
+            // TODO: Fix transition when timescale = 0
+            snapshot.TransitionTo(1f * Time.timeScale);
         }
 
         /// <summary>
         /// Pause the game and show the pause menu
         /// </summary>
-        void DoPause()
+        private void DoPause()
         {
             isPaused = true;
             if (Debug.isDebugBuild) Debug.Log("Paused", this);
             // Stop time update
             Time.timeScale = 0;
             menUI.OpenMenu(pauseMenuParameters);
+
+            ChangeAudioSnapshot(pauseSnapshot);
         }
 
         public void BackToMainMenu()
