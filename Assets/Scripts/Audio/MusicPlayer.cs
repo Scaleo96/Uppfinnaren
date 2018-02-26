@@ -55,6 +55,10 @@ namespace MusicMixer
         [SerializeField]
         [Tooltip("Will compositions wait for accompanying tracks to fade out completely before fading in new active tracks?")]
         private bool CompositionsWaitsForFadeOut = true;
+        [SerializeField]
+        [Range(0, 1f)]
+        [Tooltip("Tolerance for minimum volume required before fading to next acvcompanying track")]
+        private float compositionFadeTolerance = 0f;
 
         private void Awake()
         {
@@ -486,6 +490,14 @@ namespace MusicMixer
             get
             {
                 return CompositionsWaitsForFadeOut;
+            }
+        }
+
+        public float CompositionFadeTolerance
+        {
+            get
+            {
+                return compositionFadeTolerance;
             }
         }
     }

@@ -646,3 +646,5 @@ MonoBehaviour:
   autoPopulateTracks: 1
   automaticRenaming: 1
   defaultFadeDuration: 2
+  CompositionsWaitsForFadeOut: 1
+  compositionFadeTolerance: 0.2

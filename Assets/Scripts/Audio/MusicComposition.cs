@@ -198,7 +198,7 @@ namespace MusicMixer
             for (int i = 0; i < accompanyingTracks.Length; i++)
             {
                 MusicTrack track = GetMusicTrack(accompanyingTracks[i]);
-                if (track.TargetVolume < track.Volume)
+                if (track.TargetVolume + musicPlayer.CompositionFadeTolerance < track.Volume)
                 {
                     isFadingOut = true;
                     break;
