@@ -61,7 +61,8 @@ public class ConsoleController : MonoBehaviour
             new Cheat("IvarStrike", delegate { IvarStrike(); } ),
             new Cheat("SetYPos", delegate { SetYPos(); } ),
             new Cheat("Godzilla", delegate { ScaleUpCurrentPlayer(); }),
-            new Cheat("Gnome", delegate { ScaleDownCurrentPlayer(); })
+            new Cheat("Gnome", delegate { ScaleDownCurrentPlayer(); }),
+            new Cheat("IvarHeaven", delegate{ ChangeAllSpritesToIvar(); })
         };
 
         inputField.onEndEdit.AddListener( delegate { EnterConsole(inputField); } );
@@ -158,5 +159,19 @@ public class ConsoleController : MonoBehaviour
     private void ScaleDownCurrentPlayer()
     {
         GameController.instance.GetCurrentCharacter().transform.localScale -= Vector3.one * 3;
+    }
+
+    private void ChangeAllSpritesToIvar()
+    {
+        StartCoroutine(ChangeAllSpritesWithDelay(new Vector2(0f, 0.1f), IvarPrefab.GetComponent<SpriteRenderer>().sprite));
+    }
+
+    private IEnumerator ChangeAllSpritesWithDelay(Vector2 waitTimeInterval, Sprite sprite)
+    {
+        foreach (SpriteRenderer spriteRenderer in FindObjectsOfType<SpriteRenderer>())
+        {
+            yield return new WaitForSeconds(Random.Range(waitTimeInterval.x, waitTimeInterval.y));
+            spriteRenderer.sprite = sprite;
+        }
     }
 }
