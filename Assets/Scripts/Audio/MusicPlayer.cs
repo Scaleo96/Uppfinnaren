@@ -52,6 +52,10 @@ namespace MusicMixer
         private MusicComposition activeMusicComposition;
         private int activeAccompanyingTrack;
 
+        [SerializeField]
+        [Tooltip("Will compositions wait for accompanying tracks to fade out completely before fading in new active tracks?")]
+        private bool CompositionsWaitsForFadeOut = true;
+
         private void Awake()
         {
             CheckSingleton();
@@ -410,17 +414,17 @@ namespace MusicMixer
                 }
                 else
                 {
-                    activeMusicComposition.DeactivateGroup();
+                    activeMusicComposition.DeactivateComposition();
                 }
             }
-            
+
             activeMusicComposition = activatingComposition;
             activeMusicComposition.ActivateGroup(ActiveAccompanyingTrack);
         }
 
         private void DeactivateCompositionGroup(MusicComposition composition)
         {
-            composition.DeactivateGroup();
+            composition.DeactivateComposition();
         }
 
         public List<MusicTrack> Tracks
@@ -473,7 +477,15 @@ namespace MusicMixer
                 if (activeMusicComposition != null)
                 {
                     activeMusicComposition.FadeToTrackExlusive(activeAccompanyingTrack);
-                }                
+                }
+            }
+        }
+
+        public bool CompWaitForFade
+        {
+            get
+            {
+                return CompositionsWaitsForFadeOut;
             }
         }
     }

@@ -1,5 +1,5 @@
 using System;
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 namespace MusicMixer
@@ -16,6 +16,8 @@ namespace MusicMixer
 
         [SerializeField]
         public int[] accompanyingTracks;
+
+        private int[] activeTracks;
 
         public bool expandInEditor;
 
@@ -54,19 +56,19 @@ namespace MusicMixer
         /// </summary>
         public void ActivateGroup(int accompanyingTrackIndex)
         {
-            ActivateTrack(baseTrackIndex);
+            PlayTrack(baseTrackIndex);
             for (int i = 0; i < accompanyingTracks.Length; i++)
             {
                 // TODO: Find and use appropriate target volume
                 if (i != accompanyingTrackIndex)
                 {
                     // Activate at 0 volume
-                    ActivateTrack(accompanyingTracks[i], 0f);
+                    PlayTrack(accompanyingTracks[i], 0f);
                 }
                 else
                 {
                     // Activate att full volume
-                    ActivateTrack(accompanyingTracks[i]);
+                    PlayTrack(accompanyingTracks[i]);
                 }
             }
         }
@@ -75,9 +77,9 @@ namespace MusicMixer
         /// Begins playing track and fade in at full volume
         /// </summary>
         /// <param name="index">Index in MusicPlayer's track list</param>
-        private void ActivateTrack(int index)
+        private void PlayTrack(int index)
         {
-            ActivateTrack(index, 1f);
+            PlayTrack(index, 1f);
         }
 
         /// <summary>
@@ -85,7 +87,7 @@ namespace MusicMixer
         /// </summary>
         /// <param name="index">Index in MusicPlayer's track list</param>
         /// <param name="volume">Volume to fade to</param>
-        private void ActivateTrack(int index, float volume)
+        private void PlayTrack(int index, float volume)
         {
             MusicTrack activatingMusicTrack = GetMusicTrack(index);
             musicPlayer.PlayTrack(activatingMusicTrack, volume);
@@ -103,24 +105,50 @@ namespace MusicMixer
                 if (i != accompanyingTrackIndex)
                 {
                     // Activate at 0 volume
-                    ActivateTrack(accompanyingTracks[i], 0f);
+                    PlayTrack(accompanyingTracks[i], 0f);
                 }
                 else
                 {
-                    // Activate att full volume
-                    ActivateTrack(accompanyingTracks[i]);
+                    // Activate at full volume
+                    SetActiveTracks(i);
+                    if (!musicPlayer.CompWaitForFade)
+                    {
+                        PlayActiveTracks();
+                    }
+                    else
+                    {
+                        // HACK: Uses MusicPlayer to start coroutine as MusicCompositions are unable to themselves. They should terminate once the composition changes and the tracks are no longer played, but it's not a guarantee.
+                        MusicPlayer.StartCoroutine(PlayActiveTracksDelayed());
+                        PlayActiveTracksDelayed();
+                    }
                 }
             }
         }
-    
 
-    public void DeactivateGroup()
+        private void SetActiveTracks(int trackIndex)
+        {
+            activeTracks = new int[1];
+            activeTracks[0] = trackIndex;
+        }
+
+        private void ClearActiveTracks()
+        {
+            activeTracks = null;
+        }
+
+        private void SetActiveTracks(int[] trackIndices)
+        {
+            activeTracks = trackIndices;
+        }
+
+        public void DeactivateComposition()
         {
             DeactivateTrack(baseTrackIndex);
             foreach (int trackIndex in accompanyingTracks)
             {
                 DeactivateTrack(trackIndex);
             }
+            ClearActiveTracks();
         }
 
         private void DeactivateTrack(int baseTrackIndex)
@@ -148,6 +176,60 @@ namespace MusicMixer
             string baseTrackName = MusicPlayer.Tracks[baseTrackIndex].ToString();
             baseTrackName += " - Composition";
             return baseTrackName;
+        }
+
+        /// <summary>
+        /// Same as PlayActiveTracks except it waits for all other tracks to reach their target volume before starting.
+        /// </summary>
+        private IEnumerator PlayActiveTracksDelayed()
+        {
+            while (TracksAreStillFadingOut())
+            {
+                // TODO: Should this really be running every fixed update?
+                yield return new WaitForFixedUpdate();
+            }
+            PlayActiveTracks();
+        }
+
+        private bool TracksAreStillFadingOut()
+        {
+            bool isFadingOut = false;
+
+            for (int i = 0; i < accompanyingTracks.Length; i++)
+            {
+                MusicTrack track = GetMusicTrack(accompanyingTracks[i]);
+                if (track.TargetVolume < track.Volume)
+                {
+                    isFadingOut = true;
+                    break;
+                }
+            }
+
+            return isFadingOut;
+        }
+
+        /// <summary>
+        /// Plays tracks listed in the activeTracks array at full volume
+        /// </summary>
+        private void PlayActiveTracks()
+        {
+            if (activeTracks == null)
+            {
+                return;
+            }
+            else
+            {
+                for (int i = 0; i < activeTracks.Length; i++)
+                {
+                    int trackIndex = activeTracks[i];
+                    PlayTrack(accompanyingTracks[trackIndex]);
+                }
+            }
+        }
+
+        private void DoStuff()
+        {
+            throw new NotImplementedException();
         }
     }
 }
