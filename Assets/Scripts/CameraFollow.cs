@@ -10,25 +10,25 @@ public class CameraFollow : MonoBehaviour
     [Header("Settings")]
 
     [SerializeField, Tooltip("Lock the camera y movement.")]
-    bool lockY;
+    bool lockY = false;
     [SerializeField, Tooltip("Lock the camera x movement.")]
-    bool lockX;
+    bool lockX = false;
     [SerializeField, Tooltip("Distance in x and y axis the player can move before the camera follows")]
-    Vector2 XAndYIdelMargin;
+    Vector2 XAndYIdelMargin = new Vector2(2,2);
     [SerializeField, Tooltip("")]
-    Vector2 XAndYOffset;
+    Vector2 XAndYOffset = new Vector2(0,-2);
     [SerializeField, Range(0, 10), Tooltip("How smoothly the camera moves toward the target in the x axis (lower is smoother).")]
-    float lerpSpeedX;
+    float lerpSpeedX = 1.5f;
     [SerializeField, Range(0, 10), Tooltip("How smoothly the camera moves toward the target in the Y axis (lower is smoother).")]
-    float lerpSpeedY;
+    float lerpSpeedY = 1.5f;
     [SerializeField, Range(0, 1.5f), Tooltip("How smoothly the camera moves toward the mouse in the x axis (lower is smoother).")]
-    float lerpToMouseSpeedX;
+    float lerpToMouseSpeedX = 1.5f;
     [SerializeField, Range(0, 1.5f), Tooltip("How smoothly the camera moves toward the mouse in the Y axis (lower is smoother).")]
-    float lerpToMouseSpeedY;
+    float lerpToMouseSpeedY = 1.5f;
     [SerializeField, Tooltip("The maximum x and y coordinates the camera can have.")]
-    Vector2 maxXAndY;
+    Vector2 maxXAndY = new Vector2(100,100);
     [SerializeField, Tooltip("The minimum x and y coordinates the camera can have.")]
-    Vector2 minXAndY;
+    Vector2 minXAndY = new Vector2(-100,-100);
 
     Vector3 targetPos;
     Vector3 pos;
