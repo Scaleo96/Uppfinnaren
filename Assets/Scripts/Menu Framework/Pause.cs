@@ -82,8 +82,29 @@ namespace MenUI
 
         private void ChangeAudioSnapshot(AudioMixerSnapshot snapshot)
         {
-            // TODO: Fix transition when timescale = 0
-            snapshot.TransitionTo(1f * Time.timeScale);
+            // Requires mixer update mode to be in Unscaled Time, otherwise it will switch instantly if timescale is 0
+            switch (snapshot.audioMixer.updateMode)
+            {
+                case AudioMixerUpdateMode.Normal:
+                    if (Time.timeScale <= 0)
+                    {
+                        // Transition immediately if timescale is 0
+                        snapshot.TransitionTo(0f);
+                    }
+                    else
+                    {
+                        snapshot.TransitionTo(snapshotTransitionTime * Time.timeScale);
+                    }
+                    break;
+
+                case AudioMixerUpdateMode.UnscaledTime:
+                    snapshot.TransitionTo(snapshotTransitionTime);
+                    break;
+
+                default:
+                    snapshot.TransitionTo(snapshotTransitionTime);
+                    break;
+            }
         }
 
         /// <summary>
