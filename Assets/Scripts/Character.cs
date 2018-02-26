@@ -37,6 +37,8 @@ public class Character : Entity
     [SerializeField]
     float tolerance = 0.3f;
 
+    [Header("> Sound")]
+
     [SerializeField]
     AudioSource stepSoundSource;
 
