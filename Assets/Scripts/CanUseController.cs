@@ -22,7 +22,7 @@ public class CanUseController : MonoBehaviour
                     canUseContainer[i].activated.Add(false);
                 }
 
-                AlreadyUsed(entityValues, canUseContainer[i], canUseContainer[i].conditions[j], j);
+                ContainerEmpty(entityValues, canUseContainer[i], canUseContainer[i].conditions[j], j);
                 FailedUse(entityValues, canUseContainer[i], canUseContainer[i].conditions[j], j);
                 Inspect(entityValues, canUseContainer[i], canUseContainer[i].conditions[j], j);
                 PositionTrigger(entityValues, canUseContainer[i], canUseContainer[i].conditions[j], j);
@@ -75,9 +75,9 @@ public class CanUseController : MonoBehaviour
         return true;
     }
 
-    private void AlreadyUsed(EntityValues entityValues, CanUseContainer canUseContainer, Conditions condition, int i)
+    private void ContainerEmpty(EntityValues entityValues, CanUseContainer canUseContainer, Conditions condition, int i)
     {
-        if (condition.trigger == Conditions.TriggerType.AlreadyUsed && entityValues.trigger == EntityValues.TriggerType.AlreadyUsed)
+        if (condition.trigger == Conditions.TriggerType.ContainerEmpty && entityValues.trigger == EntityValues.TriggerType.ContainerEmpty)
         {
             if (entityValues.entity == condition.entity && entityValues.character == condition.character)
             {
