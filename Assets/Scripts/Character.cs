@@ -170,6 +170,7 @@ public class Character : Entity
     {
         bigItem.gameObject.SetActive(true);
         bigItem.gameObject.transform.position = bigItemSR.transform.position;
+        bigItem.gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
 
         Vector2 throwDir = GameController.instance.CameraComponent.ScreenToWorldPoint(Input.mousePosition) - bigItemSR.transform.position;
         bigItem.gameObject.GetComponent<Rigidbody2D>().AddForce(throwDir * throwForce, ForceMode2D.Impulse);
