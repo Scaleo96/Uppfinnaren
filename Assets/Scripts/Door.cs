@@ -21,6 +21,12 @@ public class Door : Entity
     [SerializeField]
     Item key;
 
+    [ConditionalHide("useTags", true)]
+    public string tagName;
+
+    [SerializeField]
+    bool useTags;
+
     [SerializeField]
     bool destroyKeyOnUse;
 
@@ -47,7 +53,7 @@ public class Door : Entity
         {
             base.OnInteract(values);
 
-            if (values.item != null && values.item == key)
+            if (useTags ? (values.item.tag == tagName) : (values.item != null && values.item == key))
             {
                 SetLock(false);
                 if (destroyKeyOnUse)

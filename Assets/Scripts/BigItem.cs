@@ -5,6 +5,12 @@ using UnityEngine;
 public class BigItem : Entity
 {
     [SerializeField]
+    ValueEvent positionEvents;
+
+    [SerializeField]
+    Collider2D triggerPosition;
+
+    [SerializeField]
     Sprite holdSprite;
 
     [SerializeField]
@@ -19,6 +25,20 @@ public class BigItem : Entity
         {
             values.character.AddBigItem(this);
             RemoveFromWorld();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision == triggerPosition)
+        {
+            EntityValues values;
+            values.entity = this;
+            values.collider2d = collision;
+            values.character = null;
+            values.item = null;
+            values.trigger = EntityValues.TriggerType.PositionTrigger;
+            positionEvents.Invoke(values);
         }
     }
 
