@@ -20,8 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4821986186608210}
   - component: {fileID: 212726890163442920}
-  - component: {fileID: 95737706165048338}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Big item sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,8 +69,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1418902408159276}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.341, y: 3.73, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalPosition: {x: 14.91362, y: 70.85752, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4818672584923446}
   - {fileID: 4821986186608210}
@@ -86,7 +85,7 @@ Transform:
   m_GameObject: {fileID: 1989959641516964}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 4790733292953386}
   m_RootOrder: 0
@@ -99,7 +98,7 @@ Transform:
   m_GameObject: {fileID: 1390269778069436}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 4790733292953386}
   m_RootOrder: 1
@@ -136,7 +135,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.18478823}
+  m_Offset: {x: 0, y: 0.0767653}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -147,7 +146,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 9.082818}
+  m_Size: {x: 0.25, y: 1.8}
   m_EdgeRadius: 0
 --- !u!95 &95196637258619946
 Animator:
@@ -156,23 +155,6 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1989959641516964}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: bc5b1d5dc2250ea4dbc784c35e2c28aa, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95737706165048338
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1390269778069436}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 22100000, guid: bc5b1d5dc2250ea4dbc784c35e2c28aa, type: 2}
@@ -197,12 +179,23 @@ MonoBehaviour:
   entityName: Jonathan
   interactDistance: 1
   canUseCondition:
-    aminaUse: 0
+    aminaUse: 1
     idaUse: 0
     jonathanUse: 0
   interactionEvents:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: RunDialogue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   cantUseEvents:
     m_PersistentCalls:
@@ -210,16 +203,28 @@ MonoBehaviour:
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   positionEvents:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: RunDialogue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  isActive: 0
-  walkSpeed: 4
+  isActive: 1
+  walkSpeed: 5
   throwForce: 1.5
   inventorySize: 4
   items: []
   bigItem: {fileID: 0}
   bigItemSR: {fileID: 212726890163442920}
   handsFree: 1
+  tolerance: 0.3
 --- !u!212 &212479016222606076
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -295,15 +300,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -34205483
-  m_SortingLayer: 1
+  m_SortingLayerID: -386073031
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.12, y: 10.24}
+  m_Size: {x: 10.24, y: 10.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
