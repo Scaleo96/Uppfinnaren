@@ -8,7 +8,7 @@ public class SceneController : MonoBehaviour
 
     [Tooltip("All the scenes that will be loaded.")]
     [SerializeField]
-    Scene[] scenes;
+    int[] scenesBuildIndex;
 
     private void Awake()
     {
@@ -20,9 +20,9 @@ public class SceneController : MonoBehaviour
     /// </summary>
     private void LoadScenes()
     {
-        foreach (Scene scene in scenes)
+        foreach (int scene in scenesBuildIndex)
         {
-            SceneManager.LoadScene(scene.buildIndex, LoadSceneMode.Additive);
+            SceneManager.LoadScene(scene, LoadSceneMode.Additive);
         }
 
         Destroy(gameObject);
