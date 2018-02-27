@@ -5,9 +5,10 @@ using UnityEngine;
 static public class Logger
 {
     private const string DEBUG_CONSOLE_PREFIX = "<b><color=orange>Logger™</color></b>: ";
+    private const string FILE_ENDING = ".txt";
 
     static public bool echoToConsole = true;
-    static public string logFile = "log.txt";
+    static public string logFile = "log";
     static public bool timeStampLog = true;
     static public bool timeStampLogFile = true;
 
@@ -134,8 +135,9 @@ static public class Logger
                 hasGameStart = true;
             }
             string dateString = gameStartTime.ToString("yyyy-MM-dd");
+            string clockString = gameStartTime.ToString("hh-mm-ss");
             System.IO.Directory.CreateDirectory("Logs/" + dateString);
-            logFile = "Logs/" + dateString + "/" + logFile;
+            logFile = "Logs/" + dateString + "/" + logFile + " - " + clockString + FILE_ENDING;
         }
     }
 
