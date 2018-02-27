@@ -710,6 +710,7 @@ GameObject:
   m_Component:
   - component: {fileID: 240040398}
   - component: {fileID: 240040399}
+  - component: {fileID: 240040400}
   m_Layer: 0
   m_Name: Closet lightbulb
   m_TagString: Untagged
@@ -774,6 +775,31 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!61 &240040400
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 240040397}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.13082314, y: -2.8973389}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10.24, y: 10.24}
+    newSize: {x: 10.24, y: 10.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.0808372, y: 3.39859}
+  m_EdgeRadius: 0
 --- !u!1 &240423501
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,6 +1014,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  positionEvents:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  triggerPosition: {fileID: 0}
   holdSprite: {fileID: 21300000, guid: b44a69c3ac365034db4b36064a4f9a47, type: 3}
   posoffset: {x: -0.5, y: 0, z: 0}
 --- !u!61 &256206799
@@ -2118,6 +2149,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  positionEvents:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  triggerPosition: {fileID: 0}
   holdSprite: {fileID: 21300000, guid: b44a69c3ac365034db4b36064a4f9a47, type: 3}
   posoffset: {x: -0.5, y: 0, z: 0}
 --- !u!50 &751548731
@@ -3079,6 +3115,8 @@ MonoBehaviour:
   exitDoor: {fileID: 2073000107}
   doorLocked: 0
   key: {fileID: 0}
+  tagName: 
+  useTags: 0
   destroyKeyOnUse: 0
   transitionTime: 1
   setExitManually: 0
@@ -3660,6 +3698,8 @@ MonoBehaviour:
   exitDoor: {fileID: 1325846589}
   doorLocked: 0
   key: {fileID: 0}
+  tagName: 
+  useTags: 0
   destroyKeyOnUse: 0
   transitionTime: 1
   setExitManually: 0
@@ -3985,6 +4025,8 @@ MonoBehaviour:
   exitDoor: {fileID: 1428831976}
   doorLocked: 0
   key: {fileID: 0}
+  tagName: 
+  useTags: 0
   destroyKeyOnUse: 0
   transitionTime: 1
   setExitManually: 0
@@ -4698,6 +4740,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  positionEvents:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  triggerPosition: {fileID: 0}
   holdSprite: {fileID: 21300000, guid: b44a69c3ac365034db4b36064a4f9a47, type: 3}
   posoffset: {x: -0.5, y: 0, z: 0}
 --- !u!50 &1296717510
@@ -4893,6 +4940,8 @@ MonoBehaviour:
   exitDoor: {fileID: 0}
   doorLocked: 0
   key: {fileID: 0}
+  tagName: 
+  useTags: 0
   destroyKeyOnUse: 0
   transitionTime: 1
   setExitManually: 1
@@ -5121,9 +5170,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   exitDoor: {fileID: 1037746456}
-  doorLocked: 0
+  doorLocked: 1
   key: {fileID: 0}
-  destroyKeyOnUse: 0
+  tagName: ClosetKey
+  useTags: 1
+  destroyKeyOnUse: 1
   transitionTime: 1
   setExitManually: 0
   manualExit: {fileID: 0}
@@ -5819,6 +5870,8 @@ MonoBehaviour:
   exitDoor: {fileID: 1153498532}
   doorLocked: 0
   key: {fileID: 0}
+  tagName: 
+  useTags: 0
   destroyKeyOnUse: 0
   transitionTime: 1
   setExitManually: 0
@@ -8571,6 +8624,8 @@ MonoBehaviour:
   exitDoor: {fileID: 891978218}
   doorLocked: 0
   key: {fileID: 0}
+  tagName: 
+  useTags: 0
   destroyKeyOnUse: 0
   transitionTime: 1
   setExitManually: 0
