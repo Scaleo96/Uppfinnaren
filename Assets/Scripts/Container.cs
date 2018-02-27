@@ -65,7 +65,7 @@ public class Container : Entity
                 values.trigger = EntityValues.TriggerType.FailedUse;
             }
         }
-        else
+        else if (!input)
         {
             if (containedItems.Count > 0)
             {
@@ -73,7 +73,7 @@ public class Container : Entity
             }
             else if (containedItems.Count == 0)
             {
-                values.trigger = EntityValues.TriggerType.AlreadyUsed;
+                values.trigger = EntityValues.TriggerType.ContainerEmpty;
             }
         }
 
