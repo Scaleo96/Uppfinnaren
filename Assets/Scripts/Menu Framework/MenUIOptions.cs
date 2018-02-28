@@ -6,6 +6,10 @@ namespace MenUI
 {
     public class MenUIOptions : MonoBehaviour
     {
+        private const string MASTER_VOL_PREF = "masterVol";
+        private const string MUSIC_VOL_PREF = "musicVol";
+        private const string SFX_VOL_PREF = "sfxVol";
+        private const string AMBIENCE_VOL_PREF = "ambienceVol";
 
         private void Awake()
         {
@@ -16,21 +20,27 @@ namespace MenUI
         /// Audio
         /// </summary>
         [Header("Audio Settings")]
-
         [SerializeField]
-        AudioMixer masterMixer;     // Master mixer to be used
+        private AudioMixer masterMixer;     // Master mixer to be used
 
         // References to UI objects
         [SerializeField]
-        Slider masterVolSlider;
-        [SerializeField]
-        Slider musicVolSlider;
-        [SerializeField]
-        Slider sfxVolSlider;
-        [SerializeField]
-        Toggle SubtitlesToggle;
+        private Slider masterVolSlider;
 
-        static bool subtitlesEnabled = true;
+        [SerializeField]
+        private Slider musicVolSlider;
+
+        [SerializeField]
+        private Slider sfxVolSlider;
+
+        [SerializeField]
+        private Slider ambienceVolSlider;
+
+        [SerializeField]
+        private Toggle SubtitlesToggle;
+
+        private static bool subtitlesEnabled = true;
+        
 
         /// <summary>
         /// Adjusts specified audio groups volume
@@ -50,14 +60,16 @@ namespace MenUI
         private void LoadPrefs()
         {
             // Load volume levels from PlayerPrefs and set volume levels in the mixer
-            SetMasterLevel(PlayerPrefs.GetFloat("masterVol"));
-            SetMusicLevel(PlayerPrefs.GetFloat("musicVol"));
-            SetSoundFXLevel(PlayerPrefs.GetFloat("sfxVol"));
+            SetMasterLevel(PlayerPrefs.GetFloat(MASTER_VOL_PREF));
+            SetMusicLevel(PlayerPrefs.GetFloat(MUSIC_VOL_PREF));
+            SetSoundFXLevel(PlayerPrefs.GetFloat(SFX_VOL_PREF));
+            SetSoundFXLevel(PlayerPrefs.GetFloat(AMBIENCE_VOL_PREF));
 
             // Set slider values to correspond to the actual volume
-            SetSliderValues(masterVolSlider, "masterVol");
+            SetSliderValues(masterVolSlider, MASTER_VOL_PREF);
             SetSliderValues(musicVolSlider, "musicVol");
-            SetSliderValues(sfxVolSlider, "sfxVol");
+            SetSliderValues(sfxVolSlider, SFX_VOL_PREF);
+            SetSliderValues(sfxVolSlider, AMBIENCE_VOL_PREF);
 
             // Load subtitles settings
             SubtitlesEnabled((PlayerPrefs.GetInt("subtitles", 1) == 1 ? true : false));
@@ -69,7 +81,7 @@ namespace MenUI
         /// </summary>
         /// <param name="slider">Slider to set</param>
         /// <param name="mixerGroup">String name of the mixer group</param>
-        void SetSliderValues(Slider slider, string mixerGroup)
+        private void SetSliderValues(Slider slider, string mixerGroup)
         {
             float volume;
             if (masterMixer.GetFloat(mixerGroup, out volume))
@@ -84,17 +96,22 @@ namespace MenUI
 
         public void SetMasterLevel(float audioLevel)
         {
-            SetAudioLevel(audioLevel, "masterVol");
+            SetAudioLevel(audioLevel, MASTER_VOL_PREF);
         }
 
         public void SetMusicLevel(float audioLevel)
         {
-            SetAudioLevel(audioLevel, "musicVol");
+            SetAudioLevel(audioLevel, SFX_VOL_PREF);
         }
 
         public void SetSoundFXLevel(float audioLevel)
         {
-            SetAudioLevel(audioLevel, "sfxVol");
+            SetAudioLevel(audioLevel, SFX_VOL_PREF);
+        }
+
+        public void SetAmbienceLevel(float audioLevel)
+        {
+            SetAudioLevel(audioLevel, AMBIENCE_VOL_PREF);
         }
 
         public void SubtitlesEnabled(bool enableSubtitles)
