@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public struct MaterialStepSounds
+{
+    public Material material;
+    public List<AudioClip> stepSounds;
+}
+
 [RequireComponent(typeof(Rigidbody2D))]
 public class Character : Entity
 {
@@ -38,21 +44,11 @@ public class Character : Entity
     float tolerance = 0.3f;
 
     [Header("> Sound")]
-
     [SerializeField]
     AudioSource stepSoundSource;
 
     [SerializeField]
-    AudioClip stepSoundGrass;
-
-    [SerializeField]
-    AudioClip stepSoundWood;
-
-    [SerializeField]
-    AudioClip stepSoundStone;
-
-    [SerializeField]
-    AudioClip stepSoundForest;
+    List<MaterialStepSounds> materialStepSounds;
 
     Rigidbody2D rb2D;
     Animator animator;
@@ -223,11 +219,51 @@ public class Character : Entity
 
     public void PlayStepSound()
     {
-        // get ground material
-
-        // set sound on audio source
+        AudioClip stepSound = DetermineStepSound();
+        stepSoundSource.clip = stepSound;
 
         stepSoundSource.Play();
+    }
+
+    /// <summary>
+    /// Checks the material of the ground currently below the player (if any at all).
+    /// </summary>
+    private Material GroundMaterialCheck()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 4f, GameController.instance.GroundLayer);
+        if (hit)
+        {
+            MaterialScript material = hit.transform.GetComponent<MaterialScript>();
+            if (material)
+            {
+                return material.Material;
+            }
+        }
+
+        return Material.None;
+    }
+
+    /// <summary>
+    /// Choses a random step sound related to the current ground material.
+    /// </summary>
+    private AudioClip DetermineStepSound()
+    {
+        Material material = GroundMaterialCheck();
+
+        List<AudioClip> availableStepSounds = new List<AudioClip>();
+        foreach (MaterialStepSounds materialStepSounds in materialStepSounds)
+        {
+            if (materialStepSounds.material == material)
+            {              
+                foreach (AudioClip audioClip in materialStepSounds.stepSounds)
+                {
+                    availableStepSounds.Add(audioClip);
+                }
+            }
+        }
+
+        AudioClip chosenStepSound = availableStepSounds[Random.Range(0, availableStepSounds.Count)];
+        return chosenStepSound;
     }
 
     public bool DropItem(Item item)

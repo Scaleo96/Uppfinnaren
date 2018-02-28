@@ -69,6 +69,8 @@ public class GameController : MonoBehaviour
     [SerializeField]
     bool isActive;
 
+    [SerializeField]
+    LayerMask groundLayer;
 
     /// <summary>
     /// The entity that the mouse is hovering over.
@@ -425,6 +427,14 @@ public class GameController : MonoBehaviour
         get
         {
             return currentCharID;
+        }
+    }
+
+    public LayerMask GroundLayer
+    {
+        get
+        {
+            return groundLayer;
         }
     }
 }
