@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -10,25 +11,24 @@ namespace MenUI
     [RequireComponent(typeof(Canvas))]
     public class MenUI : MonoBehaviour
     {
-
         [Tooltip("Have the menu be persistant and never unload during scene changes")]
         [SerializeField]
         private bool neverUnloadMenu = true;
 
-        static MenUI instance = null;           // Make sure there is only one instance at all times
+        private static MenUI instance = null;           // Make sure there is only one instance at all times
 
         [Tooltip("Default scene to load when starting the game")]
         [SerializeField]
         private int startSceneBuildIndex = 1;
+
         [Tooltip("Scene containing the main menu")]
         [SerializeField]
-        int mainMenuSceneBuildIndex = 0;
+        private int mainMenuSceneBuildIndex = 0;
 
         [SerializeField]
-        MenuParameters mainMenuParameters;
+        private MenuParameters mainMenuParameters;
 
         private Stack<MenuParameters> menuStack = new Stack<MenuParameters>();
-
 
         private void Awake()
         {
@@ -45,15 +45,18 @@ namespace MenUI
             }
         }
 
-
         // Use this for initialization
-        void Start()
+        private void Start()
         {
             if (Debug.isDebugBuild) Debug.Log("MenUI starting up", this);
 
             InitializeEventSystem();
             PersistantMenu(neverUnloadMenu);
+            OpenMainMenuInMainScene();
+        }
 
+        private void OpenMainMenuInMainScene()
+        {
             // Set reference to MainMenuPanel by finding a child object by that name if it's blank
             if (mainMenuParameters.menuGameObject == null)
                 mainMenuParameters.menuGameObject = transform.Find("MainMenuPanel").gameObject;
@@ -99,8 +102,23 @@ namespace MenUI
         public void StartButtonPressed()
         {
             if (Debug.isDebugBuild) Debug.Log("Loading scene #" + startSceneBuildIndex, this);
-            SceneManager.LoadScene(startSceneBuildIndex);
             CloseMenu();
+            StartCoroutine(LoadStartScene());
+        }
+
+        private IEnumerator LoadStartScene()
+        {
+            // The Application loads the Scene in the background at the same time as the current Scene.
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(startSceneBuildIndex, LoadSceneMode.Additive);
+
+            //Wait until the last operation fully loads to return anything
+            while (!asyncLoad.isDone)
+            {
+                yield return null;
+            }
+
+            // Unload main scene
+            SceneManager.UnloadSceneAsync(mainMenuSceneBuildIndex);
         }
 
         /// <summary>
@@ -108,7 +126,7 @@ namespace MenUI
         /// </summary>
         public void ReturnToMainMenu()
         {
-            // Load starting screen 
+            // Load starting screen
             SceneManager.LoadScene(mainMenuSceneBuildIndex);
             OpenMenu(mainMenuParameters);
         }
@@ -286,7 +304,6 @@ namespace MenUI
             {
                 if (Debug.isDebugBuild) Debug.LogWarning("No gameobject set in menu parameters, unable to enable", this);
             }
-
         }
 
         /// <summary>
@@ -313,11 +330,8 @@ namespace MenUI
             {
                 DisableMenu(menuToDisable);
             }
-
         }
     }
-
-
 
     /// <summary>
     /// Holds information about how to display menus

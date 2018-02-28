@@ -106,6 +106,20 @@ namespace MusicMixer
             return trackStrings.ToArray();
         }
 
+        /// <summary>
+        /// Get all MusicTracks as strings. Has the same index as GetAllTracks and can be used to find index for a specific track.
+        /// </summary>
+        /// <returns>Array of all clips in active MusicPlayer</returns>
+        public static string[] GetAllCompositionsAsString()
+        {
+            List<string> compositionStrings = new List<string>();
+            foreach (MusicComposition composition in Compositions)
+            {
+                compositionStrings.Add(composition.ToString());
+            }
+            return compositionStrings.ToArray();
+        }
+
         // Play track
         /// <summary>
         /// Attempts to play the supplied track
