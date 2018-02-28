@@ -14,22 +14,4 @@ public class SimpleSpriteAnimation : MonoBehaviour
         rotationVector.z = rotationSpeed * Time.unscaledDeltaTime;
         transform.Rotate(rotationVector);
     }
-
-    private void Start()
-    {
-        //RotateObject();
-        
-    }
-
-    IEnumerator RotateObject()
-    {
-        while (false)
-        {
-            rotationVector.z = rotationSpeed * Time.time;
-            transform.Rotate(rotationVector);
-        }
-
-        yield return null;
-    }
-
 }
