@@ -2543,9 +2543,16 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  canOnlyBeUsedOnce: 0
+  alreadyUsedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   exitDoor: {fileID: 272514555}
   doorLocked: 0
   key: {fileID: 0}
+  tagName: 
+  useTags: 0
   destroyKeyOnUse: 0
   transitionTime: 1
   setExitManually: 0
@@ -6570,7 +6577,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 526948909}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.18, y: 4.44, z: -10}
+  m_LocalPosition: {x: 19.98, y: 102.51, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7801,11 +7808,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4631552628258688, guid: 0a21799549a92c44a8243abe15072150, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 18.3
+      value: -3.1
       objectReference: {fileID: 0}
     - target: {fileID: 4631552628258688, guid: 0a21799549a92c44a8243abe15072150, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 103.3
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 4631552628258688, guid: 0a21799549a92c44a8243abe15072150, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7975,6 +7982,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   cantUseEvents:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  canOnlyBeUsedOnce: 0
+  alreadyUsedEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -8514,8 +8526,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 686425318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 162, y: 317, z: 0}
-  m_LocalScale: {x: 0.16874999, y: 0.16874999, z: 0.16874999}
+  m_LocalPosition: {x: 100, y: 316.5, z: 0}
+  m_LocalScale: {x: 0.10416667, y: 0.10416667, z: 0.10416667}
   m_Children:
   - {fileID: 2037746170}
   - {fileID: 1585383301}
@@ -11530,7 +11542,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 938560441}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -960.00006, y: 1973.5182, z: 0}
+  m_LocalPosition: {x: -959.99994, y: 3133.3994, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 113494841}
@@ -12895,6 +12907,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  canOnlyBeUsedOnce: 0
+  alreadyUsedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   inventorySprite: {fileID: 21300000, guid: 0a9730b2e705c8d46a7117cc8fac52d7, type: 3}
 --- !u!1 &1018142876
 GameObject:
@@ -13167,11 +13184,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4230959253415784, guid: 131176a22e85037458e405d4952b4e76, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.19
+      value: 19.84
       objectReference: {fileID: 0}
     - target: {fileID: 4230959253415784, guid: 131176a22e85037458e405d4952b4e76, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 71.08
+      value: 103.8
       objectReference: {fileID: 0}
     - target: {fileID: 4230959253415784, guid: 131176a22e85037458e405d4952b4e76, type: 2}
       propertyPath: m_LocalPosition.z
@@ -13326,6 +13343,10 @@ Prefab:
         type: 2}
       propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019633003710438, guid: 131176a22e85037458e405d4952b4e76, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 131176a22e85037458e405d4952b4e76, type: 2}
@@ -15612,6 +15633,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  canOnlyBeUsedOnce: 0
+  alreadyUsedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   input: 0
   throwForceInterval: {x: 0, y: 0}
   requiredItems: []
@@ -16395,6 +16421,11 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   cantUseEvents:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  canOnlyBeUsedOnce: 0
+  alreadyUsedEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -17309,6 +17340,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   cantUseEvents:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  canOnlyBeUsedOnce: 0
+  alreadyUsedEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -22550,7 +22586,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4790733292953386, guid: a05db187807bfda4fa72d535dbb98ade, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 72.5
+      value: 1.15
       objectReference: {fileID: 0}
     - target: {fileID: 4790733292953386, guid: a05db187807bfda4fa72d535dbb98ade, type: 2}
       propertyPath: m_LocalPosition.z
@@ -22818,6 +22854,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  canOnlyBeUsedOnce: 0
+  alreadyUsedEvent:
+    m_PersistentCalls:
+      m_Calls: []
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!61 &1828359027
 BoxCollider2D:
