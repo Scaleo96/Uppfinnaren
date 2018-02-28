@@ -101,7 +101,7 @@ namespace MenUI
 
         public void SetMusicLevel(float audioLevel)
         {
-            SetAudioLevel(audioLevel, SFX_VOL_PREF);
+            SetAudioLevel(audioLevel, MUSIC_VOL_PREF);
         }
 
         public void SetSoundFXLevel(float audioLevel)
