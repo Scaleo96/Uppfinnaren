@@ -28,6 +28,12 @@ public class Entity : MonoBehaviour
     [SerializeField]
     ValueEvent cantUseEvents;
 
+    [SerializeField]
+    bool canOnlyBeUsedOnce;
+    bool usedOnce;
+    [SerializeField]
+    ValueEvent alreadyUsedEvent;
+
     bool canBeInteractedWith;
 
     /// <summary>
@@ -36,13 +42,23 @@ public class Entity : MonoBehaviour
     /// <param name="character">The entity that is interacting with this entity.</param>
     public void Interact(EntityValues values)
     {
-        if (canUseCondition.CanInteract(values.character) == true)
+        if (canUseCondition.CanInteract(values.character) == true && !usedOnce)
         {
             OnInteract(values);
+            if (canOnlyBeUsedOnce)
+            {
+                usedOnce = true;
+            }
         }
         else if (canUseCondition.CanInteract(values.character) == false)
         {
             OnCantUse(values);
+        }
+       
+        else if (canUseCondition.CanInteract(values.character) == true && usedOnce && canOnlyBeUsedOnce)
+        {
+            values.trigger = EntityValues.TriggerType.AlreadyUsed;
+            alreadyUsedEvent.Invoke(values);
         }
     }
 
@@ -224,7 +240,7 @@ public class ValueEvent : UnityEvent<EntityValues> { }
 
 public struct EntityValues
 {
-    public enum TriggerType { PuzzleSolved, Inspect, PositionTrigger, PickupItem, EnterDoor, UseItem, FailedUse, ContainerEmpty }
+    public enum TriggerType { PuzzleSolved, Inspect, PositionTrigger, PickupItem, EnterDoor, UseItem, FailedUse, ContainerEmpty, AlreadyUsed }
 
     public TriggerType trigger;
     public Entity entity;

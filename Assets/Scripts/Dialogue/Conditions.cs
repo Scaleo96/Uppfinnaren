@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Conditions : MonoBehaviour
 {
-    public enum TriggerType { PuzzleSolved, Inspect, PositionTrigger, PickupItem, EnterDoor, UseItem, FailedUse, ContainerEmpty }
+    public enum TriggerType { PuzzleSolved, Inspect, PositionTrigger, PickupItem, EnterDoor, UseItem, FailedUse, ContainerEmpty, AlreadyUsed }
 
     [Header("> Condition")]
 
