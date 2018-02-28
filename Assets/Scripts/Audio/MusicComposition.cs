@@ -33,8 +33,15 @@ namespace MusicMixer
                 }
                 else if (MusicPlayer.Instance == null)
                 {
-                    Debug.LogError("No MusicPlayer available.");
-                    return null;
+                    if (!GameObject.FindObjectOfType<MusicPlayer>())
+                    {
+                        Debug.LogError("No MusicPlayer available.");
+                        return null;
+                    }
+                    else
+                    {
+                        return musicPlayer = GameObject.FindObjectOfType<MusicPlayer>();
+                    }                    
                 }
                 else
                 {
@@ -173,6 +180,10 @@ namespace MusicMixer
 
         public override string ToString()
         {
+            if (MusicPlayer == null)
+            {
+                return null;
+            }
             string baseTrackName = MusicPlayer.Tracks[baseTrackIndex].ToString();
             baseTrackName += " - Composition";
             return baseTrackName;
@@ -225,11 +236,6 @@ namespace MusicMixer
                     PlayTrack(accompanyingTracks[trackIndex]);
                 }
             }
-        }
-
-        private void DoStuff()
-        {
-            throw new NotImplementedException();
         }
     }
 }
