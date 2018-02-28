@@ -36,6 +36,9 @@ public class GameController : MonoBehaviour
 
     bool canChangeChar = true;
 
+    [SerializeField]
+    float changeCharCameraOffset;
+
     [Header("Mouse Setting")]
     [SerializeField]
     Entity hoverEntity;
@@ -167,7 +170,6 @@ public class GameController : MonoBehaviour
         else if (Input.GetButtonDown("Interact") && currentCharacter.HasBigItem())
             currentCharacter.DropBigItem();
 
-        // TODO: Move into own function
         // Change character on input.
         if (Input.GetButtonDown("Change Character") && canChangeChar)
         {
@@ -270,9 +272,7 @@ public class GameController : MonoBehaviour
 
         currentCharacter.SetActive(true);
         cameraComponent.GetComponent<CameraFollow>().Target = currentCharacter.transform;
-        cameraComponent.GetComponent<CameraFollow>().SetPosition(currentCharacter.transform);
-
-        // TODO: Do stuff with camera
+        cameraComponent.GetComponent<CameraFollow>().SetPosition((Vector2)currentCharacter.transform.position + (Random.insideUnitCircle.normalized * changeCharCameraOffset));
     }
 
     /// <summary>
