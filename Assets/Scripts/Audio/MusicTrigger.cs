@@ -7,9 +7,10 @@ namespace MusicMixer
     public class MusicTrigger : MonoBehaviour
     {
         [HideInInspector]
+        [SerializeField]
         public int selectedComposition = 0;
 
-        private void Awake()
+        private void Start()
         {
             AddTriggerToCamera();
             InitializeComponents();
@@ -20,13 +21,6 @@ namespace MusicMixer
         /// </summary>
         private void AddTriggerToCamera()
         {
-            // TODO: Find camera cross scene
-            if(Camera.main == null)
-            {
-                Debug.LogWarning("No camera found. Likely a cross-scene issue. Make sure the camera has a viable trigger for the MusicTriggers to work.");
-                return;
-            }
-
             bool cameraHasCollider = Camera.main.GetComponent<Collider2D>();
             if (cameraHasCollider)
             {

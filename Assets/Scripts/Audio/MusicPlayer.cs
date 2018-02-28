@@ -68,6 +68,7 @@ namespace MusicMixer
 
         private void CheckSingleton()
         {
+            // TODO: Fix bug where a MusicPlayer is allowed to do stuff during play before it has removed itself if there is another instance active.
             // Make sure there are no other running instances of the MenUI
             if (Instance != null)
             {
