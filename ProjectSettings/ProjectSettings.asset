@@ -13,7 +13,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: DefaultCompany
   productName: Uppfinnaren
-  defaultCursor: {fileID: 2800000, guid: 990e2b5b5f1928e4d9dc81a184b6c30f, type: 3}
+  defaultCursor: {fileID: 2800000, guid: 8c2d90ccdd9936e4bbcd75fd05fad58d, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1

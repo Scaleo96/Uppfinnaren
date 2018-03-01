@@ -15801,10 +15801,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorLockMode: 2
-  cursorOffset: {x: 10, y: 5}
-  defaultCursor: {fileID: 2800000, guid: 8c2d90ccdd9936e4bbcd75fd05fad58d, type: 3}
-  hoverCursor: {fileID: 2800000, guid: dac79840d4c23fd419ce83b10b2a706c, type: 3}
-  clickCursor: {fileID: 2800000, guid: 742bad7565096234683c8d99aaa06dd8, type: 3}
+  cursorOffset: {x: 25, y: 15}
+  defaultCursor: {fileID: 2800000, guid: dd065eb8d7577a247bce712b7397e799, type: 3}
+  hoverCursor: {fileID: 2800000, guid: 744868997479cfd4a87b5193c825d5f7, type: 3}
+  clickCursor: {fileID: 2800000, guid: e7201228089d2fb44a39f4212206e1bf, type: 3}
 --- !u!1 &1125539004
 GameObject:
   m_ObjectHideFlags: 0
