@@ -10,13 +10,13 @@ public class CanvasTextLocaliser : MonoBehaviour
 
     private Text canvasText;
 
-    private void Start()
+    private void Awake()
     {
         // Get and store the Text component on this GameObject
         canvasText = GetComponent<Text>();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         CheckActiveLanguage();
         SetText();

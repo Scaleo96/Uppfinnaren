@@ -23,8 +23,6 @@ public class ToggleLanguage : MonoBehaviour
                 break;
         }
 
-        Debug.Log("Language is english: " + isEnglish, gameObject);
-
         // Set toggle as such
         GetComponent<Toggle>().isOn = isEnglish;
     }
@@ -33,9 +31,9 @@ public class ToggleLanguage : MonoBehaviour
     /// Switch between English and Swedish
     /// </summary>
     /// <param name="isEnglish"></param>
-    public void SetLanguageToEnglish(bool isEnglish)
+    public void SetLanguageToEnglissh(bool isEnglish)
     {
-        ELanguage wantedLanguage = ELanguage.Swedish;
+        ELanguage wantedLanguage;
 
         if (isEnglish)
         {
@@ -47,7 +45,5 @@ public class ToggleLanguage : MonoBehaviour
         }
 
         GlobalStatics.Language = wantedLanguage;
-
-        Debug.Log("Switched to " + wantedLanguage, this);   
     }
 }

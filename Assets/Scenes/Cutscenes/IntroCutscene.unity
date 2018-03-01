@@ -350,6 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 383cf6e80d1c3294fa39a5538dc212ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  englishClip: {fileID: 32900000, guid: 11a2a0b1f9aaca84cb1959e2224faea9, type: 3}
+  turnOffMusicDuringCutscene: 0
+  englishClip: {fileID: 32900000, guid: 0b4dd38727d9e0e488d82a1a1c1e732e, type: 3}
   swedishClip: {fileID: 32900000, guid: bddf488219c1ce44aa23ea48a2e53c40, type: 3}
   sceneBuildIndex: 1

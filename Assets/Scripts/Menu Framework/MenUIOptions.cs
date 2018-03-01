@@ -70,9 +70,9 @@ namespace MenUI
             SetSliderValues(sfxVolSlider, SFX_VOL_PREF);
             SetSliderValues(sfxVolSlider, AMBIENCE_VOL_PREF);
 
-            // Load subtitles settings
+            // Load language settings
             SetLanguageToEnglish((PlayerPrefs.GetInt("isEnglish", 1) == 1 ? true : false));
-            languageToggle.isOn = languageIsEnglish;
+            //languageToggle.isOn = languageIsEnglish;
         }
 
         /// <summary>
