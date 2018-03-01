@@ -30,17 +30,21 @@ namespace MenUI
 
         private Stack<MenuParameters> menuStack = new Stack<MenuParameters>();
 
+        [Tooltip("Show debug messages in console?")]
+        [SerializeField]
+        private bool verbose;
+
         private void Awake()
         {
             // Make sure there are no other running instances of the MenUI
             if (instance)
             {
-                if (Debug.isDebugBuild) Debug.LogWarning("Other instance of MenUI already running. Terminating.");
+                if (Debug.isDebugBuild && verbose) Debug.LogWarning("Other instance of MenUI already running. Terminating.");
                 Destroy(gameObject);
             }
             else
             {
-                if (Debug.isDebugBuild) Debug.Log("Initializing MenUI", this);
+                if (Debug.isDebugBuild && verbose) Debug.Log("Initializing MenUI", this);
                 instance = this;
             }
         }
@@ -48,7 +52,7 @@ namespace MenUI
         // Use this for initialization
         private void Start()
         {
-            if (Debug.isDebugBuild) Debug.Log("MenUI starting up", this);
+            if (Debug.isDebugBuild && verbose) Debug.Log("MenUI starting up", this);
 
             InitializeEventSystem();
             PersistantMenu(neverUnloadMenu);
@@ -101,7 +105,7 @@ namespace MenUI
 
         public void StartButtonPressed()
         {
-            if (Debug.isDebugBuild) Debug.Log("Loading scene #" + startSceneBuildIndex, this);
+            if (Debug.isDebugBuild && verbose) Debug.Log("Loading scene #" + startSceneBuildIndex, this);
             CloseMenu();
             StartCoroutine(LoadStartScene());
         }
@@ -302,7 +306,7 @@ namespace MenUI
             }
             else
             {
-                if (Debug.isDebugBuild) Debug.LogWarning("No gameobject set in menu parameters, unable to enable", this);
+                if (Debug.isDebugBuild && verbose) Debug.LogWarning("No gameobject set in menu parameters, unable to enable", this);
             }
         }
 

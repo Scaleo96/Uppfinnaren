@@ -5,9 +5,7 @@ using UnityEngine;
 static public class GlobalStatics
 {
     const ELanguage DEFAULT_LANGUAGE = ELanguage.Swedish;
-
-    public static bool isFirstRun = true;
-
+    
     /// <summary>
     /// What localisation/language to use for text
     /// </summary>

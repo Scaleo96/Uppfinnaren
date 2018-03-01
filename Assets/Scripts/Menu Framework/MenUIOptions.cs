@@ -11,11 +11,6 @@ namespace MenUI
         private const string SFX_VOL_PREF = "sfxVol";
         private const string AMBIENCE_VOL_PREF = "ambienceVol";
 
-        private void Awake()
-        {
-            LoadPrefs();
-        }
-
         /// <summary>
         /// Audio
         /// </summary>
@@ -37,10 +32,14 @@ namespace MenUI
         private Slider ambienceVolSlider;
 
         [SerializeField]
-        private Toggle SubtitlesToggle;
+        private Toggle languageToggle;
 
-        private static bool subtitlesEnabled = true;
-        
+        private static bool languageIsEnglish = true;
+
+        private void Awake()
+        {
+            LoadPrefs();
+        }
 
         /// <summary>
         /// Adjusts specified audio groups volume
@@ -67,13 +66,13 @@ namespace MenUI
 
             // Set slider values to correspond to the actual volume
             SetSliderValues(masterVolSlider, MASTER_VOL_PREF);
-            SetSliderValues(musicVolSlider, "musicVol");
+            SetSliderValues(musicVolSlider, MUSIC_VOL_PREF);
             SetSliderValues(sfxVolSlider, SFX_VOL_PREF);
             SetSliderValues(sfxVolSlider, AMBIENCE_VOL_PREF);
 
-            // Load subtitles settings
-            SubtitlesEnabled((PlayerPrefs.GetInt("subtitles", 1) == 1 ? true : false));
-            SubtitlesToggle.isOn = subtitlesEnabled;
+            // Load language settings
+            SetLanguageToEnglish((PlayerPrefs.GetInt("isEnglish", 1) == 1 ? true : false));
+            //languageToggle.isOn = languageIsEnglish;
         }
 
         /// <summary>
@@ -114,10 +113,10 @@ namespace MenUI
             SetAudioLevel(audioLevel, AMBIENCE_VOL_PREF);
         }
 
-        public void SubtitlesEnabled(bool enableSubtitles)
+        public void SetLanguageToEnglish(bool isEnglish)
         {
-            subtitlesEnabled = enableSubtitles;
-            PlayerPrefs.SetInt("subtitles", (enableSubtitles ? 1 : 0));
+            languageIsEnglish = isEnglish;
+            PlayerPrefs.SetInt("isEnglish", (isEnglish ? 1 : 0));
             PlayerPrefs.Save();
         }
     }
