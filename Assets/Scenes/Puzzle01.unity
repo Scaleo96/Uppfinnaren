@@ -10546,8 +10546,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - speaker: {fileID: 517375621}
-    line_Swedish: 
-    line_English: 
+    line_Swedish: "Jag kommer nog vara kvar h\xE4r ett tag, tur att jag lyckades f\xE5
+      en vikarie."
+    line_English: "I\u2019ll probably be here for quite a while, I\u2019m glad I managed
+      to call a substitute."
     time: 5
 --- !u!4 &803696800
 Transform:
