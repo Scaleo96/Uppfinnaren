@@ -36,6 +36,9 @@ public class GameController : MonoBehaviour
 
     bool canChangeChar = true;
 
+    [SerializeField]
+    float changeCharCameraOffset;
+
     [Header("Mouse Setting")]
     [SerializeField]
     Entity hoverEntity;
@@ -70,6 +73,8 @@ public class GameController : MonoBehaviour
     [SerializeField]
     bool isActive;
 
+    [SerializeField]
+    LayerMask groundLayer;
 
     /// <summary>
     /// The entity that the mouse is hovering over.
@@ -166,7 +171,6 @@ public class GameController : MonoBehaviour
         else if (Input.GetButtonDown("Interact") && currentCharacter.HasBigItem())
             currentCharacter.DropBigItem();
 
-        // TODO: Move into own function
         // Change character on input.
         if (Input.GetButtonDown("Change Character") && canChangeChar)
         {
@@ -269,7 +273,7 @@ public class GameController : MonoBehaviour
 
         currentCharacter.SetActive(true);
         cameraComponent.GetComponent<CameraFollow>().Target = currentCharacter.transform;
-        cameraComponent.GetComponent<CameraFollow>().SetPosition(currentCharacter.transform);
+        cameraComponent.GetComponent<CameraFollow>().SetPosition((Vector2)currentCharacter.transform.position + (Random.insideUnitCircle.normalized * changeCharCameraOffset));
 
         // Change music
         MusicMixer.MusicController.ActivateAccompanyingTrackExclusive(charID);
@@ -429,6 +433,14 @@ public class GameController : MonoBehaviour
         get
         {
             return currentCharID;
+        }
+    }
+
+    public LayerMask GroundLayer
+    {
+        get
+        {
+            return groundLayer;
         }
     }
 }
