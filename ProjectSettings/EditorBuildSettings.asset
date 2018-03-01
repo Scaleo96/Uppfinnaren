@@ -20,3 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Puzzle03.unity
     guid: e7a0f903bbcc16e4ab63647936a5c065
+  - enabled: 1
+    path: Assets/Scenes/AmbienceAreas.unity
+    guid: 94db145c9ee7b594fa1d1b784a103d01
+  - enabled: 1
+    path: Assets/Scenes/MusicTriggers.unity
+    guid: 8e33a58a1a4279a479ee3103b5159954

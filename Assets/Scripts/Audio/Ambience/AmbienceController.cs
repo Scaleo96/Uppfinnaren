@@ -29,8 +29,12 @@ namespace AmbienceMixer
         private void Awake()
         {
             currentAmbienceAreas = new List<int>();
-            mainCamera = Camera.main;
         }
+
+		private void Start()
+		{
+			mainCamera = Camera.main;
+		}
 
         private void Update()
         {
