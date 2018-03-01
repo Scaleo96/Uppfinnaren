@@ -8,7 +8,7 @@ public class ButtonParameters : MonoBehaviour
 {
 
     [SerializeField]
-    UnityEvent ContinueEvent;
+    ValueEvent ContinueEvent;
 
     [SerializeField]
     Item[] requiredItem;
@@ -31,6 +31,22 @@ public class ButtonParameters : MonoBehaviour
     [ConditionalHide("useTags", true)]
     public string tagName;
 
+    [Tooltip("Set this to the entity used to start the puzzle if you want to start dialogue")]
+    [SerializeField]
+    private Entity triggerEntity;
+
+    private EntityValues values;
+
+
+    private void Start()
+    {
+        EntityValues values;
+        values.entity = triggerEntity;
+        values.collider2d = null;
+        values.character = GameController.instance.GetCurrentCharacter();
+        values.item = null;
+        values.trigger = EntityValues.TriggerType.PuzzleSolved;
+    }
 
     public void OnClickParamaters()
     {
@@ -44,12 +60,12 @@ public class ButtonParameters : MonoBehaviour
                     {
                         if (GameController.instance.GetCurrentCharacter().IsInventoryFull() == false)
                         {
-                            ContinueEvent.Invoke();
+                            ContinueEvent.Invoke(values);
                         }
                     }
                     else
                     {
-                        ContinueEvent.Invoke();
+                        ContinueEvent.Invoke(values);
                     }
 
                     if (destroyItemOnUse == true)
@@ -69,12 +85,12 @@ public class ButtonParameters : MonoBehaviour
                 {
                     if (GameController.instance.GetCurrentCharacter().IsInventoryFull() == false)
                     {
-                        ContinueEvent.Invoke();
+                        ContinueEvent.Invoke(values);
                     }
                 }
                 else
                 {
-                    ContinueEvent.Invoke();
+                    ContinueEvent.Invoke(values);
                 }
 
                 if (destroyItemOnUse == true)
@@ -92,12 +108,12 @@ public class ButtonParameters : MonoBehaviour
             {
                 if (GameController.instance.GetCurrentCharacter().IsInventoryFull() == false)
                 {
-                    ContinueEvent.Invoke();
+                    ContinueEvent.Invoke(values);
                 }
             }
             else
             {
-                ContinueEvent.Invoke();
+                ContinueEvent.Invoke(values);
             }
         }
     }
@@ -112,12 +128,12 @@ public class ButtonParameters : MonoBehaviour
             {
                 if (GameController.instance.GetCurrentCharacter().IsInventoryFull() == false)
                 {
-                    ContinueEvent.Invoke();
+                    ContinueEvent.Invoke(values);
                 }
             }
             else
             {
-                ContinueEvent.Invoke();
+                ContinueEvent.Invoke(values);
             }
 
         }

@@ -79,7 +79,8 @@ public class ConditionsManager : MonoBehaviour
     {
         if (condition.trigger == Conditions.TriggerType.AlreadyUsed && entityValues.trigger == EntityValues.TriggerType.AlreadyUsed)
         {
-            if (entityValues.entity == condition.entity && entityValues.character == condition.character)
+            if (condition.useEntityName ? (entityValues.entity.EntityName == condition.EntityName && entityValues.character.EntityName == condition.characterName) : 
+                (entityValues.entity == condition.entity && entityValues.character == condition.character))
             {
                 condition.activated = true;
             }
@@ -90,7 +91,8 @@ public class ConditionsManager : MonoBehaviour
     {
         if (condition.trigger == Conditions.TriggerType.ContainerEmpty && entityValues.trigger == EntityValues.TriggerType.ContainerEmpty)
         {
-            if (entityValues.entity == condition.entity && entityValues.character == condition.character)
+            if (condition.useEntityName ? (entityValues.entity.EntityName == condition.EntityName && entityValues.character.EntityName == condition.characterName) :
+                (entityValues.entity == condition.entity && entityValues.character == condition.character))
             {
                 condition.activated = true;
             }
@@ -101,7 +103,8 @@ public class ConditionsManager : MonoBehaviour
     {
         if (condition.trigger == Conditions.TriggerType.FailedUse && entityValues.trigger == EntityValues.TriggerType.FailedUse)
         {
-            if (entityValues.entity == condition.entity && entityValues.character == condition.character)
+            if (condition.useEntityName ? (entityValues.entity.EntityName == condition.EntityName && entityValues.character.EntityName == condition.characterName) :
+                (entityValues.entity == condition.entity && entityValues.character == condition.character))
             {
                 condition.activated = true;
             }
@@ -112,7 +115,8 @@ public class ConditionsManager : MonoBehaviour
     {
         if (condition.trigger == Conditions.TriggerType.Inspect && entityValues.trigger == EntityValues.TriggerType.Inspect)
         {
-            if (entityValues.entity == condition.entity && entityValues.character == condition.character)
+            if (condition.useEntityName ? (entityValues.entity.EntityName == condition.EntityName && entityValues.character.EntityName == condition.characterName) :
+                (entityValues.entity == condition.entity && entityValues.character == condition.character))
             {
                 condition.activated = true;
             }
@@ -123,7 +127,8 @@ public class ConditionsManager : MonoBehaviour
     {
         if (condition.trigger == Conditions.TriggerType.PositionTrigger && entityValues.trigger == EntityValues.TriggerType.PositionTrigger)
         {
-            if (entityValues.collider2d == condition.collisionTrigger && entityValues.character == condition.character)
+            if (condition.useEntityName ? (entityValues.collider2d == condition.collisionTrigger && entityValues.character.EntityName == condition.characterName) :
+                (entityValues.collider2d == condition.collisionTrigger && entityValues.character == condition.character))
             {
                 condition.activated = true;
             }
@@ -134,7 +139,8 @@ public class ConditionsManager : MonoBehaviour
     {
         if (condition.trigger == Conditions.TriggerType.PickupItem && entityValues.trigger == EntityValues.TriggerType.PickupItem)
         {
-            if (entityValues.entity == condition.entity && entityValues.character == condition.character)
+            if (condition.useEntityName ? (entityValues.entity.EntityName == condition.EntityName && entityValues.character.EntityName == condition.characterName) :
+                (entityValues.entity == condition.entity && entityValues.character == condition.character))
             {
                 condition.activated = true;
             }
@@ -145,7 +151,8 @@ public class ConditionsManager : MonoBehaviour
     {
         if (condition.trigger == Conditions.TriggerType.EnterDoor && entityValues.trigger == EntityValues.TriggerType.EnterDoor)
         {
-            if (entityValues.entity == condition.entity && entityValues.character == condition.character)
+            if (condition.useEntityName ? (entityValues.entity.EntityName == condition.EntityName && entityValues.character.EntityName == condition.characterName) :
+                (entityValues.entity == condition.entity && entityValues.character == condition.character))
             {
                 condition.activated = true;
             }
@@ -156,7 +163,8 @@ public class ConditionsManager : MonoBehaviour
     {
         if (condition.trigger == Conditions.TriggerType.PuzzleSolved && entityValues.trigger == EntityValues.TriggerType.PuzzleSolved)
         {
-            if (entityValues.entity == condition.entity && entityValues.character == condition.character)
+            if (condition.useEntityName ? (entityValues.entity.EntityName == condition.EntityName && entityValues.character.EntityName == condition.characterName) :
+                (entityValues.entity == condition.entity && entityValues.character == condition.character))
             {
                 condition.activated = true;
             }
@@ -167,7 +175,8 @@ public class ConditionsManager : MonoBehaviour
     {
         if (condition.trigger == Conditions.TriggerType.UseItem && entityValues.trigger == EntityValues.TriggerType.UseItem)
         {
-            if (entityValues.entity == condition.entity && entityValues.character == condition.character && entityValues.item == condition.item)
+            if (condition.useEntityName ? (entityValues.entity.EntityName == condition.EntityName && entityValues.character.EntityName == condition.characterName && entityValues.item.EntityName == condition.itemName) : 
+                (entityValues.entity == condition.entity && entityValues.character == condition.character && entityValues.item == condition.item))
             {
                 condition.activated = true;
             }
