@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class ToggleLanguage : MonoBehaviour
 {
-    private void Start()
+    private void OnEnable()
     {
         bool isEnglish;
 
@@ -48,6 +48,6 @@ public class ToggleLanguage : MonoBehaviour
 
         GlobalStatics.Language = wantedLanguage;
 
-        Debug.Log("Switched to " + wantedLanguage);
+        Debug.Log("Switched to " + wantedLanguage, this);   
     }
 }

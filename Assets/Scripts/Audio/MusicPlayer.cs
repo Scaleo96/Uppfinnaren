@@ -427,7 +427,7 @@ namespace MusicMixer
             activeMusicComposition.ActivateGroup(ActiveAccompanyingTrack);
         }
 
-        private void DeactivateCompositionGroup(MusicComposition composition)
+        public void DeactivateCompositionGroup(MusicComposition composition)
         {
             composition.DeactivateComposition();
         }
