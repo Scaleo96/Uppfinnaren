@@ -4172,7 +4172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   englishText: Exit to menu
-  swedishText: "G\xE5 tillbaka till menyn"
+  swedishText: "G\xE5 till menyn"
 --- !u!114 &114420894424165978
 MonoBehaviour:
   m_ObjectHideFlags: 1

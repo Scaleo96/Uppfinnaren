@@ -32,9 +32,7 @@ namespace MenUI
         private Slider ambienceVolSlider;
 
         [SerializeField]
-        private Toggle languageToggle;
-
-        private static bool languageIsEnglish = true;
+        private Toggle languageToggle; 
 
         private void Awake()
         {
@@ -115,7 +113,6 @@ namespace MenUI
 
         public void SetLanguageToEnglish(bool isEnglish)
         {
-            languageIsEnglish = isEnglish;
             PlayerPrefs.SetInt("isEnglish", (isEnglish ? 1 : 0));
             PlayerPrefs.Save();
         }
