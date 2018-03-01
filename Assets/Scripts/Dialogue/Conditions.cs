@@ -11,8 +11,12 @@ public class Conditions : MonoBehaviour
 
     [Tooltip("The particular entity important to the condition.")]
     public Entity entity;
+    [ConditionalHide("useEntityName", true)]
+    public string EntityName;
     [Tooltip("The particular Character important to the condition.")]
     public Character character;
+    [ConditionalHide("useEntityName", true)]
+    public string characterName;
     [Tooltip("What type of condition is this.")]
     public TriggerType trigger;
     [HideInInspector]
@@ -21,4 +25,8 @@ public class Conditions : MonoBehaviour
     public Collider2D collisionTrigger;
     [Tooltip("What item is used?")]
     public Item item;
+    [ConditionalHide("useEntityName", true)]
+    public string itemName;
+
+    public bool useEntityName;
 }

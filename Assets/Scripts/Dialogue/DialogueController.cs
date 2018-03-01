@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Animations;
 
 public class DialogueController : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class DialogueController : MonoBehaviour
     [Tooltip("What is the dialogues position relevant to the source.")]
     [SerializeField]
     Vector3 textPosition;
+
+    [SerializeField]
+    BindSpeakerAndBubble[] bindSpeakerAndBubble;
 
     public Language language;
 
@@ -58,14 +62,20 @@ public class DialogueController : MonoBehaviour
     private IEnumerator DisplayDialogue(DialogueElements dialogue, float time, ConditionValues values)
     {
         conditionsManager.container[values.containerNumber].DialogueRunning = true;
-        GameObject textGameobject = Instantiate(dialogueTextPrefab, new Vector3(0, 0), transform.rotation, dialogue.speaker.transform);
+        GameObject dialoguePrefab = dialogueTextPrefab;
+        for (int i = 0; i < bindSpeakerAndBubble.Length; i++)
+        {
+            if (bindSpeakerAndBubble[i].speaker == dialogue.speaker)
+            {
+                dialoguePrefab = bindSpeakerAndBubble[i].textbubble;
+            }
+        }
+        GameObject textGameobject = Instantiate(dialoguePrefab, new Vector3(0, 0), transform.rotation, dialogue.speaker.transform);
         Text dialogueText = textGameobject.GetComponentInChildren<Text>();
-        //currentText = textGameobject;
         SpeakerAndText speakerAndText = new SpeakerAndText();
         speakerAndText.currentSpeaker = dialogue.speaker;
         speakerAndText.currentText = textGameobject;
         currentSpeakers.Add(speakerAndText);
-        //currentSpeaker = dialogue.speaker;
         if (language == Language.Svenska)
         {
             dialogueText.text = dialogue.line_Swedish;
@@ -76,7 +86,13 @@ public class DialogueController : MonoBehaviour
             dialogueText.text = dialogue.line_English;
             dialogueText.font.material.mainTexture.filterMode = FilterMode.Point;
         }
+
+        Animator animator = textGameobject.GetComponentInChildren<Animator>();
+
         yield return new WaitForSeconds(time);
+        animator.Play("BubbleEnd");
+        AnimatorClipInfo clipInfo = new AnimatorClipInfo();
+        yield return new WaitForSeconds(1);
         currentSpeakers.Remove(speakerAndText);
         Destroy(textGameobject);
         conditionsManager.container[values.containerNumber].DialogueRunning = false;
@@ -103,8 +119,15 @@ public class DialogueController : MonoBehaviour
     }
 }
 
-public class SpeakerAndText
+public struct SpeakerAndText
 {
     public GameObject currentSpeaker;
     public GameObject currentText;
+}
+
+[System.Serializable]
+public struct BindSpeakerAndBubble
+{
+    public GameObject speaker;
+    public GameObject textbubble;
 }
