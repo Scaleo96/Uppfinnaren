@@ -16,11 +16,16 @@ public class MusicControllerTester : MonoBehaviour {
     public float targetVolume = 0f;
     public float fadeDuration = 0f;
 
+    //public MusicComposition testingMusicComposition;
+
     //[SerializeField]
     //List<MusicTrack> trackCopy;
 
     // Use this for initialization
     void Start () {
+      //  testingMusicComposition = gameObject.AddComponent<MusicComposition>();
+
+        //testingMusicComposition.allTracks = MusicController.GetAllTracks();
         // Play first track
         //MusicController.FadeTrack(MusicController.GetAllTracks()[0], 1f, 15);
 
@@ -31,15 +36,25 @@ public class MusicControllerTester : MonoBehaviour {
         //    Debug.LogWarning("<color=cyan><b>MusicTester</b></color> - I tried playing a track, and it worked!", this);
         //}
 
+
+
     }
-	
-	//// Update is called once per frame
-	//void Update () {
- //       if (Time.time > testTimer && !didIt)
- //       {
- //           MusicController.FadeTrack(MusicController.GetAllTracks()[trackIndex], targetVolume, fadeDuration);
- //           //trackCopy[0].StartFade(targetVolume, fadeDuration);
- //           didIt = true;
- //       }
- //   }
+    private void Update()
+    {
+        MusicComposition testCompo = MusicController.Compositions[0];
+        string testCompName = MusicController.ActivateMusicComposition(testCompo);
+        Debug.Log("Activating composition: " + testCompName);
+
+        //MusicController.ActivateAccompanyingTrackExclusive(1); 
+    }
+
+    //// Update is called once per frame
+    //void Update () {
+    //       if (Time.time > testTimer && !didIt)
+    //       {
+    //           MusicController.FadeTrack(MusicController.GetAllTracks()[trackIndex], targetVolume, fadeDuration);
+    //           //trackCopy[0].StartFade(targetVolume, fadeDuration);
+    //           didIt = true;
+    //       }
+    //   }
 }

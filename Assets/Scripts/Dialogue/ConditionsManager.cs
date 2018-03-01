@@ -14,33 +14,51 @@ public class ConditionsManager : MonoBehaviour
 
     public ConditionValues IsAllComplete(EntityValues entityValues)
     {
-        int i = 0;
         ConditionValues values;
-        for (i = 0; i < container.Length;)
+        for (int i = 0; i < container.Length;)
         {
-            bool test = true;
+            // Everything breaks if you remove this
+            bool failSafe = true;
+
             for (int j = 0; j < container[i].conditions.Length; j++)
             {
-                Inspect(entityValues, container[i].conditions[j]);
-                PositionTrigger(entityValues, container[i].conditions[j]);
-                PickupItem(entityValues, container[i].conditions[j]);
-                EnterDoor(entityValues, container[i].conditions[j]);
-                PuzzleSolved(entityValues, container[i].conditions[j]);
-                UseItem(entityValues, container[i].conditions[j]);
+                if (container[i].DialogueRunning == false)
+                {
+                    AlreadyUsed(entityValues, container[i].conditions[j]);
+                    ContainerEmpty(entityValues, container[i].conditions[j]);
+                    FailedUse(entityValues, container[i].conditions[j]);
+                    Inspect(entityValues, container[i].conditions[j]);
+                    PositionTrigger(entityValues, container[i].conditions[j]);
+                    PickupItem(entityValues, container[i].conditions[j]);
+                    EnterDoor(entityValues, container[i].conditions[j]);
+                    PuzzleSolved(entityValues, container[i].conditions[j]);
+                    UseItem(entityValues, container[i].conditions[j]);
+                }
+
                 if (container[i].conditions[j].activated == false || container[i].isComplete == true)
                 {
-                    test = false;
+                    failSafe = false;
                 }
             }
-            if (container[i].isComplete == false && test && container[i].DialogueRunning == false)
+            if (container[i].isComplete == false && failSafe && container[i].DialogueRunning == false)
             {
                 values.dialogueNumber = container[i].dialogueDone;
                 values.meetComplete = true;
                 values.containerNumber = i;
                 container[i].dialogueDone++;
-                if (container[i].dialogueDone >= container[i].dialogue.Length)
+
+                for (int k = 0; k < container[i].conditions.Length; k++)
+                {
+                    container[i].conditions[k].activated = false;
+                }
+
+                if (container[i].dialogueDone >= container[i].dialogue.Length && container[i].repeatable == false)
                 {
                     container[i].isComplete = true;
+                }
+                else if (container[i].dialogueDone >= container[i].dialogue.Length && container[i].repeatable == true)
+                {
+                    container[i].dialogueDone = 0;
                 }
                 return values;
             }
@@ -57,12 +75,48 @@ public class ConditionsManager : MonoBehaviour
         values.containerNumber = 0;
         return values;
     }
+    private void AlreadyUsed(EntityValues entityValues, Conditions condition)
+    {
+        if (condition.trigger == Conditions.TriggerType.AlreadyUsed && entityValues.trigger == EntityValues.TriggerType.AlreadyUsed)
+        {
+            if (condition.useEntityName ? (entityValues.entity.EntityName == condition.EntityName && entityValues.character.EntityName == condition.characterName) : 
+                (entityValues.entity == condition.entity && entityValues.character == condition.character))
+            {
+                condition.activated = true;
+            }
+        }
+    }
+
+    private void ContainerEmpty(EntityValues entityValues, Conditions condition)
+    {
+        if (condition.trigger == Conditions.TriggerType.ContainerEmpty && entityValues.trigger == EntityValues.TriggerType.ContainerEmpty)
+        {
+            if (condition.useEntityName ? (entityValues.entity.EntityName == condition.EntityName && entityValues.character.EntityName == condition.characterName) :
+                (entityValues.entity == condition.entity && entityValues.character == condition.character))
+            {
+                condition.activated = true;
+            }
+        }
+    }
+
+    private void FailedUse(EntityValues entityValues, Conditions condition)
+    {
+        if (condition.trigger == Conditions.TriggerType.FailedUse && entityValues.trigger == EntityValues.TriggerType.FailedUse)
+        {
+            if (condition.useEntityName ? (entityValues.entity.EntityName == condition.EntityName && entityValues.character.EntityName == condition.characterName) :
+                (entityValues.entity == condition.entity && entityValues.character == condition.character))
+            {
+                condition.activated = true;
+            }
+        }
+    }
 
     private void Inspect(EntityValues entityValues, Conditions condition)
     {
         if (condition.trigger == Conditions.TriggerType.Inspect && entityValues.trigger == EntityValues.TriggerType.Inspect)
         {
-            if (entityValues.entity == condition.entity && entityValues.character == condition.character)
+            if (condition.useEntityName ? (entityValues.entity.EntityName == condition.EntityName && entityValues.character.EntityName == condition.characterName) :
+                (entityValues.entity == condition.entity && entityValues.character == condition.character))
             {
                 condition.activated = true;
             }
@@ -73,9 +127,10 @@ public class ConditionsManager : MonoBehaviour
     {
         if (condition.trigger == Conditions.TriggerType.PositionTrigger && entityValues.trigger == EntityValues.TriggerType.PositionTrigger)
         {
-            if (entityValues.collider2d == condition.collisionTrigger && entityValues.character == condition.character)
+            if (condition.useEntityName ? (entityValues.collider2d == condition.collisionTrigger && entityValues.character.EntityName == condition.characterName) :
+                (entityValues.collider2d == condition.collisionTrigger && entityValues.character == condition.character))
             {
-               condition.activated = true;
+                condition.activated = true;
             }
         }
     }
@@ -84,7 +139,8 @@ public class ConditionsManager : MonoBehaviour
     {
         if (condition.trigger == Conditions.TriggerType.PickupItem && entityValues.trigger == EntityValues.TriggerType.PickupItem)
         {
-            if (entityValues.entity == condition.entity && entityValues.character == condition.character)
+            if (condition.useEntityName ? (entityValues.entity.EntityName == condition.EntityName && entityValues.character.EntityName == condition.characterName) :
+                (entityValues.entity == condition.entity && entityValues.character == condition.character))
             {
                 condition.activated = true;
             }
@@ -95,7 +151,8 @@ public class ConditionsManager : MonoBehaviour
     {
         if (condition.trigger == Conditions.TriggerType.EnterDoor && entityValues.trigger == EntityValues.TriggerType.EnterDoor)
         {
-            if (entityValues.entity == condition.entity && entityValues.character == condition.character)
+            if (condition.useEntityName ? (entityValues.entity.EntityName == condition.EntityName && entityValues.character.EntityName == condition.characterName) :
+                (entityValues.entity == condition.entity && entityValues.character == condition.character))
             {
                 condition.activated = true;
             }
@@ -106,7 +163,8 @@ public class ConditionsManager : MonoBehaviour
     {
         if (condition.trigger == Conditions.TriggerType.PuzzleSolved && entityValues.trigger == EntityValues.TriggerType.PuzzleSolved)
         {
-            if (entityValues.entity == condition.entity && entityValues.character == condition.character)
+            if (condition.useEntityName ? (entityValues.entity.EntityName == condition.EntityName && entityValues.character.EntityName == condition.characterName) :
+                (entityValues.entity == condition.entity && entityValues.character == condition.character))
             {
                 condition.activated = true;
             }
@@ -117,7 +175,8 @@ public class ConditionsManager : MonoBehaviour
     {
         if (condition.trigger == Conditions.TriggerType.UseItem && entityValues.trigger == EntityValues.TriggerType.UseItem)
         {
-            if (entityValues.entity == condition.entity && entityValues.character == condition.character && entityValues.item == condition.item)
+            if (condition.useEntityName ? (entityValues.entity.EntityName == condition.EntityName && entityValues.character.EntityName == condition.characterName && entityValues.item.EntityName == condition.itemName) : 
+                (entityValues.entity == condition.entity && entityValues.character == condition.character && entityValues.item == condition.item))
             {
                 condition.activated = true;
             }
@@ -144,7 +203,10 @@ public class ConditionContainer
     public int dialogueDone;
     [HideInInspector]
     bool dialogueRunning;
+    [HideInInspector]
     public bool isComplete;
+
+    public bool repeatable;
 
     public bool DialogueRunning
     {

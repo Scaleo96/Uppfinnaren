@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityName: Mini Ivar
+  interactDistance: 1
   canUseCondition:
     aminaUse: 1
     idaUse: 1
@@ -136,8 +137,11 @@ MonoBehaviour:
   interactionEvents:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  inspectEvents:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   inventorySprite: {fileID: 21300000, guid: 27c606da07ee6094c96a720949aa31c5, type: 3}
 --- !u!212 &212428962335939774
 SpriteRenderer:
@@ -178,7 +182,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.75, y: 5.94}
+  m_Size: {x: 0.6028572, y: 0.8485714}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

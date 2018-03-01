@@ -57,6 +57,7 @@ public class GameController : MonoBehaviour
 
     [SerializeField]
     InventorySlot selectedInventorySlot;
+    [SerializeField]
     bool isHoldingItem;
 
     [SerializeField]
@@ -118,8 +119,6 @@ public class GameController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
@@ -147,7 +146,10 @@ public class GameController : MonoBehaviour
     }
 
     private void Update()
-    {      
+    {
+        if (SelectedInventorySlot.item != null)
+        Debug.Log(selectedInventorySlot.item.ToString());
+
         // Deselect item on click.
         hoverImageObject.transform.position = Input.mousePosition;
         if (Input.GetButtonDown("Interact") && isHoldingItem && isActive)
@@ -156,10 +158,9 @@ public class GameController : MonoBehaviour
             {
                 currentCharacter.RemoveItemFromInventory(selectedInventorySlot.item);
                 currentCharacter.DropItem(selectedInventorySlot.item);
+                DeselectItem(selectedInventorySlot);
+                UpdateInventory(currentCharID);
             }
-
-            DeselectItem(selectedInventorySlot);
-            UpdateInventory(currentCharID);
         }
         else if ((Input.GetButtonDown("Right Click") || Input.GetButtonDown("Change Character")) && isHoldingItem)
         {
@@ -273,6 +274,11 @@ public class GameController : MonoBehaviour
         currentCharacter.SetActive(true);
         cameraComponent.GetComponent<CameraFollow>().Target = currentCharacter.transform;
         cameraComponent.GetComponent<CameraFollow>().SetPosition((Vector2)currentCharacter.transform.position + (Random.insideUnitCircle.normalized * changeCharCameraOffset));
+
+        // Change music
+        MusicMixer.MusicController.ActivateAccompanyingTrackExclusive(charID);
+
+        // TODO: Do stuff with camera
     }
 
     /// <summary>

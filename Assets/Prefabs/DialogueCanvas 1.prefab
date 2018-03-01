@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 114638450801367562}
   - component: {fileID: 114999852403846576}
   - component: {fileID: 114945615128639152}
+  - component: {fileID: 95473020731163130}
   m_Layer: 5
   m_Name: DialogueBox
   m_TagString: Untagged
@@ -65,6 +66,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &95473020731163130
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1725080625428384}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 03ca3160a393fe54c916a104ed4d96c8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114558310716351360
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -85,7 +103,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 22db235635afee3498738bec82761621, type: 3}
+    m_Font: {fileID: 12800000, guid: be733e721fbdd0143bed20ea3adfa817, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0

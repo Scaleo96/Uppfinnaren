@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Cog
+  - Hat
+  - Apple
+  - ClosetKey
   layers:
   - Default
   - TransparentFX
@@ -16,8 +20,8 @@ TagManager:
   - Background
   - Items
   - Characters
-  - 
-  - 
+  - Hover
+  - PlayerOnly
   - 
   - 
   - 
@@ -55,4 +59,7 @@ TagManager:
     locked: 0
   - name: Characters
     uniqueID: 4260761813
+    locked: 0
+  - name: Superforeground
+    uniqueID: 3908894265
     locked: 0

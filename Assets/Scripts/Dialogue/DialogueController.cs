@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Animations;
 
 public class DialogueController : MonoBehaviour
 {
@@ -14,13 +15,16 @@ public class DialogueController : MonoBehaviour
     [SerializeField]
     Vector3 textPosition;
 
+    [SerializeField]
+    BindSpeakerAndBubble[] bindSpeakerAndBubble;
+
     public Language language;
 
     ConditionsManager conditionsManager;
-    GameObject currentSpeaker;
-    GameObject currentText;
 
-    bool dialogueRunning;
+    List<SpeakerAndText> currentSpeakers = new List<SpeakerAndText>();
+
+    Coroutine currentCoroutine;
 
     // Use this for initialization
     void Start()
@@ -30,10 +34,11 @@ public class DialogueController : MonoBehaviour
 
     public void RunDialogue(EntityValues entityValues)
     {
-        if (!dialogueRunning)
+        if (currentCoroutine != null)
         {
-            StartCoroutine(CheckConditions(entityValues));
+            StopCoroutine(currentCoroutine);
         }
+        currentCoroutine = StartCoroutine(CheckConditions(entityValues));
     }
 
     //Checks all Conditions and returns the values of the first successful
@@ -57,10 +62,20 @@ public class DialogueController : MonoBehaviour
     private IEnumerator DisplayDialogue(DialogueElements dialogue, float time, ConditionValues values)
     {
         conditionsManager.container[values.containerNumber].DialogueRunning = true;
-        GameObject textGameobject = Instantiate(dialogueTextPrefab, new Vector3(0, 0), transform.rotation, dialogue.speaker.transform);
+        GameObject dialoguePrefab = dialogueTextPrefab;
+        for (int i = 0; i < bindSpeakerAndBubble.Length; i++)
+        {
+            if (bindSpeakerAndBubble[i].speaker == dialogue.speaker)
+            {
+                dialoguePrefab = bindSpeakerAndBubble[i].textbubble;
+            }
+        }
+        GameObject textGameobject = Instantiate(dialoguePrefab, new Vector3(0, 0), transform.rotation, dialogue.speaker.transform);
         Text dialogueText = textGameobject.GetComponentInChildren<Text>();
-        currentText = textGameobject;
-        currentSpeaker = dialogue.speaker;
+        SpeakerAndText speakerAndText = new SpeakerAndText();
+        speakerAndText.currentSpeaker = dialogue.speaker;
+        speakerAndText.currentText = textGameobject;
+        currentSpeakers.Add(speakerAndText);
         if (language == Language.Svenska)
         {
             dialogueText.text = dialogue.line_Swedish;
@@ -71,19 +86,30 @@ public class DialogueController : MonoBehaviour
             dialogueText.text = dialogue.line_English;
             dialogueText.font.material.mainTexture.filterMode = FilterMode.Point;
         }
+
+        Animator animator = textGameobject.GetComponentInChildren<Animator>();
+
         yield return new WaitForSeconds(time);
+        animator.Play("BubbleEnd");
+        AnimatorClipInfo clipInfo = new AnimatorClipInfo();
+        yield return new WaitForSeconds(1);
+        currentSpeakers.Remove(speakerAndText);
         Destroy(textGameobject);
         conditionsManager.container[values.containerNumber].DialogueRunning = false;
     }
 
     private void DialoguePosition()
     {
-        if (currentSpeaker != null && currentText != null)
+        if (currentSpeakers != null)
         {
-            Vector3 screenpos;
-            screenpos = Camera.main.GetComponent<Camera>().WorldToViewportPoint(currentSpeaker.transform.position + textPosition);
-            currentText.transform.GetChild(0).transform.position = Camera.main.GetComponent<Camera>().WorldToScreenPoint(currentSpeaker.transform.position + textPosition);
+            currentSpeakers.ForEach(ChangePosition);
         }
+    }
+
+    private void ChangePosition(SpeakerAndText speakerAndText)
+    {
+        Camera.main.GetComponent<Camera>().WorldToViewportPoint(speakerAndText.currentSpeaker.transform.position + textPosition);
+        speakerAndText.currentText.transform.GetChild(0).transform.position = Camera.main.GetComponent<Camera>().WorldToScreenPoint(speakerAndText.currentSpeaker.transform.position + textPosition);
     }
 
     // Update is called once per frame
@@ -91,4 +117,17 @@ public class DialogueController : MonoBehaviour
     {
         DialoguePosition();
     }
+}
+
+public struct SpeakerAndText
+{
+    public GameObject currentSpeaker;
+    public GameObject currentText;
+}
+
+[System.Serializable]
+public struct BindSpeakerAndBubble
+{
+    public GameObject speaker;
+    public GameObject textbubble;
 }
