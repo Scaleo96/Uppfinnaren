@@ -91,8 +91,7 @@ public class DialogueController : MonoBehaviour
 
         yield return new WaitForSeconds(time);
         animator.Play("BubbleEnd");
-        AnimatorClipInfo clipInfo = new AnimatorClipInfo();
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length);
         currentSpeakers.Remove(speakerAndText);
         Destroy(textGameobject);
         conditionsManager.container[values.containerNumber].DialogueRunning = false;
