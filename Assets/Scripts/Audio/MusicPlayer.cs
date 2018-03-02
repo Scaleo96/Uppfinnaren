@@ -22,13 +22,16 @@ namespace MusicMixer
 
         [SerializeField]
         [Tooltip("What mixer group the music should play from")]
-        private AudioMixerGroup musicMixer;
+        private AudioMixerGroup musicMixerBaseTracks;
 
         [SerializeField]
         [Tooltip("What mixer group the music for accompanying should play from (if different from musicMixer)")]
         private AudioMixerGroup musicMixerAccompanyingTracks;
 
         [Header("Pitch Shifter")]
+        [SerializeField]
+        private bool enablePitchShifter = false;
+
         [SerializeField]
         [Tooltip("What intervall should the Pitch Shifter change the pitch?")]
         private float pitchIntervall = 0.014f;
@@ -73,7 +76,7 @@ namespace MusicMixer
         [Range(0, 1f)]
         [Tooltip("Tolerance for minimum volume required before fading to next acvcompanying track")]
         private float compositionFadeTolerance = 0f;
-
+        
         private void Awake()
         {
             CheckSingleton();
@@ -199,10 +202,14 @@ namespace MusicMixer
 
                 if (isNew)
                 {
-                    if (musicMixer != null)
+                    if (musicMixerBaseTracks != null)
                     {
                         // Create a new MusicTrack with the unique source
-                        tracks.Add(new MusicTrack(source, musicMixer));
+                        tracks.Add(new MusicTrack(source, musicMixerBaseTracks));
+                    }
+                    else
+                    {
+                        tracks.Add(new MusicTrack(source));
                     }
                 }
             }
@@ -440,8 +447,10 @@ namespace MusicMixer
             activeMusicComposition = activatingComposition;
             activeMusicComposition.ActivateGroup(ActiveAccompanyingTrack);
 
-            PitchShifter();
-            InvokePitchShifter();
+            if (enablePitchShifter)
+            {
+                InvokePitchShifter();
+            }            
         }
 
         public void DeactivateCompositionGroup(MusicComposition composition)
@@ -497,6 +506,30 @@ namespace MusicMixer
             musicMixerAccompanyingTracks.audioMixer.SetFloat("compTrackPitch", randomPitch);
 
             Log("Pitch set to: " + randomPitch, this);
+        }
+
+        /// <summary>
+        /// Set mixer group based on wether it is a base track or accompanying track
+        /// </summary>
+        /// <param name="track">Track to change</param>
+        /// <param name="isBaseTrack">Music tracks are usually set to base track music group unless otherwise specified</param>
+        public void SetMixerGroup(MusicTrack track, bool isBaseTrack)
+        {
+            AudioMixerGroup currentMixerGroup = track.trackSource.outputAudioMixerGroup;
+            AudioMixerGroup desiredMixerGroup;
+            if (!isBaseTrack)
+            {
+                desiredMixerGroup = musicMixerAccompanyingTracks;
+            }
+            else
+            {
+                desiredMixerGroup = musicMixerBaseTracks;
+            }
+
+            if (currentMixerGroup != desiredMixerGroup)
+            {
+                track.trackSource.outputAudioMixerGroup = desiredMixerGroup;
+            }
         }
 
         public List<MusicTrack> Tracks

@@ -47,6 +47,16 @@ namespace MusicMixer
             UpdateEditorInfo();
         }
 
+        public MusicTrack(AudioSource track, bool loop = true)
+        {
+            trackSource = track;
+
+            // Set looping
+            track.loop = loop;
+
+            UpdateEditorInfo();
+        }
+
         public void StartFade(float newTargetVolume, float newFadeDuration)
         {
             TargetVolume = newTargetVolume;

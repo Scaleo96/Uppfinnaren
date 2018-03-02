@@ -611,6 +611,7 @@ MonoBehaviour:
     type: 2}
   musicMixerAccompanyingTracks: {fileID: 243232733724284360, guid: 0da65e85ae3e14541bb9ef961581f29c,
     type: 2}
+  enablePitchShifter: 0
   pitchIntervall: 0.014
   octaveShift: 0
   startFadingIn: 1

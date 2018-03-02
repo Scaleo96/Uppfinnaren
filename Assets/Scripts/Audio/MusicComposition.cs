@@ -63,19 +63,19 @@ namespace MusicMixer
         /// </summary>
         public void ActivateGroup(int accompanyingTrackIndex)
         {
-            PlayTrack(baseTrackIndex);
+            PlayTrack(baseTrackIndex, true);
             for (int i = 0; i < accompanyingTracks.Length; i++)
             {
                 // TODO: Find and use appropriate target volume
                 if (i != accompanyingTrackIndex)
                 {
                     // Activate at 0 volume
-                    PlayTrack(accompanyingTracks[i], 0f);
+                    PlayTrack(accompanyingTracks[i], false, 0f);
                 }
                 else
                 {
                     // Activate att full volume
-                    PlayTrack(accompanyingTracks[i]);
+                    PlayTrack(accompanyingTracks[i], false);
                 }
             }
         }
@@ -87,6 +87,12 @@ namespace MusicMixer
         private void PlayTrack(int index)
         {
             PlayTrack(index, 1f);
+        }
+
+        private void PlayTrack(int index, bool isBaseTrack, float volume = 1f)
+        {
+            MusicPlayer.SetMixerGroup(GetMusicTrack(index), isBaseTrack);
+            PlayTrack(index, volume);
         }
 
         /// <summary>
