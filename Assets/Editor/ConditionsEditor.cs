@@ -16,6 +16,7 @@ public class ConditionsEditor : Editor
 
         ShowOnEnum("trigger", "PositionTrigger", "collisionTrigger");
         ShowOnEnum("trigger", "UseItem", "item");
+        ShowOnEnum("trigger", "UseItem", "itemName");
 
     }
 
