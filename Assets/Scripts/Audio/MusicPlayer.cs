@@ -40,13 +40,13 @@ namespace MusicMixer
         [Tooltip("Should pitch shifter change half an octave as well?")]
         private bool octaveShift = false;
 
-        [SerializeField]
-        private bool startFadingIn;
-
         [HideInInspector]
         public MusicComposition[] compositions;
 
         [Header("Music Tracks")]
+        [SerializeField]
+        private bool startFadingIn;
+
         [SerializeField]
         private List<MusicTrack> tracks = new List<MusicTrack>();
 
