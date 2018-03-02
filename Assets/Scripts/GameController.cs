@@ -71,6 +71,8 @@ public class GameController : MonoBehaviour
     bool isActive;
 
 
+    CursorController cursorController;
+
     /// <summary>
     /// The entity that the mouse is hovering over.
     /// </summary>
@@ -138,6 +140,7 @@ public class GameController : MonoBehaviour
             cameraComponent = Camera.main;
         }
 
+        cursorController = FindObjectOfType<CursorController>();
     }
 
     private void Update()
@@ -193,9 +196,11 @@ public class GameController : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(cameraComponent.ScreenToWorldPoint(Input.mousePosition), Vector3.forward, 20);
 
         Entity entity;      
-        if (hit && hit.transform.GetComponent<Entity>())
+        if (hit && hit.transform.GetComponent<Entity>()) // If the mouse is over an entity
         {
             entity = hit.transform.GetComponent<Entity>();
+
+            cursorController.HoverCursor();
 
             if (!textFollowMouse)
             {
