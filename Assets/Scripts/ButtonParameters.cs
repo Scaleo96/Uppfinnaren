@@ -40,7 +40,6 @@ public class ButtonParameters : MonoBehaviour
 
     private void Start()
     {
-        EntityValues values;
         values.entity = triggerEntity;
         values.collider2d = null;
         values.character = GameController.instance.GetCurrentCharacter();
