@@ -11,6 +11,8 @@ static public class GlobalStatics
     /// </summary>
     private static ELanguage language;
 
+    private static bool puzzleScreenOn = false;
+
     /// <summary>
     /// What localisation/language to use for text
     /// </summary>
@@ -34,6 +36,18 @@ static public class GlobalStatics
         set
         {
             language = value;
+        }
+    }
+
+    public static bool PuzzleScreenOn
+    {
+        get
+        {
+            return puzzleScreenOn;
+        }
+        set
+        {
+            puzzleScreenOn = value;
         }
     }
 }
