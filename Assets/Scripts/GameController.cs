@@ -200,7 +200,11 @@ public class GameController : MonoBehaviour
         {
             entity = hit.transform.GetComponent<Entity>();
 
-            cursorController.HoverCursor();
+            if (cursorController != null)
+            {
+                cursorController.HoverCursor();
+            }
+            
 
             if (!textFollowMouse)
             {
