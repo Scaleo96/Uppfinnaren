@@ -45,6 +45,12 @@ namespace MusicMixer
             foreach (MusicComposition composition in musicPlayer.compositions)
             {
                 EditorGUILayout.Separator();
+
+                if (composition == null)
+                {
+                    break;
+                }
+
                 string baseTrackName = musicPlayer.Tracks[composition.baseTrackIndex].ToString();
 
                 // Foldout
@@ -96,6 +102,11 @@ namespace MusicMixer
 
         private static void ResizeOfAccompanyingTracks(MusicComposition composition)
         {
+            if (composition.accompanyingTracks == null)
+            {
+                composition.accompanyingTracks = new int[0];
+            }
+
             int arraySize = composition.accompanyingTracks.Length;
 
             EditorGUILayout.BeginHorizontal();

@@ -221,5 +221,13 @@ namespace MusicMixer
         {
             ActiveMusicPlayer.ActiveAccompanyingTrack = compIndex;
         }
+
+        public static void DeactivateAllCompositions()
+        {
+            foreach (MusicComposition composition in ActiveMusicPlayer.compositions)
+            {
+                composition.DeactivateComposition();
+            }
+        }
     }
 }
