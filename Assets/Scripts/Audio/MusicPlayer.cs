@@ -25,6 +25,19 @@ namespace MusicMixer
         private AudioMixerGroup musicMixer;
 
         [SerializeField]
+        [Tooltip("What mixer group the music for accompanying should play from (if different from musicMixer)")]
+        private AudioMixerGroup musicMixerAccompanyingTracks;
+
+        [Header("Pitch Shifter")]
+        [SerializeField]
+        [Tooltip("What intervall should the Pitch Shifter change the pitch?")]
+        private float pitchIntervall = 0.014f;
+
+        [SerializeField]
+        [Tooltip("Should pitch shifter change half an octave as well?")]
+        private bool octaveShift = false;
+
+        [SerializeField]
         private bool startFadingIn;
 
         [HideInInspector]
@@ -55,6 +68,7 @@ namespace MusicMixer
         [SerializeField]
         [Tooltip("Will compositions wait for accompanying tracks to fade out completely before fading in new active tracks?")]
         private bool CompositionsWaitsForFadeOut = true;
+
         [SerializeField]
         [Range(0, 1f)]
         [Tooltip("Tolerance for minimum volume required before fading to next acvcompanying track")]
@@ -425,11 +439,64 @@ namespace MusicMixer
 
             activeMusicComposition = activatingComposition;
             activeMusicComposition.ActivateGroup(ActiveAccompanyingTrack);
+
+            PitchShifter();
+            InvokePitchShifter();
         }
 
         public void DeactivateCompositionGroup(MusicComposition composition)
         {
             composition.DeactivateComposition();
+        }
+
+        private void InvokePitchShifter()
+        {
+            Log("Invoking PitchShifter");
+            CancelInvoke("PitchShifter");
+            InvokeRepeating("PitchShifter", ActiveBaseTrackClip.length, ActiveBaseTrackClip.length);
+        }
+
+        private void PitchShifter()
+        {
+            if (musicMixerAccompanyingTracks == null)
+            {
+                LogWarning("No mixer group set for accompanying tracks. Aborting pitch shifter.");
+                return;
+            }
+
+            float randomPitch = 1f;
+
+            if (octaveShift)
+            {
+                float halfDown = 0.75f;
+                float flat = 1f;
+                float halfUp = 1.50f;
+
+                int randomOctaveSelector = UnityEngine.Random.Range(0, 4);
+
+                switch (randomOctaveSelector)
+                {
+                    case 0:
+                        randomPitch = halfDown;
+                        break;
+
+                    case 1:
+                        randomPitch = halfUp;
+                        break;
+
+                    default:
+                        randomPitch = flat;
+                        break;
+                }
+            }
+
+            float pitchShift = UnityEngine.Random.Range(-pitchIntervall, pitchIntervall);
+
+            randomPitch += pitchShift;
+
+            musicMixerAccompanyingTracks.audioMixer.SetFloat("compTrackPitch", randomPitch);
+
+            Log("Pitch set to: " + randomPitch, this);
         }
 
         public List<MusicTrack> Tracks
@@ -499,6 +566,14 @@ namespace MusicMixer
             get
             {
                 return compositionFadeTolerance;
+            }
+        }
+
+        private AudioClip ActiveBaseTrackClip
+        {
+            get
+            {
+                return tracks[activeMusicComposition.baseTrackIndex].trackSource.clip;
             }
         }
     }
