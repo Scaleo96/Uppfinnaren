@@ -27,6 +27,7 @@ public class PuzzleScreenController : MonoBehaviour
     {
         if (!deactivatedId.Contains(id))
         {
+            GlobalStatics.PuzzleScreenOn = true;
             puzzleScreens[id].SetActive(true);
             GameController.instance.SetActiveMovement(false);
         }
@@ -38,7 +39,7 @@ public class PuzzleScreenController : MonoBehaviour
     /// <param name="id">The id of the screen.</param>
     public void DeactivateScreen(int id)
     {
-
+        GlobalStatics.PuzzleScreenOn = false;
         puzzleScreens[id].SetActive(false);
         GameController.instance.SetActiveMovement(true);
     }

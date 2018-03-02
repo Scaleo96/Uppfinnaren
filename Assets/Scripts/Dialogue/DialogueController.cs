@@ -18,6 +18,9 @@ public class DialogueController : MonoBehaviour
     [SerializeField]
     BindSpeakerAndBubble[] bindSpeakerAndBubble;
 
+    [SerializeField]
+    Transform puzzleScreenDialogue;
+
     public Language language;
 
     ConditionsManager conditionsManager;
@@ -107,8 +110,15 @@ public class DialogueController : MonoBehaviour
 
     private void ChangePosition(SpeakerAndText speakerAndText)
     {
-        Camera.main.GetComponent<Camera>().WorldToViewportPoint(speakerAndText.currentSpeaker.transform.position + textPosition);
-        speakerAndText.currentText.transform.GetChild(0).transform.position = Camera.main.GetComponent<Camera>().WorldToScreenPoint(speakerAndText.currentSpeaker.transform.position + textPosition);
+        if (GlobalStatics.PuzzleScreenOn == false)
+        {
+            Camera.main.GetComponent<Camera>().WorldToViewportPoint(speakerAndText.currentSpeaker.transform.position + textPosition);
+            speakerAndText.currentText.transform.GetChild(0).transform.position = Camera.main.GetComponent<Camera>().WorldToScreenPoint(speakerAndText.currentSpeaker.transform.position + textPosition);
+        }
+        else
+        {
+            speakerAndText.currentText.transform.GetChild(0).transform.position = puzzleScreenDialogue.position + textPosition;
+        }
     }
 
     // Update is called once per frame
