@@ -426,11 +426,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 1045694720}
+  EntityName: 
   character: {fileID: 1932763520}
+  characterName: 
   trigger: 1
   activated: 0
   collisionTrigger: {fileID: 0}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1001 &29091479
 Prefab:
   m_ObjectHideFlags: 0
@@ -577,11 +581,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 0}
+  EntityName: 
   character: {fileID: 1932763520}
+  characterName: 
   trigger: 2
   activated: 0
   collisionTrigger: {fileID: 732603895}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &41339549
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,11 +735,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 634476360}
+  EntityName: 
   character: {fileID: 680782913}
+  characterName: 
   trigger: 3
   activated: 0
   collisionTrigger: {fileID: 0}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &60223507
 GameObject:
   m_ObjectHideFlags: 0
@@ -1571,6 +1583,7 @@ GameObject:
   - component: {fileID: 99282874}
   - component: {fileID: 99282873}
   - component: {fileID: 99282872}
+  - component: {fileID: 99282875}
   m_Layer: 8
   m_Name: Object_Drainspout
   m_TagString: Untagged
@@ -1690,7 +1703,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1724274567
   m_SortingLayer: -2
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: b9fb1b3f329ba52439e458954789b64f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1701,6 +1714,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &99282875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 99282870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73b7f1ad5d5d8146b19cb20064e0c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alternativeSprite: {fileID: 21300000, guid: 48ca943ff67eab1478c5b3aa0ea784e6, type: 3}
+  switchToDefaultEachFrame: 1
 --- !u!1 &103584696
 GameObject:
   m_ObjectHideFlags: 0
@@ -2124,11 +2150,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 1391340338}
+  EntityName: 
   character: {fileID: 1932763520}
+  characterName: 
   trigger: 7
   activated: 0
   collisionTrigger: {fileID: 0}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &147862930
 GameObject:
   m_ObjectHideFlags: 0
@@ -2326,11 +2356,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 1070224821}
+  EntityName: 
   character: {fileID: 1932763520}
+  characterName: 
   trigger: 1
   activated: 0
   collisionTrigger: {fileID: 0}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &159274741
 GameObject:
   m_ObjectHideFlags: 0
@@ -2484,11 +2518,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 1070224821}
+  EntityName: 
   character: {fileID: 1583884826}
+  characterName: 
   trigger: 1
   activated: 0
   collisionTrigger: {fileID: 0}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1001 &179033906
 Prefab:
   m_ObjectHideFlags: 0
@@ -3733,11 +3771,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 0}
+  EntityName: 
   character: {fileID: 680782913}
+  characterName: 
   trigger: 2
   activated: 0
   collisionTrigger: {fileID: 732603895}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &259413018
 GameObject:
   m_ObjectHideFlags: 0
@@ -4056,11 +4098,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 0}
+  EntityName: 
   character: {fileID: 1583884826}
+  characterName: 
   trigger: 2
   activated: 0
   collisionTrigger: {fileID: 1813946804}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!4 &278190856
 Transform:
   m_ObjectHideFlags: 0
@@ -4353,8 +4399,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   requiredItem: []
   destroyItemOnUse: 0
   alwaysCheck: 0
@@ -4368,6 +4413,7 @@ MonoBehaviour:
     activated: 0
   useTags: 0
   tagName: 
+  triggerEntity: {fileID: 0}
 --- !u!1 &292841833
 GameObject:
   m_ObjectHideFlags: 0
@@ -4887,8 +4933,7 @@ MonoBehaviour:
   ContinueEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   requiredItem: []
   destroyItemOnUse: 0
   alwaysCheck: 0
@@ -4902,6 +4947,7 @@ MonoBehaviour:
     activated: 0
   useTags: 0
   tagName: 
+  triggerEntity: {fileID: 0}
 --- !u!1 &329425530
 GameObject:
   m_ObjectHideFlags: 0
@@ -5503,11 +5549,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 1391340338}
+  EntityName: 
   character: {fileID: 680782913}
+  characterName: 
   trigger: 7
   activated: 0
   collisionTrigger: {fileID: 732603895}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &376994799
 GameObject:
   m_ObjectHideFlags: 0
@@ -5773,8 +5823,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   requiredItem: []
   destroyItemOnUse: 1
   alwaysCheck: 0
@@ -5782,6 +5831,7 @@ MonoBehaviour:
   requiredActivations: []
   useTags: 1
   tagName: Cog
+  triggerEntity: {fileID: 0}
 --- !u!114 &387236355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6155,11 +6205,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 1451446920}
+  EntityName: 
   character: {fileID: 1583884826}
+  characterName: 
   trigger: 1
   activated: 0
   collisionTrigger: {fileID: 0}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &426251307
 GameObject:
   m_ObjectHideFlags: 0
@@ -6675,11 +6729,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 1436018678}
+  EntityName: 
   character: {fileID: 680782913}
+  characterName: 
   trigger: 3
   activated: 0
   collisionTrigger: {fileID: 732603895}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &457320745
 GameObject:
   m_ObjectHideFlags: 0
@@ -6835,11 +6893,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 0}
+  EntityName: 
   character: {fileID: 1583884826}
+  characterName: 
   trigger: 2
   activated: 0
   collisionTrigger: {fileID: 732603895}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &484662569
 GameObject:
   m_ObjectHideFlags: 0
@@ -8929,11 +8991,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 342016585}
+  EntityName: 
   character: {fileID: 680782913}
+  characterName: 
   trigger: 1
   activated: 0
   collisionTrigger: {fileID: 732603895}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &701148085
 GameObject:
   m_ObjectHideFlags: 0
@@ -10740,6 +10806,16 @@ Prefab:
       propertyPath: canUseCondition.idaUse
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212524014616534234, guid: 1ad8bcca801d06c4e817bb77966edce3,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 212524014616534234, guid: 1ad8bcca801d06c4e817bb77966edce3,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ad8bcca801d06c4e817bb77966edce3, type: 2}
   m_IsPrefabParent: 0
@@ -10925,11 +11001,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 0}
+  EntityName: 
   character: {fileID: 1932763520}
+  characterName: 
   trigger: 2
   activated: 0
   collisionTrigger: {fileID: 1813946804}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &781990653
 GameObject:
   m_ObjectHideFlags: 0
@@ -11416,8 +11496,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   requiredItem: []
   destroyItemOnUse: 0
   alwaysCheck: 0
@@ -11425,6 +11504,7 @@ MonoBehaviour:
   requiredActivations: []
   useTags: 0
   tagName: 
+  triggerEntity: {fileID: 0}
 --- !u!1 &818473333
 GameObject:
   m_ObjectHideFlags: 0
@@ -11982,8 +12062,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   requiredItem: []
   destroyItemOnUse: 1
   alwaysCheck: 0
@@ -11991,6 +12070,7 @@ MonoBehaviour:
   requiredActivations: []
   useTags: 1
   tagName: Cog
+  triggerEntity: {fileID: 0}
 --- !u!1 &845344047
 GameObject:
   m_ObjectHideFlags: 0
@@ -12691,8 +12771,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   requiredItem: []
   destroyItemOnUse: 1
   alwaysCheck: 0
@@ -12700,6 +12779,7 @@ MonoBehaviour:
   requiredActivations: []
   useTags: 1
   tagName: Cog
+  triggerEntity: {fileID: 0}
 --- !u!114 &887358772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13270,11 +13350,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 208586461}
+  EntityName: 
   character: {fileID: 1932763520}
+  characterName: 
   trigger: 1
   activated: 0
   collisionTrigger: {fileID: 0}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &922178386
 GameObject:
   m_ObjectHideFlags: 0
@@ -13392,11 +13476,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 1391340338}
+  EntityName: 
   character: {fileID: 1583884826}
+  characterName: 
   trigger: 7
   activated: 0
   collisionTrigger: {fileID: 0}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &939951112
 GameObject:
   m_ObjectHideFlags: 0
@@ -14210,11 +14298,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 99282872}
+  EntityName: 
   character: {fileID: 680782913}
+  characterName: 
   trigger: 1
   activated: 0
   collisionTrigger: {fileID: 732603895}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &1002441108
 GameObject:
   m_ObjectHideFlags: 0
@@ -14460,11 +14552,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 1451446920}
+  EntityName: 
   character: {fileID: 1583884826}
+  characterName: 
   trigger: 0
   activated: 0
   collisionTrigger: {fileID: 732603895}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &1013639241
 GameObject:
   m_ObjectHideFlags: 0
@@ -14709,11 +14805,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 208586461}
+  EntityName: 
   character: {fileID: 1583884826}
+  characterName: 
   trigger: 1
   activated: 0
   collisionTrigger: {fileID: 0}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &1031282163
 GameObject:
   m_ObjectHideFlags: 0
@@ -14758,11 +14858,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 1451446920}
+  EntityName: 
   character: {fileID: 680782913}
+  characterName: 
   trigger: 1
   activated: 0
   collisionTrigger: {fileID: 732603895}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &1044243383
 GameObject:
   m_ObjectHideFlags: 0
@@ -15244,11 +15348,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 634476360}
+  EntityName: 
   character: {fileID: 1583884826}
+  characterName: 
   trigger: 3
   activated: 0
   collisionTrigger: {fileID: 0}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &1084846871
 GameObject:
   m_ObjectHideFlags: 0
@@ -15311,8 +15419,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   requiredItem: []
   destroyItemOnUse: 0
   alwaysCheck: 0
@@ -15326,6 +15433,7 @@ MonoBehaviour:
     activated: 0
   useTags: 0
   tagName: 
+  triggerEntity: {fileID: 0}
 --- !u!1 &1085672715
 GameObject:
   m_ObjectHideFlags: 0
@@ -15555,11 +15663,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 1451446920}
+  EntityName: 
   character: {fileID: 1932763520}
+  characterName: 
   trigger: 0
   activated: 0
   collisionTrigger: {fileID: 732603895}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &1110597678
 GameObject:
   m_ObjectHideFlags: 0
@@ -15682,11 +15794,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 680782913}
+  EntityName: 
   character: {fileID: 1583884826}
+  characterName: 
   trigger: 1
   activated: 0
   collisionTrigger: {fileID: 732603895}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &1121656456
 GameObject:
   m_ObjectHideFlags: 0
@@ -15849,11 +15965,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 342016585}
+  EntityName: 
   character: {fileID: 1932763520}
+  characterName: 
   trigger: 1
   activated: 0
   collisionTrigger: {fileID: 732603895}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &1126583262
 GameObject:
   m_ObjectHideFlags: 0
@@ -17339,11 +17459,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 99282872}
+  EntityName: 
   character: {fileID: 1583884826}
+  characterName: 
   trigger: 1
   activated: 0
   collisionTrigger: {fileID: 0}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &1316492444
 GameObject:
   m_ObjectHideFlags: 0
@@ -18291,11 +18415,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 1045694720}
+  EntityName: 
   character: {fileID: 1583884826}
+  characterName: 
   trigger: 3
   activated: 0
   collisionTrigger: {fileID: 0}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!4 &1391340337 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4786653628350764, guid: 1ad8bcca801d06c4e817bb77966edce3,
@@ -18669,11 +18797,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 0}
+  EntityName: 
   character: {fileID: 680782913}
+  characterName: 
   trigger: 2
   activated: 0
   collisionTrigger: {fileID: 1449036059}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &1417911585
 GameObject:
   m_ObjectHideFlags: 0
@@ -19122,11 +19254,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 99282872}
+  EntityName: 
   character: {fileID: 1932763520}
+  characterName: 
   trigger: 1
   activated: 0
   collisionTrigger: {fileID: 732603895}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &1430123821
 GameObject:
   m_ObjectHideFlags: 0
@@ -19160,6 +19296,8 @@ MonoBehaviour:
   dialogueTextPrefab: {fileID: 1258883032688624, guid: 665993fd5c654464492b062aaaedfa05,
     type: 2}
   textPosition: {x: 0, y: 2, z: 0}
+  bindSpeakerAndBubble: []
+  puzzleScreenDialogue: {fileID: 0}
   language: 0
 --- !u!114 &1430123823
 MonoBehaviour:
@@ -20125,11 +20263,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 1932763520}
+  EntityName: 
   character: {fileID: 680782913}
+  characterName: 
   trigger: 1
   activated: 0
   collisionTrigger: {fileID: 732603895}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &1473070486
 GameObject:
   m_ObjectHideFlags: 0
@@ -20174,11 +20316,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 342016585}
+  EntityName: 
   character: {fileID: 1583884826}
+  characterName: 
   trigger: 1
   activated: 0
   collisionTrigger: {fileID: 0}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &1474931182
 GameObject:
   m_ObjectHideFlags: 0
@@ -20781,11 +20927,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 99282872}
+  EntityName: 
   character: {fileID: 1932763520}
+  characterName: 
   trigger: 7
   activated: 0
   collisionTrigger: {fileID: 732603895}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &1536959488
 GameObject:
   m_ObjectHideFlags: 0
@@ -20830,11 +20980,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 634476360}
+  EntityName: 
   character: {fileID: 1932763520}
+  characterName: 
   trigger: 3
   activated: 0
   collisionTrigger: {fileID: 0}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &1542491168
 GameObject:
   m_ObjectHideFlags: 0
@@ -20952,11 +21106,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 1070224821}
+  EntityName: 
   character: {fileID: 680782913}
+  characterName: 
   trigger: 1
   activated: 0
   collisionTrigger: {fileID: 732603895}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &1550159276
 GameObject:
   m_ObjectHideFlags: 0
@@ -21558,11 +21716,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 1583884826}
+  EntityName: 
   character: {fileID: 1932763520}
+  characterName: 
   trigger: 1
   activated: 0
   collisionTrigger: {fileID: 732603895}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &1624094367
 GameObject:
   m_ObjectHideFlags: 0
@@ -21640,11 +21802,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 772852797}
+  EntityName: 
   character: {fileID: 1932763520}
+  characterName: 
   trigger: 5
   activated: 0
   collisionTrigger: {fileID: 0}
   item: {fileID: 634476360}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &1630379808
 GameObject:
   m_ObjectHideFlags: 0
@@ -21763,11 +21929,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 0}
+  EntityName: 
   character: {fileID: 1932763520}
+  characterName: 
   trigger: 2
   activated: 0
   collisionTrigger: {fileID: 1449036059}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &1635964697
 GameObject:
   m_ObjectHideFlags: 0
@@ -23779,8 +23949,7 @@ MonoBehaviour:
   ContinueEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   requiredItem: []
   destroyItemOnUse: 0
   alwaysCheck: 0
@@ -23794,6 +23963,7 @@ MonoBehaviour:
     activated: 0
   useTags: 0
   tagName: 
+  triggerEntity: {fileID: 0}
 --- !u!1 &1791633672
 GameObject:
   m_ObjectHideFlags: 0
@@ -24602,11 +24772,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 1045694720}
+  EntityName: 
   character: {fileID: 680782913}
+  characterName: 
   trigger: 1
   activated: 0
   collisionTrigger: {fileID: 732603895}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1001 &1864111462
 Prefab:
   m_ObjectHideFlags: 0
@@ -25021,11 +25195,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 1451446920}
+  EntityName: 
   character: {fileID: 1932763520}
+  characterName: 
   trigger: 1
   activated: 0
   collisionTrigger: {fileID: 0}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &1945299801
 GameObject:
   m_ObjectHideFlags: 0
@@ -25370,11 +25548,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 1451446920}
+  EntityName: 
   character: {fileID: 680782913}
+  characterName: 
   trigger: 4
   activated: 0
   collisionTrigger: {fileID: 732603895}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &1967966471
 GameObject:
   m_ObjectHideFlags: 0
@@ -25661,8 +25843,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   requiredItem: []
   destroyItemOnUse: 0
   alwaysCheck: 0
@@ -25670,6 +25851,7 @@ MonoBehaviour:
   requiredActivations: []
   useTags: 0
   tagName: 
+  triggerEntity: {fileID: 0}
 --- !u!1 &1972535778
 GameObject:
   m_ObjectHideFlags: 0
@@ -26353,11 +26535,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 99282872}
+  EntityName: 
   character: {fileID: 1583884826}
+  characterName: 
   trigger: 7
   activated: 0
   collisionTrigger: {fileID: 732603895}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &2019409361
 GameObject:
   m_ObjectHideFlags: 0
@@ -26402,11 +26588,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 99282872}
+  EntityName: 
   character: {fileID: 680782913}
+  characterName: 
   trigger: 7
   activated: 0
   collisionTrigger: {fileID: 732603895}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &2024952138
 GameObject:
   m_ObjectHideFlags: 0
@@ -26597,11 +26787,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 0}
+  EntityName: 
   character: {fileID: 680782913}
+  characterName: 
   trigger: 2
   activated: 0
   collisionTrigger: {fileID: 1813946804}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &2033716022
 GameObject:
   m_ObjectHideFlags: 0
@@ -26878,11 +27072,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 0}
+  EntityName: 
   character: {fileID: 1583884826}
+  characterName: 
   trigger: 2
   activated: 0
   collisionTrigger: {fileID: 2013961460}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &2063329552
 GameObject:
   m_ObjectHideFlags: 0
@@ -26927,11 +27125,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 208586461}
+  EntityName: 
   character: {fileID: 680782913}
+  characterName: 
   trigger: 1
   activated: 0
   collisionTrigger: {fileID: 0}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &2065106457
 GameObject:
   m_ObjectHideFlags: 0
@@ -27489,11 +27691,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 772852797}
+  EntityName: 
   character: {fileID: 1932763520}
+  characterName: 
   trigger: 1
   activated: 0
   collisionTrigger: {fileID: 0}
   item: {fileID: 0}
+  itemName: 
+  useEntityName: 0
 --- !u!1 &2121898178
 GameObject:
   m_ObjectHideFlags: 0
