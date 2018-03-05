@@ -148,8 +148,8 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        if (SelectedInventorySlot.item != null)
-        Debug.Log(selectedInventorySlot.item.ToString());
+        //if (SelectedInventorySlot.item != null)
+        //Debug.Log(selectedInventorySlot.item.ToString());
 
         // Deselect item on click.
         hoverImageObject.transform.position = Input.mousePosition;
