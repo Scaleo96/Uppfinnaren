@@ -9,6 +9,7 @@ TagManager:
   - Apple
   - ClosetKey
   - UpstairsKey
+  - Climbable
   layers:
   - Default
   - TransparentFX
