@@ -58,6 +58,7 @@ public class PuzzleScreenController : MonoBehaviour
                 puzzleScreens[i].SetActive(false);
             }
             GameController.instance.SetActiveMovement(true);
+            GlobalStatics.PuzzleScreenOn = false;
         }
     }
 }

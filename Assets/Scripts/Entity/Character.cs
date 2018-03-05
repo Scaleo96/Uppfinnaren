@@ -37,6 +37,9 @@ public class Character : Entity
     [SerializeField]
     float tolerance = 0.3f;
 
+    [SerializeField]
+    Sprite characterportrait;
+
     Rigidbody2D rb2D;
     Animator animator;
 
@@ -250,5 +253,13 @@ public class Character : Entity
     public int GetItemCount()
     {
         return items.Count;
+    }
+
+    public Sprite Characterportrait
+    {
+        get
+        {
+            return characterportrait;
+        }
     }
 }

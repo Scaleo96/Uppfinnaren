@@ -14,6 +14,8 @@ public class DialogueController : MonoBehaviour
     [Tooltip("What is the dialogues position relevant to the source.")]
     [SerializeField]
     Vector3 textPosition;
+    [SerializeField]
+    Vector3 canvasOffset;
 
     [SerializeField]
     BindSpeakerAndBubble[] bindSpeakerAndBubble;
@@ -117,7 +119,10 @@ public class DialogueController : MonoBehaviour
         }
         else
         {
-            speakerAndText.currentText.transform.GetChild(0).transform.position = puzzleScreenDialogue.position + textPosition;
+            if (puzzleScreenDialogue != null)
+            {
+                speakerAndText.currentText.transform.GetChild(0).transform.position = puzzleScreenDialogue.position + canvasOffset;
+            }
         }
     }
 
