@@ -329,9 +329,9 @@ namespace MusicMixer
             return PlayTrack(trackToPlay, volume, trackToPlay.FadeDuration);
         }
 
-        internal void StopTrack()
+        internal void StopTrack(MusicTrack track)
         {
-            throw new NotImplementedException();
+            track.trackSource.Stop();
         }
 
         /// <summary>

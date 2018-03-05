@@ -137,9 +137,9 @@ namespace MusicMixer
         }
 
         // Stop track
-        public static void StopTrack()
+        public static void StopTrack(MusicTrack track)
         {
-            ActiveMusicPlayer.StopTrack();
+            ActiveMusicPlayer.StopTrack(track);
         }
 
         /// <summary>

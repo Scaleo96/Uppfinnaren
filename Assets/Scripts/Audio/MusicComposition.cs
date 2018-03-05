@@ -23,6 +23,9 @@ namespace MusicMixer
 
         private MusicPlayer musicPlayer;
 
+        [SerializeField]
+        private float compositionAutoStop = 20f;
+
         public MusicPlayer MusicPlayer
         {
             get
@@ -162,6 +165,8 @@ namespace MusicMixer
                 DeactivateTrack(trackIndex);
             }
             ClearActiveTracks();
+
+            StopComposition();
         }
 
         private void DeactivateTrack(int baseTrackIndex)
@@ -241,6 +246,37 @@ namespace MusicMixer
                     int trackIndex = activeTracks[i];
                     PlayTrack(accompanyingTracks[trackIndex]);
                 }
+            }
+        }
+
+        public void StopComposition()
+        {
+            // HACK: Uses MusicPlayer to start coroutine as MusicCompositions are unable to themselves. They should terminate once the composition changes and the tracks are no longer played, but it's not a guarantee.
+            MusicPlayer.StartCoroutine(StopCompositionOnDelay());
+        }
+
+        private IEnumerator StopCompositionOnDelay()
+        {
+            yield return new WaitForSeconds(compositionAutoStop);
+
+            // Check if we're active
+            bool isActive = GetMusicTrack(baseTrackIndex).TargetVolume > 0f;
+
+            // Only continue if composition isn't active again
+            if (!isActive)
+            {
+                StopAllTracks();
+            }
+        }
+
+        private void StopAllTracks()
+        {
+            MusicTrack trackToStop = GetMusicTrack(baseTrackIndex);
+            MusicPlayer.StopTrack(trackToStop);
+            foreach (int trackIndex in accompanyingTracks)
+            {
+                trackToStop = GetMusicTrack(trackIndex);
+                MusicPlayer.StopTrack(trackToStop);
             }
         }
     }
