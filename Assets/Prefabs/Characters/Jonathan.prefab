@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 4818672584923446}
   - component: {fileID: 212479016222606076}
   - component: {fileID: 95196637258619946}
+  - component: {fileID: 114695201420464688}
   m_Layer: 10
   m_Name: sprite
   m_TagString: Untagged
@@ -69,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1418902408159276}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.91362, y: 70.85752, z: 0}
+  m_LocalPosition: {x: -5.8, y: 72.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4818672584923446}
@@ -201,6 +202,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  canOnlyBeUsedOnce: 0
+  alreadyUsedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   positionEvents:
     m_PersistentCalls:
       m_Calls:
@@ -225,6 +231,19 @@ MonoBehaviour:
   bigItemSR: {fileID: 212726890163442920}
   handsFree: 1
   tolerance: 0.3
+  canClimb: 0
+--- !u!114 &114695201420464688
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1989959641516964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f3ad1a3b3b1061498642fc750e04e89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  relayEvents: []
 --- !u!212 &212479016222606076
 SpriteRenderer:
   m_ObjectHideFlags: 1

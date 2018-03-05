@@ -37,10 +37,24 @@ public class Character : Entity
     [SerializeField]
     float tolerance = 0.3f;
 
+    [SerializeField]
+    float xClimbOffset = 0.75f;
+    [SerializeField]
+    float yClimbOffset = 1;
+
+    [SerializeField]
+    bool canClimb;
+
+    [SerializeField]
+    float climbDistance = 0.5f;
+
+    bool isInClimbArea;
+
     Rigidbody2D rb2D;
     Animator animator;
 
     bool isFliped = false;
+    Vector3 posPreClimb;
 
     private void Awake()
     {
@@ -53,6 +67,11 @@ public class Character : Entity
         if (isActive)
         {
             Move();
+
+            if (Input.GetKey(KeyCode.W))
+            {
+                Climb();
+            }
         }
     }
 
@@ -202,6 +221,34 @@ public class Character : Entity
         return items.Remove(item);
     }
 
+    public void Climb()
+    {
+        if (rb2D.velocity != Vector2.zero)
+            return;
+
+        Vector2 direction = isFliped ? Vector2.right : Vector2.left;
+
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, direction, climbDistance);
+
+        foreach(RaycastHit2D hit in hits)
+        {
+            if(hit.collider.tag == "Climbable")
+            {
+                posPreClimb = transform.position;
+                animator.SetTrigger("climb");
+                isActive = false;
+            }
+        }
+    }
+
+    public void TeleportToTarget()
+    {
+        float x = isFliped ? xClimbOffset : -xClimbOffset;
+
+        transform.position = new Vector3(posPreClimb.x + x, posPreClimb.y + yClimbOffset, posPreClimb.z);
+        isActive = true;
+    }
+
     public int InventorySize
     {
         get
@@ -239,6 +286,19 @@ public class Character : Entity
         get
         {
             return handsFree;
+        }
+    }
+
+    public bool IsInClimbArea
+    {
+        get
+        {
+            return isInClimbArea;
+        }
+
+        set
+        {
+            isInClimbArea = value;
         }
     }
 
