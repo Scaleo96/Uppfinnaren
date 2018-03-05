@@ -8,6 +8,7 @@ TagManager:
   - Hat
   - Apple
   - ClosetKey
+  - Climbable
   layers:
   - Default
   - TransparentFX
