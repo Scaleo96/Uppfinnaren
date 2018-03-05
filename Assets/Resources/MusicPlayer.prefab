@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 4493630346568408}
   - component: {fileID: 82508126082743194}
   m_Layer: 0
-  m_Name: meny1
+  m_Name: Uppfinnaren_Menu_v2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,7 +118,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4445798820545284}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4445798820545284
 Transform:
@@ -130,11 +130,11 @@ Transform:
   m_LocalPosition: {x: 0.99992275, y: -1.8519756, z: -0.10635716}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4493630346568408}
   - {fileID: 4805061873579030}
   - {fileID: 4016989225617562}
   - {fileID: 4541553306027854}
   - {fileID: 4742264206057478}
-  - {fileID: 4493630346568408}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -149,7 +149,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4445798820545284}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4541553306027854
 Transform:
@@ -162,7 +162,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4445798820545284}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4742264206057478
 Transform:
@@ -175,7 +175,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4445798820545284}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4805061873579030
 Transform:
@@ -188,7 +188,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4445798820545284}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &82030717028876516
 AudioSource:
@@ -362,7 +362,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243397838039039640, guid: 0da65e85ae3e14541bb9ef961581f29c,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 808a768dfa0d7ea4db6f62c3bc851386, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3590ed8871a20e34a8b868148e652737, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
@@ -644,7 +644,7 @@ MonoBehaviour:
     targetVolume: 0
     fadeDuration: 2
   - trackSource: {fileID: 82508126082743194}
-    trackClip: {fileID: 8300000, guid: 808a768dfa0d7ea4db6f62c3bc851386, type: 3}
+    trackClip: {fileID: 8300000, guid: 3590ed8871a20e34a8b868148e652737, type: 3}
     currentVolume: 0
     targetVolume: 0
     fadeDuration: 2
