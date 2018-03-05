@@ -38,6 +38,9 @@ public class Character : Entity
     float tolerance = 0.3f;
 
     [SerializeField]
+    Sprite characterportrait;
+    
+    [SerializeField]
     float xClimbOffset = 0.75f;
     [SerializeField]
     float yClimbOffset = 1;
@@ -310,5 +313,13 @@ public class Character : Entity
     public int GetItemCount()
     {
         return items.Count;
+    }
+
+    public Sprite Characterportrait
+    {
+        get
+        {
+            return characterportrait;
+        }
     }
 }

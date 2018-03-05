@@ -70,6 +70,9 @@ public class GameController : MonoBehaviour
     [SerializeField]
     bool isActive;
 
+    [SerializeField]
+    Image characterPortraitObject;
+
 
     CursorController cursorController;
 
@@ -284,6 +287,14 @@ public class GameController : MonoBehaviour
         MusicMixer.MusicController.ActivateAccompanyingTrackExclusive(charID);
 
         // TODO: Do stuff with camera
+    }
+
+    private void ChangeCharacterPortrait()
+    {
+        if(currentCharacter.Characterportrait != null)
+        {
+            characterPortraitObject.sprite = currentCharacter.Characterportrait;
+        }
     }
 
     /// <summary>
