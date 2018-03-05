@@ -25,6 +25,8 @@ public class ButtonParameters : MonoBehaviour
     [SerializeField]
     RequiredActivations[] requiredActivations;
 
+    public UIMovable[] requiredUIMovable;
+
     [SerializeField]
     bool useTags;
 
@@ -117,7 +119,7 @@ public class ButtonParameters : MonoBehaviour
         }
     }
 
-    public void Activate(Button button = null)
+    public void Activate(GameObject button = null)
     {
         bool allComplete;
         allComplete = Complete(button);
@@ -138,7 +140,7 @@ public class ButtonParameters : MonoBehaviour
         }
     }
 
-    private bool Complete(Button button)
+    private bool Complete(GameObject button)
     {
         for (int i = 0; i < requiredActivations.Length; i++)
         {
@@ -164,25 +166,45 @@ public class ButtonParameters : MonoBehaviour
         if (alwaysCheck)
         {
             CheckButtons();
+            CheckUI();
         }
     }
 
     private void CheckButtons()
     {
-        for (int i = 0; i < requiredActivations.Length; i++)
+        if (requiredActivations.Length > 0)
         {
-            if (requiredActivations[i].requiredButton.gameObject.activeInHierarchy)
+            for (int i = 0; i < requiredActivations.Length; i++)
             {
-                requiredActivations[i].activated = true;
-                Activate();
-            }
-            else
-            {
-                requiredActivations[i].activated = false;
+                if (requiredActivations[i].requiredButton.gameObject.activeInHierarchy)
+                {
+                    requiredActivations[i].activated = true;
+                    Activate();
+                }
+                else
+                {
+                    requiredActivations[i].activated = false;
+                }
             }
         }
+    }
+
+    private bool CheckUI()
+    {
+        if (requiredUIMovable.Length > 0)
+        {
+            for (int i = 0; i < requiredUIMovable.Length; i++)
+            {
+                if (requiredUIMovable[i].activated == false)
+                {
+                    return false;
+                }
+            }
+        }
+        ContinueEvent.Invoke(values);
+        return true;
     }
 }
 
 [System.Serializable]
-public struct RequiredActivations { public Button requiredButton;[HideInInspector] public bool activated; }
+public struct RequiredActivations { public GameObject requiredButton;[HideInInspector] public bool activated; }

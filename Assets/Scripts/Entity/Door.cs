@@ -53,7 +53,10 @@ public class Door : Entity
         {
             base.OnInteract(values);
 
-            if (useTags ? (values.item.tag == tagName) : (values.item != null && values.item == key))
+            Debug.Log(values.item.EntityName.Length);
+            Debug.Log(tagName.Length);
+
+            if (useTags ? (values.item != null && values.item.tag == tagName) : (values.item != null && values.item == key))
             {
                 SetLock(false);
                 if (destroyKeyOnUse)
