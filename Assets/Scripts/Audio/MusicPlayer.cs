@@ -65,6 +65,7 @@ namespace MusicMixer
         [Tooltip("Attempt to remove (UnityEngine.AudioClip) appended at the end of renamed children?")]
         private bool trunctateNameOfRenamedTracks = true;
 
+        [Header("Music Composition Settings")]
         private MusicComposition activeMusicComposition;
         private int activeAccompanyingTrack;
 
@@ -76,7 +77,11 @@ namespace MusicMixer
         [Range(0, 1f)]
         [Tooltip("Tolerance for minimum volume required before fading to next acvcompanying track")]
         private float compositionFadeTolerance = 0f;
-        
+
+        [SerializeField]
+        [Tooltip("How long (in seconds) after a composition has been deactivated before it will be stopped")]
+        private float compositionStopTimer = 30f;
+
         private void Awake()
         {
             CheckSingleton();
@@ -607,6 +612,14 @@ namespace MusicMixer
             get
             {
                 return tracks[activeMusicComposition.baseTrackIndex].trackSource.clip;
+            }
+        }
+
+        public float CompositionStopTimer
+        {
+            get
+            {
+                return compositionStopTimer;
             }
         }
     }

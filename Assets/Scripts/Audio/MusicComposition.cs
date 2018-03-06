@@ -23,9 +23,6 @@ namespace MusicMixer
 
         private MusicPlayer musicPlayer;
 
-        [SerializeField]
-        private float compositionAutoStop = 20f;
-
         public MusicPlayer MusicPlayer
         {
             get
@@ -44,7 +41,7 @@ namespace MusicMixer
                     else
                     {
                         return musicPlayer = GameObject.FindObjectOfType<MusicPlayer>();
-                    }                    
+                    }
                 }
                 else
                 {
@@ -54,15 +51,13 @@ namespace MusicMixer
             }
         }
 
-        // TODO: Add functionality to stop composition tracks after a set amount of time. Suggestion: Co-routine?
-
         public MusicComposition(MusicPlayer musicPlayer)
         {
             this.musicPlayer = musicPlayer;
         }
 
         /// <summary>
-        /// Begins playing base track and accompanying tracks, setting volume 
+        /// Begins playing base track and accompanying tracks, setting volume
         /// </summary>
         public void ActivateGroup(int accompanyingTrackIndex)
         {
@@ -257,8 +252,8 @@ namespace MusicMixer
 
         private IEnumerator StopCompositionOnDelay()
         {
-            yield return new WaitForSeconds(compositionAutoStop);
-
+            yield return new WaitForSecondsRealtime(MusicPlayer.CompositionStopTimer);
+            
             // Check if we're active
             bool isActive = GetMusicTrack(baseTrackIndex).TargetVolume > 0f;
 
