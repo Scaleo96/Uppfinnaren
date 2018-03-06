@@ -1117,7 +1117,7 @@ MonoBehaviour:
   canUseCondition:
     aminaUse: 1
     idaUse: 0
-    jonathanUse: 1
+    jonathanUse: 0
   interactionEvents:
     m_PersistentCalls:
       m_Calls:
@@ -3506,7 +3506,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 728021213}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36.3, y: 150.9, z: 0}
+  m_LocalPosition: {x: 117.9, y: 72.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 134301045}
@@ -9028,7 +9028,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2131694165}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.013, y: 72.53, z: 0}
+  m_LocalPosition: {x: -8.988, y: 72.53, z: 0}
   m_LocalScale: {x: 0.035244398, y: 0.56302136, z: 1.582793}
   m_Children: []
   m_Father: {fileID: 1281051762}

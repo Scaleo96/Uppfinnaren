@@ -48,13 +48,11 @@ public class Door : Entity
 
             values.trigger = EntityValues.TriggerType.EnterDoor;
             base.OnInteract(values);
+
         }
         else if (doorLocked == true)
         {
             base.OnInteract(values);
-
-            Debug.Log(values.item.EntityName.Length);
-            Debug.Log(tagName.Length);
 
             if (useTags ? (values.item != null && values.item.tag == tagName) : (values.item != null && values.item == key))
             {
