@@ -198,14 +198,20 @@ public class GameController : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(cameraComponent.ScreenToWorldPoint(Input.mousePosition), Vector3.forward, 20);
 
-        Entity entity;      
+        Entity entity;
         if (hit && hit.transform.GetComponent<Entity>()) // If the mouse is over an entity
         {
             entity = hit.transform.GetComponent<Entity>();
+            SpriteSwapper spriteSwapper = hit.transform.GetComponentInChildren<SpriteSwapper>();
 
             if (cursorController != null)
             {
                 cursorController.HoverCursor();
+            }
+
+            if (spriteSwapper != null)
+            {
+                spriteSwapper.SetAlternativeSpriteThisFrame();
             }
             
 
