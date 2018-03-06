@@ -280,6 +280,7 @@ public class GameController : MonoBehaviour
         currentCharacter = characters[currentCharID];
 
         currentCharacter.SetActive(true);
+        ChangeCharacterPortrait();
         cameraComponent.GetComponent<CameraFollow>().Target = currentCharacter.transform;
         cameraComponent.GetComponent<CameraFollow>().SetPosition(currentCharacter.transform);
 
