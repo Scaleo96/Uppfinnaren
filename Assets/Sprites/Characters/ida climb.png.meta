@@ -1,81 +1,81 @@
 fileFormatVersion: 2
-guid: dcc7ec5e9b88287479fdfa88dfb12048
-timeCreated: 1519985253
+guid: 137e0abacb615db45bc8628883821163
+timeCreated: 1520423243
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: ida climb_0
-    21300002: ida climb_1
-    21300004: ida climb_2
-    21300006: ida climb_3
-    21300008: ida climb_4
-    21300010: ida climb_5
-    21300012: ida climb_6
-    21300014: ida climb_7
-    21300016: ida climb_8
-    21300018: ida climb_9
-    21300020: ida climb_10
-    21300022: ida climb_11
-    21300024: ida climb_12
-    21300026: ida climb_13
-    21300028: ida climb_14
-    21300030: ida climb_15
-    21300032: ida climb_16
-    21300034: ida climb_17
-    21300036: ida climb_18
-    21300038: ida climb_19
-    21300040: ida climb_20
-    21300042: ida climb_21
-    21300044: ida climb_22
-    21300046: ida climb_23
-    21300048: ida climb_24
-    21300050: ida climb_25
-    21300052: ida climb_26
-    21300054: ida climb_27
-    21300056: ida climb_28
-    21300058: ida climb_29
-    21300060: ida climb_30
-    21300062: ida climb_31
-    21300064: ida climb_32
-    21300066: ida climb_33
-    21300068: ida climb_34
-    21300070: ida climb_35
-    21300072: ida climb_36
-    21300074: ida climb_37
-    21300076: ida climb_38
-    21300078: ida climb_39
-    21300080: ida climb_40
-    21300082: ida climb_41
-    21300084: ida climb_42
-    21300086: ida climb_43
-    21300088: ida climb_44
-    21300090: ida climb_45
-    21300092: ida climb_46
-    21300094: ida climb_47
-    21300096: ida climb_48
-    21300098: ida climb_49
-    21300100: ida climb_50
-    21300102: ida climb_51
-    21300104: ida climb_52
-    21300106: ida climb_53
-    21300108: ida climb_54
-    21300110: ida climb_55
-    21300112: ida climb_56
-    21300114: ida climb_57
-    21300116: ida climb_58
-    21300118: ida climb_59
-    21300120: ida climb_60
-    21300122: ida climb_61
-    21300124: ida climb_62
-    21300126: ida climb_63
-    21300128: ida climb_64
-    21300130: ida climb_65
-    21300132: ida climb_66
-    21300134: ida climb_67
-    21300136: ida climb_68
-    21300138: ida climb_69
-    21300140: ida climb_70
-    21300142: ida climb_71
+    21300000: Ida climb_0
+    21300002: Ida climb_1
+    21300004: Ida climb_2
+    21300006: Ida climb_3
+    21300008: Ida climb_4
+    21300010: Ida climb_5
+    21300012: Ida climb_6
+    21300014: Ida climb_7
+    21300016: Ida climb_8
+    21300018: Ida climb_9
+    21300020: Ida climb_10
+    21300022: Ida climb_11
+    21300024: Ida climb_12
+    21300026: Ida climb_13
+    21300028: Ida climb_14
+    21300030: Ida climb_15
+    21300032: Ida climb_16
+    21300034: Ida climb_17
+    21300036: Ida climb_18
+    21300038: Ida climb_19
+    21300040: Ida climb_20
+    21300042: Ida climb_21
+    21300044: Ida climb_22
+    21300046: Ida climb_23
+    21300048: Ida climb_24
+    21300050: Ida climb_25
+    21300052: Ida climb_26
+    21300054: Ida climb_27
+    21300056: Ida climb_28
+    21300058: Ida climb_29
+    21300060: Ida climb_30
+    21300062: Ida climb_31
+    21300064: Ida climb_32
+    21300066: Ida climb_33
+    21300068: Ida climb_34
+    21300070: Ida climb_35
+    21300072: Ida climb_36
+    21300074: Ida climb_37
+    21300076: Ida climb_38
+    21300078: Ida climb_39
+    21300080: Ida climb_40
+    21300082: Ida climb_41
+    21300084: Ida climb_42
+    21300086: Ida climb_43
+    21300088: Ida climb_44
+    21300090: Ida climb_45
+    21300092: Ida climb_46
+    21300094: Ida climb_47
+    21300096: Ida climb_48
+    21300098: Ida climb_49
+    21300100: Ida climb_50
+    21300102: Ida climb_51
+    21300104: Ida climb_52
+    21300106: Ida climb_53
+    21300108: Ida climb_54
+    21300110: Ida climb_55
+    21300112: Ida climb_56
+    21300114: Ida climb_57
+    21300116: Ida climb_58
+    21300118: Ida climb_59
+    21300120: Ida climb_60
+    21300122: Ida climb_61
+    21300124: Ida climb_62
+    21300126: Ida climb_63
+    21300128: Ida climb_64
+    21300130: Ida climb_65
+    21300132: Ida climb_66
+    21300134: Ida climb_67
+    21300136: Ida climb_68
+    21300138: Ida climb_69
+    21300140: Ida climb_70
+    21300142: Ida climb_71
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -152,7 +152,259 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ida climb_0
+      name: Ida climb_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 11264
+        width: 512
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.85, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ida climb_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 11264
+        width: 512
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.85, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ida climb_2
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 11264
+        width: 512
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.85, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ida climb_3
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 11264
+        width: 512
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.85, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ida climb_4
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 11264
+        width: 512
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.85, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ida climb_5
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 11264
+        width: 512
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.85, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ida climb_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10240
+        width: 512
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.85, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ida climb_7
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 10240
+        width: 512
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.85, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ida climb_8
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 10240
+        width: 512
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.85, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ida climb_9
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 10240
+        width: 512
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.85, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ida climb_10
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 10240
+        width: 512
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.85, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ida climb_11
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 10240
+        width: 512
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.85, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ida climb_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 9216
+        width: 512
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.85, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ida climb_13
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 9216
+        width: 512
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.85, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ida climb_14
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 9216
+        width: 512
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.85, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ida climb_15
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 9216
+        width: 512
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.85, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ida climb_16
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 9216
+        width: 512
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.85, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ida climb_17
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 9216
+        width: 512
+        height: 1024
+      alignment: 9
+      pivot: {x: 0.85, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ida climb_18
       rect:
         serializedVersion: 2
         x: 0
@@ -160,13 +412,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_1
+      name: Ida climb_19
       rect:
         serializedVersion: 2
         x: 512
@@ -174,13 +426,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_2
+      name: Ida climb_20
       rect:
         serializedVersion: 2
         x: 1024
@@ -188,13 +440,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_3
+      name: Ida climb_21
       rect:
         serializedVersion: 2
         x: 1536
@@ -202,13 +454,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_4
+      name: Ida climb_22
       rect:
         serializedVersion: 2
         x: 2048
@@ -216,13 +468,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_5
+      name: Ida climb_23
       rect:
         serializedVersion: 2
         x: 2560
@@ -230,41 +482,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_6
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 8192
-        width: 512
-        height: 1024
-      alignment: 9
-      pivot: {x: 0.87, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ida climb_7
-      rect:
-        serializedVersion: 2
-        x: 3584
-        y: 8192
-        width: 512
-        height: 1024
-      alignment: 9
-      pivot: {x: 0.87, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ida climb_8
+      name: Ida climb_24
       rect:
         serializedVersion: 2
         x: 0
@@ -272,13 +496,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_9
+      name: Ida climb_25
       rect:
         serializedVersion: 2
         x: 512
@@ -286,13 +510,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_10
+      name: Ida climb_26
       rect:
         serializedVersion: 2
         x: 1024
@@ -300,13 +524,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_11
+      name: Ida climb_27
       rect:
         serializedVersion: 2
         x: 1536
@@ -314,13 +538,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_12
+      name: Ida climb_28
       rect:
         serializedVersion: 2
         x: 2048
@@ -328,13 +552,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_13
+      name: Ida climb_29
       rect:
         serializedVersion: 2
         x: 2560
@@ -342,41 +566,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_14
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 7168
-        width: 512
-        height: 1024
-      alignment: 9
-      pivot: {x: 0.87, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ida climb_15
-      rect:
-        serializedVersion: 2
-        x: 3584
-        y: 7168
-        width: 512
-        height: 1024
-      alignment: 9
-      pivot: {x: 0.87, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ida climb_16
+      name: Ida climb_30
       rect:
         serializedVersion: 2
         x: 0
@@ -384,13 +580,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_17
+      name: Ida climb_31
       rect:
         serializedVersion: 2
         x: 512
@@ -398,13 +594,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_18
+      name: Ida climb_32
       rect:
         serializedVersion: 2
         x: 1024
@@ -412,13 +608,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_19
+      name: Ida climb_33
       rect:
         serializedVersion: 2
         x: 1536
@@ -426,13 +622,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_20
+      name: Ida climb_34
       rect:
         serializedVersion: 2
         x: 2048
@@ -440,13 +636,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_21
+      name: Ida climb_35
       rect:
         serializedVersion: 2
         x: 2560
@@ -454,41 +650,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_22
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 6144
-        width: 512
-        height: 1024
-      alignment: 9
-      pivot: {x: 0.87, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ida climb_23
-      rect:
-        serializedVersion: 2
-        x: 3584
-        y: 6144
-        width: 512
-        height: 1024
-      alignment: 9
-      pivot: {x: 0.87, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ida climb_24
+      name: Ida climb_36
       rect:
         serializedVersion: 2
         x: 0
@@ -496,13 +664,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_25
+      name: Ida climb_37
       rect:
         serializedVersion: 2
         x: 512
@@ -510,13 +678,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_26
+      name: Ida climb_38
       rect:
         serializedVersion: 2
         x: 1024
@@ -524,13 +692,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_27
+      name: Ida climb_39
       rect:
         serializedVersion: 2
         x: 1536
@@ -538,13 +706,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_28
+      name: Ida climb_40
       rect:
         serializedVersion: 2
         x: 2048
@@ -552,13 +720,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_29
+      name: Ida climb_41
       rect:
         serializedVersion: 2
         x: 2560
@@ -566,41 +734,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_30
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 5120
-        width: 512
-        height: 1024
-      alignment: 9
-      pivot: {x: 0.87, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ida climb_31
-      rect:
-        serializedVersion: 2
-        x: 3584
-        y: 5120
-        width: 512
-        height: 1024
-      alignment: 9
-      pivot: {x: 0.87, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ida climb_32
+      name: Ida climb_42
       rect:
         serializedVersion: 2
         x: 0
@@ -608,13 +748,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_33
+      name: Ida climb_43
       rect:
         serializedVersion: 2
         x: 512
@@ -622,13 +762,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_34
+      name: Ida climb_44
       rect:
         serializedVersion: 2
         x: 1024
@@ -636,13 +776,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_35
+      name: Ida climb_45
       rect:
         serializedVersion: 2
         x: 1536
@@ -650,13 +790,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_36
+      name: Ida climb_46
       rect:
         serializedVersion: 2
         x: 2048
@@ -664,13 +804,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_37
+      name: Ida climb_47
       rect:
         serializedVersion: 2
         x: 2560
@@ -678,41 +818,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_38
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 4096
-        width: 512
-        height: 1024
-      alignment: 9
-      pivot: {x: 0.87, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ida climb_39
-      rect:
-        serializedVersion: 2
-        x: 3584
-        y: 4096
-        width: 512
-        height: 1024
-      alignment: 9
-      pivot: {x: 0.87, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ida climb_40
+      name: Ida climb_48
       rect:
         serializedVersion: 2
         x: 0
@@ -720,13 +832,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_41
+      name: Ida climb_49
       rect:
         serializedVersion: 2
         x: 512
@@ -734,13 +846,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_42
+      name: Ida climb_50
       rect:
         serializedVersion: 2
         x: 1024
@@ -748,13 +860,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_43
+      name: Ida climb_51
       rect:
         serializedVersion: 2
         x: 1536
@@ -762,13 +874,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_44
+      name: Ida climb_52
       rect:
         serializedVersion: 2
         x: 2048
@@ -776,13 +888,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_45
+      name: Ida climb_53
       rect:
         serializedVersion: 2
         x: 2560
@@ -790,41 +902,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_46
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 3072
-        width: 512
-        height: 1024
-      alignment: 9
-      pivot: {x: 0.87, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ida climb_47
-      rect:
-        serializedVersion: 2
-        x: 3584
-        y: 3072
-        width: 512
-        height: 1024
-      alignment: 9
-      pivot: {x: 0.87, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ida climb_48
+      name: Ida climb_54
       rect:
         serializedVersion: 2
         x: 0
@@ -832,13 +916,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_49
+      name: Ida climb_55
       rect:
         serializedVersion: 2
         x: 512
@@ -846,13 +930,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_50
+      name: Ida climb_56
       rect:
         serializedVersion: 2
         x: 1024
@@ -860,13 +944,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_51
+      name: Ida climb_57
       rect:
         serializedVersion: 2
         x: 1536
@@ -874,13 +958,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_52
+      name: Ida climb_58
       rect:
         serializedVersion: 2
         x: 2048
@@ -888,13 +972,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_53
+      name: Ida climb_59
       rect:
         serializedVersion: 2
         x: 2560
@@ -902,41 +986,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_54
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 2048
-        width: 512
-        height: 1024
-      alignment: 9
-      pivot: {x: 0.87, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ida climb_55
-      rect:
-        serializedVersion: 2
-        x: 3584
-        y: 2048
-        width: 512
-        height: 1024
-      alignment: 9
-      pivot: {x: 0.87, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ida climb_56
+      name: Ida climb_60
       rect:
         serializedVersion: 2
         x: 0
@@ -944,13 +1000,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_57
+      name: Ida climb_61
       rect:
         serializedVersion: 2
         x: 512
@@ -958,13 +1014,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_58
+      name: Ida climb_62
       rect:
         serializedVersion: 2
         x: 1024
@@ -972,13 +1028,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_59
+      name: Ida climb_63
       rect:
         serializedVersion: 2
         x: 1536
@@ -986,13 +1042,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_60
+      name: Ida climb_64
       rect:
         serializedVersion: 2
         x: 2048
@@ -1000,13 +1056,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_61
+      name: Ida climb_65
       rect:
         serializedVersion: 2
         x: 2560
@@ -1014,41 +1070,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_62
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 1024
-        width: 512
-        height: 1024
-      alignment: 9
-      pivot: {x: 0.87, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ida climb_63
-      rect:
-        serializedVersion: 2
-        x: 3584
-        y: 1024
-        width: 512
-        height: 1024
-      alignment: 9
-      pivot: {x: 0.87, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ida climb_64
+      name: Ida climb_66
       rect:
         serializedVersion: 2
         x: 0
@@ -1056,13 +1084,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_65
+      name: Ida climb_67
       rect:
         serializedVersion: 2
         x: 512
@@ -1070,13 +1098,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_66
+      name: Ida climb_68
       rect:
         serializedVersion: 2
         x: 1024
@@ -1084,13 +1112,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_67
+      name: Ida climb_69
       rect:
         serializedVersion: 2
         x: 1536
@@ -1098,13 +1126,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_68
+      name: Ida climb_70
       rect:
         serializedVersion: 2
         x: 2048
@@ -1112,13 +1140,13 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ida climb_69
+      name: Ida climb_71
       rect:
         serializedVersion: 2
         x: 2560
@@ -1126,35 +1154,7 @@ TextureImporter:
         width: 512
         height: 1024
       alignment: 9
-      pivot: {x: 0.87, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ida climb_70
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 0
-        width: 512
-        height: 1024
-      alignment: 9
-      pivot: {x: 0.87, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ida climb_71
-      rect:
-        serializedVersion: 2
-        x: 3584
-        y: 0
-        width: 512
-        height: 1024
-      alignment: 9
-      pivot: {x: 0.87, y: 0.25}
+      pivot: {x: 0.85, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
