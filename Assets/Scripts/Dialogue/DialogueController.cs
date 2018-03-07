@@ -29,7 +29,9 @@ public class DialogueController : MonoBehaviour
 
     List<SpeakerAndText> currentSpeakers = new List<SpeakerAndText>();
 
-    Coroutine currentCoroutine;
+    Coroutine currentCoroutineCheck;
+    Coroutine currentCoruotineDisplay;
+
 
     // Use this for initialization
     void Start()
@@ -39,11 +41,11 @@ public class DialogueController : MonoBehaviour
 
     public void RunDialogue(EntityValues entityValues)
     {
-        if (currentCoroutine != null)
+        if (currentCoroutineCheck != null)
         {
-            StopCoroutine(currentCoroutine);
+            StopCoroutine(currentCoroutineCheck);
         }
-        currentCoroutine = StartCoroutine(CheckConditions(entityValues));
+        currentCoroutineCheck = StartCoroutine(CheckConditions(entityValues));
     }
 
     //Checks all Conditions and returns the values of the first successful
@@ -54,7 +56,13 @@ public class DialogueController : MonoBehaviour
         {
             for (int j = 0; j < conditionsManager.container[values.containerNumber].dialogue[values.dialogueNumber].dialogue.Length; j++)
             {
-                StartCoroutine(DisplayDialogue(conditionsManager.container[values.containerNumber].dialogue[values.dialogueNumber].dialogue[j],
+                if (currentCoruotineDisplay != null)
+                {
+                    StopCoroutine(currentCoruotineDisplay);
+                    currentSpeakers.ForEach(DestroyDialogue);
+                }
+
+               currentCoruotineDisplay = StartCoroutine(DisplayDialogue(conditionsManager.container[values.containerNumber].dialogue[values.dialogueNumber].dialogue[j],
                     conditionsManager.container[values.containerNumber].dialogue[values.dialogueNumber].dialogue[j].time, values));
                 yield return new WaitForSeconds(conditionsManager.container[values.containerNumber].dialogue[values.dialogueNumber].dialogue[j].time);
                 print(j.ToString());
@@ -124,6 +132,20 @@ public class DialogueController : MonoBehaviour
                 speakerAndText.currentText.transform.GetChild(0).transform.position = puzzleScreenDialogue.position + canvasOffset;
             }
         }
+    }
+
+    private void DestroyDialogue(SpeakerAndText speakerAndText)
+    {
+        StartCoroutine(ClosingAnimation(speakerAndText));
+    }
+
+    private IEnumerator ClosingAnimation(SpeakerAndText speakerAndText)
+    {
+        Animator animator = speakerAndText.currentText.GetComponentInChildren<Animator>();
+        animator.Play("BubbleEnd");
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length);
+        currentSpeakers.Remove(speakerAndText);
+        Destroy(speakerAndText.currentText);
     }
 
     // Update is called once per frame
