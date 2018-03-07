@@ -46,7 +46,12 @@ namespace MenUI
         /// <param name="audioGroup">Mixer group</param>
         private void SetAudioLevel(float audioLevel, string audioGroup)
         {
-            masterMixer.SetFloat(audioGroup, audioLevel);
+            // TODO: Better math?
+            float logFloat = audioLevel * 4000f;
+            logFloat = -80f + Mathf.Log(logFloat) * 10f;
+            logFloat = Mathf.Clamp(logFloat, -80f, 10f);
+
+            masterMixer.SetFloat(audioGroup, logFloat);
             PlayerPrefs.SetFloat(audioGroup, audioLevel);
             PlayerPrefs.Save();
         }
@@ -66,7 +71,7 @@ namespace MenUI
             SetSliderValues(masterVolSlider, MASTER_VOL_PREF);
             SetSliderValues(musicVolSlider, MUSIC_VOL_PREF);
             SetSliderValues(sfxVolSlider, SFX_VOL_PREF);
-            SetSliderValues(sfxVolSlider, AMBIENCE_VOL_PREF);
+            SetSliderValues(ambienceVolSlider, AMBIENCE_VOL_PREF);
 
             // Load language settings
             SetLanguageToEnglish((PlayerPrefs.GetInt("isEnglish", 1) == 1 ? true : false));
@@ -78,17 +83,9 @@ namespace MenUI
         /// </summary>
         /// <param name="slider">Slider to set</param>
         /// <param name="mixerGroup">String name of the mixer group</param>
-        private void SetSliderValues(Slider slider, string mixerGroup)
+        private void SetSliderValues(Slider slider, string preferenceString)
         {
-            float volume;
-            if (masterMixer.GetFloat(mixerGroup, out volume))
-            {
-                slider.value = volume;
-            }
-            else
-            {
-                if (Debug.isDebugBuild) Debug.LogWarning("Unable to change slider value - Incompatible mixer group key", slider);
-            }
+            slider.value = PlayerPrefs.GetFloat(preferenceString);
         }
 
         public void SetMasterLevel(float audioLevel)
