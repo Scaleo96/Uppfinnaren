@@ -122,7 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 658116817}
   - component: {fileID: 658116818}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Shed area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1113709575}
   - component: {fileID: 1113709574}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Ambience Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1495750491}
   - component: {fileID: 1495750490}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Outside Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
