@@ -8,30 +8,112 @@ namespace MusicMixer
     [CustomEditor(typeof(MusicPlayer))]
     public class MusicPlayerEditor : Editor
     {
-        // TODO: Implement advanced setting toggle
         [SerializeField]
         private bool showAdvancedSettings;
 
         private MusicPlayer musicPlayer;
         private List<string> trackNames = new List<string>();
 
+        private GUIStyle boldFoldout;
+
         public override void OnInspectorGUI()
         {
-            DrawDefaultInspector();
+            musicPlayer = (MusicPlayer)target;
+
+            SetupLayoutStyles();
+
+            ToggleAdvancedSettings();
+
+            if (!showAdvancedSettings)
+            {
+                DrawCustomInspector();
+            }
+            else
+            {
+                DrawDefaultInspector();
+            }
 
             // Add space
             EditorGUILayout.Space();
-
-            musicPlayer = (MusicPlayer)target;
 
             if (musicPlayer.compositions != null)
             {
                 MusicCompositions();
             }
 
-            DrawButtons();
+            if (showAdvancedSettings)
+            {
+                DrawButtons();
+            }
 
             musicPlayer.UpdateInfo();
+        }
+
+        private void SetupLayoutStyles()
+        {
+            boldFoldout = new GUIStyle(EditorStyles.foldout)
+            {
+                fontStyle = FontStyle.Bold
+            };
+        }
+
+        private void ToggleAdvancedSettings()
+        {
+            musicPlayer.showAdvancedSettings = EditorGUILayout.Toggle("Show advanced options", musicPlayer.showAdvancedSettings);
+
+            showAdvancedSettings = musicPlayer.showAdvancedSettings;
+        }
+
+        private void DrawCustomInspector()
+        {
+            musicPlayer.expandMusicTracks = EditorGUILayout.Foldout(musicPlayer.expandMusicTracks, "Music Tracks", true, boldFoldout);
+
+            if (musicPlayer.expandMusicTracks)
+            {
+                DrawCustomMusicTracks();
+            }
+        }
+
+        private void DrawCustomMusicTracks()
+        {
+            EditorGUILayout.BeginVertical();
+            foreach (MusicTrack track in musicPlayer.Tracks)
+            {
+                if (track == null)
+                {
+                    break;
+                }
+
+                // Foldout
+                track.expandInEditor = EditorGUILayout.Foldout(track.expandInEditor, track.ToString(), true, boldFoldout);
+
+                if (track.expandInEditor)
+                {
+                    EditorGUILayout.BeginHorizontal();
+                    EditorGUILayout.PrefixLabel("Target Volume");
+                    track.TargetVolume = EditorGUILayout.Slider(track.TargetVolume, 0f, 1f);
+                    EditorGUILayout.EndHorizontal();
+
+                    EditorGUILayout.BeginHorizontal();
+                    EditorGUILayout.PrefixLabel("Current volume");
+
+                    Rect r = EditorGUILayout.BeginVertical();
+                    EditorGUI.ProgressBar(r, track.Volume, "");
+                    GUILayout.Space(18);
+                    EditorGUILayout.EndVertical();
+                    Handles.EndGUI();
+
+                    EditorGUILayout.EndHorizontal();
+
+                    EditorGUILayout.BeginHorizontal();
+                    EditorGUILayout.PrefixLabel("Fade duration");
+                    track.FadeDuration = EditorGUILayout.DelayedFloatField(track.FadeDuration);
+                    EditorGUILayout.EndHorizontal();
+                }
+
+                EditorGUILayout.Space();
+            }
+            EditorGUILayout.EndVertical();
         }
 
         private void MusicCompositions()
@@ -39,13 +121,12 @@ namespace MusicMixer
             RefreshTrackNames();
 
             EditorGUILayout.LabelField("Music compositions", EditorStyles.boldLabel);
+
             // Size of music compos
             SetSizeOfCompositionsArray();
 
             foreach (MusicComposition composition in musicPlayer.compositions)
             {
-                EditorGUILayout.Separator();
-
                 if (composition == null)
                 {
                     break;
@@ -54,32 +135,36 @@ namespace MusicMixer
                 string baseTrackName = musicPlayer.Tracks[composition.baseTrackIndex].ToString();
 
                 // Foldout
-                composition.expandInEditor = EditorGUILayout.Foldout(composition.expandInEditor, "Music composition - " + baseTrackName);
+                composition.expandInEditor = EditorGUILayout.Foldout(composition.expandInEditor, "Music composition - " + baseTrackName, true, boldFoldout);
                 if (composition.expandInEditor)
                 {
-                    EditorGUILayout.LabelField("Music composition - " + baseTrackName, EditorStyles.boldLabel);
-
-                    // Select base track
-                    EditorGUILayout.PrefixLabel("Base Track");
-                    composition.baseTrackIndex = EditorGUILayout.Popup(composition.baseTrackIndex, trackNames.ToArray());
-
-                    ResizeOfAccompanyingTracks(composition);
-
-                    // Select accompanying tracks
-                    for (int i = 0; i < composition.accompanyingTracks.Length; i++)
-                    {
-                        EditorGUILayout.BeginHorizontal();
-                        int trackIndex = composition.accompanyingTracks[i];
-
-                        EditorGUILayout.PrefixLabel("Acomp. track #" + i + ": ");
-
-                        trackIndex = EditorGUILayout.Popup(trackIndex, trackNames.ToArray());
-
-                        composition.accompanyingTracks[i] = trackIndex;
-                        EditorGUILayout.EndHorizontal();
-                    }
+                    DrawTrackSelection(composition);
                 }
-                EditorGUILayout.Space();
+
+                EditorGUILayout.Separator();
+            }
+        }
+
+        private void DrawTrackSelection(MusicComposition composition)
+        {
+            // Select base track
+            EditorGUILayout.PrefixLabel("Base Track");
+            composition.baseTrackIndex = EditorGUILayout.Popup(composition.baseTrackIndex, trackNames.ToArray());
+
+            ResizeOfAccompanyingTracks(composition);
+
+            // Select accompanying tracks
+            for (int i = 0; i < composition.accompanyingTracks.Length; i++)
+            {
+                EditorGUILayout.BeginHorizontal();
+                int trackIndex = composition.accompanyingTracks[i];
+
+                EditorGUILayout.PrefixLabel("Acomp. track #" + i + ": ");
+
+                trackIndex = EditorGUILayout.Popup(trackIndex, trackNames.ToArray());
+
+                composition.accompanyingTracks[i] = trackIndex;
+                EditorGUILayout.EndHorizontal();
             }
         }
 

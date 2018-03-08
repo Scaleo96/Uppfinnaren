@@ -41,7 +41,7 @@ namespace MusicMixer
                     else
                     {
                         return musicPlayer = GameObject.FindObjectOfType<MusicPlayer>();
-                    }                    
+                    }
                 }
                 else
                 {
@@ -51,31 +51,29 @@ namespace MusicMixer
             }
         }
 
-        // TODO: Add functionality to stop composition tracks after a set amount of time. Suggestion: Co-routine?
-
         public MusicComposition(MusicPlayer musicPlayer)
         {
             this.musicPlayer = musicPlayer;
         }
 
         /// <summary>
-        /// Begins playing base track and accompanying tracks, setting volume 
+        /// Begins playing base track and accompanying tracks, setting volume
         /// </summary>
         public void ActivateGroup(int accompanyingTrackIndex)
         {
-            PlayTrack(baseTrackIndex);
+            PlayTrack(baseTrackIndex, true);
             for (int i = 0; i < accompanyingTracks.Length; i++)
             {
                 // TODO: Find and use appropriate target volume
                 if (i != accompanyingTrackIndex)
                 {
                     // Activate at 0 volume
-                    PlayTrack(accompanyingTracks[i], 0f);
+                    PlayTrack(accompanyingTracks[i], false, 0f);
                 }
                 else
                 {
                     // Activate att full volume
-                    PlayTrack(accompanyingTracks[i]);
+                    PlayTrack(accompanyingTracks[i], false);
                 }
             }
         }
@@ -87,6 +85,12 @@ namespace MusicMixer
         private void PlayTrack(int index)
         {
             PlayTrack(index, 1f);
+        }
+
+        private void PlayTrack(int index, bool isBaseTrack, float volume = 1f)
+        {
+            MusicPlayer.SetMixerGroup(GetMusicTrack(index), isBaseTrack);
+            PlayTrack(index, volume);
         }
 
         /// <summary>
@@ -156,6 +160,8 @@ namespace MusicMixer
                 DeactivateTrack(trackIndex);
             }
             ClearActiveTracks();
+
+            StopComposition();
         }
 
         private void DeactivateTrack(int baseTrackIndex)
@@ -235,6 +241,37 @@ namespace MusicMixer
                     int trackIndex = activeTracks[i];
                     PlayTrack(accompanyingTracks[trackIndex]);
                 }
+            }
+        }
+
+        public void StopComposition()
+        {
+            // HACK: Uses MusicPlayer to start coroutine as MusicCompositions are unable to themselves. They should terminate once the composition changes and the tracks are no longer played, but it's not a guarantee.
+            MusicPlayer.StartCoroutine(StopCompositionOnDelay());
+        }
+
+        private IEnumerator StopCompositionOnDelay()
+        {
+            yield return new WaitForSecondsRealtime(MusicPlayer.CompositionStopTimer);
+            
+            // Check if we're active
+            bool isActive = GetMusicTrack(baseTrackIndex).TargetVolume > 0f;
+
+            // Only continue if composition isn't active again
+            if (!isActive)
+            {
+                StopAllTracks();
+            }
+        }
+
+        private void StopAllTracks()
+        {
+            MusicTrack trackToStop = GetMusicTrack(baseTrackIndex);
+            MusicPlayer.StopTrack(trackToStop);
+            foreach (int trackIndex in accompanyingTracks)
+            {
+                trackToStop = GetMusicTrack(trackIndex);
+                MusicPlayer.StopTrack(trackToStop);
             }
         }
     }

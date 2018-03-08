@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 4493630346568408}
   - component: {fileID: 82508126082743194}
   m_Layer: 0
-  m_Name: meny1
+  m_Name: Uppfinnaren_Menu_v2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,7 +118,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4445798820545284}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4445798820545284
 Transform:
@@ -127,14 +127,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1749885555923044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.99992275, y: -1.8519756, z: -0.10635716}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4493630346568408}
   - {fileID: 4805061873579030}
   - {fileID: 4016989225617562}
   - {fileID: 4541553306027854}
   - {fileID: 4742264206057478}
-  - {fileID: 4493630346568408}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -149,7 +149,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4445798820545284}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4541553306027854
 Transform:
@@ -162,7 +162,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4445798820545284}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4742264206057478
 Transform:
@@ -175,7 +175,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4445798820545284}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4805061873579030
 Transform:
@@ -188,7 +188,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4445798820545284}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &82030717028876516
 AudioSource:
@@ -198,7 +198,7 @@ AudioSource:
   m_GameObject: {fileID: 1160132719674670}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 243397838039039640, guid: 0da65e85ae3e14541bb9ef961581f29c,
+  OutputAudioMixerGroup: {fileID: 243232733724284360, guid: 0da65e85ae3e14541bb9ef961581f29c,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: b1e3e2683c12d0440aed1e51be64ec69, type: 3}
   m_PlayOnAwake: 0
@@ -362,7 +362,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243397838039039640, guid: 0da65e85ae3e14541bb9ef961581f29c,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 808a768dfa0d7ea4db6f62c3bc851386, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3590ed8871a20e34a8b868148e652737, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
@@ -441,7 +441,7 @@ AudioSource:
   m_GameObject: {fileID: 1857861515175502}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 243397838039039640, guid: 0da65e85ae3e14541bb9ef961581f29c,
+  OutputAudioMixerGroup: {fileID: 243232733724284360, guid: 0da65e85ae3e14541bb9ef961581f29c,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 4c461a0979981204d862afc9fa2ee174, type: 3}
   m_PlayOnAwake: 0
@@ -522,7 +522,7 @@ AudioSource:
   m_GameObject: {fileID: 1694550695829912}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 243397838039039640, guid: 0da65e85ae3e14541bb9ef961581f29c,
+  OutputAudioMixerGroup: {fileID: 243232733724284360, guid: 0da65e85ae3e14541bb9ef961581f29c,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: af0ef4fb78d77b348a656874f8dee599, type: 3}
   m_PlayOnAwake: 0
@@ -606,10 +606,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa351c2fdc6b4349ba1e1e2ee6f4ed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  verbose: 1
-  musicMixer: {fileID: 243397838039039640, guid: 0da65e85ae3e14541bb9ef961581f29c,
+  showAdvancedSettings: 0
+  verbose: 0
+  musicMixerBaseTracks: {fileID: 243397838039039640, guid: 0da65e85ae3e14541bb9ef961581f29c,
     type: 2}
-  startFadingIn: 1
+  musicMixerAccompanyingTracks: {fileID: 243232733724284360, guid: 0da65e85ae3e14541bb9ef961581f29c,
+    type: 2}
+  enablePitchShifter: 0
+  pitchIntervall: 0.014
+  octaveShift: 0
   compositions:
   - baseTrackIndex: 4
     accompanyingTracks: 
@@ -617,34 +622,42 @@ MonoBehaviour:
   - baseTrackIndex: 0
     accompanyingTracks: 010000000200000003000000
     expandInEditor: 1
+  startFadingIn: 0
   tracks:
   - trackSource: {fileID: 82237408952747676}
     trackClip: {fileID: 8300000, guid: d2f1254ad1dcab841b1e1318c25979fb, type: 3}
     currentVolume: 0
     targetVolume: 0
     fadeDuration: 2
+    expandInEditor: 1
   - trackSource: {fileID: 82030717028876516}
     trackClip: {fileID: 8300000, guid: b1e3e2683c12d0440aed1e51be64ec69, type: 3}
     currentVolume: 0
     targetVolume: 0
     fadeDuration: 2
+    expandInEditor: 1
   - trackSource: {fileID: 82954682434676508}
     trackClip: {fileID: 8300000, guid: af0ef4fb78d77b348a656874f8dee599, type: 3}
     currentVolume: 0
     targetVolume: 0
     fadeDuration: 2
+    expandInEditor: 1
   - trackSource: {fileID: 82605705149860418}
     trackClip: {fileID: 8300000, guid: 4c461a0979981204d862afc9fa2ee174, type: 3}
     currentVolume: 0
     targetVolume: 0
     fadeDuration: 2
+    expandInEditor: 1
   - trackSource: {fileID: 82508126082743194}
-    trackClip: {fileID: 8300000, guid: 808a768dfa0d7ea4db6f62c3bc851386, type: 3}
+    trackClip: {fileID: 8300000, guid: 3590ed8871a20e34a8b868148e652737, type: 3}
     currentVolume: 0
     targetVolume: 0
     fadeDuration: 2
+    expandInEditor: 1
   autoPopulateTracks: 1
   automaticRenaming: 1
   defaultFadeDuration: 2
   CompositionsWaitsForFadeOut: 1
   compositionFadeTolerance: 0.2
+  compositionStopTimer: 30
+  expandMusicTracks: 1
