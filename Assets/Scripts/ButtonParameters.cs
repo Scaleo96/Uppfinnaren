@@ -200,8 +200,9 @@ public class ButtonParameters : MonoBehaviour
                     return false;
                 }
             }
+            ContinueEvent.Invoke(values);
         }
-        ContinueEvent.Invoke(values);
+
         return true;
     }
 }
