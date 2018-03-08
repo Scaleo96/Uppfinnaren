@@ -17,6 +17,11 @@ namespace MusicMixer
         private static MusicPlayer instance;
 
         [SerializeField]
+        [HideInInspector]
+        [Tooltip("Display advanced settings for the music player")]
+        public bool showAdvancedSettings = false;
+
+        [SerializeField]
         [Tooltip("Displays debug messages in console")]
         private bool verbose = true;
 
@@ -81,6 +86,9 @@ namespace MusicMixer
         [SerializeField]
         [Tooltip("How long (in seconds) after a composition has been deactivated before it will be stopped")]
         private float compositionStopTimer = 30f;
+
+        [HideInInspector]
+        public bool expandMusicTracks;
 
         private void Awake()
         {

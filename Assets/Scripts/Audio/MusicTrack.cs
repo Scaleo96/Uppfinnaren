@@ -33,6 +33,7 @@ namespace MusicMixer
 
         /// <summary>Volume to fade from</summary>
         private float fadeStartVolume;
+        public bool expandInEditor;
 
         public MusicTrack(AudioSource track, AudioMixerGroup mixerGroup, bool loop = true)
         {
