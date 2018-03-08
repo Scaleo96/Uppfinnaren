@@ -63,7 +63,7 @@ public class UIMovable : MonoBehaviour
 
     private void FollowMouse()
     {
-        RectTransform pusselScreenParent = transform.parent.GetComponent<RectTransform>();
+        //RectTransform pusselScreenParent = transform.parent.GetComponent<RectTransform>();
         //Bounds puzzleScreen = transform.parent.GetComponent<CapsuleCollider2D>().bounds;
        // if (puzzleScreen.Contains(Input.mousePosition))
         //{
