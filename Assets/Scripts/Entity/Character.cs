@@ -55,6 +55,7 @@ public class Character : Entity
 
     Rigidbody2D rb2D;
     Animator animator;
+    SpriteMask spriteMask;
 
     bool isFliped = false;
     Vector3 posPreClimb;
@@ -63,6 +64,7 @@ public class Character : Entity
     {
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
+        spriteMask = GetComponentInChildren<SpriteMask>();
     }
 
     private void FixedUpdate()
@@ -76,6 +78,13 @@ public class Character : Entity
                 Climb();
             }
         }
+
+        UpdateSpriteMask();
+    }
+
+    private void UpdateSpriteMask()
+    {
+        spriteMask.sprite = GetComponentInChildren<SpriteRenderer>().sprite;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -107,6 +116,14 @@ public class Character : Entity
         if (moveHorizontal != 0)
         {
             GetComponentInChildren<SpriteRenderer>().flipX = moveHorizontal > 0;
+            if (moveHorizontal > 0)
+            {
+                spriteMask.transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else
+            {
+                spriteMask.transform.localScale = new Vector3(1, 1, 1);
+            }
 
             if (moveHorizontal > 0 && !isFliped)
                 FlipBigItem();

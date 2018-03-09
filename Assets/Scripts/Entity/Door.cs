@@ -57,6 +57,12 @@ public class Door : Entity
             if (useTags ? (values.item != null && values.item.tag == tagName) : (values.item != null && values.item == key))
             {
                 SetLock(false);
+
+                if (exitDoor != null)
+                {
+                    exitDoor.SetLock(false);
+                }
+
                 if (destroyKeyOnUse)
                 {
                     GameController.instance.GetCurrentCharacter().RemoveItemFromInventory(GameController.instance.SelectedItem);

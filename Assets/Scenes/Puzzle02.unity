@@ -3332,7 +3332,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 709176650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.25, y: -346.93, z: 0}
+  m_LocalPosition: {x: 0.04, y: -250.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1709654332}
@@ -5112,7 +5112,7 @@ MonoBehaviour:
   interactDistance: 1
   canUseCondition:
     aminaUse: 1
-    idaUse: 1
+    idaUse: 0
     jonathanUse: 1
   interactionEvents:
     m_PersistentCalls:
@@ -7122,6 +7122,17 @@ MonoBehaviour:
       - m_Target: {fileID: 160935878}
         m_MethodName: RunDialogue
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1125727284}
+        m_MethodName: SetCanUseIda
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

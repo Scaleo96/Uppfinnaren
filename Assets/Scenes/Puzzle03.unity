@@ -1492,7 +1492,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -386073031
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 659ff683130a42b4d8879710666b0aa6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -9646,7 +9646,7 @@ GameObject:
   - component: {fileID: 1389972168}
   - component: {fileID: 1389972170}
   - component: {fileID: 1389972169}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plushie cat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9697,8 +9697,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1370378791
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d1e1f8b3b08afff4c93c176f45bbd8fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
