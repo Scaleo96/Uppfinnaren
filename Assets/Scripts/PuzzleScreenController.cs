@@ -8,6 +8,13 @@ public class PuzzleScreenController : MonoBehaviour
 
     List<int> deactivatedId = new List<int>();
 
+    Vector3 savedPos;
+    int savedID;
+    float amount = 0.25f;
+    float shake = 0;
+    float shakeAmount = 0.75f;
+    float decreaseAmount = 1;
+
     private void Awake()
     {
         puzzleScreens = new GameObject[transform.childCount];
@@ -17,6 +24,13 @@ public class PuzzleScreenController : MonoBehaviour
         {
             puzzleScreens[i] = transform.GetChild(i).gameObject;
         }
+    }
+
+    public void PuzzleScreenShake(int id)
+    {
+        savedPos = puzzleScreens[id].transform.position;
+        savedID = id;
+        shake = amount;
     }
 
     /// <summary>
@@ -59,6 +73,18 @@ public class PuzzleScreenController : MonoBehaviour
             }
             GameController.instance.SetActiveMovement(true);
             GlobalStatics.PuzzleScreenOn = false;
+        }
+
+        if (shake > 0)
+        {
+            puzzleScreens[savedID].transform.position = (Vector2)puzzleScreens[savedID].transform.position + Random.insideUnitCircle * shakeAmount;
+            shake -= Time.deltaTime * decreaseAmount;
+
+        }
+        else
+        {
+            puzzleScreens[savedID].transform.position = savedPos;
+            shake = 0;
         }
     }
 }

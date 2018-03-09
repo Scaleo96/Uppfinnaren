@@ -13,6 +13,8 @@ static public class GlobalStatics
 
     private static bool puzzleScreenOn = false;
 
+    private static bool movingUI = false;
+
     /// <summary>
     /// What localisation/language to use for text
     /// </summary>
@@ -57,6 +59,18 @@ static public class GlobalStatics
             }
             puzzleScreenOn = value;
             
+        }
+    }
+
+    public static bool MovingUI
+    {
+        get
+        {
+            return movingUI;
+        }
+        set
+        {
+            movingUI = value;
         }
     }
 }
