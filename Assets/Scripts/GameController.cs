@@ -34,6 +34,9 @@ public class GameController : MonoBehaviour
     Character currentCharacter;
     int currentCharID;
 
+    [SerializeField]
+    float cameraChangeIntensity = 2f;
+
     bool canChangeChar = true;
 
     [Header("Mouse Setting")]
@@ -288,8 +291,8 @@ public class GameController : MonoBehaviour
         currentCharacter.SetActive(true);
         ChangeCharacterPortrait();
         cameraComponent.GetComponent<CameraFollow>().Target = currentCharacter.transform;
-        cameraComponent.GetComponent<CameraFollow>().SetPosition(currentCharacter.transform);
-
+        //cameraComponent.GetComponent<CameraFollow>().SetPosition(currentCharacter.transform);
+        cameraComponent.GetComponent<CameraFollow>().SetPosition((Vector2)currentCharacter.transform.position + (Random.insideUnitCircle.normalized * cameraChangeIntensity));
         // Change music
         MusicMixer.MusicController.ActivateAccompanyingTrackExclusive(charID);
 
