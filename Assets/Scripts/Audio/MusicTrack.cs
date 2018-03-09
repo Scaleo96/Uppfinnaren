@@ -145,6 +145,10 @@ namespace MusicMixer
 
         public override string ToString()
         {
+            if (trackClip == null)
+            {
+                return "Missing clip source";
+            }
             string trackName = trackClip.ToString();
             trackName = trackName.Replace(" (UnityEngine.AudioClip)", "");
             return trackName;
