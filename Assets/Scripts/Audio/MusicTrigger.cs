@@ -10,10 +10,14 @@ namespace MusicMixer
         [SerializeField]
         public int selectedComposition = 0;
 
+        // Set to 2 for ignoring raycasts
+        int gameObjectLayer = 2;
+
         private void Start()
         {
             AddTriggerToCamera();
             InitializeComponents();
+            SetLayer();
         }
 
         /// <summary>
@@ -71,6 +75,19 @@ namespace MusicMixer
         private void ChangeMusic()
         {
             MusicController.ActivateMusicComposition(MusicController.Compositions[selectedComposition]);
+        }
+
+        private void OnValidate()
+        {
+            InitializeComponents();
+        }
+
+        private void SetLayer()
+        {
+            if (gameObject.layer != gameObjectLayer)
+            {
+                gameObject.layer = gameObjectLayer;
+            }            
         }
     }
 }

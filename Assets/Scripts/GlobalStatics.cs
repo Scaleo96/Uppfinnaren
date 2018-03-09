@@ -49,7 +49,16 @@ static public class GlobalStatics
         }
         set
         {
+            if (value)
+            {
+                MenUI.Pause.canPause = false;
+            }
+            else
+            {
+                MenUI.Pause.canPause = true;
+            }
             puzzleScreenOn = value;
+            
         }
     }
 
