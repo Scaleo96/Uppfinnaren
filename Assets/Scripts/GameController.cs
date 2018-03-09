@@ -178,6 +178,7 @@ public class GameController : MonoBehaviour
         {
             if (currentCharID < (characters.Length - 1))
             {
+                currentCharacter.gameObject.layer = 10;
                 ChangeCharacter(currentCharID + 1);
             }
             else
@@ -281,11 +282,11 @@ public class GameController : MonoBehaviour
         }
 
         UpdateInventory(charID);
-
         currentCharID = charID;
         currentCharacter = characters[currentCharID];
 
         currentCharacter.SetActive(true);
+        currentCharacter.gameObject.layer = 2;
         ChangeCharacterPortrait();
         cameraComponent.GetComponent<CameraFollow>().Target = currentCharacter.transform;
         cameraComponent.GetComponent<CameraFollow>().SetPosition(currentCharacter.transform);

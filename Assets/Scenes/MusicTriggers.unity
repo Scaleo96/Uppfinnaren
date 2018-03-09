@@ -88,7 +88,6 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -124,7 +123,7 @@ GameObject:
   - component: {fileID: 698302495}
   - component: {fileID: 698302494}
   - component: {fileID: 698302493}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Puzzle 3 Music trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +211,7 @@ GameObject:
   - component: {fileID: 1110936079}
   - component: {fileID: 1110936078}
   - component: {fileID: 1110936077}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Puzzle 3 Music trigger (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

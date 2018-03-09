@@ -8026,7 +8026,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -386073031
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 0a9730b2e705c8d46a7117cc8fac52d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -8563,7 +8563,7 @@ MonoBehaviour:
   entityName: Key to wardrobe
   interactDistance: 1
   canUseCondition:
-    aminaUse: 0
+    aminaUse: 1
     idaUse: 1
     jonathanUse: 1
   interactionEvents:

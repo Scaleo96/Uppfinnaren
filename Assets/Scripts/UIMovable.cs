@@ -31,6 +31,8 @@ public class UIMovable : MonoBehaviour
     [SerializeField]
     bool deactivateOnUse;
 
+    bool eventSent;
+
     [HideInInspector]
     public bool activated;
 
@@ -50,25 +52,22 @@ public class UIMovable : MonoBehaviour
 
         if (raycastHit2D && raycastHit2D.transform.GetComponent<UIMovable>() == this)
         {
-            if (Input.GetButton("Interact"))
+            if (Input.GetButtonDown("Interact") && GlobalStatics.MovingUI == false)
             {
+                GlobalStatics.MovingUI = true;
                 followMouseToggle = true;
             }
-            else
-            {
-                followMouseToggle = false;
-            }
+        }
+        if (Input.GetButtonUp("Interact"))
+        {
+            GlobalStatics.MovingUI = false;
+            followMouseToggle = false;
         }
     }
 
     private void FollowMouse()
     {
-        //RectTransform pusselScreenParent = transform.parent.GetComponent<RectTransform>();
-        //Bounds puzzleScreen = transform.parent.GetComponent<CapsuleCollider2D>().bounds;
-       // if (puzzleScreen.Contains(Input.mousePosition))
-        //{
-            transform.position = Input.mousePosition;
-        //}
+        transform.position = Input.mousePosition;
     }
 
     public void OnTriggerStay2D(Collider2D collision)
@@ -79,9 +78,13 @@ public class UIMovable : MonoBehaviour
             {
                 if (collision == requiredCollision[i])
                 {
-                    continueEnterEvent.Invoke();
+                    if (!eventSent)
+                    {
+                        continueEnterEvent.Invoke();
+                    }
+                    eventSent = true;
                     activated = true;
-                    transform.position = collision.transform.position;
+                    transform.position = new Vector3( collision.transform.position.x, collision.transform.position.y, transform.position.z);
                     if (deactivateOnUse)
                     {
                         this.gameObject.SetActive(false);
@@ -93,8 +96,12 @@ public class UIMovable : MonoBehaviour
             {
                 if (collision == falseCollision[i])
                 {
-                    falseEnterEvent.Invoke();
-                    transform.position = collision.transform.position;
+                    if (!eventSent)
+                    {
+                        falseEnterEvent.Invoke();
+                    }
+                    eventSent = true;
+                    transform.position = new Vector3(collision.transform.position.x, collision.transform.position.y, transform.position.z);
                     if (deactivateOnUse)
                     {
                         this.gameObject.SetActive(false);
@@ -111,6 +118,7 @@ public class UIMovable : MonoBehaviour
             if (collision == requiredCollision[i])
             {
                 continueExitEvent.Invoke();
+                eventSent = false;
                 activated = false;
                 if (deactivateOnUse)
                 {
@@ -124,6 +132,7 @@ public class UIMovable : MonoBehaviour
             if (collision == falseCollision[i])
             {
                 falseExitEvent.Invoke();
+                eventSent = false;
                 if (deactivateOnUse)
                 {
                     this.gameObject.SetActive(false);
