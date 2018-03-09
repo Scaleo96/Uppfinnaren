@@ -12,6 +12,7 @@ namespace MenUI
         private MenuParameters pauseMenuParameters;
 
         private bool isPaused = false;
+        public static bool canPause = true;
 
         [Header("Audio snapshots")]
         [SerializeField]
@@ -38,7 +39,7 @@ namespace MenUI
         }
 
         // Update is called once per frame
-        private void LateUpdate()
+        private void Update()
         {
             HandleInput();
         }
@@ -46,7 +47,7 @@ namespace MenUI
         private void HandleInput()
         {
             // If the "Cancel" input is used
-            if (Input.GetButtonDown("Cancel"))
+            if (Input.GetButtonDown("Cancel") && canPause)
             {
                 // If main menu isn't active and displayed
                 if (!menUI.GetIsInMainMenu())
