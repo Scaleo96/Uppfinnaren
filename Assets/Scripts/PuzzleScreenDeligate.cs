@@ -17,6 +17,11 @@ public class PuzzleScreenDeligate : MonoBehaviour
         puzzleScreenController.ActivateScreen(id);
     }
 
+    public void PuzzleScreenShake(int amount)
+    {
+        puzzleScreenController.PuzzleScreenShake(amount);
+    }
+
     /// <summary>
     /// Deactivates the given screen.
     /// </summary>

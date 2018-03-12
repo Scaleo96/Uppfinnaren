@@ -6246,7 +6246,7 @@ MonoBehaviour:
   requiredActivations:
   - requiredButton: {fileID: 1531678508475618}
     activated: 0
-  - requiredButton: {fileID: 1877584037854846}
+  - requiredButton: {fileID: 1916356526785838}
     activated: 0
   - requiredButton: {fileID: 1877584037854846}
     activated: 0
