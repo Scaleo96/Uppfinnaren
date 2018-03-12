@@ -31,6 +31,7 @@ public class PuzzleScreenController : MonoBehaviour
         savedPos = puzzleScreens[id].transform.position;
         savedID = id;
         shake = amount;
+        Invoke("ResetPosition", shake);
     }
 
     /// <summary>
@@ -83,8 +84,12 @@ public class PuzzleScreenController : MonoBehaviour
         }
         else
         {
-            puzzleScreens[savedID].transform.position = savedPos;
             shake = 0;
         }
+    }
+
+    private void ResetPosition()
+    {
+        puzzleScreens[savedID].transform.position = savedPos;
     }
 }
