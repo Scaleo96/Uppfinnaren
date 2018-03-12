@@ -10,8 +10,8 @@ namespace MusicMixer
         [SerializeField]
         public int selectedComposition = 0;
 
-        // Set to 2 for ignoring raycasts
-        int gameObjectLayer = 2;
+        // Shared layer for camera and triggers. Invasive
+        int gameObjectLayer = 13;
 
         private void Start()
         {
@@ -47,7 +47,7 @@ namespace MusicMixer
             }
 
             // Make camera ignore raycast
-            Camera.main.gameObject.layer = 2;
+            Camera.main.gameObject.layer = gameObjectLayer;
         }
 
         /// <summary>
