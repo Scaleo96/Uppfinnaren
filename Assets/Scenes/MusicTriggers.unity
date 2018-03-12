@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d682f6d2e9983f42af0fb3cac7bd4c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedComposition: 2
+  selectedComposition: 1
 --- !u!61 &1958242829
 BoxCollider2D:
   m_ObjectHideFlags: 0
