@@ -32,3 +32,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cutscenes/OutroCutscene.unity
     guid: 449fca848e9468e4db90d18080d16580
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/IntroSpeech.unity
+    guid: 3a093ec6dcf5c72459ba9e24523d3f6e
