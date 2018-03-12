@@ -41,6 +41,9 @@ public class GameController : MonoBehaviour
 
     [Header("Mouse Setting")]
     [SerializeField]
+    LayerMask selectableLayers;
+
+    [SerializeField]
     Entity hoverEntity;
 
     [SerializeField]
@@ -213,10 +216,10 @@ public class GameController : MonoBehaviour
     {
         hoverTextObject.transform.position = Input.mousePosition;
 
-        RaycastHit2D hit = Physics2D.Raycast(cameraComponent.ScreenToWorldPoint(Input.mousePosition), Vector3.forward, 20);
+        RaycastHit2D hit = Physics2D.Raycast(cameraComponent.ScreenToWorldPoint(Input.mousePosition), Vector3.forward, 20, selectableLayers);
 
         Entity entity;
-        if (hit && hit.transform.GetComponent<Entity>()) // If the mouse is over an entity
+        if (hit && hit.transform.GetComponent<Entity>()) // If the mouse is over an entity  
         {
             entity = hit.transform.GetComponent<Entity>();
             SpriteSwapper spriteSwapper = hit.transform.GetComponentInChildren<SpriteSwapper>();
