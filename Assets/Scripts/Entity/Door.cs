@@ -97,5 +97,8 @@ public class Door : Entity
     {
 
         doorLocked = value;
+
+        string lockedState = value ? "locked" : "unlocked";
+        Logger.Log(EntityName + " was " + lockedState);
     }
 }

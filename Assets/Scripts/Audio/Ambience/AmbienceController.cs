@@ -151,7 +151,7 @@ namespace AmbienceMixer
                     )
                 );
 
-                Debug.Log(ambienceArea.ambienceTracks[i]);
+                // Debug.Log(ambienceArea.ambienceTracks[i]);
 
                 ambienceArea.ambienceTracks[i].trackSource.volume = 0f;
                 ambienceArea.ambienceTracks[i].StartFade(1f, fadeDuration);
