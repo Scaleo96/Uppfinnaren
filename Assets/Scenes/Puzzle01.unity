@@ -937,7 +937,7 @@ MonoBehaviour:
   bigItemSR: {fileID: 1821728337}
   handsFree: 1
   tolerance: 0.3
-  characterportrait: {fileID: 0}
+  characterportrait: {fileID: 21300000, guid: 6ca5d2522dfb89c418c8af9dd66a8d0b, type: 3}
   xClimbOffset: 0.75
   yClimbOffset: 1.08
   canClimb: 0
@@ -10827,6 +10827,12 @@ Prefab:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114338533911277798, guid: 0a21799549a92c44a8243abe15072150,
+        type: 2}
+      propertyPath: characterportrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 4bcd746692595b74ba663c37ba4f7516,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 331469341952699026, guid: 0a21799549a92c44a8243abe15072150, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 0a21799549a92c44a8243abe15072150, type: 2}
@@ -24952,6 +24958,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114511777464100250, guid: 725daacbc8f12d844a499d6af5624ffe,
+        type: 2}
+      propertyPath: ContinueEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 224549810366154436, guid: 725daacbc8f12d844a499d6af5624ffe,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -25108,9 +25119,39 @@ Prefab:
       propertyPath: ContinueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 471427602}
+    - target: {fileID: 114511777464100250, guid: 725daacbc8f12d844a499d6af5624ffe,
+        type: 2}
+      propertyPath: ContinueEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114511777464100250, guid: 725daacbc8f12d844a499d6af5624ffe,
+        type: 2}
+      propertyPath: ContinueEvent.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114511777464100250, guid: 725daacbc8f12d844a499d6af5624ffe,
+        type: 2}
+      propertyPath: ContinueEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1536279666}
+    - target: {fileID: 114511777464100250, guid: 725daacbc8f12d844a499d6af5624ffe,
+        type: 2}
+      propertyPath: ContinueEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 114511777464100250, guid: 725daacbc8f12d844a499d6af5624ffe,
+        type: 2}
+      propertyPath: ContinueEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 725daacbc8f12d844a499d6af5624ffe, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1536279666 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1216516540729682, guid: 725daacbc8f12d844a499d6af5624ffe,
+    type: 2}
+  m_PrefabInternal: {fileID: 1536279665}
 --- !u!1 &1550711073
 GameObject:
   m_ObjectHideFlags: 0
@@ -27893,6 +27934,7 @@ MonoBehaviour:
   - {fileID: 977030939}
   - {fileID: 60444624}
   - {fileID: 1361693362}
+  cameraChangeIntensity: 2
   hoverEntity: {fileID: 0}
   selectedEntity: {fileID: 0}
   hoverTextObject: {fileID: 2037746169}
@@ -28493,6 +28535,12 @@ Prefab:
       propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114625092569386606, guid: a05db187807bfda4fa72d535dbb98ade,
+        type: 2}
+      propertyPath: characterportrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 97d83e1e00f554849b327d94c31e1887,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 331497800653664780, guid: a05db187807bfda4fa72d535dbb98ade, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a05db187807bfda4fa72d535dbb98ade, type: 2}
