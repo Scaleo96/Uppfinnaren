@@ -939,7 +939,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   isActive: 0
-  walkSpeed: 5
+  walkSpeed: 2
   throwForce: 1.5
   inventorySize: 2
   items: []
@@ -9329,7 +9329,7 @@ MonoBehaviour:
   lockY: 0
   lockX: 0
   XAndYIdelMargin: {x: 0, y: 0}
-  XAndYOffset: {x: 0, y: 1.8}
+  XAndYOffset: {x: 0, y: 1}
   lerpSpeedX: 1.5
   lerpSpeedY: 1.5
   lerpToMouseSpeedX: 0
@@ -10846,6 +10846,11 @@ Prefab:
     - target: {fileID: 4119805674190928, guid: 0a21799549a92c44a8243abe15072150, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114338533911277798, guid: 0a21799549a92c44a8243abe15072150,
+        type: 2}
+      propertyPath: walkSpeed
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 331469341952699026, guid: 0a21799549a92c44a8243abe15072150, type: 2}
@@ -25072,12 +25077,12 @@ Prefab:
     - target: {fileID: 224549810366154436, guid: 725daacbc8f12d844a499d6af5624ffe,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 204
+      value: 571
       objectReference: {fileID: 0}
     - target: {fileID: 224549810366154436, guid: 725daacbc8f12d844a499d6af5624ffe,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 279
+      value: 263
       objectReference: {fileID: 0}
     - target: {fileID: 224549810366154436, guid: 725daacbc8f12d844a499d6af5624ffe,
         type: 2}
@@ -25256,7 +25261,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1795309464676512, guid: 725daacbc8f12d844a499d6af5624ffe, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1057580742834584, guid: 725daacbc8f12d844a499d6af5624ffe, type: 2}
       propertyPath: m_IsActive
@@ -28549,6 +28554,7 @@ MonoBehaviour:
   - {fileID: 977030939}
   - {fileID: 60444624}
   - {fileID: 1361693362}
+  cameraChangeIntensity: 2
   hoverEntity: {fileID: 0}
   selectedEntity: {fileID: 0}
   hoverTextObject: {fileID: 2037746169}
@@ -29076,11 +29082,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4790733292953386, guid: a05db187807bfda4fa72d535dbb98ade, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -15.57
+      value: 13.8
       objectReference: {fileID: 0}
     - target: {fileID: 4790733292953386, guid: a05db187807bfda4fa72d535dbb98ade, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.02
+      value: 72.1
       objectReference: {fileID: 0}
     - target: {fileID: 4790733292953386, guid: a05db187807bfda4fa72d535dbb98ade, type: 2}
       propertyPath: m_LocalPosition.z
@@ -29148,6 +29154,11 @@ Prefab:
         type: 2}
       propertyPath: m_SortingLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114625092569386606, guid: a05db187807bfda4fa72d535dbb98ade,
+        type: 2}
+      propertyPath: walkSpeed
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 331497800653664780, guid: a05db187807bfda4fa72d535dbb98ade, type: 2}
@@ -31656,7 +31667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorLockMode: 0
-  cursorOffset: {x: 20, y: 15}
+  cursorOffset: {x: 25, y: 15}
   defaultCursor: {fileID: 2800000, guid: dd065eb8d7577a247bce712b7397e799, type: 3}
   hoverCursor: {fileID: 2800000, guid: 744868997479cfd4a87b5193c825d5f7, type: 3}
   clickCursor: {fileID: 2800000, guid: e7201228089d2fb44a39f4212206e1bf, type: 3}
