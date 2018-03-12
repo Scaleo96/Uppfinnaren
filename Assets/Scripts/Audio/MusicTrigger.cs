@@ -45,6 +45,9 @@ namespace MusicMixer
                 // Add collider and make it a trigger
                 Camera.main.gameObject.AddComponent<BoxCollider2D>().isTrigger = true;
             }
+
+            // Make camera ignore raycast
+            Camera.main.gameObject.layer = 2;
         }
 
         /// <summary>
