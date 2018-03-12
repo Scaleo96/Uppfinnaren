@@ -191,6 +191,19 @@ public class GameController : MonoBehaviour
         }
 
         RaycastSelect();
+        RenderPortrait();
+    }
+
+    private void RenderPortrait()
+    {
+        if (GlobalStatics.PuzzleScreenOn)
+        {
+            characterPortraitObject.gameObject.SetActive(true);
+        }
+        else
+        {
+            characterPortraitObject.gameObject.SetActive(false);
+        }
     }
 
     /// <summary>
