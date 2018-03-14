@@ -275,11 +275,13 @@ MonoBehaviour:
   bigItemSR: {fileID: 212108296171813930}
   handsFree: 1
   tolerance: 0.3
-  characterportrait: {fileID: 21300000, guid: 6ca5d2522dfb89c418c8af9dd66a8d0b, type: 3}
+  characterportrait: {fileID: 21300000, guid: 5d47e8f6f5cbf1f4eb290779ec2f1037, type: 3}
   xClimbOffset: 0.75
   yClimbOffset: 1.08
   canClimb: 1
   climbDistance: 0.5
+  stepSoundSource: {fileID: 0}
+  materialStepSounds: []
 --- !u!212 &212108296171813930
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -375,7 +377,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1817792378054562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -14.709999, y: 0.9399986, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4019633003710438}
