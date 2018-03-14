@@ -73,7 +73,7 @@ public class Character : Entity
         {
             Move();
 
-            if (Input.GetKey(KeyCode.W))
+            if (canClimb && Input.GetButtonDown("Climb"))
             {
                 Climb();
             }
