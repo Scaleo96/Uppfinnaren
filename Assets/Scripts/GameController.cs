@@ -44,7 +44,7 @@ public class GameController : MonoBehaviour
     LayerMask selectableLayers;
 
     [SerializeField]
-    Entity hoverEntity;
+    GameObject hoverEntity;
 
     [SerializeField]
     Entity selectedEntity;
@@ -85,7 +85,7 @@ public class GameController : MonoBehaviour
     /// <summary>
     /// The entity that the mouse is hovering over.
     /// </summary>
-    public Entity HoverEntity
+    public GameObject HoverEntity
     {
         get
         {
@@ -169,7 +169,7 @@ public class GameController : MonoBehaviour
                 UpdateInventory(currentCharID);
             }
         }
-        else if ((Input.GetButtonDown("Right Click") || Input.GetButtonDown("Change Character")) && isHoldingItem)
+        else if ((Input.GetButtonDown("Right Click") && isHoldingItem || Input.GetButtonDown("Change Character")) && isHoldingItem)
         {
             DeselectItem(selectedInventorySlot);
             UpdateInventory(currentCharID);
@@ -217,8 +217,11 @@ public class GameController : MonoBehaviour
         hoverTextObject.transform.position = Input.mousePosition;
 
         RaycastHit2D hit = Physics2D.Raycast(cameraComponent.ScreenToWorldPoint(Input.mousePosition), Vector3.forward, 20, selectableLayers);
+        RaycastHit2D raycastHit2D = Physics2D.Raycast(Input.mousePosition, Vector3.forward, 20);
+
 
         Entity entity;
+
         if (hit && hit.transform.GetComponent<Entity>()) // If the mouse is over an entity  
         {
             entity = hit.transform.GetComponent<Entity>();
@@ -233,7 +236,7 @@ public class GameController : MonoBehaviour
             {
                 spriteSwapper.SetAlternativeSpriteThisFrame();
             }
-            
+
 
             if (!textFollowMouse)
             {
@@ -247,7 +250,7 @@ public class GameController : MonoBehaviour
                 hoverTextObject.transform.position = cameraComponent.WorldToScreenPoint(hoverTextObject.transform.position);
             }
 
-            hoverEntity = entity;
+            hoverEntity = entity.gameObject;
 
             // Interact
             float distance = (entity.transform.position - currentCharacter.transform.position).magnitude;
@@ -262,6 +265,17 @@ public class GameController : MonoBehaviour
         {
             hoverText.text = "";
             hoverEntity = null;
+        }
+
+        if (raycastHit2D && raycastHit2D.transform.gameObject.tag == "Inventory")
+        {
+            hoverEntity = raycastHit2D.transform.gameObject;
+
+            if (Input.GetButtonDown("Interact") && isHoldingItem)
+            {
+                DeselectItem(selectedInventorySlot);
+                UpdateInventory(currentCharID);
+            }
         }
     }
 
@@ -318,7 +332,7 @@ public class GameController : MonoBehaviour
 
     private void ChangeCharacterPortrait()
     {
-        if(currentCharacter.Characterportrait != null)
+        if (currentCharacter.Characterportrait != null)
         {
             characterPortraitObject.sprite = currentCharacter.Characterportrait;
         }
@@ -374,7 +388,7 @@ public class GameController : MonoBehaviour
             }
 
             UpdateInventorySlotImage(inventorySlot);
-            inventorySlot.button.onClick.AddListener(new UnityAction( delegate { SelectItem(inventorySlot); } ));
+            inventorySlot.button.onClick.AddListener(new UnityAction(delegate { SelectItem(inventorySlot); }));
 
             inventorySlots[charID][i] = inventorySlot;
         }
