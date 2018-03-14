@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public struct MaterialStepSounds
+{
+    public Material material;
+    public List<AudioClip> stepSounds;
+}
+
 [RequireComponent(typeof(Rigidbody2D))]
 public class Character : Entity
 {
@@ -39,7 +46,7 @@ public class Character : Entity
 
     [SerializeField]
     Sprite characterportrait;
-    
+
     [SerializeField]
     float xClimbOffset = 0.75f;
     [SerializeField]
@@ -59,6 +66,13 @@ public class Character : Entity
 
     bool isFliped = false;
     Vector3 posPreClimb;
+
+    [Header("> Sound")]
+    [SerializeField]
+    AudioSource stepSoundSource;
+
+    [SerializeField]
+    List<MaterialStepSounds> materialStepSounds;
 
     private void Awake()
     {
@@ -230,6 +244,55 @@ public class Character : Entity
         handsFree = true;
     }
 
+    public void PlayStepSound()
+    {
+        AudioClip stepSound = DetermineStepSound();
+        stepSoundSource.clip = stepSound;
+
+        stepSoundSource.Play();
+    }
+
+    /// <summary>
+    /// Checks the material of the ground currently below the player (if any at all).
+    /// </summary>
+    private Material GroundMaterialCheck()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 4f, GameController.instance.GroundLayer);
+        if (hit)
+        {
+            MaterialScript material = hit.transform.GetComponent<MaterialScript>();
+            if (material)
+            {
+                return material.Material;
+            }
+        }
+
+        return Material.None;
+    }
+
+    /// <summary>
+    /// Choses a random step sound related to the current ground material.
+    /// </summary>
+    private AudioClip DetermineStepSound()
+    {
+        Material material = GroundMaterialCheck();
+
+        List<AudioClip> availableStepSounds = new List<AudioClip>();
+        foreach (MaterialStepSounds materialStepSounds in materialStepSounds)
+        {
+            if (materialStepSounds.material == material)
+            {
+                foreach (AudioClip audioClip in materialStepSounds.stepSounds)
+                {
+                    availableStepSounds.Add(audioClip);
+                }
+            }
+        }
+
+        AudioClip chosenStepSound = availableStepSounds[Random.Range(0, availableStepSounds.Count)];
+        return chosenStepSound;
+    }
+
     public bool DropItem(Item item)
     {
         item.gameObject.SetActive(true);
@@ -251,9 +314,9 @@ public class Character : Entity
 
         RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, direction, climbDistance);
 
-        foreach(RaycastHit2D hit in hits)
+        foreach (RaycastHit2D hit in hits)
         {
-            if(hit.collider.tag == "Climbable")
+            if (hit.collider.tag == "Climbable")
             {
                 posPreClimb = transform.position;
                 animator.SetTrigger("climb");
