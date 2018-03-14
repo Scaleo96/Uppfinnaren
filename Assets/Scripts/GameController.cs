@@ -200,16 +200,18 @@ public class GameController : MonoBehaviour
             }
         }
 
-        if (currentCharacter.HasBigItem())
+        if (throwCursor != null)
         {
-            throwCursor.gameObject.SetActive(true);
-            throwCursor.transform.position = cameraComponent.ScreenToWorldPoint(Input.mousePosition);
-            throwCursor.transform.
-            throwCursor.transform.localScale = new Vector3(Vector3.Distance(cameraComponent.ScreenToWorldPoint(Input.mousePosition), currentCharacter.transform.position), 1, 1);
-        }
-        else
-        {
-            throwCursor.gameObject.SetActive(false);
+            if (currentCharacter.HasBigItem())
+            {
+                throwCursor.gameObject.SetActive(true);
+                throwCursor.transform.position = cameraComponent.ScreenToWorldPoint(Input.mousePosition);
+                throwCursor.transform.localScale = new Vector3(Vector3.Distance(cameraComponent.ScreenToWorldPoint(Input.mousePosition), currentCharacter.transform.position), 1, 1);
+            }
+            else
+            {
+                throwCursor.gameObject.SetActive(false);
+            }
         }
 
         RaycastSelect();
