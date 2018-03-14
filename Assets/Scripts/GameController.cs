@@ -86,6 +86,10 @@ public class GameController : MonoBehaviour
     Image characterPortraitObject;
 
     CursorController cursorController;
+
+    [SerializeField]
+    GameObject throwCursor;
+
     /// <summary>
     /// The entity that the mouse is hovering over.
     /// </summary>
@@ -194,6 +198,18 @@ public class GameController : MonoBehaviour
             {
                 ChangeCharacter(0);
             }
+        }
+
+        if (currentCharacter.HasBigItem())
+        {
+            throwCursor.gameObject.SetActive(true);
+            throwCursor.transform.position = cameraComponent.ScreenToWorldPoint(Input.mousePosition);
+            throwCursor.transform.
+            throwCursor.transform.localScale = new Vector3(Vector3.Distance(cameraComponent.ScreenToWorldPoint(Input.mousePosition), currentCharacter.transform.position), 1, 1);
+        }
+        else
+        {
+            throwCursor.gameObject.SetActive(false);
         }
 
         RaycastSelect();
