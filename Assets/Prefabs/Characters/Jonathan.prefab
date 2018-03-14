@@ -342,7 +342,7 @@ MonoBehaviour:
   bigItemSR: {fileID: 212726890163442920}
   handsFree: 1
   tolerance: 0.3
-  characterportrait: {fileID: 21300000, guid: 97d83e1e00f554849b327d94c31e1887, type: 3}
+  characterportrait: {fileID: 21300000, guid: 66303445f1d8a6145b39943c08fcb721, type: 3}
   xClimbOffset: 0.75
   yClimbOffset: 1
   canClimb: 0
