@@ -44,6 +44,7 @@ public class Entity : MonoBehaviour
     {
         if (canUseCondition.CanInteract(values.character) == true && !usedOnce)
         {
+            Logger.Log("Player clicked [" + EntityName + "] with [" + GameController.instance.GetCurrentCharacter().EntityName + "] successfully.");
             OnInteract(values);
             if (canOnlyBeUsedOnce)
             {
@@ -52,6 +53,7 @@ public class Entity : MonoBehaviour
         }
         else if (canUseCondition.CanInteract(values.character) == false)
         {
+            Logger.Log("Player clicked [" + EntityName + "] with [" + GameController.instance.GetCurrentCharacter().EntityName + "] unsuccessfully.");
             OnCantUse(values);
         }
        

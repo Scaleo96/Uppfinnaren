@@ -11,11 +11,6 @@ namespace MenUI
         private const string SFX_VOL_PREF = "sfxVol";
         private const string AMBIENCE_VOL_PREF = "ambienceVol";
 
-        private void Awake()
-        {
-            LoadPrefs();
-        }
-
         /// <summary>
         /// Audio
         /// </summary>
@@ -37,10 +32,12 @@ namespace MenUI
         private Slider ambienceVolSlider;
 
         [SerializeField]
-        private Toggle SubtitlesToggle;
+        private Toggle languageToggle; 
 
-        private static bool subtitlesEnabled = true;
-        
+        private void Awake()
+        {
+            LoadPrefs();
+        }
 
         /// <summary>
         /// Adjusts specified audio groups volume
@@ -49,7 +46,12 @@ namespace MenUI
         /// <param name="audioGroup">Mixer group</param>
         private void SetAudioLevel(float audioLevel, string audioGroup)
         {
-            masterMixer.SetFloat(audioGroup, audioLevel);
+            // TODO: Better math?
+            float logFloat = audioLevel * 4000f;
+            logFloat = -80f + Mathf.Log(logFloat) * 10f;
+            logFloat = Mathf.Clamp(logFloat, -80f, 10f);
+
+            masterMixer.SetFloat(audioGroup, logFloat);
             PlayerPrefs.SetFloat(audioGroup, audioLevel);
             PlayerPrefs.Save();
         }
@@ -67,13 +69,13 @@ namespace MenUI
 
             // Set slider values to correspond to the actual volume
             SetSliderValues(masterVolSlider, MASTER_VOL_PREF);
-            SetSliderValues(musicVolSlider, "musicVol");
+            SetSliderValues(musicVolSlider, MUSIC_VOL_PREF);
             SetSliderValues(sfxVolSlider, SFX_VOL_PREF);
-            SetSliderValues(sfxVolSlider, AMBIENCE_VOL_PREF);
+            SetSliderValues(ambienceVolSlider, AMBIENCE_VOL_PREF);
 
-            // Load subtitles settings
-            SubtitlesEnabled((PlayerPrefs.GetInt("subtitles", 1) == 1 ? true : false));
-            SubtitlesToggle.isOn = subtitlesEnabled;
+            // Load language settings
+            SetLanguageToEnglish((PlayerPrefs.GetInt("isEnglish", 1) == 1 ? true : false));
+            //languageToggle.isOn = languageIsEnglish;
         }
 
         /// <summary>
@@ -81,17 +83,9 @@ namespace MenUI
         /// </summary>
         /// <param name="slider">Slider to set</param>
         /// <param name="mixerGroup">String name of the mixer group</param>
-        private void SetSliderValues(Slider slider, string mixerGroup)
+        private void SetSliderValues(Slider slider, string preferenceString)
         {
-            float volume;
-            if (masterMixer.GetFloat(mixerGroup, out volume))
-            {
-                slider.value = volume;
-            }
-            else
-            {
-                if (Debug.isDebugBuild) Debug.LogWarning("Unable to change slider value - Incompatible mixer group key", slider);
-            }
+            slider.value = PlayerPrefs.GetFloat(preferenceString);
         }
 
         public void SetMasterLevel(float audioLevel)
@@ -114,10 +108,9 @@ namespace MenUI
             SetAudioLevel(audioLevel, AMBIENCE_VOL_PREF);
         }
 
-        public void SubtitlesEnabled(bool enableSubtitles)
+        public void SetLanguageToEnglish(bool isEnglish)
         {
-            subtitlesEnabled = enableSubtitles;
-            PlayerPrefs.SetInt("subtitles", (enableSubtitles ? 1 : 0));
+            PlayerPrefs.SetInt("isEnglish", (isEnglish ? 1 : 0));
             PlayerPrefs.Save();
         }
     }

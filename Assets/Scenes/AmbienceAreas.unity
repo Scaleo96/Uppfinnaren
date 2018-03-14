@@ -113,6 +113,60 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &73942105
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 73942106}
+  - component: {fileID: 73942107}
+  m_Layer: 2
+  m_Name: Bathroom Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &73942106
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 73942105}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.99, y: 87.46, z: 0}
+  m_LocalScale: {x: 12.2, y: 6.2, z: 0.98529446}
+  m_Children: []
+  m_Father: {fileID: 1113709575}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &73942107
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 73942105}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &658116816
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 658116817}
   - component: {fileID: 658116818}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Shed area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,6 +221,60 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1001724650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1001724652}
+  - component: {fileID: 1001724651}
+  m_Layer: 2
+  m_Name: First Floor Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &1001724651
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1001724650}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!4 &1001724652
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1001724650}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15.34, y: 79.64, z: 0}
+  m_LocalScale: {x: 49.58976, y: 27.066824, z: 0.98529446}
+  m_Children: []
+  m_Father: {fileID: 1113709575}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1113709573
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +284,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1113709575}
   - component: {fileID: 1113709574}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Ambience Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,6 +317,20 @@ MonoBehaviour:
     mixerGroup: {fileID: 243020418535154862, guid: 0da65e85ae3e14541bb9ef961581f29c,
       type: 2}
     ambienceTracks: []
+  - name: First Floor Area
+    area: {fileID: 1001724651}
+    ambienceClips:
+    - {fileID: 8300000, guid: 73ff8b5ce9dcf6246ade3f1388ff97b0, type: 3}
+    mixerGroup: {fileID: 243020418535154862, guid: 0da65e85ae3e14541bb9ef961581f29c,
+      type: 2}
+    ambienceTracks: []
+  - name: Bathroom Area
+    area: {fileID: 73942107}
+    ambienceClips:
+    - {fileID: 8300000, guid: 16c4b991a721e444fb9767bcaaa36d40, type: 3}
+    mixerGroup: {fileID: 243020418535154862, guid: 0da65e85ae3e14541bb9ef961581f29c,
+      type: 2}
+    ambienceTracks: []
 --- !u!4 &1113709575
 Transform:
   m_ObjectHideFlags: 0
@@ -221,6 +343,8 @@ Transform:
   m_Children:
   - {fileID: 1495750491}
   - {fileID: 658116817}
+  - {fileID: 1001724652}
+  - {fileID: 73942106}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -233,7 +357,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1495750491}
   - component: {fileID: 1495750490}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Outside Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}

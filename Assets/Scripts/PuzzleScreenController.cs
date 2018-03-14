@@ -8,6 +8,13 @@ public class PuzzleScreenController : MonoBehaviour
 
     List<int> deactivatedId = new List<int>();
 
+    Vector3 savedPos;
+    int savedID;
+    float amount = 0.25f;
+    float shake = 0;
+    float shakeAmount = 0.75f;
+    float decreaseAmount = 1;
+
     private void Awake()
     {
         puzzleScreens = new GameObject[transform.childCount];
@@ -19,6 +26,14 @@ public class PuzzleScreenController : MonoBehaviour
         }
     }
 
+    public void PuzzleScreenShake(int id)
+    {
+        savedPos = puzzleScreens[id].transform.position;
+        savedID = id;
+        shake = amount;
+        Invoke("ResetPosition", shake);
+    }
+
     /// <summary>
     /// Activates the given screen.
     /// </summary>
@@ -27,6 +42,7 @@ public class PuzzleScreenController : MonoBehaviour
     {
         if (!deactivatedId.Contains(id))
         {
+            GlobalStatics.PuzzleScreenOn = true;
             puzzleScreens[id].SetActive(true);
             GameController.instance.SetActiveMovement(false);
         }
@@ -38,7 +54,7 @@ public class PuzzleScreenController : MonoBehaviour
     /// <param name="id">The id of the screen.</param>
     public void DeactivateScreen(int id)
     {
-
+        GlobalStatics.PuzzleScreenOn = false;
         puzzleScreens[id].SetActive(false);
         GameController.instance.SetActiveMovement(true);
     }
@@ -57,6 +73,23 @@ public class PuzzleScreenController : MonoBehaviour
                 puzzleScreens[i].SetActive(false);
             }
             GameController.instance.SetActiveMovement(true);
+            GlobalStatics.PuzzleScreenOn = false;
         }
+
+        if (shake > 0)
+        {
+            puzzleScreens[savedID].transform.position = (Vector2)puzzleScreens[savedID].transform.position + Random.insideUnitCircle * shakeAmount;
+            shake -= Time.deltaTime * decreaseAmount;
+
+        }
+        else
+        {
+            shake = 0;
+        }
+    }
+
+    private void ResetPosition()
+    {
+        puzzleScreens[savedID].transform.position = savedPos;
     }
 }

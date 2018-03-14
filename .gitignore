@@ -37,3 +37,4 @@ sysinfo.txt
 *.apk
 *.unitypackage
 ProjectSettings/ProjectVersion.txt
+Assets/Materials/SteamCloud.mat

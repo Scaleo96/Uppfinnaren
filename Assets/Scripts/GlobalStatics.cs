@@ -5,13 +5,15 @@ using UnityEngine;
 static public class GlobalStatics
 {
     const ELanguage DEFAULT_LANGUAGE = ELanguage.Swedish;
-
-    public static bool isFirstRun = true;
-
+    
     /// <summary>
     /// What localisation/language to use for text
     /// </summary>
     private static ELanguage language;
+
+    private static bool puzzleScreenOn = false;
+
+    private static bool movingUI = false;
 
     /// <summary>
     /// What localisation/language to use for text
@@ -36,6 +38,39 @@ static public class GlobalStatics
         set
         {
             language = value;
+        }
+    }
+
+    public static bool PuzzleScreenOn
+    {
+        get
+        {
+            return puzzleScreenOn;
+        }
+        set
+        {
+            if (value)
+            {
+                MenUI.Pause.canPause = false;
+            }
+            else
+            {
+                MenUI.Pause.canPause = true;
+            }
+            puzzleScreenOn = value;
+            
+        }
+    }
+
+    public static bool MovingUI
+    {
+        get
+        {
+            return movingUI;
+        }
+        set
+        {
+            movingUI = value;
         }
     }
 }

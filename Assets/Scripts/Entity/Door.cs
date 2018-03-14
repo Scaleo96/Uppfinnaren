@@ -48,14 +48,21 @@ public class Door : Entity
 
             values.trigger = EntityValues.TriggerType.EnterDoor;
             base.OnInteract(values);
+
         }
         else if (doorLocked == true)
         {
             base.OnInteract(values);
 
-            if (useTags ? (values.item.tag == tagName) : (values.item != null && values.item == key))
+            if (useTags ? (values.item != null && values.item.tag == tagName) : (values.item != null && values.item == key))
             {
                 SetLock(false);
+
+                if (exitDoor != null)
+                {
+                    exitDoor.SetLock(false);
+                }
+
                 if (destroyKeyOnUse)
                 {
                     GameController.instance.GetCurrentCharacter().RemoveItemFromInventory(GameController.instance.SelectedItem);
@@ -90,5 +97,8 @@ public class Door : Entity
     {
 
         doorLocked = value;
+
+        string lockedState = value ? "locked" : "unlocked";
+        Logger.Log(EntityName + " was " + lockedState);
     }
 }

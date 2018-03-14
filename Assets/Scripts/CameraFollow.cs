@@ -96,12 +96,12 @@ public class CameraFollow : MonoBehaviour
         transform.position = new Vector3(targetTransform.position.x + XAndYOffset.x, targetTransform.position.y + XAndYOffset.y, transform.position.z);
     }
 
-    public void SetPosition(Vector2 targetPosition)
+    public void SetPosition(Vector3 targetPosition)
     {
         transform.position = new Vector3(targetPosition.x + XAndYOffset.x, targetPosition.y + XAndYOffset.y, transform.position.z);
     }
 
-    // Draw target idel area.s
+    // Draw target idel area.
     void OnDrawGizmos()
     {
         Vector3 gizmoPos = new Vector3(transform.position.x - XAndYOffset.x, transform.position.y - XAndYOffset.y, transform.position.z);

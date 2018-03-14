@@ -8,6 +8,10 @@ TagManager:
   - Hat
   - Apple
   - ClosetKey
+  - UpstairsKey
+  - Climbable
+  - Attickey
+  - Inventory
   layers:
   - Default
   - TransparentFX
@@ -22,7 +26,7 @@ TagManager:
   - Characters
   - Hover
   - PlayerOnly
-  - 
+  - AudioLayer
   - 
   - 
   - 

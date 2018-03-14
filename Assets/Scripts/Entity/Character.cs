@@ -44,6 +44,29 @@ public class Character : Entity
     [SerializeField]
     float tolerance = 0.3f;
 
+    [SerializeField]
+    Sprite characterportrait;
+
+    [SerializeField]
+    float xClimbOffset = 0.75f;
+    [SerializeField]
+    float yClimbOffset = 1;
+
+    [SerializeField]
+    bool canClimb;
+
+    [SerializeField]
+    float climbDistance = 0.5f;
+
+    bool isInClimbArea;
+
+    Rigidbody2D rb2D;
+    Animator animator;
+    SpriteMask spriteMask;
+
+    bool isFliped = false;
+    Vector3 posPreClimb;
+
     [Header("> Sound")]
     [SerializeField]
     AudioSource stepSoundSource;
@@ -51,15 +74,11 @@ public class Character : Entity
     [SerializeField]
     List<MaterialStepSounds> materialStepSounds;
 
-    Rigidbody2D rb2D;
-    Animator animator;
-
-    bool isFliped = false;
-
     private void Awake()
     {
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
+        spriteMask = GetComponentInChildren<SpriteMask>();
     }
 
     private void FixedUpdate()
@@ -67,7 +86,19 @@ public class Character : Entity
         if (isActive)
         {
             Move();
+
+            if (canClimb && Input.GetButtonDown("Climb"))
+            {
+                Climb();
+            }
         }
+
+        UpdateSpriteMask();
+    }
+
+    private void UpdateSpriteMask()
+    {
+        spriteMask.sprite = GetComponentInChildren<SpriteRenderer>().sprite;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -99,8 +130,15 @@ public class Character : Entity
         if (moveHorizontal != 0)
         {
             GetComponentInChildren<SpriteRenderer>().flipX = moveHorizontal > 0;
+            if (moveHorizontal > 0)
+            {
+                spriteMask.transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else
+            {
+                spriteMask.transform.localScale = new Vector3(1, 1, 1);
+            }
 
-            // Flip big item;
             if (moveHorizontal > 0 && !isFliped)
                 FlipBigItem();
             else if (moveHorizontal < 0 && isFliped)
@@ -108,7 +146,6 @@ public class Character : Entity
         }
     }
 
-    // Flip big item when character turns.
     private void FlipBigItem()
     {
         isFliped = !isFliped;
@@ -135,11 +172,6 @@ public class Character : Entity
         }
     }
 
-    /// <summary>
-    /// Set the big item.
-    /// </summary>
-    /// <param Big item to add="item"></param>
-    /// <returns></returns>
     public bool AddBigItem(BigItem item)
     {
         if (bigItem == null)
@@ -177,10 +209,6 @@ public class Character : Entity
         return false;
     }
 
-    /// <summary>
-    /// Returns true if the active player has a big item.
-    /// </summary>
-    /// <returns></returns>
     public bool HasBigItem()
     {
         if (bigItem != null)
@@ -191,13 +219,11 @@ public class Character : Entity
         return false;
     }
 
-    /// <summary>
-    /// Drops the big item from the active character.
-    /// </summary>
     public void DropBigItem()
     {
         bigItem.gameObject.SetActive(true);
         bigItem.gameObject.transform.position = bigItemSR.transform.position;
+        bigItem.gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
 
         Vector2 throwDir = GameController.instance.CameraComponent.ScreenToWorldPoint(Input.mousePosition) - bigItemSR.transform.position;
         bigItem.gameObject.GetComponent<Rigidbody2D>().AddForce(throwDir * throwForce, ForceMode2D.Impulse);
@@ -255,7 +281,7 @@ public class Character : Entity
         foreach (MaterialStepSounds materialStepSounds in materialStepSounds)
         {
             if (materialStepSounds.material == material)
-            {              
+            {
                 foreach (AudioClip audioClip in materialStepSounds.stepSounds)
                 {
                     availableStepSounds.Add(audioClip);
@@ -275,7 +301,36 @@ public class Character : Entity
         Vector2 throwDir = GameController.instance.CameraComponent.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         item.gameObject.GetComponent<Rigidbody2D>().AddForce(throwDir * throwForce, ForceMode2D.Impulse);
 
+        Logger.Log("Player dropped item [" + item.EntityName + "] with [" + EntityName + "].");
         return items.Remove(item);
+    }
+
+    public void Climb()
+    {
+        if (rb2D.velocity != Vector2.zero)
+            return;
+
+        Vector2 direction = isFliped ? Vector2.right : Vector2.left;
+
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, direction, climbDistance);
+
+        foreach (RaycastHit2D hit in hits)
+        {
+            if (hit.collider.tag == "Climbable")
+            {
+                posPreClimb = transform.position;
+                animator.SetTrigger("climb");
+                isActive = false;
+            }
+        }
+    }
+
+    public void TeleportToTarget()
+    {
+        float x = isFliped ? xClimbOffset : -xClimbOffset;
+
+        transform.position = new Vector3(posPreClimb.x + x, posPreClimb.y + yClimbOffset, posPreClimb.z);
+        isActive = true;
     }
 
     public int InventorySize
@@ -318,6 +373,19 @@ public class Character : Entity
         }
     }
 
+    public bool IsInClimbArea
+    {
+        get
+        {
+            return isInClimbArea;
+        }
+
+        set
+        {
+            isInClimbArea = value;
+        }
+    }
+
     public Item GetItemFromInventory(int index)
     {
         return items[index];
@@ -326,5 +394,13 @@ public class Character : Entity
     public int GetItemCount()
     {
         return items.Count;
+    }
+
+    public Sprite Characterportrait
+    {
+        get
+        {
+            return characterportrait;
+        }
     }
 }

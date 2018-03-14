@@ -137,9 +137,9 @@ namespace MusicMixer
         }
 
         // Stop track
-        public static void StopTrack()
+        public static void StopTrack(MusicTrack track)
         {
-            ActiveMusicPlayer.StopTrack();
+            ActiveMusicPlayer.StopTrack(track);
         }
 
         /// <summary>
@@ -220,6 +220,14 @@ namespace MusicMixer
         public static void ActivateAccompanyingTrackExclusive(int compIndex)
         {
             ActiveMusicPlayer.ActiveAccompanyingTrack = compIndex;
+        }
+
+        public static void DeactivateAllCompositions()
+        {
+            foreach (MusicComposition composition in ActiveMusicPlayer.compositions)
+            {
+                composition.DeactivateComposition();
+            }
         }
     }
 }

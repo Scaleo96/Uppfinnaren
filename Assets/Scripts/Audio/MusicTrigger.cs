@@ -10,10 +10,14 @@ namespace MusicMixer
         [SerializeField]
         public int selectedComposition = 0;
 
+        // Shared layer for camera and triggers. Invasive
+        int gameObjectLayer = 13;
+
         private void Start()
         {
             AddTriggerToCamera();
             InitializeComponents();
+            SetLayer();
         }
 
         /// <summary>
@@ -41,6 +45,9 @@ namespace MusicMixer
                 // Add collider and make it a trigger
                 Camera.main.gameObject.AddComponent<BoxCollider2D>().isTrigger = true;
             }
+
+            // Make camera ignore raycast
+            Camera.main.gameObject.layer = gameObjectLayer;
         }
 
         /// <summary>
@@ -71,6 +78,19 @@ namespace MusicMixer
         private void ChangeMusic()
         {
             MusicController.ActivateMusicComposition(MusicController.Compositions[selectedComposition]);
+        }
+
+        private void OnValidate()
+        {
+            InitializeComponents();
+        }
+
+        private void SetLayer()
+        {
+            if (gameObject.layer != gameObjectLayer)
+            {
+                gameObject.layer = gameObjectLayer;
+            }            
         }
     }
 }

@@ -17,20 +17,41 @@ namespace MusicMixer
         private static MusicPlayer instance;
 
         [SerializeField]
+        [HideInInspector]
+        [Tooltip("Display advanced settings for the music player")]
+        public bool showAdvancedSettings = false;
+
+        [SerializeField]
         [Tooltip("Displays debug messages in console")]
         private bool verbose = true;
 
         [SerializeField]
         [Tooltip("What mixer group the music should play from")]
-        private AudioMixerGroup musicMixer;
+        private AudioMixerGroup musicMixerBaseTracks;
 
         [SerializeField]
-        private bool startFadingIn;
+        [Tooltip("What mixer group the music for accompanying should play from (if different from musicMixer)")]
+        private AudioMixerGroup musicMixerAccompanyingTracks;
+
+        [Header("Pitch Shifter")]
+        [SerializeField]
+        private bool enablePitchShifter = false;
+
+        [SerializeField]
+        [Tooltip("What intervall should the Pitch Shifter change the pitch?")]
+        private float pitchIntervall = 0.014f;
+
+        [SerializeField]
+        [Tooltip("Should pitch shifter change half an octave as well?")]
+        private bool octaveShift = false;
 
         [HideInInspector]
         public MusicComposition[] compositions;
 
         [Header("Music Tracks")]
+        [SerializeField]
+        private bool startFadingIn;
+
         [SerializeField]
         private List<MusicTrack> tracks = new List<MusicTrack>();
 
@@ -49,16 +70,25 @@ namespace MusicMixer
         [Tooltip("Attempt to remove (UnityEngine.AudioClip) appended at the end of renamed children?")]
         private bool trunctateNameOfRenamedTracks = true;
 
+        [Header("Music Composition Settings")]
         private MusicComposition activeMusicComposition;
         private int activeAccompanyingTrack;
 
         [SerializeField]
         [Tooltip("Will compositions wait for accompanying tracks to fade out completely before fading in new active tracks?")]
         private bool CompositionsWaitsForFadeOut = true;
+
         [SerializeField]
         [Range(0, 1f)]
         [Tooltip("Tolerance for minimum volume required before fading to next acvcompanying track")]
         private float compositionFadeTolerance = 0f;
+
+        [SerializeField]
+        [Tooltip("How long (in seconds) after a composition has been deactivated before it will be stopped")]
+        private float compositionStopTimer = 30f;
+
+        [HideInInspector]
+        public bool expandMusicTracks;
 
         private void Awake()
         {
@@ -185,10 +215,14 @@ namespace MusicMixer
 
                 if (isNew)
                 {
-                    if (musicMixer != null)
+                    if (musicMixerBaseTracks != null)
                     {
                         // Create a new MusicTrack with the unique source
-                        tracks.Add(new MusicTrack(source, musicMixer));
+                        tracks.Add(new MusicTrack(source, musicMixerBaseTracks));
+                    }
+                    else
+                    {
+                        tracks.Add(new MusicTrack(source));
                     }
                 }
             }
@@ -308,9 +342,9 @@ namespace MusicMixer
             return PlayTrack(trackToPlay, volume, trackToPlay.FadeDuration);
         }
 
-        internal void StopTrack()
+        internal void StopTrack(MusicTrack track)
         {
-            throw new NotImplementedException();
+            track.trackSource.Stop();
         }
 
         /// <summary>
@@ -425,11 +459,90 @@ namespace MusicMixer
 
             activeMusicComposition = activatingComposition;
             activeMusicComposition.ActivateGroup(ActiveAccompanyingTrack);
+
+            if (enablePitchShifter)
+            {
+                InvokePitchShifter();
+            }            
         }
 
-        private void DeactivateCompositionGroup(MusicComposition composition)
+        public void DeactivateCompositionGroup(MusicComposition composition)
         {
             composition.DeactivateComposition();
+        }
+
+        private void InvokePitchShifter()
+        {
+            Log("Invoking PitchShifter");
+            CancelInvoke("PitchShifter");
+            InvokeRepeating("PitchShifter", ActiveBaseTrackClip.length, ActiveBaseTrackClip.length);
+        }
+
+        private void PitchShifter()
+        {
+            if (musicMixerAccompanyingTracks == null)
+            {
+                LogWarning("No mixer group set for accompanying tracks. Aborting pitch shifter.");
+                return;
+            }
+
+            float randomPitch = 1f;
+
+            if (octaveShift)
+            {
+                float halfDown = 0.75f;
+                float flat = 1f;
+                float halfUp = 1.50f;
+
+                int randomOctaveSelector = UnityEngine.Random.Range(0, 4);
+
+                switch (randomOctaveSelector)
+                {
+                    case 0:
+                        randomPitch = halfDown;
+                        break;
+
+                    case 1:
+                        randomPitch = halfUp;
+                        break;
+
+                    default:
+                        randomPitch = flat;
+                        break;
+                }
+            }
+
+            float pitchShift = UnityEngine.Random.Range(-pitchIntervall, pitchIntervall);
+
+            randomPitch += pitchShift;
+
+            musicMixerAccompanyingTracks.audioMixer.SetFloat("compTrackPitch", randomPitch);
+
+            Log("Pitch set to: " + randomPitch, this);
+        }
+
+        /// <summary>
+        /// Set mixer group based on wether it is a base track or accompanying track
+        /// </summary>
+        /// <param name="track">Track to change</param>
+        /// <param name="isBaseTrack">Music tracks are usually set to base track music group unless otherwise specified</param>
+        public void SetMixerGroup(MusicTrack track, bool isBaseTrack)
+        {
+            AudioMixerGroup currentMixerGroup = track.trackSource.outputAudioMixerGroup;
+            AudioMixerGroup desiredMixerGroup;
+            if (!isBaseTrack)
+            {
+                desiredMixerGroup = musicMixerAccompanyingTracks;
+            }
+            else
+            {
+                desiredMixerGroup = musicMixerBaseTracks;
+            }
+
+            if (currentMixerGroup != desiredMixerGroup)
+            {
+                track.trackSource.outputAudioMixerGroup = desiredMixerGroup;
+            }
         }
 
         public List<MusicTrack> Tracks
@@ -499,6 +612,22 @@ namespace MusicMixer
             get
             {
                 return compositionFadeTolerance;
+            }
+        }
+
+        private AudioClip ActiveBaseTrackClip
+        {
+            get
+            {
+                return tracks[activeMusicComposition.baseTrackIndex].trackSource.clip;
+            }
+        }
+
+        public float CompositionStopTimer
+        {
+            get
+            {
+                return compositionStopTimer;
             }
         }
     }

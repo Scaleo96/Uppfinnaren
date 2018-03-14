@@ -34,6 +34,9 @@ public class GameController : MonoBehaviour
     Character currentCharacter;
     int currentCharID;
 
+    [SerializeField]
+    float cameraChangeIntensity = 2f;
+
     bool canChangeChar = true;
 
     [SerializeField]
@@ -41,7 +44,10 @@ public class GameController : MonoBehaviour
 
     [Header("Mouse Setting")]
     [SerializeField]
-    Entity hoverEntity;
+    LayerMask selectableLayers;
+
+    [SerializeField]
+    GameObject hoverEntity;
 
     [SerializeField]
     Entity selectedEntity;
@@ -76,10 +82,14 @@ public class GameController : MonoBehaviour
     [SerializeField]
     LayerMask groundLayer;
 
+    [SerializeField]
+    Image characterPortraitObject;
+
+    CursorController cursorController;
     /// <summary>
     /// The entity that the mouse is hovering over.
     /// </summary>
-    public Entity HoverEntity
+    public GameObject HoverEntity
     {
         get
         {
@@ -143,12 +153,13 @@ public class GameController : MonoBehaviour
             cameraComponent = Camera.main;
         }
 
+        cursorController = FindObjectOfType<CursorController>();
     }
 
     private void Update()
     {
-        if (SelectedInventorySlot.item != null)
-        Debug.Log(selectedInventorySlot.item.ToString());
+        //if (SelectedInventorySlot.item != null)
+        //Debug.Log(selectedInventorySlot.item.ToString());
 
         // Deselect item on click.
         hoverImageObject.transform.position = Input.mousePosition;
@@ -162,7 +173,7 @@ public class GameController : MonoBehaviour
                 UpdateInventory(currentCharID);
             }
         }
-        else if ((Input.GetButtonDown("Right Click") || Input.GetButtonDown("Change Character")) && isHoldingItem)
+        else if ((Input.GetButtonDown("Right Click") && isHoldingItem || Input.GetButtonDown("Change Character")) && isHoldingItem)
         {
             DeselectItem(selectedInventorySlot);
             UpdateInventory(currentCharID);
@@ -176,6 +187,7 @@ public class GameController : MonoBehaviour
         {
             if (currentCharID < (characters.Length - 1))
             {
+                currentCharacter.gameObject.layer = 10;
                 ChangeCharacter(currentCharID + 1);
             }
             else
@@ -185,6 +197,19 @@ public class GameController : MonoBehaviour
         }
 
         RaycastSelect();
+        RenderPortrait();
+    }
+
+    private void RenderPortrait()
+    {
+        if (GlobalStatics.PuzzleScreenOn)
+        {
+            characterPortraitObject.gameObject.SetActive(true);
+        }
+        else
+        {
+            characterPortraitObject.gameObject.SetActive(false);
+        }
     }
 
     /// <summary>
@@ -194,12 +219,27 @@ public class GameController : MonoBehaviour
     {
         hoverTextObject.transform.position = Input.mousePosition;
 
-        RaycastHit2D hit = Physics2D.Raycast(cameraComponent.ScreenToWorldPoint(Input.mousePosition), Vector3.forward, 20);
+        RaycastHit2D hit = Physics2D.Raycast(cameraComponent.ScreenToWorldPoint(Input.mousePosition), Vector3.forward, 20, selectableLayers);
+        RaycastHit2D raycastHit2D = Physics2D.Raycast(Input.mousePosition, Vector3.forward, 20);
 
-        Entity entity;      
-        if (hit && hit.transform.GetComponent<Entity>())
+
+        Entity entity;
+
+        if (hit && hit.transform.GetComponent<Entity>()) // If the mouse is over an entity  
         {
             entity = hit.transform.GetComponent<Entity>();
+            SpriteSwapper spriteSwapper = hit.transform.GetComponentInChildren<SpriteSwapper>();
+
+            if (cursorController != null)
+            {
+                cursorController.HoverCursor();
+            }
+
+            if (spriteSwapper != null)
+            {
+                spriteSwapper.SetAlternativeSpriteThisFrame();
+            }
+
 
             if (!textFollowMouse)
             {
@@ -213,7 +253,7 @@ public class GameController : MonoBehaviour
                 hoverTextObject.transform.position = cameraComponent.WorldToScreenPoint(hoverTextObject.transform.position);
             }
 
-            hoverEntity = entity;
+            hoverEntity = entity.gameObject;
 
             // Interact
             float distance = (entity.transform.position - currentCharacter.transform.position).magnitude;
@@ -228,6 +268,17 @@ public class GameController : MonoBehaviour
         {
             hoverText.text = "";
             hoverEntity = null;
+        }
+
+        if (raycastHit2D && raycastHit2D.transform.gameObject.tag == "Inventory")
+        {
+            hoverEntity = raycastHit2D.transform.gameObject;
+
+            if (Input.GetButtonDown("Interact") && isHoldingItem)
+            {
+                DeselectItem(selectedInventorySlot);
+                UpdateInventory(currentCharID);
+            }
         }
     }
 
@@ -267,18 +318,27 @@ public class GameController : MonoBehaviour
         }
 
         UpdateInventory(charID);
-
         currentCharID = charID;
         currentCharacter = characters[currentCharID];
 
         currentCharacter.SetActive(true);
+        currentCharacter.gameObject.layer = 2;
+        ChangeCharacterPortrait();
         cameraComponent.GetComponent<CameraFollow>().Target = currentCharacter.transform;
-        cameraComponent.GetComponent<CameraFollow>().SetPosition((Vector2)currentCharacter.transform.position + (Random.insideUnitCircle.normalized * changeCharCameraOffset));
 
+        cameraComponent.GetComponent<CameraFollow>().SetPosition((Vector2)currentCharacter.transform.position + (Random.insideUnitCircle.normalized * cameraChangeIntensity));
         // Change music
         MusicMixer.MusicController.ActivateAccompanyingTrackExclusive(charID);
 
         // TODO: Do stuff with camera
+    }
+
+    private void ChangeCharacterPortrait()
+    {
+        if (currentCharacter.Characterportrait != null)
+        {
+            characterPortraitObject.sprite = currentCharacter.Characterportrait;
+        }
     }
 
     /// <summary>
@@ -331,7 +391,7 @@ public class GameController : MonoBehaviour
             }
 
             UpdateInventorySlotImage(inventorySlot);
-            inventorySlot.button.onClick.AddListener(new UnityAction( delegate { SelectItem(inventorySlot); } ));
+            inventorySlot.button.onClick.AddListener(new UnityAction(delegate { SelectItem(inventorySlot); }));
 
             inventorySlots[charID][i] = inventorySlot;
         }
