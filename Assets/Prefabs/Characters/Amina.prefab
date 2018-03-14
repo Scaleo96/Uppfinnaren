@@ -377,7 +377,37 @@ MonoBehaviour:
   canClimb: 0
   climbDistance: 0.5
   stepSoundSource: {fileID: 82540720689313614}
-  materialStepSounds: []
+  materialStepSounds:
+  - material: 1
+    stepSounds:
+    - {fileID: 8300000, guid: fadf6db77b26f8b43bf45dbcc5239fb7, type: 3}
+    - {fileID: 8300000, guid: 421301077782d1a4ab7e51546e62ad22, type: 3}
+    - {fileID: 8300000, guid: 47c3c293ef4193b498ed34c66256cd8e, type: 3}
+    - {fileID: 8300000, guid: 3c250f05ca5b6154f99795c87f45eb7e, type: 3}
+    - {fileID: 8300000, guid: 61796bbbc125b8e49bd384fb8fcbb909, type: 3}
+    - {fileID: 8300000, guid: e4c78daaa70ae8b4d8e5293a5c8cba06, type: 3}
+    - {fileID: 8300000, guid: c16e85f5fd125a54ebeb3b8f9aabb5ee, type: 3}
+    - {fileID: 8300000, guid: a2ae721085177f54da4fea97b6cc2bab, type: 3}
+    - {fileID: 8300000, guid: 8db24b9540e38cd46a489dd86c11a77c, type: 3}
+  - material: 2
+    stepSounds:
+    - {fileID: 8300000, guid: 89062cfbe6522c04fb0353dd8344cb66, type: 3}
+    - {fileID: 8300000, guid: e3a6f8fe326702a418f93b9438a70b10, type: 3}
+    - {fileID: 8300000, guid: e9e6bf41906a1844388adebd9591e58d, type: 3}
+    - {fileID: 8300000, guid: e8c7cb96d31da2b409fb3495937e983e, type: 3}
+    - {fileID: 8300000, guid: 61df62f721f5fd448b5556c737520521, type: 3}
+    - {fileID: 8300000, guid: 583dcad6bf95cac43b916948617596aa, type: 3}
+  - material: 3
+    stepSounds:
+    - {fileID: 8300000, guid: 08e9b2a6e56361a4a975cfa197b2b03c, type: 3}
+    - {fileID: 8300000, guid: 486668c0736729e45b22cdbbe2e0abd1, type: 3}
+    - {fileID: 8300000, guid: 509eb1ae5f1b22545acde37c19a57cc8, type: 3}
+  - material: 4
+    stepSounds:
+    - {fileID: 8300000, guid: c943a7b21c87afc41bee482527e24edb, type: 3}
+    - {fileID: 8300000, guid: 60a1ac0821f6fc640b106e18823cfdf4, type: 3}
+    - {fileID: 8300000, guid: 7f2db5a8026ddaf4e8154cabe86c52cf, type: 3}
+    - {fileID: 8300000, guid: 3d41a6f53e409074f8aeebdc8bd00af0, type: 3}
 --- !u!212 &212684995115882412
 SpriteRenderer:
   m_ObjectHideFlags: 1

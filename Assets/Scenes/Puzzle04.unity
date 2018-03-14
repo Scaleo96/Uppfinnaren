@@ -88,6 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -525,7 +526,8 @@ GameObject:
   - component: {fileID: 189380961}
   - component: {fileID: 189380963}
   - component: {fileID: 189380962}
-  m_Layer: 0
+  - component: {fileID: 189380964}
+  m_Layer: 14
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -614,6 +616,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &189380964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 189380960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d60bc7bcebd2f4cb8151780b8bb51a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: 2
 --- !u!1 &222227534
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,7 +1108,8 @@ GameObject:
   - component: {fileID: 383351399}
   - component: {fileID: 383351401}
   - component: {fileID: 383351400}
-  m_Layer: 0
+  - component: {fileID: 383351402}
+  m_Layer: 14
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1183,6 +1198,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &383351402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 383351398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d60bc7bcebd2f4cb8151780b8bb51a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: 2
 --- !u!1 &399770203
 GameObject:
   m_ObjectHideFlags: 0
@@ -2029,7 +2056,8 @@ GameObject:
   - component: {fileID: 535769934}
   - component: {fileID: 535769936}
   - component: {fileID: 535769935}
-  m_Layer: 0
+  - component: {fileID: 535769937}
+  m_Layer: 14
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2118,6 +2146,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &535769937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 535769933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d60bc7bcebd2f4cb8151780b8bb51a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: 2
 --- !u!1 &539789547
 GameObject:
   m_ObjectHideFlags: 0
@@ -6978,7 +7018,8 @@ GameObject:
   - component: {fileID: 1997087692}
   - component: {fileID: 1997087694}
   - component: {fileID: 1997087693}
-  m_Layer: 0
+  - component: {fileID: 1997087695}
+  m_Layer: 14
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7067,6 +7108,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1997087695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1997087691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d60bc7bcebd2f4cb8151780b8bb51a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: 2
 --- !u!1 &2052808945
 GameObject:
   m_ObjectHideFlags: 0

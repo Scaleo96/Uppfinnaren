@@ -88,6 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -11242,6 +11243,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -12536,12 +12538,12 @@ Prefab:
     - target: {fileID: 224600040539976638, guid: 131176a22e85037458e405d4952b4e76,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: -14.709999
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224600040539976638, guid: 131176a22e85037458e405d4952b4e76,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.9399986
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224600040539976638, guid: 131176a22e85037458e405d4952b4e76,
         type: 2}
@@ -14408,7 +14410,8 @@ GameObject:
   - component: {fileID: 699634067}
   - component: {fileID: 699634066}
   - component: {fileID: 699634068}
-  m_Layer: 0
+  - component: {fileID: 699634069}
+  m_Layer: 14
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14497,6 +14500,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 20.160067, y: 20.156555}
   m_EdgeRadius: 0
+--- !u!114 &699634069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 699634065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d60bc7bcebd2f4cb8151780b8bb51a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: 4
 --- !u!1 &710676781
 GameObject:
   m_ObjectHideFlags: 0
@@ -24827,7 +24842,8 @@ GameObject:
   - component: {fileID: 1293024960}
   - component: {fileID: 1293024959}
   - component: {fileID: 1293024961}
-  m_Layer: 0
+  - component: {fileID: 1293024962}
+  m_Layer: 14
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24916,6 +24932,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 20.489597, y: 20.29431}
   m_EdgeRadius: 0
+--- !u!114 &1293024962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1293024958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d60bc7bcebd2f4cb8151780b8bb51a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: 2
 --- !u!1 &1293148099
 GameObject:
   m_ObjectHideFlags: 0
@@ -33392,6 +33420,7 @@ MonoBehaviour:
   - {fileID: 60444624}
   - {fileID: 1361693362}
   cameraChangeIntensity: 2
+  changeCharCameraOffset: 0
   selectableLayers:
     serializedVersion: 2
     m_Bits: 5921
@@ -33405,6 +33434,9 @@ MonoBehaviour:
   inventorySlotPrefab: {fileID: 1491470375427568, guid: 3593ef404ea38704796fa85a5bcd42c7,
     type: 2}
   isActive: 1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 16384
   characterPortraitObject: {fileID: 1389972168}
 --- !u!4 &1772474447
 Transform:
