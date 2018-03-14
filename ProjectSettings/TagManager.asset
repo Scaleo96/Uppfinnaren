@@ -11,6 +11,7 @@ TagManager:
   - UpstairsKey
   - Climbable
   - Attickey
+  - Inventory
   layers:
   - Default
   - TransparentFX
