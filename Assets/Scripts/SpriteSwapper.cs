@@ -89,4 +89,22 @@ public class SpriteSwapper : MonoBehaviour
             return isAlternative;
         }
     }
+
+    /// <summary>
+    /// Has the sprite swapper been assigned an alternative sprite?
+    /// </summary>
+    public bool AlternativeSpriteAssigned
+    {
+        get
+        {
+            if (alternativeSprite != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
 }
