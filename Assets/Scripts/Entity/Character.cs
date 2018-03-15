@@ -320,7 +320,7 @@ public class Character : Entity
             {
                 posPreClimb = transform.position;
                 animator.SetTrigger("climb");
-                isActive = false;
+                GameController.instance.SetActiveMovement(false);
             }
         }
     }
@@ -330,7 +330,7 @@ public class Character : Entity
         float x = isFliped ? xClimbOffset : -xClimbOffset;
 
         transform.position = new Vector3(posPreClimb.x + x, posPreClimb.y + yClimbOffset, posPreClimb.z);
-        isActive = true;
+        GameController.instance.SetActiveMovement(true);
     }
 
     public int InventorySize
@@ -401,6 +401,19 @@ public class Character : Entity
         get
         {
             return characterportrait;
+        }
+    }
+
+    public Animator Animator
+    {
+        get
+        {
+            return animator;
+        }
+
+        set
+        {
+            animator = value;
         }
     }
 }

@@ -470,6 +470,7 @@ public class GameController : MonoBehaviour
         isActive = value;
         canChangeChar = value;
         currentCharacter.SetActive(value);
+        currentCharacter.Animator.SetBool("isWalking", false);
     }
 
     public Item SelectedItem
