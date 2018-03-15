@@ -39,6 +39,28 @@ public class Door : Entity
     [ConditionalHide("setExitManually", true)]
     public Transform manualExit;
 
+    [Header("> Sound")]
+
+    [SerializeField]
+    SoundFXMiniManager fXMiniManager;
+
+    [SerializeField]
+    AudioClip UnlockSound;
+
+    [SerializeField]
+    AudioClip lockedSound;
+
+    [Header("> Dialogue")]
+
+    [SerializeField]
+    Dialogue dialogue;
+
+    DialogueController dialogueController;
+
+    private void Start()
+    {
+        dialogueController = GameObject.Find("DialogueManager").GetComponent<DialogueController>();
+    }
 
     protected override void OnInteract(EntityValues values)
     {
@@ -70,6 +92,23 @@ public class Door : Entity
                     GameController.instance.UpdateInventory(GameController.instance.CurrentCharacterID);
                 }
             }
+            else
+            {
+                if (fXMiniManager != null && lockedSound != null)
+                {
+                    fXMiniManager.PlaySound(lockedSound);
+                }
+
+                if (dialogue != null)
+                {
+                    dialogue.dialogue[0].speaker = values.character.gameObject;
+
+                    int i = Random.Range(0, dialogue.dialogue.Length);
+
+                    ConditionValues cvalues = new ConditionValues();
+                    StartCoroutine(dialogueController.DisplayDialogue(dialogue.dialogue[i], dialogue.dialogue[i].time, cvalues));
+                }
+            }
         }
     }
 
@@ -97,6 +136,11 @@ public class Door : Entity
     {
 
         doorLocked = value;
+
+        if (fXMiniManager != null && UnlockSound != null)
+        {
+            fXMiniManager.PlaySound(UnlockSound);
+        }
 
         string lockedState = value ? "locked" : "unlocked";
         Logger.Log(EntityName + " was " + lockedState);
