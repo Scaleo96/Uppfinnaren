@@ -68,7 +68,7 @@ public class DialogueController : MonoBehaviour
     }
 
     //Displays current dialogue and sets current source
-    private IEnumerator DisplayDialogue(DialogueElements dialogue, float time, ConditionValues values)
+    public IEnumerator DisplayDialogue(DialogueElements dialogue, float time, ConditionValues values)
     {
         conditionsManager.container[values.containerNumber].DialogueRunning = true;
         GameObject dialoguePrefab = dialogueTextPrefab;
