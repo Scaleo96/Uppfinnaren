@@ -88,6 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -2548,6 +2549,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1252084879}
     m_Modifications:
+    - target: {fileID: 114392257989338664, guid: 6f7644efda8c6e04b997225d4199a277,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4986290537938964, guid: 6f7644efda8c6e04b997225d4199a277, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2604,6 +2610,36 @@ Prefab:
       propertyPath: canUseCondition.idaUse
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114392257989338664, guid: 6f7644efda8c6e04b997225d4199a277,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114392257989338664, guid: 6f7644efda8c6e04b997225d4199a277,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114392257989338664, guid: 6f7644efda8c6e04b997225d4199a277,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 763384082}
+    - target: {fileID: 114392257989338664, guid: 6f7644efda8c6e04b997225d4199a277,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlaySound
+      objectReference: {fileID: 0}
+    - target: {fileID: 114392257989338664, guid: 6f7644efda8c6e04b997225d4199a277,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.AudioClip, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114392257989338664, guid: 6f7644efda8c6e04b997225d4199a277,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e53a03347eacde4180bf691028cbd8c, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6f7644efda8c6e04b997225d4199a277, type: 2}
   m_IsPrefabParent: 0
@@ -6239,6 +6275,31 @@ Prefab:
       propertyPath: canUseCondition.idaUse
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114392257989338664, guid: 6f7644efda8c6e04b997225d4199a277,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 763384082}
+    - target: {fileID: 114392257989338664, guid: 6f7644efda8c6e04b997225d4199a277,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlaySound
+      objectReference: {fileID: 0}
+    - target: {fileID: 114392257989338664, guid: 6f7644efda8c6e04b997225d4199a277,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114392257989338664, guid: 6f7644efda8c6e04b997225d4199a277,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.AudioClip, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114392257989338664, guid: 6f7644efda8c6e04b997225d4199a277,
+        type: 2}
+      propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e53a03347eacde4180bf691028cbd8c, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6f7644efda8c6e04b997225d4199a277, type: 2}
   m_IsPrefabParent: 0
@@ -7426,6 +7487,16 @@ Prefab:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 4.096
       objectReference: {fileID: 0}
+    - target: {fileID: 114129971231030468, guid: a67d6a251af81fb40860033374698927,
+        type: 2}
+      propertyPath: fXMiniManager
+      value: 
+      objectReference: {fileID: 763384082}
+    - target: {fileID: 114129971231030468, guid: a67d6a251af81fb40860033374698927,
+        type: 2}
+      propertyPath: UnlockSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a1fc80f0b42402a4fae9f3596800894b, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a67d6a251af81fb40860033374698927, type: 2}
   m_IsPrefabParent: 0
@@ -11272,6 +11343,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -19528,7 +19600,7 @@ Prefab:
         type: 2}
       propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 8300000, guid: cef8aca5d29e73047acaf3365e7f4ac2, type: 3}
+      objectReference: {fileID: 8300000, guid: 83e10ab7aa404db48b36b2ed4a2e08dd, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ad8bcca801d06c4e817bb77966edce3, type: 2}
   m_IsPrefabParent: 0
@@ -26810,7 +26882,19 @@ MonoBehaviour:
     jonathanUse: 1
   interactionEvents:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 763384082}
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 7e53a03347eacde4180bf691028cbd8c,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   cantUseEvents:
     m_PersistentCalls:
@@ -36514,6 +36598,16 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114931631007718942, guid: 7519d43c99261014fad32d88f168dfd1,
+        type: 2}
+      propertyPath: fXMiniManager
+      value: 
+      objectReference: {fileID: 763384082}
+    - target: {fileID: 114931631007718942, guid: 7519d43c99261014fad32d88f168dfd1,
+        type: 2}
+      propertyPath: UnlockSound
+      value: 
+      objectReference: {fileID: 8300000, guid: cef8aca5d29e73047acaf3365e7f4ac2, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7519d43c99261014fad32d88f168dfd1, type: 2}
   m_IsPrefabParent: 0
