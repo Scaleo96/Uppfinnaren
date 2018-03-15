@@ -11,6 +11,12 @@ namespace MenUI
         private const string SFX_VOL_PREF = "sfxVol";
         private const string AMBIENCE_VOL_PREF = "ambienceVol";
 
+        // Default volume used on first run of the game
+        private const float DEFAULT_VOLUME          = 0.7f;
+        private const float DEFAULT_VOLUME_MUSIC    = 0.7f;
+        private const float DEFAULT_VOLUME_SFX      = 0.5f;
+        private const float DEFAULT_VOLUME_AMBIENCE = 0.2f;
+
         /// <summary>
         /// Audio
         /// </summary>
@@ -62,10 +68,10 @@ namespace MenUI
         private void LoadPrefs()
         {
             // Load volume levels from PlayerPrefs and set volume levels in the mixer
-            SetMasterLevel(PlayerPrefs.GetFloat(MASTER_VOL_PREF));
-            SetMusicLevel(PlayerPrefs.GetFloat(MUSIC_VOL_PREF));
-            SetSoundFXLevel(PlayerPrefs.GetFloat(SFX_VOL_PREF));
-            SetSoundFXLevel(PlayerPrefs.GetFloat(AMBIENCE_VOL_PREF));
+            SetMasterLevel(PlayerPrefs.GetFloat(MASTER_VOL_PREF, DEFAULT_VOLUME));
+            SetMusicLevel(PlayerPrefs.GetFloat(MUSIC_VOL_PREF, DEFAULT_VOLUME_MUSIC));
+            SetSoundFXLevel(PlayerPrefs.GetFloat(SFX_VOL_PREF, DEFAULT_VOLUME_SFX));
+            SetSoundFXLevel(PlayerPrefs.GetFloat(AMBIENCE_VOL_PREF, DEFAULT_VOLUME_AMBIENCE));
 
             // Set slider values to correspond to the actual volume
             SetSliderValues(masterVolSlider, MASTER_VOL_PREF);
