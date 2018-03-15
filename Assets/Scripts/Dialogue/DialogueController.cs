@@ -6,8 +6,6 @@ using UnityEngine.Animations;
 
 public class DialogueController : MonoBehaviour
 {
-    public enum Language { Svenska, English }
-
     [Tooltip("Choose text gameobject.")]
     [SerializeField]
     GameObject dialogueTextPrefab;
@@ -22,8 +20,6 @@ public class DialogueController : MonoBehaviour
 
     [SerializeField]
     Transform puzzleScreenDialogue;
-
-    public Language language;
 
     ConditionsManager conditionsManager;
 
@@ -89,12 +85,12 @@ public class DialogueController : MonoBehaviour
         speakerAndText.currentSpeaker = dialogue.speaker;
         speakerAndText.currentText = textGameobject;
         currentSpeakers.Add(speakerAndText);
-        if (language == Language.Svenska)
+        if (GlobalStatics.Language == ELanguage.Swedish)
         {
             dialogueText.text = dialogue.line_Swedish;
             dialogueText.font.material.mainTexture.filterMode = FilterMode.Point;
         }
-        if (language == Language.English)
+        if (GlobalStatics.Language == ELanguage.English)
         {
             dialogueText.text = dialogue.line_English;
             dialogueText.font.material.mainTexture.filterMode = FilterMode.Point;
