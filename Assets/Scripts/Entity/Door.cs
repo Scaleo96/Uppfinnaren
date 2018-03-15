@@ -48,6 +48,9 @@ public class Door : Entity
     AudioClip UnlockSound;
 
     [SerializeField]
+    AudioClip enterSound;
+
+    [SerializeField]
     AudioClip lockedSound;
 
     [Header("> Dialogue")]
@@ -127,6 +130,11 @@ public class Door : Entity
         else
         {
             character.transform.position = manualExit.transform.position;
+        }
+
+        if (fXMiniManager != null && enterSound != null)
+        {
+            fXMiniManager.PlaySound(enterSound);
         }
 
         Camera.main.GetComponent<CameraFollow>().SetPosition(character.transform);
