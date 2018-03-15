@@ -28,6 +28,13 @@ class Cheat
     }
 }
 
+[System.Serializable]
+public struct TeleportCheat
+{
+    public string name;
+    public Vector2 pos;
+}
+
 [RequireComponent(typeof(Animator))]
 public class ConsoleController : MonoBehaviour
 { // OK Janne...
@@ -49,6 +56,9 @@ public class ConsoleController : MonoBehaviour
     
     Cheat[] cheats;
 
+    [SerializeField]
+    TeleportCheat[] teleports;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -58,11 +68,11 @@ public class ConsoleController : MonoBehaviour
     {
         cheats = new Cheat[]
         {
-            new Cheat("IvarStrike", delegate { IvarStrike(); } ),
-            new Cheat("SetYPos", delegate { SetYPos(); } ),
-            new Cheat("Godzilla", delegate { ScaleUpCurrentPlayer(); }),
-            new Cheat("Gnome", delegate { ScaleDownCurrentPlayer(); }),
-            new Cheat("IvarHeaven", delegate{ ChangeAllSpritesToIvar(); })
+            new Cheat("ivarStrike", delegate { IvarStrike(); } ),
+            new Cheat("fly", delegate { SetYPos(); } ),
+            new Cheat("godzilla", delegate { ScaleUpCurrentPlayer(); }),
+            new Cheat("gnome", delegate { ScaleDownCurrentPlayer(); }),
+            new Cheat("ivarHeaven", delegate{ ChangeAllSpritesToIvar(); })
         };
 
         inputField.onEndEdit.AddListener( delegate { EnterConsole(inputField); } );
@@ -95,6 +105,7 @@ public class ConsoleController : MonoBehaviour
     {
         input = inputField.text;
 
+        // Defined cheats
         for (int i = 0; i < cheats.Length; i++)
         {
             if (input.Split(' ')[0].ToLower() == cheats[i].GetCode().ToLower())
@@ -111,6 +122,63 @@ public class ConsoleController : MonoBehaviour
                 inputField.text = "";
             }
         }
+
+        // Teleport cheat
+        if (input.Split(' ')[0].ToLower() == "tp")
+        {
+            if (input.Split(' ').Length > 1)
+            {
+                Teleport(input.Split(' ')[1]);
+            }
+        }
+        else if (input.Split(' ')[0].ToLower() == "additem")
+        {
+            if (input.Split(' ').Length > 1)
+            {
+                AddItem(input.Split(' ')[1]);
+            }
+        }
+    }
+
+    private void AddItem(string itemName)
+    {
+        Item item = null;
+        if (GameObject.Find(itemName))
+        {
+            item = GameObject.Find(itemName).GetComponent<Item>();
+        }
+
+        if (item)
+        {
+            GameController.instance.GetCurrentCharacter().AddItemToInventory(item);
+        }
+    }
+
+    private void Teleport(string teleportPosName)
+    {
+        bool teleported = false;
+        foreach (TeleportCheat teleportCheat in teleports)
+        {
+            if (teleportPosName.ToLower() == teleportCheat.name.ToLower() && teleported == false)
+            {
+                GameController.instance.GetCurrentCharacter().transform.position = teleportCheat.pos;
+                teleported = true;
+            }
+        }
+
+        if (teleported == false)
+        {
+            foreach (Character character in FindObjectsOfType<Character>())
+            {
+                if (teleportPosName.ToLower() == character.name.ToLower())
+                {
+                    GameController.instance.GetCurrentCharacter().transform.position = character.transform.position;
+                    teleported = true;
+                }
+            }
+        }
+
+        inputField.text = "";
     }
 
     private void IvarStrike()
