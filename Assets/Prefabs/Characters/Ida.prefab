@@ -379,7 +379,35 @@ MonoBehaviour:
   canClimb: 1
   climbDistance: 0.5
   stepSoundSource: {fileID: 82412237795062096}
-  materialStepSounds: []
+  materialStepSounds:
+  - material: 1
+    stepSounds:
+    - {fileID: 8300000, guid: e635cbd5f76ad18479daca61f96ac591, type: 3}
+    - {fileID: 8300000, guid: 4150efb84c3d7ab4d8b07b2f1d9286ed, type: 3}
+    - {fileID: 8300000, guid: 13f25199de384794987965d860b12343, type: 3}
+    - {fileID: 8300000, guid: 9b95d263ade0b8944bf1a753b3a062d7, type: 3}
+    - {fileID: 8300000, guid: 00baef5ac3eb28b4c8755f88e1e64b89, type: 3}
+    - {fileID: 8300000, guid: 340dc2768c518a0458b090a3ee746973, type: 3}
+    - {fileID: 8300000, guid: 60742c4649dc5414cbf4cc38feff40f5, type: 3}
+    - {fileID: 8300000, guid: 880739832d849f946a53366c6c59975d, type: 3}
+    - {fileID: 8300000, guid: de4b72da68b90164db51c35a7070fd91, type: 3}
+  - material: 2
+    stepSounds:
+    - {fileID: 8300000, guid: a90bf2706ab04da40bbeaf0145c4789d, type: 3}
+    - {fileID: 8300000, guid: 85631f368f05b864c85c377c3db0cf32, type: 3}
+    - {fileID: 8300000, guid: 0c158ec04e455cc45b9ae8cc91ae998a, type: 3}
+    - {fileID: 8300000, guid: 7b8ac415a654c9f479dbc5a319278026, type: 3}
+  - material: 3
+    stepSounds:
+    - {fileID: 8300000, guid: 08e9b2a6e56361a4a975cfa197b2b03c, type: 3}
+    - {fileID: 8300000, guid: 486668c0736729e45b22cdbbe2e0abd1, type: 3}
+    - {fileID: 8300000, guid: 509eb1ae5f1b22545acde37c19a57cc8, type: 3}
+  - material: 4
+    stepSounds:
+    - {fileID: 8300000, guid: c943a7b21c87afc41bee482527e24edb, type: 3}
+    - {fileID: 8300000, guid: 60a1ac0821f6fc640b106e18823cfdf4, type: 3}
+    - {fileID: 8300000, guid: 7f2db5a8026ddaf4e8154cabe86c52cf, type: 3}
+    - {fileID: 8300000, guid: 3d41a6f53e409074f8aeebdc8bd00af0, type: 3}
 --- !u!212 &212108296171813930
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -475,7 +503,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1817792378054562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.709999, y: 0.9399986, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4019633003710438}

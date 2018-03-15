@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Material { None, Grass, Woods, Stone, Forest }
+public enum Material { None, Grass, Wood, Stone, Forest }
 
 public class MaterialScript : MonoBehaviour
 {

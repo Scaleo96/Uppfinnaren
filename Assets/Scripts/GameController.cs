@@ -208,8 +208,6 @@ public class GameController : MonoBehaviour
         {
             if (throwCursor != null)
             {
-                //quaternion.SetFromToRotation((Vector2)currentCharacter.transform.position, (Vector2)cameraComponent.ScreenToWorldPoint(Input.mousePosition));
-
                 throwCursor.gameObject.SetActive(true);
                 throwCursor.transform.position = new Vector3(cameraComponent.ScreenToWorldPoint(Input.mousePosition).x, cameraComponent.ScreenToWorldPoint(Input.mousePosition).y, 0);
                 throwCursor.transform.rotation = Quaternion.LookRotation(Vector3.forward ,cameraComponent.ScreenToWorldPoint(Input.mousePosition) - currentCharacter.transform.position);
