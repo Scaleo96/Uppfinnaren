@@ -1553,6 +1553,7 @@ GameObject:
   - component: {fileID: 296245971}
   - component: {fileID: 296245970}
   - component: {fileID: 296245969}
+  - component: {fileID: 296245972}
   m_Layer: 9
   m_Name: Apple puzzle
   m_TagString: Apple
@@ -1705,6 +1706,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8.662367, y: 8.662346}
   m_EdgeRadius: 0
+--- !u!114 &296245972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 296245966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73b7f1ad5d5d8146b19cb20064e0c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alternativeSprite: {fileID: 21300000, guid: b3000ea14cf4c7a4ba43cd0daaa887b3, type: 3}
+  switchToDefaultEachFrame: 1
 --- !u!1 &304924857
 GameObject:
   m_ObjectHideFlags: 0
@@ -4246,6 +4260,7 @@ GameObject:
   - component: {fileID: 869245379}
   - component: {fileID: 869245378}
   - component: {fileID: 869245377}
+  - component: {fileID: 869245381}
   m_Layer: 9
   m_Name: apple puzzle cup board
   m_TagString: Apple
@@ -4398,6 +4413,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &869245381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 869245375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73b7f1ad5d5d8146b19cb20064e0c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alternativeSprite: {fileID: 21300000, guid: b3000ea14cf4c7a4ba43cd0daaa887b3, type: 3}
+  switchToDefaultEachFrame: 1
 --- !u!1 &870361262
 GameObject:
   m_ObjectHideFlags: 0
@@ -8916,6 +8944,7 @@ GameObject:
   - component: {fileID: 1938351309}
   - component: {fileID: 1938351308}
   - component: {fileID: 1938351311}
+  - component: {fileID: 1938351312}
   m_Layer: 9
   m_Name: Key to hall
   m_TagString: Untagged
@@ -9068,6 +9097,19 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   inventorySprite: {fileID: 21300000, guid: 0edda03358ef7aa4b83e085352512f3d, type: 3}
+--- !u!114 &1938351312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1938351306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73b7f1ad5d5d8146b19cb20064e0c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alternativeSprite: {fileID: 21300000, guid: ad023c422b50a85459e16484fad88c4b, type: 3}
+  switchToDefaultEachFrame: 1
 --- !u!1 &1954176937
 GameObject:
   m_ObjectHideFlags: 0
@@ -9541,6 +9583,7 @@ GameObject:
   - component: {fileID: 1997266463}
   - component: {fileID: 1997266462}
   - component: {fileID: 1997266461}
+  - component: {fileID: 1997266465}
   m_Layer: 9
   m_Name: Key wardrobe
   m_TagString: ClosetKey
@@ -9693,6 +9736,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1997266465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1997266459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73b7f1ad5d5d8146b19cb20064e0c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alternativeSprite: {fileID: 21300000, guid: 397ff6c271a9b3f4baf20e20266fba76, type: 3}
+  switchToDefaultEachFrame: 1
 --- !u!1 &2001978753
 GameObject:
   m_ObjectHideFlags: 0
