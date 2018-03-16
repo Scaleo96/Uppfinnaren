@@ -1,33 +1,57 @@
 fileFormatVersion: 2
-guid: d8fce081b0b943147b110d3e64260b00
-timeCreated: 1520423246
+guid: 891004a6796e81c4a9052958f30e0812
+timeCreated: 1520423244
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Amina walk_0
-    21300002: Amina walk_1
-    21300004: Amina walk_2
-    21300006: Amina walk_3
-    21300008: Amina walk_4
-    21300010: Amina walk_5
-    21300012: Amina walk_6
-    21300014: Amina walk_7
-    21300016: Amina walk_8
-    21300018: Amina walk_9
-    21300020: Amina walk_10
-    21300022: Amina walk_11
-    21300024: Amina walk_12
-    21300026: Amina walk_13
-    21300028: Amina walk_14
-    21300030: Amina walk_15
-    21300032: Amina walk_16
-    21300034: Amina walk_17
-    21300036: Amina walk_18
-    21300038: Amina walk_19
-    21300040: Amina walk_20
-    21300042: Amina walk_21
-    21300044: Amina walk_22
-    21300046: Amina walk_23
+    21300000: Amina idle_0
+    21300002: Amina idle_1
+    21300004: Amina idle_2
+    21300006: Amina idle_3
+    21300008: Amina idle_4
+    21300010: Amina idle_5
+    21300012: Amina idle_6
+    21300014: Amina idle_7
+    21300016: Amina idle_8
+    21300018: Amina idle_9
+    21300020: Amina idle_10
+    21300022: Amina idle_11
+    21300024: Amina idle_12
+    21300026: Amina idle_13
+    21300028: Amina idle_14
+    21300030: Amina idle_15
+    21300032: Amina idle_16
+    21300034: Amina idle_17
+    21300036: Amina idle_18
+    21300038: Amina idle_19
+    21300040: Amina idle_20
+    21300042: Amina idle_21
+    21300044: Amina idle_22
+    21300046: Amina idle_23
+    21300048: Amina walk_0
+    21300050: Amina walk_1
+    21300052: Amina walk_2
+    21300054: Amina walk_3
+    21300056: Amina walk_4
+    21300058: Amina walk_5
+    21300060: Amina walk_6
+    21300062: Amina walk_7
+    21300064: Amina walk_8
+    21300066: Amina walk_9
+    21300068: Amina walk_10
+    21300070: Amina walk_11
+    21300072: Amina walk_12
+    21300074: Amina walk_13
+    21300076: Amina walk_14
+    21300078: Amina walk_15
+    21300080: Amina walk_16
+    21300082: Amina walk_17
+    21300084: Amina walk_18
+    21300086: Amina walk_19
+    21300088: Amina walk_20
+    21300090: Amina walk_21
+    21300092: Amina walk_22
+    21300094: Amina walk_23
   externalObjects: {}
   serializedVersion: 4
   mipmaps:

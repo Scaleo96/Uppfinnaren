@@ -1,26 +1,45 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class SpriteSwapper : MonoBehaviour
 {
     [Tooltip("The sprite that the SpriteSwapper will swap to.")]
     [SerializeField]
-    Sprite alternativeSprite;
-    Sprite defaultSprite;
+    private Sprite alternativeSprite;
+
+    private Sprite defaultSprite;
 
     [SerializeField]
-    bool switchToDefaultEachFrame = true;
+    private bool switchToDefaultEachFrame = true;
 
-    SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;
 
-    bool isAlternative;
+    [SerializeField]
+    [Tooltip("Add a custom sprite renderer to perform the sprite swap with that isn't part of the base object. Leave blank for default behaviour.")]
+    private SpriteRenderer spriteRendererOverride;
+
+    private bool isAlternative;
 
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetSpriteRenderer();
         defaultSprite = spriteRenderer.sprite;
+    }
+
+    private SpriteRenderer GetSpriteRenderer()
+    {
+        if (spriteRendererOverride != null)
+        {
+            return spriteRendererOverride;
+        }
+        else if (GetComponent<SpriteRenderer>())
+        {
+            return GetComponent<SpriteRenderer>();
+        }
+        else
+        {
+            return GetComponentInChildren<SpriteRenderer>();
+        }
     }
 
     private void LateUpdate()
@@ -30,7 +49,7 @@ public class SpriteSwapper : MonoBehaviour
             Debug.Log(isAlternative);
             if (isAlternative)
             {
-                spriteRenderer.sprite = alternativeSprite;
+                spriteRenderer.sprite = AlternativeSprite;
             }
             else if (spriteRenderer.sprite != defaultSprite)
             {
@@ -38,7 +57,7 @@ public class SpriteSwapper : MonoBehaviour
             }
 
             isAlternative = false;
-        }      
+        }
     }
 
     /// <summary>
@@ -46,8 +65,8 @@ public class SpriteSwapper : MonoBehaviour
     /// </summary>
     public void SwapSprite()
     {
-        isAlternative = spriteRenderer.sprite == alternativeSprite;
-        spriteRenderer.sprite = isAlternative ? defaultSprite : alternativeSprite;
+        isAlternative = spriteRenderer.sprite == AlternativeSprite;
+        spriteRenderer.sprite = isAlternative ? defaultSprite : AlternativeSprite;
     }
 
     /// <summary>
@@ -69,7 +88,7 @@ public class SpriteSwapper : MonoBehaviour
     {
         if (isAlternative == false)
         {
-            spriteRenderer.sprite = alternativeSprite;
+            spriteRenderer.sprite = AlternativeSprite;
             isAlternative = true;
         }
     }
@@ -87,6 +106,37 @@ public class SpriteSwapper : MonoBehaviour
         get
         {
             return isAlternative;
+        }
+    }
+
+    /// <summary>
+    /// Has the sprite swapper been assigned an alternative sprite?
+    /// </summary>
+    public bool AlternativeSpriteAssigned
+    {
+        get
+        {
+            if (AlternativeSprite != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    public Sprite AlternativeSprite
+    {
+        get
+        {
+            return alternativeSprite;
+        }
+
+        set
+        {
+            alternativeSprite = value;
         }
     }
 }

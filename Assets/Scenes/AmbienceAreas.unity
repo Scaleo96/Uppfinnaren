@@ -306,7 +306,7 @@ MonoBehaviour:
   - name: Outside Area
     area: {fileID: 1495750490}
     ambienceClips:
-    - {fileID: 8300000, guid: fdb9ce6e3b3ce504dade66ca441cf604, type: 3}
+    - {fileID: 8300000, guid: 6a9088f5b2721754982334619e4504a7, type: 3}
     mixerGroup: {fileID: 243020418535154862, guid: 0da65e85ae3e14541bb9ef961581f29c,
       type: 2}
     ambienceTracks: []
@@ -338,6 +338,13 @@ MonoBehaviour:
     mixerGroup: {fileID: 243020418535154862, guid: 0da65e85ae3e14541bb9ef961581f29c,
       type: 2}
     ambienceTracks: []
+  - name: Kitchen Area 2
+    area: {fileID: 2089646592}
+    ambienceClips:
+    - {fileID: 8300000, guid: 0c0a90cae69f83c4aae0d6576817d6d0, type: 3}
+    mixerGroup: {fileID: 243020418535154862, guid: 0da65e85ae3e14541bb9ef961581f29c,
+      type: 2}
+    ambienceTracks: []
 --- !u!4 &1113709575
 Transform:
   m_ObjectHideFlags: 0
@@ -353,6 +360,7 @@ Transform:
   - {fileID: 1001724652}
   - {fileID: 73942106}
   - {fileID: 1419367516}
+  - {fileID: 2089646593}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -463,4 +471,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1113709575}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2089646591
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2089646593}
+  - component: {fileID: 2089646592}
+  m_Layer: 2
+  m_Name: Kitchen Area 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &2089646592
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2089646591}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.034470044, y: 0.17380828}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.38815856, y: 0.9067364}
+  m_EdgeRadius: 0
+--- !u!4 &2089646593
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2089646591}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 24.67, y: 70.91, z: 0}
+  m_LocalScale: {x: 12.365213, y: 6.2, z: 0.98529}
+  m_Children: []
+  m_Father: {fileID: 1113709575}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
