@@ -543,6 +543,7 @@ MonoBehaviour:
   manualExit: {fileID: 728021214}
   fXMiniManager: {fileID: 664258180}
   UnlockSound: {fileID: 8300000, guid: a1fc80f0b42402a4fae9f3596800894b, type: 3}
+  enterSound: {fileID: 0}
   lockedSound: {fileID: 0}
   dialogue: {fileID: 0}
 --- !u!61 &134301048
@@ -4730,7 +4731,19 @@ MonoBehaviour:
     activated: 0
   completeEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 664258180}
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 0e4a181ebab38bd43832d66b39d2fb9a,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!61 &943095631
@@ -5513,6 +5526,7 @@ MonoBehaviour:
   manualExit: {fileID: 1884474332}
   fXMiniManager: {fileID: 0}
   UnlockSound: {fileID: 0}
+  enterSound: {fileID: 0}
   lockedSound: {fileID: 0}
   dialogue: {fileID: 0}
 --- !u!61 &1125727285
@@ -7710,6 +7724,7 @@ MonoBehaviour:
   manualExit: {fileID: 709176651}
   fXMiniManager: {fileID: 0}
   UnlockSound: {fileID: 0}
+  enterSound: {fileID: 0}
   lockedSound: {fileID: 0}
   dialogue: {fileID: 0}
 --- !u!61 &1709654335
