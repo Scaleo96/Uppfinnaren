@@ -306,7 +306,7 @@ MonoBehaviour:
   - name: Outside Area
     area: {fileID: 1495750490}
     ambienceClips:
-    - {fileID: 8300000, guid: fdb9ce6e3b3ce504dade66ca441cf604, type: 3}
+    - {fileID: 8300000, guid: 6a9088f5b2721754982334619e4504a7, type: 3}
     mixerGroup: {fileID: 243020418535154862, guid: 0da65e85ae3e14541bb9ef961581f29c,
       type: 2}
     ambienceTracks: []
