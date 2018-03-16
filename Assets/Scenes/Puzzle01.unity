@@ -1929,6 +1929,7 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114280111051947786, guid: 61479672d6cc57b48ac19d7dfa177ca1, type: 2}
+    - {fileID: 114053930206035314, guid: 61479672d6cc57b48ac19d7dfa177ca1, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 61479672d6cc57b48ac19d7dfa177ca1, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &116891077
@@ -20627,6 +20628,21 @@ Prefab:
       propertyPath: interactionEvents.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 763384082}
+    - target: {fileID: 212524014616534234, guid: 1ad8bcca801d06c4e817bb77966edce3,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212524014616534234, guid: 1ad8bcca801d06c4e817bb77966edce3,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212524014616534234, guid: 1ad8bcca801d06c4e817bb77966edce3,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ad8bcca801d06c4e817bb77966edce3, type: 2}
   m_IsPrefabParent: 0

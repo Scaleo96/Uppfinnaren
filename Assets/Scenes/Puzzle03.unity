@@ -9020,7 +9020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityName: Books
-  interactDistance: 1.5
+  interactDistance: 2
   canUseCondition:
     aminaUse: 1
     idaUse: 1
