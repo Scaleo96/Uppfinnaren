@@ -21,8 +21,9 @@ GameObject:
   - component: {fileID: 4668089087772036}
   - component: {fileID: 212092956864332588}
   - component: {fileID: 61017050823938532}
-  - component: {fileID: 114280111051947786}
   - component: {fileID: 50340311483292618}
+  - component: {fileID: 114522838926760366}
+  - component: {fileID: 114053930206035314}
   m_Layer: 9
   m_Name: Object_LoosePlank
   m_TagString: Untagged
@@ -88,7 +89,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.72, y: 0.27}
   m_EdgeRadius: 0
---- !u!114 &114280111051947786
+--- !u!114 &114053930206035314
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -96,11 +97,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1360348029100302}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eec0484d2d65b8245b4064acd01e1b28, type: 3}
+  m_Script: {fileID: 11500000, guid: 93aabd28fc97952449562ba3e3a6e281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entityName: Loose Plank
-  interactDistance: 1
+  entityName: LoosePlank
+  interactDistance: 1.5
   canUseCondition:
     aminaUse: 1
     idaUse: 0
@@ -108,6 +109,17 @@ MonoBehaviour:
   interactionEvents:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: RunDialogue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 0}
         m_MethodName: set_enabled
         m_Mode: 6
@@ -119,12 +131,64 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1360348029100302}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 111c9f0aa35fd7744a52f379606f70da,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  inspectEvents:
+  cantUseEvents:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: RunDialogue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  canOnlyBeUsedOnce: 0
+  alreadyUsedEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  inventorySprite: {fileID: 21300000, guid: cadddab37ee228a4d94a8ed4d7292e2c, type: 3}
+--- !u!114 &114522838926760366
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1360348029100302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73b7f1ad5d5d8146b19cb20064e0c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alternativeSprite: {fileID: 21300000, guid: 1763e913122ff1041b6c7d7759e6e09c, type: 3}
+  switchToDefaultEachFrame: 1
+  spriteRendererOverride: {fileID: 0}
 --- !u!212 &212092956864332588
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -156,9 +220,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1724274567
+  m_SortingLayer: -2
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: cadddab37ee228a4d94a8ed4d7292e2c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
