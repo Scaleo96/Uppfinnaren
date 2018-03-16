@@ -88,7 +88,6 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -605,6 +604,58 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &117526031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1254333621730288, guid: 5faf401d88b7bd24497a8b3182717c52,
+    type: 2}
+  m_PrefabInternal: {fileID: 1883250152}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 117526033}
+  - component: {fileID: 117526032}
+  m_Layer: 0
+  m_Name: Dialogue_Failed_Use
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &117526032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114842181653464326, guid: 5faf401d88b7bd24497a8b3182717c52,
+    type: 2}
+  m_PrefabInternal: {fileID: 1883250152}
+  m_GameObject: {fileID: 117526031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 0}
+    line_Swedish: "Det d\xE4r fungerar inte."
+    line_English: This doesn't work.
+    time: 2.5
+  - speaker: {fileID: 0}
+    line_Swedish: "Nej, det g\xE5r inte."
+    line_English: No, that doesn't work.
+    time: 2.5
+--- !u!4 &117526033
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4363834135708082, guid: 5faf401d88b7bd24497a8b3182717c52,
+    type: 2}
+  m_PrefabInternal: {fileID: 1883250152}
+  m_GameObject: {fileID: 117526031}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &128058865
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,7 +1176,7 @@ Transform:
   - {fileID: 750549965}
   - {fileID: 595705374}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &241877044
 GameObject:
@@ -3626,6 +3677,7 @@ MonoBehaviour:
   manualExit: {fileID: 0}
   fXMiniManager: {fileID: 0}
   UnlockSound: {fileID: 0}
+  enterSound: {fileID: 0}
   lockedSound: {fileID: 0}
   dialogue: {fileID: 0}
 --- !u!61 &891978219
@@ -3854,6 +3906,7 @@ MonoBehaviour:
   manualExit: {fileID: 57857259}
   fXMiniManager: {fileID: 664258180}
   UnlockSound: {fileID: 8300000, guid: a1fc80f0b42402a4fae9f3596800894b, type: 3}
+  enterSound: {fileID: 0}
   lockedSound: {fileID: 0}
   dialogue: {fileID: 0}
 --- !u!61 &960640649
@@ -4392,6 +4445,7 @@ MonoBehaviour:
   manualExit: {fileID: 1326185908}
   fXMiniManager: {fileID: 0}
   UnlockSound: {fileID: 0}
+  enterSound: {fileID: 0}
   lockedSound: {fileID: 0}
   dialogue: {fileID: 0}
 --- !u!61 &1037746457
@@ -5089,11 +5143,11 @@ ParticleSystem:
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
-    m_MeshMaterialIndex: 0
-    m_MeshNormalOffset: 0
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
+    m_MeshMaterialIndex: 0
+    m_MeshNormalOffset: 0
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
@@ -5809,47 +5863,6 @@ ParticleSystem:
         - serializedVersion: 2
           time: 1
           value: 0
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-    speedModifier:
-      serializedVersion: 2
-      minMaxState: 0
-      scalar: 1
-      minScalar: 1
-      maxCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 2
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        - serializedVersion: 2
-          time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      minCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 2
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        - serializedVersion: 2
-          time: 1
-          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -7247,7 +7260,6 @@ ParticleSystem:
     maxLights: 20
   TrailModule:
     enabled: 0
-    mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
@@ -7292,14 +7304,12 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
-    ribbonCount: 1
     worldSpace: 0
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
     inheritParticleColor: 1
     generateLightingData: 0
-    splitSubEmitterRibbons: 0
     colorOverLifetime:
       serializedVersion: 2
       minMaxState: 0
@@ -8173,6 +8183,7 @@ MonoBehaviour:
   manualExit: {fileID: 0}
   fXMiniManager: {fileID: 0}
   UnlockSound: {fileID: 0}
+  enterSound: {fileID: 0}
   lockedSound: {fileID: 0}
   dialogue: {fileID: 0}
 --- !u!4 &1153498533
@@ -9497,6 +9508,7 @@ MonoBehaviour:
   manualExit: {fileID: 728021214}
   fXMiniManager: {fileID: 0}
   UnlockSound: {fileID: 0}
+  enterSound: {fileID: 0}
   lockedSound: {fileID: 0}
   dialogue: {fileID: 0}
 --- !u!61 &1308868618
@@ -9752,6 +9764,7 @@ MonoBehaviour:
   manualExit: {fileID: 1706859465}
   fXMiniManager: {fileID: 664258180}
   UnlockSound: {fileID: 8300000, guid: a1fc80f0b42402a4fae9f3596800894b, type: 3}
+  enterSound: {fileID: 0}
   lockedSound: {fileID: 0}
   dialogue: {fileID: 0}
 --- !u!1 &1326185907
@@ -10623,6 +10636,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1351625957}
+        m_MethodName: RunDialogue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   cantUseEvents:
     m_PersistentCalls:
@@ -10788,6 +10812,7 @@ MonoBehaviour:
   manualExit: {fileID: 0}
   fXMiniManager: {fileID: 0}
   UnlockSound: {fileID: 0}
+  enterSound: {fileID: 0}
   lockedSound: {fileID: 0}
   dialogue: {fileID: 0}
 --- !u!61 &1428831977
@@ -11123,7 +11148,7 @@ Transform:
   - {fileID: 1456433698}
   - {fileID: 1389972167}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1497051208
 GameObject:
@@ -11381,7 +11406,7 @@ Transform:
   - {fileID: 2025456877}
   - {fileID: 960640646}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1601274063
 GameObject:
@@ -12098,7 +12123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityName: Mirror
-  interactDistance: 1
+  interactDistance: 1.5
   canUseCondition:
     aminaUse: 1
     idaUse: 1
@@ -13366,6 +13391,97 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
+--- !u!1001 &1883250152
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 114842181653464326, guid: 5faf401d88b7bd24497a8b3182717c52,
+        type: 2}
+      propertyPath: dialogue.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363834135708082, guid: 5faf401d88b7bd24497a8b3182717c52, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363834135708082, guid: 5faf401d88b7bd24497a8b3182717c52, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363834135708082, guid: 5faf401d88b7bd24497a8b3182717c52, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363834135708082, guid: 5faf401d88b7bd24497a8b3182717c52, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363834135708082, guid: 5faf401d88b7bd24497a8b3182717c52, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363834135708082, guid: 5faf401d88b7bd24497a8b3182717c52, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363834135708082, guid: 5faf401d88b7bd24497a8b3182717c52, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363834135708082, guid: 5faf401d88b7bd24497a8b3182717c52, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114842181653464326, guid: 5faf401d88b7bd24497a8b3182717c52,
+        type: 2}
+      propertyPath: dialogue.Array.data[0].speaker
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114842181653464326, guid: 5faf401d88b7bd24497a8b3182717c52,
+        type: 2}
+      propertyPath: dialogue.Array.data[1].speaker
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114842181653464326, guid: 5faf401d88b7bd24497a8b3182717c52,
+        type: 2}
+      propertyPath: dialogue.Array.data[2].speaker
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1254333621730288, guid: 5faf401d88b7bd24497a8b3182717c52, type: 2}
+      propertyPath: m_Name
+      value: Dialogue_Failed_Use
+      objectReference: {fileID: 0}
+    - target: {fileID: 114842181653464326, guid: 5faf401d88b7bd24497a8b3182717c52,
+        type: 2}
+      propertyPath: dialogue.Array.data[0].line_Swedish
+      value: "Det d\xE4r fungerar inte."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114842181653464326, guid: 5faf401d88b7bd24497a8b3182717c52,
+        type: 2}
+      propertyPath: dialogue.Array.data[0].line_English
+      value: This doesn't work.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114842181653464326, guid: 5faf401d88b7bd24497a8b3182717c52,
+        type: 2}
+      propertyPath: dialogue.Array.data[2].line_Swedish
+      value: "Det d\xE4r fungerar inte."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114842181653464326, guid: 5faf401d88b7bd24497a8b3182717c52,
+        type: 2}
+      propertyPath: dialogue.Array.data[2].line_English
+      value: This doesn't work.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114842181653464326, guid: 5faf401d88b7bd24497a8b3182717c52,
+        type: 2}
+      propertyPath: dialogue.Array.data[2].time
+      value: 2.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 5faf401d88b7bd24497a8b3182717c52, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1919727675
 GameObject:
   m_ObjectHideFlags: 0
@@ -13627,7 +13743,7 @@ Transform:
   - {fileID: 585256308}
   - {fileID: 230702910}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1935100753
 GameObject:
@@ -14582,6 +14698,7 @@ MonoBehaviour:
   manualExit: {fileID: 0}
   fXMiniManager: {fileID: 0}
   UnlockSound: {fileID: 0}
+  enterSound: {fileID: 0}
   lockedSound: {fileID: 0}
   dialogue: {fileID: 0}
 --- !u!61 &2073000108
