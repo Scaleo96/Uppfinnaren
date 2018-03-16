@@ -1576,9 +1576,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - speaker: {fileID: 1872657160}
-    line_Swedish: "Ida p\xE5minner s\xE5 mycket om mamma."
-    line_English: Ida reminds me so much of mom.
-    time: 3
+    line_Swedish: "Mamma pratade ofta om Paris. Hon ville s\xE5 g\xE4rna \xE5ka dit
+      igen."
+    line_English: 'Mom often spoke of Paris. She wanted to go there again so badly. '
+    time: 5
 --- !u!1 &102476211
 GameObject:
   m_ObjectHideFlags: 0
@@ -4382,6 +4383,168 @@ MonoBehaviour:
   item: {fileID: 0}
   itemName: 
   useEntityName: 1
+--- !u!1 &222486903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 222486905}
+  - component: {fileID: 222486904}
+  m_Layer: 0
+  m_Name: E180_Amina_Place_Hat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &222486904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 222486903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 0}
+  EntityName: Hat Rack
+  character: {fileID: 1361693362}
+  characterName: Amina
+  trigger: 0
+  activated: 0
+  collisionTrigger: {fileID: 0}
+  item: {fileID: 0}
+  itemName: Item_hat
+  useEntityName: 1
+--- !u!4 &222486905
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 222486903}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 568082660}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &225863724
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 225863725}
+  - component: {fileID: 225863726}
+  m_Layer: 0
+  m_Name: Jonatan_Invention
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &225863725
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 225863724}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 577789009}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &225863726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 225863724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 1872657160}
+    line_Swedish: "Jag gjorde den h\xE4r uppfinningen n\xE4r jag var tolv."
+    line_English: I made this device when I was twelve.
+    time: 3
+  - speaker: {fileID: 1872657160}
+    line_Swedish: "Jag ville imponera p\xE5 mamma och pappa."
+    line_English: I wanted to impress mom and dad.
+    time: 3.5
+  - speaker: {fileID: 1872657160}
+    line_Swedish: "Varf\xF6r har pappa sparat den alla dessa \xE5r?"
+    line_English: Why did dad keep this for all these years?
+    time: 4
+--- !u!1 &230548682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 230548684}
+  - component: {fileID: 230548683}
+  m_Layer: 0
+  m_Name: E170_Amina_Invention
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &230548683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 230548682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 0}
+  EntityName: Key to attic
+  character: {fileID: 1361693362}
+  characterName: Amina
+  trigger: 0
+  activated: 0
+  collisionTrigger: {fileID: 395169426}
+  item: {fileID: 0}
+  itemName: 
+  useEntityName: 1
+--- !u!4 &230548684
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 230548682}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1705117343}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &233421117
 GameObject:
   m_ObjectHideFlags: 0
@@ -5497,35 +5660,35 @@ MonoBehaviour:
     - {fileID: 765781631}
     dialogueDone: 0
     isComplete: 0
-    repeatable: 1
+    repeatable: 0
   - conditions:
     - {fileID: 1202550312}
     dialogue:
     - {fileID: 420007927}
     dialogueDone: 0
     isComplete: 0
-    repeatable: 1
+    repeatable: 0
   - conditions:
     - {fileID: 1039037909}
     dialogue:
     - {fileID: 89221807}
     dialogueDone: 0
     isComplete: 0
-    repeatable: 1
+    repeatable: 0
   - conditions:
     - {fileID: 1514982306}
     dialogue:
     - {fileID: 1635667434}
     dialogueDone: 0
     isComplete: 0
-    repeatable: 1
+    repeatable: 0
   - conditions:
     - {fileID: 1482805989}
     dialogue:
     - {fileID: 1397549725}
     dialogueDone: 0
     isComplete: 0
-    repeatable: 1
+    repeatable: 0
   - conditions:
     - {fileID: 1242961399}
     dialogue:
@@ -5553,35 +5716,35 @@ MonoBehaviour:
     - {fileID: 1809969538}
     dialogueDone: 0
     isComplete: 0
-    repeatable: 1
+    repeatable: 0
   - conditions:
     - {fileID: 1438399406}
     dialogue:
     - {fileID: 1497265108}
     dialogueDone: 0
     isComplete: 0
-    repeatable: 1
+    repeatable: 0
   - conditions:
     - {fileID: 1176988453}
     dialogue:
     - {fileID: 312096633}
     dialogueDone: 0
     isComplete: 0
-    repeatable: 1
+    repeatable: 0
   - conditions:
     - {fileID: 1220638479}
     dialogue:
     - {fileID: 1866156109}
     dialogueDone: 0
     isComplete: 0
-    repeatable: 1
+    repeatable: 0
   - conditions:
     - {fileID: 1561925975}
     dialogue:
     - {fileID: 2030660755}
     dialogueDone: 0
     isComplete: 0
-    repeatable: 1
+    repeatable: 0
   - conditions:
     - {fileID: 2037429638}
     dialogue:
@@ -5595,7 +5758,7 @@ MonoBehaviour:
     - {fileID: 1227047317}
     dialogueDone: 0
     isComplete: 0
-    repeatable: 1
+    repeatable: 0
   - conditions:
     - {fileID: 116891079}
     dialogue:
@@ -5609,7 +5772,7 @@ MonoBehaviour:
     - {fileID: 466864424}
     dialogueDone: 0
     isComplete: 0
-    repeatable: 1
+    repeatable: 0
   - conditions:
     - {fileID: 267889520}
     dialogue:
@@ -5623,7 +5786,7 @@ MonoBehaviour:
     - {fileID: 638473977}
     dialogueDone: 0
     isComplete: 0
-    repeatable: 1
+    repeatable: 0
   - conditions:
     - {fileID: 129588652}
     dialogue:
@@ -5651,21 +5814,21 @@ MonoBehaviour:
     - {fileID: 213461951}
     dialogueDone: 0
     isComplete: 0
-    repeatable: 1
+    repeatable: 0
   - conditions:
     - {fileID: 2139596005}
     dialogue:
     - {fileID: 1091211599}
     dialogueDone: 0
     isComplete: 0
-    repeatable: 1
+    repeatable: 0
   - conditions:
     - {fileID: 391418386}
     dialogue:
     - {fileID: 930322415}
     dialogueDone: 0
     isComplete: 0
-    repeatable: 1
+    repeatable: 0
   - conditions:
     - {fileID: 1426173887}
     dialogue:
@@ -5824,6 +5987,97 @@ MonoBehaviour:
     - {fileID: 2089978897}
     dialogue:
     - {fileID: 1017579597}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 0
+  - conditions:
+    - {fileID: 564863908}
+    dialogue:
+    - {fileID: 2139231873}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 1
+  - conditions:
+    - {fileID: 530718580}
+    dialogue:
+    - {fileID: 225863726}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 1
+  - conditions:
+    - {fileID: 230548683}
+    dialogue:
+    - {fileID: 599140201}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 1
+  - conditions:
+    - {fileID: 1541910879}
+    dialogue:
+    - {fileID: 225863726}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 1
+  - conditions:
+    - {fileID: 2040833007}
+    dialogue:
+    - {fileID: 2139231873}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 1
+  - conditions:
+    - {fileID: 479644446}
+    dialogue:
+    - {fileID: 599140201}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 1
+  - conditions:
+    - {fileID: 293016314}
+    dialogue:
+    - {fileID: 407227737}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 1
+  - conditions:
+    - {fileID: 734326209}
+    dialogue:
+    - {fileID: 351346913}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 1
+  - conditions:
+    - {fileID: 482339373}
+    dialogue:
+    - {fileID: 897896167}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 0
+  - conditions:
+    - {fileID: 702181227}
+    dialogue:
+    - {fileID: 429234347}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 0
+  - conditions:
+    - {fileID: 2070585427}
+    dialogue:
+    - {fileID: 1592885877}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 0
+  - conditions:
+    - {fileID: 1093497654}
+    dialogue:
+    - {fileID: 1604811432}
+    dialogueDone: 0
+    isComplete: 0
+    repeatable: 0
+  - conditions:
+    - {fileID: 222486904}
+    dialogue:
+    - {fileID: 1187299675}
     dialogueDone: 0
     isComplete: 0
     repeatable: 0
@@ -6320,6 +6574,59 @@ GameObject:
   m_PrefabParentObject: {fileID: 1020275214170484, guid: 725daacbc8f12d844a499d6af5624ffe,
     type: 2}
   m_PrefabInternal: {fileID: 1536279665}
+--- !u!1 &293016313
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 293016315}
+  - component: {fileID: 293016314}
+  m_Layer: 0
+  m_Name: E174_Ida_Cabinet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &293016314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 293016313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 0}
+  EntityName: Cabinet
+  character: {fileID: 60444624}
+  characterName: Ida
+  trigger: 1
+  activated: 0
+  collisionTrigger: {fileID: 0}
+  item: {fileID: 0}
+  itemName: 
+  useEntityName: 1
+--- !u!4 &293016315
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 293016313}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 380167436}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &297475145
 GameObject:
   m_ObjectHideFlags: 0
@@ -6909,10 +7216,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - speaker: {fileID: 517375621}
-    line_Swedish: "Jag k\xE4nner knappt igen Ivar, jag antar att han ocks\xE5 varit
-      ung."
-    line_English: bla bla
-    time: 6
+    line_Swedish: "Ivar ber\xE4ttade att Lena talade flytande franska."
+    line_English: 'Ivar told me that Lena was fluent in french. '
+    time: 5
 --- !u!1 &314184507
 GameObject:
   m_ObjectHideFlags: 0
@@ -7640,6 +7946,55 @@ Transform:
   m_Father: {fileID: 844753564}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &351346912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 351346914}
+  - component: {fileID: 351346913}
+  m_Layer: 0
+  m_Name: Jonatan_Chair
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &351346913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 351346912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 1872657160}
+    line_Swedish: "Min rygg kommer inte gilla om jag b\xF6rjar b\xE4ra runt p\xE5
+      saker."
+    line_English: "My back won\u2019t like me if I start carrying this around. "
+    time: 4
+--- !u!4 &351346914
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 351346912}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 844753564}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &355737748
 GameObject:
   m_ObjectHideFlags: 0
@@ -7868,9 +8223,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - speaker: {fileID: 54775203}
-    line_Swedish: En hatt verkar saknas.
-    line_English: Seems like a hat is missing.
-    time: 3
+    line_Swedish: "Jag n\xE5r inte!"
+    line_English: I can't reach it!
+    time: 2.5
 --- !u!1 &365905474
 GameObject:
   m_ObjectHideFlags: 0
@@ -8171,6 +8526,8 @@ Transform:
   - {fileID: 672281181}
   - {fileID: 1887174437}
   - {fileID: 1832845886}
+  - {fileID: 293016315}
+  - {fileID: 482339372}
   m_Father: {fileID: 682220335}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8882,6 +9239,54 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &407227736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 407227738}
+  - component: {fileID: 407227737}
+  m_Layer: 0
+  m_Name: Ida_Cabinet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &407227737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 407227736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 54775203}
+    line_Swedish: "Allting \xE4r s\xE5 h\xF6gt upp!"
+    line_English: Everything is so high up!
+    time: 3
+--- !u!4 &407227738
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 407227736}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1422649948}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &407644508
 GameObject:
   m_ObjectHideFlags: 0
@@ -9205,7 +9610,8 @@ MonoBehaviour:
   - speaker: {fileID: 1872657160}
     line_Swedish: "Minnet b\xF6rjar bli d\xE5ligt, jag kommer inte alls ih\xE5g att
       vi var till London."
-    line_English: '...'
+    line_English: My memory is starting to fail me, I don't even remember we visited
+      London.
     time: 6
 --- !u!1 &421072867
 GameObject:
@@ -9403,6 +9809,54 @@ MonoBehaviour:
   item: {fileID: 0}
   itemName: 
   useEntityName: 1
+--- !u!1 &429234345
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 429234346}
+  - component: {fileID: 429234347}
+  m_Layer: 0
+  m_Name: Jonatan_Key_Use
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &429234346
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 429234345}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 844753564}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &429234347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 429234345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 1872657160}
+    line_Swedish: Tack och lov, nyckeln passade.
+    line_English: What a relief, the key fit.
+    time: 2.5
 --- !u!1 &431341579
 GameObject:
   m_ObjectHideFlags: 0
@@ -10082,8 +10536,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - speaker: {fileID: 1872657160}
-    line_Swedish: "Det h\xE4r var det perfekta g\xF6mst\xE4llet n\xE4r vi lekte kurrag\xF6mma."
-    line_English: bla bla
+    line_Swedish: "Pappa verkar inte ha k\xF6pt nya kl\xE4der p\xE5 ett bra tag."
+    line_English: It seems like dad hasn't bought new clothes in a while.
     time: 4
 --- !u!1 &471427601
 GameObject:
@@ -10118,12 +10572,23 @@ MonoBehaviour:
   entityName: Key to attic
   interactDistance: 1.5
   canUseCondition:
-    aminaUse: 0
+    aminaUse: 1
     idaUse: 1
     jonathanUse: 1
   interactionEvents:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 241637444}
+        m_MethodName: RunDialogue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   cantUseEvents:
     m_PersistentCalls:
@@ -10290,6 +10755,59 @@ Transform:
   m_Father: {fileID: 1888947642}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &479644444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 479644445}
+  - component: {fileID: 479644446}
+  m_Layer: 0
+  m_Name: E173_Amina_Invention_Pick_Up
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &479644445
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 479644444}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1705117343}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &479644446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 479644444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 0}
+  EntityName: Key to attic
+  character: {fileID: 1361693362}
+  characterName: Amina
+  trigger: 3
+  activated: 0
+  collisionTrigger: {fileID: 395169426}
+  item: {fileID: 0}
+  itemName: 
+  useEntityName: 1
 --- !u!1 &480161638
 GameObject:
   m_ObjectHideFlags: 0
@@ -10386,6 +10904,59 @@ Transform:
   m_Father: {fileID: 936229782}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &482339371
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 482339372}
+  - component: {fileID: 482339373}
+  m_Layer: 0
+  m_Name: E176_Ida_Key_Use
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &482339372
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 482339371}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 380167436}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &482339373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 482339371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 0}
+  EntityName: Door
+  character: {fileID: 60444624}
+  characterName: Ida
+  trigger: 5
+  activated: 0
+  collisionTrigger: {fileID: 0}
+  item: {fileID: 0}
+  itemName: Key to hall
+  useEntityName: 1
 --- !u!1 &489665416
 GameObject:
   m_ObjectHideFlags: 0
@@ -11476,6 +12047,59 @@ MonoBehaviour:
   lerpToMouseSpeedY: 0
   maxXAndY: {x: 1000, y: 1000}
   minXAndY: {x: -1000, y: -1000}
+--- !u!1 &530718578
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 530718579}
+  - component: {fileID: 530718580}
+  m_Layer: 0
+  m_Name: E169_Jonatan_Invention
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &530718579
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 530718578}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1865517261}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &530718580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 530718578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 0}
+  EntityName: Key to attic
+  character: {fileID: 977030939}
+  characterName: Jonathan
+  trigger: 0
+  activated: 0
+  collisionTrigger: {fileID: 395169426}
+  item: {fileID: 0}
+  itemName: 
+  useEntityName: 1
 --- !u!1 &531814386
 GameObject:
   m_ObjectHideFlags: 0
@@ -12042,6 +12666,59 @@ Transform:
   m_Father: {fileID: 1422649948}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &564863906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 564863907}
+  - component: {fileID: 564863908}
+  m_Layer: 0
+  m_Name: E168_Ida_Invention
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &564863907
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 564863906}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1003060455}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &564863908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 564863906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 0}
+  EntityName: Key to attic
+  character: {fileID: 60444624}
+  characterName: Ida
+  trigger: 0
+  activated: 0
+  collisionTrigger: {fileID: 395169426}
+  item: {fileID: 0}
+  itemName: 
+  useEntityName: 1
 --- !u!1 &568082659
 GameObject:
   m_ObjectHideFlags: 0
@@ -12081,6 +12758,8 @@ Transform:
   - {fileID: 1293257313}
   - {fileID: 505619185}
   - {fileID: 1253272420}
+  - {fileID: 2070585428}
+  - {fileID: 222486905}
   m_Father: {fileID: 682220335}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12125,6 +12804,7 @@ Transform:
   - {fileID: 1091211598}
   - {fileID: 668862777}
   - {fileID: 390948492}
+  - {fileID: 225863725}
   m_Father: {fileID: 1368752864}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12673,6 +13353,54 @@ MonoBehaviour:
   item: {fileID: 0}
   itemName: 
   useEntityName: 1
+--- !u!1 &599140200
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 599140202}
+  - component: {fileID: 599140201}
+  m_Layer: 0
+  m_Name: Amina_Invention
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &599140201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 599140200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 517375621}
+    line_Swedish: "Vad \xE4r det h\xE4r f\xF6r mackap\xE4r? Jonatan kanske vet."
+    line_English: What kind of device is this? Maybe Jonatan knows.
+    time: 4
+--- !u!4 &599140202
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 599140200}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2032714385}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &600129764
 GameObject:
   m_ObjectHideFlags: 0
@@ -13251,7 +13979,18 @@ MonoBehaviour:
     jonathanUse: 1
   interactionEvents:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 241637444}
+        m_MethodName: RunDialogue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   cantUseEvents:
     m_PersistentCalls:
@@ -14747,6 +15486,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: 4
+--- !u!1 &702181225
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 702181226}
+  - component: {fileID: 702181227}
+  m_Layer: 0
+  m_Name: E177_Jonathan_Key_Use
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &702181226
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 702181225}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1248397790}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &702181227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 702181225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 0}
+  EntityName: Door
+  character: {fileID: 977030939}
+  characterName: Jonathan
+  trigger: 5
+  activated: 0
+  collisionTrigger: {fileID: 0}
+  item: {fileID: 0}
+  itemName: Key to hall
+  useEntityName: 1
 --- !u!1 &710676781
 GameObject:
   m_ObjectHideFlags: 0
@@ -14841,6 +15633,7 @@ Transform:
   - {fileID: 213461950}
   - {fileID: 1883007495}
   - {fileID: 2068033057}
+  - {fileID: 2139231872}
   m_Father: {fileID: 1368752864}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15123,6 +15916,59 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &734326208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 734326210}
+  - component: {fileID: 734326209}
+  m_Layer: 0
+  m_Name: E175_Jonatan_Chair
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &734326209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 734326208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 0}
+  EntityName: Chair
+  character: {fileID: 977030939}
+  characterName: Jonathan
+  trigger: 1
+  activated: 0
+  collisionTrigger: {fileID: 0}
+  item: {fileID: 0}
+  itemName: 
+  useEntityName: 1
+--- !u!4 &734326210
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 734326208}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1248397790}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &737558379
 GameObject:
   m_ObjectHideFlags: 0
@@ -15600,9 +16446,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - speaker: {fileID: 1872657160}
-    line_Swedish: "Vem tog den h\xE4r bilden? Jag syns knappt p\xE5 bilden."
-    line_English: '...'
-    time: 4
+    line_Swedish: "Att turista \xE4r inte riktigt min grej, men jag tror Ida skulle
+      gilla det."
+    line_English: Being a tourist isn't really my thing, but I think Ida would like
+      it.
+    time: 4.5
 --- !u!1 &767241670
 GameObject:
   m_ObjectHideFlags: 0
@@ -16861,6 +17709,9 @@ Transform:
   - {fileID: 42667816}
   - {fileID: 1311166770}
   - {fileID: 1301769845}
+  - {fileID: 351346914}
+  - {fileID: 429234346}
+  - {fileID: 1604811431}
   m_Father: {fileID: 1388281436}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18143,6 +18994,54 @@ Transform:
   m_Father: {fileID: 951724219}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &897896165
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 897896166}
+  - component: {fileID: 897896167}
+  m_Layer: 0
+  m_Name: Ida_Key_Use
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &897896166
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 897896165}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1422649948}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &897896167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 897896165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 54775203}
+    line_Swedish: "Det var r\xE4tt nyckel! "
+    line_English: I got the right key!
+    time: 2.5
 --- !u!1 &900311481
 GameObject:
   m_ObjectHideFlags: 0
@@ -18722,8 +19621,8 @@ MonoBehaviour:
   dialogue:
   - speaker: {fileID: 517375621}
     line_Swedish: "Ivar gillar att ber\xE4tta om sina resor och jag gillar att lyssna."
-    line_English: bla bla
-    time: 2
+    line_English: Ivar likes talking about his travels and I like listening.
+    time: 5
 --- !u!1 &931118213
 GameObject:
   m_ObjectHideFlags: 0
@@ -20430,6 +21329,8 @@ Transform:
   - {fileID: 720541203}
   - {fileID: 1426173886}
   - {fileID: 1075105292}
+  - {fileID: 564863907}
+  - {fileID: 2040833006}
   m_Father: {fileID: 283924574}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21360,15 +22261,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - speaker: {fileID: 1872657160}
-    line_Swedish: "N\xE4r jag var liten ville jag bygga en maskin som gjorde alla
-      sn\xE4lla."
-    line_English: When I was small I wanted to build a machine that made everyone
-      gentle.
-    time: 4
+    line_Swedish: "N\xE4r jag var liten byggde jag en mackap\xE4r som kunde \xF6ppna
+      alla d\xF6rrar."
+    line_English: When I was small I built a device that could open any door.
+    time: 5
   - speaker: {fileID: 1872657160}
     line_Swedish: "Jag blev spr\xE5kvetare ist\xE4llet och det var nog r\xE4tt val. "
     line_English: I became a philologist instead and that was probably a good choice.
-    time: 4
+    time: 5
 --- !u!1 &1051527772
 GameObject:
   m_ObjectHideFlags: 0
@@ -22202,6 +23102,59 @@ MonoBehaviour:
       jag f\xF6lja med."
     line_English: Mom and dad went on businesstrips, sometimes I went with them.
     time: 5
+--- !u!1 &1093497652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1093497653}
+  - component: {fileID: 1093497654}
+  m_Layer: 0
+  m_Name: E179_Jonathan_Place_Hat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1093497653
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1093497652}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1248397790}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1093497654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1093497652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 0}
+  EntityName: Hat Rack
+  character: {fileID: 977030939}
+  characterName: Jonathan
+  trigger: 0
+  activated: 0
+  collisionTrigger: {fileID: 0}
+  item: {fileID: 0}
+  itemName: Item_hat
+  useEntityName: 1
 --- !u!1 &1102805531
 GameObject:
   m_ObjectHideFlags: 0
@@ -23690,6 +24643,54 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1187299674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1187299676}
+  - component: {fileID: 1187299675}
+  m_Layer: 0
+  m_Name: Amina_Place_Hat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1187299675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1187299674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 517375621}
+    line_Swedish: "S\xE5 d\xE4r ja!"
+    line_English: There we go!
+    time: 2.5
+--- !u!4 &1187299676
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1187299674}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1343508289}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1190763173
 GameObject:
   m_ObjectHideFlags: 0
@@ -24883,6 +25884,9 @@ Transform:
   - {fileID: 1906972876}
   - {fileID: 2052911385}
   - {fileID: 214881511}
+  - {fileID: 734326210}
+  - {fileID: 702181226}
+  - {fileID: 1093497653}
   m_Father: {fileID: 682220335}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -27160,6 +28164,8 @@ Transform:
   - {fileID: 961013768}
   - {fileID: 1017332187}
   - {fileID: 1759218246}
+  - {fileID: 1592885878}
+  - {fileID: 1187299676}
   m_Father: {fileID: 1388281436}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -27952,8 +28958,9 @@ MonoBehaviour:
   - speaker: {fileID: 1872657160}
     line_Swedish: "Jag tror inte jag f\xF6ljde med till Japan, resan var f\xF6r l\xE5ng
       f\xF6r mig."
-    line_English: bla bla
-    time: 4
+    line_English: 'I don''t think I went with my parents to Japan, the trip was too
+      long for me. '
+    time: 6
 --- !u!1 &1404315046
 GameObject:
   m_ObjectHideFlags: 0
@@ -28429,6 +29436,8 @@ Transform:
   - {fileID: 1166776183}
   - {fileID: 692442900}
   - {fileID: 186006042}
+  - {fileID: 407227738}
+  - {fileID: 897896166}
   m_Father: {fileID: 1388281436}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -30144,8 +31153,8 @@ MonoBehaviour:
   dialogue:
   - speaker: {fileID: 517375621}
     line_Swedish: London minsann!
-    line_English: bla bla
-    time: 2
+    line_English: Ah, London!
+    time: 2.5
 --- !u!1 &1500678321
 GameObject:
   m_ObjectHideFlags: 0
@@ -30878,15 +31887,20 @@ Prefab:
       propertyPath: ContinueEvent.m_PersistentCalls.m_Calls.Array.size
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114656746579007672, guid: 725daacbc8f12d844a499d6af5624ffe,
+        type: 2}
+      propertyPath: ContinueEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 224549810366154436, guid: 725daacbc8f12d844a499d6af5624ffe,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 189
+      value: 561
       objectReference: {fileID: 0}
     - target: {fileID: 224549810366154436, guid: 725daacbc8f12d844a499d6af5624ffe,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 263
+      value: 319.5
       objectReference: {fileID: 0}
     - target: {fileID: 224549810366154436, guid: 725daacbc8f12d844a499d6af5624ffe,
         type: 2}
@@ -31089,9 +32103,92 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 8443e814ff050c248940995d002df398,
         type: 3}
+    - target: {fileID: 114656746579007672, guid: 725daacbc8f12d844a499d6af5624ffe,
+        type: 2}
+      propertyPath: ContinueEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114656746579007672, guid: 725daacbc8f12d844a499d6af5624ffe,
+        type: 2}
+      propertyPath: ContinueEvent.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114656746579007672, guid: 725daacbc8f12d844a499d6af5624ffe,
+        type: 2}
+      propertyPath: ContinueEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 241637444}
+    - target: {fileID: 114656746579007672, guid: 725daacbc8f12d844a499d6af5624ffe,
+        type: 2}
+      propertyPath: ContinueEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: RunDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 114656746579007672, guid: 725daacbc8f12d844a499d6af5624ffe,
+        type: 2}
+      propertyPath: ContinueEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114656746579007672, guid: 725daacbc8f12d844a499d6af5624ffe,
+        type: 2}
+      propertyPath: triggerEntity
+      value: 
+      objectReference: {fileID: 471427602}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 725daacbc8f12d844a499d6af5624ffe, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1541910878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1541910880}
+  - component: {fileID: 1541910879}
+  m_Layer: 0
+  m_Name: E171_Jonatan_Invention_Pick_Up
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1541910879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1541910878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 0}
+  EntityName: Key to attic
+  character: {fileID: 977030939}
+  characterName: Jonathan
+  trigger: 3
+  activated: 0
+  collisionTrigger: {fileID: 395169426}
+  item: {fileID: 0}
+  itemName: 
+  useEntityName: 1
+--- !u!4 &1541910880
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1541910878}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1865517261}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1550711073
 GameObject:
   m_ObjectHideFlags: 0
@@ -31871,6 +32968,54 @@ Transform:
   m_Father: {fileID: 1422649948}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1592885876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1592885878}
+  - component: {fileID: 1592885877}
+  m_Layer: 0
+  m_Name: Amina_Key_Use
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1592885877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1592885876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 517375621}
+    line_Swedish: Ha ha! Nyckeln passar!
+    line_English: 'Ha ha! The key fits! '
+    time: 2.5
+--- !u!4 &1592885878
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1592885876}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1343508289}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1595893207
 GameObject:
   m_ObjectHideFlags: 0
@@ -32031,6 +33176,54 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1604811430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1604811431}
+  - component: {fileID: 1604811432}
+  m_Layer: 0
+  m_Name: Jonatan_Place_Hat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1604811431
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1604811430}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 844753564}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1604811432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1604811430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 1872657160}
+    line_Swedish: "Det d\xE4r ser b\xE4ttre ut."
+    line_English: That looks better.
+    time: 2.5
 --- !u!1 &1608148936
 GameObject:
   m_ObjectHideFlags: 0
@@ -32586,9 +33779,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - speaker: {fileID: 1872657160}
-    line_Swedish: "Rom var lite f\xF6r varmt f\xF6r min smak."
-    line_English: bla bla
-    time: 2
+    line_Swedish: "Jag borde ta en l\xE5ng semester efter det h\xE4r."
+    line_English: I should take a long holiday after this.
+    time: 4
 --- !u!114 &1636514562 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114392257989338664, guid: 6f7644efda8c6e04b997225d4199a277,
@@ -33743,6 +34936,8 @@ Transform:
   - {fileID: 391418385}
   - {fileID: 2045802784}
   - {fileID: 1889928139}
+  - {fileID: 230548684}
+  - {fileID: 479644445}
   m_Father: {fileID: 283924574}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -34918,8 +36113,9 @@ MonoBehaviour:
   - speaker: {fileID: 517375621}
     line_Swedish: "Jag har aldrig varit mycket f\xF6r att resa, men pyramiderna vore
       h\xE4ftiga att se."
-    line_English: bla bla
-    time: 4
+    line_English: 'I''ve never been one for traveling, but it would be nice to see
+      the pyramids. '
+    time: 5
 --- !u!1 &1810873076
 GameObject:
   m_ObjectHideFlags: 0
@@ -36556,6 +37752,8 @@ Transform:
   - {fileID: 2139596004}
   - {fileID: 428168527}
   - {fileID: 1391836978}
+  - {fileID: 530718579}
+  - {fileID: 1541910880}
   m_Father: {fileID: 283924574}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -36604,9 +37802,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - speaker: {fileID: 517375621}
-    line_Swedish: Har de rest jorden runt?
-    line_English: bla bla
-    time: 3
+    line_Swedish: "Det \xE4r sv\xE5rt att tro att Ivar rest s\xE5 mycket, nuf\xF6rtiden
+      l\xE4mnar han knappt huset."
+    line_English: It's hard to believe that Ivar traveled so much, nowadays he hardly
+      leaves the house.
+    time: 6
 --- !u!1 &1866422463
 GameObject:
   m_ObjectHideFlags: 0
@@ -39259,8 +40459,8 @@ MonoBehaviour:
   dialogue:
   - speaker: {fileID: 517375621}
     line_Swedish: "Vilken syn det d\xE4r m\xE5ste ha varit!"
-    line_English: bla bla
-    time: 4
+    line_English: What a sight that must have been!
+    time: 3
 --- !u!1 &2032531485
 GameObject:
   m_ObjectHideFlags: 0
@@ -39355,6 +40555,7 @@ Transform:
   - {fileID: 930322414}
   - {fileID: 1018713478}
   - {fileID: 1263232380}
+  - {fileID: 599140202}
   m_Father: {fileID: 1368752864}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -39542,6 +40743,59 @@ Transform:
   m_Father: {fileID: 1888947642}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2040833005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2040833006}
+  - component: {fileID: 2040833007}
+  m_Layer: 0
+  m_Name: E172_Ida_Invention_Pick_Up
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2040833006
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2040833005}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1003060455}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2040833007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2040833005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 0}
+  EntityName: Key to attic
+  character: {fileID: 60444624}
+  characterName: Ida
+  trigger: 3
+  activated: 0
+  collisionTrigger: {fileID: 395169426}
+  item: {fileID: 0}
+  itemName: 
+  useEntityName: 1
 --- !u!1 &2043309261
 GameObject:
   m_ObjectHideFlags: 0
@@ -40317,6 +41571,59 @@ MonoBehaviour:
     line_Swedish: "Farfar beh\xF6ver laga den h\xE4r."
     line_English: Grandpa needs to mend this.
     time: 3
+--- !u!1 &2070585426
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1303533545739370, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2070585428}
+  - component: {fileID: 2070585427}
+  m_Layer: 0
+  m_Name: E178_Amina_Key_Use
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2070585427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114042577532009584, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2070585426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520b9f4530e8e1c44af86fa9c3bff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 0}
+  EntityName: Door
+  character: {fileID: 1361693362}
+  characterName: Amina
+  trigger: 5
+  activated: 0
+  collisionTrigger: {fileID: 0}
+  item: {fileID: 0}
+  itemName: Key to hall
+  useEntityName: 1
+--- !u!4 &2070585428
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4742472315267666, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2070585426}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7992147, y: -1.3042656, z: 0.08852527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 568082660}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2075405952
 GameObject:
   m_ObjectHideFlags: 0
@@ -40920,6 +42227,54 @@ Transform:
   m_Father: {fileID: 241637446}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2139231871
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1360733618566090, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2139231872}
+  - component: {fileID: 2139231873}
+  m_Layer: 0
+  m_Name: Ida_Invention
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2139231872
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4951797688875342, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2139231871}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 710828196}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2139231873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114921443353283636, guid: 60623dc46d87bdb44bf978a3697314c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2139231871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 54775203}
+    line_Swedish: "Wow! En nyckelmackap\xE4r! Pappa kanske vet mer om den."
+    line_English: Wow! A key device! Maybe dad knows more about it.
+    time: 5
 --- !u!1 &2139596003
 GameObject:
   m_ObjectHideFlags: 0
