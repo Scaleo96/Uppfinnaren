@@ -1,5 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
+using System.Collections.Generic;
 
 [CustomEditor(typeof(Entity))]
 public class EntityEditor : Editor
@@ -95,8 +96,10 @@ public class EntityEditor : Editor
     {
         Entity[] allEntities = FindAllEntities();
 
-        foreach (Entity entity in allEntities)
+        for (int i = 0; i < allEntities.Length; i++)
         {
+            Entity entity = (Entity)allEntities[i];
+
             bool hasSpriteSwapper = entity.gameObject.GetComponent<SpriteSwapper>();
             if (entity.GetComponent<SpriteRenderer>())
             {
@@ -109,11 +112,15 @@ public class EntityEditor : Editor
                     CheckForAltSprite(entity);
                 }
             }
+            else
+            {
+                Debug.LogWarning(entity.EntityName + " has no SpriteRenderer.", entity.gameObject);
+            }
         }
     }
 
     private static Entity[] FindAllEntities()
     {
-        return FindObjectsOfType<Entity>();
+        return FindObjectsOfType<Entity>(); ;
     }
 }
