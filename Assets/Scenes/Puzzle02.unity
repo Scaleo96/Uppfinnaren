@@ -544,8 +544,8 @@ MonoBehaviour:
   manualExit: {fileID: 728021214}
   fXMiniManager: {fileID: 664258180}
   UnlockSound: {fileID: 8300000, guid: a1fc80f0b42402a4fae9f3596800894b, type: 3}
-  enterSound: {fileID: 0}
-  lockedSound: {fileID: 0}
+  enterSound: {fileID: 8300000, guid: 84a5a828d0d2a3b46aa24d3c3362d593, type: 3}
+  lockedSound: {fileID: 8300000, guid: b50418c6712271848997451f79e4e69a, type: 3}
   dialogue: {fileID: 0}
 --- !u!61 &134301048
 BoxCollider2D:
@@ -1636,7 +1636,19 @@ MonoBehaviour:
     jonathanUse: 1
   interactionEvents:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 664258180}
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 8d382a522427d024aa35757cc0f09893,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   cantUseEvents:
     m_PersistentCalls:
@@ -4273,7 +4285,19 @@ MonoBehaviour:
     jonathanUse: 1
   interactionEvents:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 664258180}
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 8d382a522427d024aa35757cc0f09893,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   cantUseEvents:
     m_PersistentCalls:
@@ -4821,7 +4845,7 @@ MonoBehaviour:
         m_MethodName: PlaySound
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 0e4a181ebab38bd43832d66b39d2fb9a,
+          m_ObjectArgument: {fileID: 8300000, guid: f0d56fcbb4666ce41b879250e8d32bf9,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
@@ -5637,9 +5661,9 @@ MonoBehaviour:
   transitionTime: 1
   setExitManually: 1
   manualExit: {fileID: 1884474332}
-  fXMiniManager: {fileID: 0}
+  fXMiniManager: {fileID: 664258180}
   UnlockSound: {fileID: 0}
-  enterSound: {fileID: 0}
+  enterSound: {fileID: 8300000, guid: e0ada29073ca5464da7783753fab176d, type: 3}
   lockedSound: {fileID: 0}
   dialogue: {fileID: 0}
 --- !u!61 &1125727285
@@ -5957,7 +5981,19 @@ MonoBehaviour:
     jonathanUse: 1
   interactionEvents:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 664258180}
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 8d382a522427d024aa35757cc0f09893,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   cantUseEvents:
     m_PersistentCalls:
@@ -7080,6 +7116,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 664258180}
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: e821fb1e066e022408a7da8861d9c017,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   cantUseEvents:
     m_PersistentCalls:
@@ -7919,9 +7967,9 @@ MonoBehaviour:
   transitionTime: 1
   setExitManually: 1
   manualExit: {fileID: 709176651}
-  fXMiniManager: {fileID: 0}
+  fXMiniManager: {fileID: 664258180}
   UnlockSound: {fileID: 0}
-  enterSound: {fileID: 0}
+  enterSound: {fileID: 8300000, guid: f56c8fce36de817449f932d12f81804a, type: 3}
   lockedSound: {fileID: 0}
   dialogue: {fileID: 0}
 --- !u!61 &1709654335
@@ -8996,7 +9044,19 @@ MonoBehaviour:
     jonathanUse: 1
   interactionEvents:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 664258180}
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 3b52a51e35da89d43aa4bd9ad7822513,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   cantUseEvents:
     m_PersistentCalls:
@@ -9314,6 +9374,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 664258180}
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 85b788a7519bead479489dd6c706006f,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   cantUseEvents:
     m_PersistentCalls:
@@ -9508,7 +9580,19 @@ MonoBehaviour:
     jonathanUse: 1
   interactionEvents:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 664258180}
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 7e53a03347eacde4180bf691028cbd8c,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   cantUseEvents:
     m_PersistentCalls:
