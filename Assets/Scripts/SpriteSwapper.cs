@@ -1,26 +1,45 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class SpriteSwapper : MonoBehaviour
 {
     [Tooltip("The sprite that the SpriteSwapper will swap to.")]
     [SerializeField]
-    Sprite alternativeSprite;
-    Sprite defaultSprite;
+    private Sprite alternativeSprite;
+
+    private Sprite defaultSprite;
 
     [SerializeField]
-    bool switchToDefaultEachFrame = true;
+    private bool switchToDefaultEachFrame = true;
 
-    SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;
 
-    bool isAlternative;
+    [SerializeField]
+    [Tooltip("Add a custom sprite renderer to perform the sprite swap with that isn't part of the base object. Leave blank for default behaviour.")]
+    private SpriteRenderer spriteRendererOverride;
+
+    private bool isAlternative;
 
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetSpriteRenderer();
         defaultSprite = spriteRenderer.sprite;
+    }
+
+    private SpriteRenderer GetSpriteRenderer()
+    {
+        if (spriteRendererOverride != null)
+        {
+            return spriteRendererOverride;
+        }
+        else if (GetComponent<SpriteRenderer>())
+        {
+            return GetComponent<SpriteRenderer>();
+        }
+        else
+        {
+            return GetComponentInChildren<SpriteRenderer>();
+        }
     }
 
     private void LateUpdate()
@@ -38,7 +57,7 @@ public class SpriteSwapper : MonoBehaviour
             }
 
             isAlternative = false;
-        }      
+        }
     }
 
     /// <summary>
