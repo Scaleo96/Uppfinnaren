@@ -585,6 +585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alternativeSprite: {fileID: 21300000, guid: 096e3df6a65fcb047a4e645416310886, type: 3}
   switchToDefaultEachFrame: 1
+  spriteRendererOverride: {fileID: 0}
 --- !u!1 &137032140
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,6 +807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alternativeSprite: {fileID: 21300000, guid: 49eb6fb855d4d88438168b73fc2a9c77, type: 3}
   switchToDefaultEachFrame: 1
+  spriteRendererOverride: {fileID: 0}
 --- !u!1 &146316408
 GameObject:
   m_ObjectHideFlags: 0
@@ -1310,6 +1312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alternativeSprite: {fileID: 21300000, guid: cf938bf2c8d89c546b40a70798954996, type: 3}
   switchToDefaultEachFrame: 1
+  spriteRendererOverride: {fileID: 0}
 --- !u!1 &248482532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1541,6 +1544,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alternativeSprite: {fileID: 21300000, guid: 9a915de7db79be743b84e0b8e9c7df89, type: 3}
   switchToDefaultEachFrame: 1
+  spriteRendererOverride: {fileID: 0}
 --- !u!1 &296245966
 GameObject:
   m_ObjectHideFlags: 0
@@ -1707,6 +1711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alternativeSprite: {fileID: 21300000, guid: b3000ea14cf4c7a4ba43cd0daaa887b3, type: 3}
   switchToDefaultEachFrame: 1
+  spriteRendererOverride: {fileID: 0}
 --- !u!1 &304924857
 GameObject:
   m_ObjectHideFlags: 0
@@ -2085,6 +2090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alternativeSprite: {fileID: 21300000, guid: 9ec33512d4d9ad349871b289a28fd77e, type: 3}
   switchToDefaultEachFrame: 1
+  spriteRendererOverride: {fileID: 0}
 --- !u!1 &406286636
 GameObject:
   m_ObjectHideFlags: 0
@@ -2701,6 +2707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alternativeSprite: {fileID: 21300000, guid: 7ab2e14c313d6394a8f44cd75abe7ca7, type: 3}
   switchToDefaultEachFrame: 1
+  spriteRendererOverride: {fileID: 0}
 --- !u!1 &487350464
 GameObject:
   m_ObjectHideFlags: 0
@@ -4130,6 +4137,8 @@ GameObject:
   - component: {fileID: 773419070}
   - component: {fileID: 773419072}
   - component: {fileID: 773419071}
+  - component: {fileID: 773419074}
+  - component: {fileID: 773419073}
   m_Layer: 8
   m_Name: Apple spawn
   m_TagString: Untagged
@@ -4223,7 +4232,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.55813646, y: 7.0013223}
+  m_Offset: {x: -0.26, y: 6.52}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4234,8 +4243,66 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8535657, y: 1.5114031}
+  m_Size: {x: 1.8535657, y: 2.71}
   m_EdgeRadius: 0
+--- !u!114 &773419073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 773419069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73b7f1ad5d5d8146b19cb20064e0c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alternativeSprite: {fileID: 21300000, guid: ce9e0c7f7ae57bd4ba1d723d64f59e84, type: 3}
+  switchToDefaultEachFrame: 1
+  spriteRendererOverride: {fileID: 1703864149}
+--- !u!212 &773419074
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 773419069}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
 --- !u!1 &869245375
 GameObject:
   m_ObjectHideFlags: 0
@@ -4402,6 +4469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alternativeSprite: {fileID: 21300000, guid: b3000ea14cf4c7a4ba43cd0daaa887b3, type: 3}
   switchToDefaultEachFrame: 1
+  spriteRendererOverride: {fileID: 0}
 --- !u!1 &870361262
 GameObject:
   m_ObjectHideFlags: 0
@@ -4963,6 +5031,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alternativeSprite: {fileID: 21300000, guid: 392ff9aa20fb5de4790dc2adb5398df0, type: 3}
   switchToDefaultEachFrame: 1
+  spriteRendererOverride: {fileID: 0}
 --- !u!1 &971239138
 GameObject:
   m_ObjectHideFlags: 0
@@ -5402,6 +5471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alternativeSprite: {fileID: 21300000, guid: 4825caca755840c4f8767922b66fea71, type: 3}
   switchToDefaultEachFrame: 1
+  spriteRendererOverride: {fileID: 0}
 --- !u!1 &1097269056
 GameObject:
   m_ObjectHideFlags: 0
@@ -5708,6 +5778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alternativeSprite: {fileID: 21300000, guid: 22f9593627c9b1f4193d08ffe14d6b08, type: 3}
   switchToDefaultEachFrame: 1
+  spriteRendererOverride: {fileID: 0}
 --- !u!1 &1126513347
 GameObject:
   m_ObjectHideFlags: 0
@@ -5936,6 +6007,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alternativeSprite: {fileID: 21300000, guid: c1ea78c5599d0b34b8f8967a95c1dae7, type: 3}
   switchToDefaultEachFrame: 1
+  spriteRendererOverride: {fileID: 0}
 --- !u!1 &1160890632
 GameObject:
   m_ObjectHideFlags: 0
@@ -6311,6 +6383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alternativeSprite: {fileID: 21300000, guid: bc59198705fde154d90327f340894c8a, type: 3}
   switchToDefaultEachFrame: 1
+  spriteRendererOverride: {fileID: 0}
 --- !u!1 &1240246392
 GameObject:
   m_ObjectHideFlags: 0
@@ -6466,6 +6539,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alternativeSprite: {fileID: 21300000, guid: f8c01e7a43f7aee488059d99f70d9d44, type: 3}
   switchToDefaultEachFrame: 1
+  spriteRendererOverride: {fileID: 0}
 --- !u!1 &1281051761
 GameObject:
   m_ObjectHideFlags: 0
@@ -6770,6 +6844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alternativeSprite: {fileID: 21300000, guid: b2d85098c8972f543aae5c844288afd4, type: 3}
   switchToDefaultEachFrame: 1
+  spriteRendererOverride: {fileID: 0}
 --- !u!1 &1365876729
 GameObject:
   m_ObjectHideFlags: 0
@@ -7165,6 +7240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alternativeSprite: {fileID: 21300000, guid: f74a4f5fea641ab4bb79d94f11b0a125, type: 3}
   switchToDefaultEachFrame: 1
+  spriteRendererOverride: {fileID: 0}
 --- !u!1 &1421836082
 GameObject:
   m_ObjectHideFlags: 0
@@ -7990,6 +8066,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alternativeSprite: {fileID: 21300000, guid: 0796d3d471591af4584a1f72bf0f4714, type: 3}
   switchToDefaultEachFrame: 1
+  spriteRendererOverride: {fileID: 0}
 --- !u!1 &1714796013
 GameObject:
   m_ObjectHideFlags: 0
@@ -8145,6 +8222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alternativeSprite: {fileID: 21300000, guid: 793e6c65fe790024baa1084cd6c7833b, type: 3}
   switchToDefaultEachFrame: 1
+  spriteRendererOverride: {fileID: 0}
 --- !u!1 &1740774722
 GameObject:
   m_ObjectHideFlags: 0
@@ -8564,6 +8642,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alternativeSprite: {fileID: 21300000, guid: ba9f23bfbc4f99d4fb2b7dfdb6c9cfd8, type: 3}
   switchToDefaultEachFrame: 1
+  spriteRendererOverride: {fileID: 0}
 --- !u!1 &1860618528
 GameObject:
   m_ObjectHideFlags: 0
@@ -9050,6 +9129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alternativeSprite: {fileID: 21300000, guid: ad023c422b50a85459e16484fad88c4b, type: 3}
   switchToDefaultEachFrame: 1
+  spriteRendererOverride: {fileID: 0}
 --- !u!1 &1954176937
 GameObject:
   m_ObjectHideFlags: 0
@@ -9665,6 +9745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alternativeSprite: {fileID: 21300000, guid: 397ff6c271a9b3f4baf20e20266fba76, type: 3}
   switchToDefaultEachFrame: 1
+  spriteRendererOverride: {fileID: 0}
 --- !u!1 &2001978753
 GameObject:
   m_ObjectHideFlags: 0
