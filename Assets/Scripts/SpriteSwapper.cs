@@ -30,7 +30,7 @@ public class SpriteSwapper : MonoBehaviour
             Debug.Log(isAlternative);
             if (isAlternative)
             {
-                spriteRenderer.sprite = alternativeSprite;
+                spriteRenderer.sprite = AlternativeSprite;
             }
             else if (spriteRenderer.sprite != defaultSprite)
             {
@@ -46,8 +46,8 @@ public class SpriteSwapper : MonoBehaviour
     /// </summary>
     public void SwapSprite()
     {
-        isAlternative = spriteRenderer.sprite == alternativeSprite;
-        spriteRenderer.sprite = isAlternative ? defaultSprite : alternativeSprite;
+        isAlternative = spriteRenderer.sprite == AlternativeSprite;
+        spriteRenderer.sprite = isAlternative ? defaultSprite : AlternativeSprite;
     }
 
     /// <summary>
@@ -69,7 +69,7 @@ public class SpriteSwapper : MonoBehaviour
     {
         if (isAlternative == false)
         {
-            spriteRenderer.sprite = alternativeSprite;
+            spriteRenderer.sprite = AlternativeSprite;
             isAlternative = true;
         }
     }
@@ -87,6 +87,37 @@ public class SpriteSwapper : MonoBehaviour
         get
         {
             return isAlternative;
+        }
+    }
+
+    /// <summary>
+    /// Has the sprite swapper been assigned an alternative sprite?
+    /// </summary>
+    public bool AlternativeSpriteAssigned
+    {
+        get
+        {
+            if (AlternativeSprite != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    public Sprite AlternativeSprite
+    {
+        get
+        {
+            return alternativeSprite;
+        }
+
+        set
+        {
+            alternativeSprite = value;
         }
     }
 }
