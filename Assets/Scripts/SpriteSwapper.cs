@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
 public class SpriteSwapper : MonoBehaviour
 {
     [Tooltip("The sprite that the SpriteSwapper will swap to.")]
