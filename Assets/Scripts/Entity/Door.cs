@@ -104,10 +104,9 @@ public class Door : Entity
 
                 if (dialogue != null)
                 {
-                    dialogue.dialogue[0].speaker = values.character.gameObject;
-
                     int i = Random.Range(0, dialogue.dialogue.Length);
 
+                    dialogue.dialogue[i].speaker = values.character.gameObject;
                     ConditionValues cvalues = new ConditionValues();
                     StartCoroutine(dialogueController.DisplayDialogue(dialogue.dialogue[i], dialogue.dialogue[i].time, cvalues));
                 }

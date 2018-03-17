@@ -2055,6 +2055,87 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &674968137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 674968139}
+  - component: {fileID: 674968138}
+  m_Layer: 0
+  m_Name: General_fail_Dialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &674968138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 674968137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 818259490}
+    line_Swedish: "Nej, Det g\xE5r inte."
+    line_English: No, That doesn't work.
+    time: 2
+  - speaker: {fileID: 46716644}
+    line_Swedish: Den passar inte.
+    line_English: It doesn't fit.
+    time: 2
+  - speaker: {fileID: 1014972607}
+    line_Swedish: Fel nyckel.
+    line_English: Wrong key.
+    time: 2
+  - speaker: {fileID: 1014972607}
+    line_Swedish: "Det var inte r\xE4tt."
+    line_English: That wasn't right.
+    time: 2
+  - speaker: {fileID: 1014972607}
+    line_Swedish: Jaha, det var fel.
+    line_English: Alright, that was wrong.
+    time: 2
+  - speaker: {fileID: 705821936}
+    line_Swedish: "Fel. Ivar g\xF6r inte detta l\xE4tt."
+    line_English: Wrong. Ivar isn't making this easy.
+    time: 4
+  - speaker: {fileID: 1175737494}
+    line_Swedish: Hmm, fel.
+    line_English: Hmm. Wrong.
+    time: 2
+  - speaker: {fileID: 705821936}
+    line_Swedish: Fel.
+    line_English: Wrong.
+    time: 2
+  - speaker: {fileID: 1497051208}
+    line_Swedish: "Bara att forts\xE4tta leta d\xE5."
+    line_English: I'll just continue looking then.
+    time: 2
+  - speaker: {fileID: 240423501}
+    line_Swedish: Nej.
+    line_English: Nope.
+    time: 2
+--- !u!4 &674968139
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 674968137}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -50.654205, y: -310.06793, z: 0.08305625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1351625958}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &689722873
 GameObject:
   m_ObjectHideFlags: 0
@@ -3960,7 +4041,7 @@ MonoBehaviour:
   UnlockSound: {fileID: 8300000, guid: a1fc80f0b42402a4fae9f3596800894b, type: 3}
   enterSound: {fileID: 8300000, guid: 84a5a828d0d2a3b46aa24d3c3362d593, type: 3}
   lockedSound: {fileID: 8300000, guid: b50418c6712271848997451f79e4e69a, type: 3}
-  dialogue: {fileID: 0}
+  dialogue: {fileID: 674968138}
 --- !u!61 &960640649
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4541,7 +4622,7 @@ MonoBehaviour:
   UnlockSound: {fileID: 0}
   enterSound: {fileID: 8300000, guid: 84a5a828d0d2a3b46aa24d3c3362d593, type: 3}
   lockedSound: {fileID: 0}
-  dialogue: {fileID: 0}
+  dialogue: {fileID: 674968138}
 --- !u!61 &1037746457
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10018,7 +10099,7 @@ MonoBehaviour:
   UnlockSound: {fileID: 8300000, guid: a1fc80f0b42402a4fae9f3596800894b, type: 3}
   enterSound: {fileID: 8300000, guid: 84a5a828d0d2a3b46aa24d3c3362d593, type: 3}
   lockedSound: {fileID: 8300000, guid: b50418c6712271848997451f79e4e69a, type: 3}
-  dialogue: {fileID: 0}
+  dialogue: {fileID: 674968138}
 --- !u!114 &1325846590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10380,7 +10461,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 49.676018, y: 311.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 674968139}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

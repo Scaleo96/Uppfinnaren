@@ -1320,7 +1320,7 @@ Transform:
   m_GameObject: {fileID: 86902631}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.3, y: 0.57, z: 0}
-  m_LocalScale: {x: 22.979696, y: 1.1664772, z: 1.1520765}
+  m_LocalScale: {x: 22.979696, y: 1.41, z: 1.1520765}
   m_Children: []
   m_Father: {fileID: 542108279}
   m_RootOrder: 4
@@ -7927,6 +7927,11 @@ Prefab:
       propertyPath: UnlockSound
       value: 
       objectReference: {fileID: 8300000, guid: a1fc80f0b42402a4fae9f3596800894b, type: 3}
+    - target: {fileID: 114129971231030468, guid: a67d6a251af81fb40860033374698927,
+        type: 2}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 674968138}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a67d6a251af81fb40860033374698927, type: 2}
   m_IsPrefabParent: 0
@@ -14421,7 +14426,6 @@ GameObject:
   - component: {fileID: 657251730}
   - component: {fileID: 657251733}
   - component: {fileID: 657251732}
-  - component: {fileID: 657251734}
   m_Layer: 0
   m_Name: House - bottom middle
   m_TagString: Untagged
@@ -14552,20 +14556,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0
---- !u!114 &657251734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 657251729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c73b7f1ad5d5d8146b19cb20064e0c77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  alternativeSprite: {fileID: 21300000, guid: f287f1c87271233458cf4a3d8f034efb, type: 3}
-  switchToDefaultEachFrame: 1
-  spriteRendererOverride: {fileID: 0}
 --- !u!1 &657766512
 GameObject:
   m_ObjectHideFlags: 0
@@ -15001,6 +14991,87 @@ Transform:
   - {fileID: 63179798}
   m_Father: {fileID: 951724219}
   m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &674968137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 674968139}
+  - component: {fileID: 674968138}
+  m_Layer: 0
+  m_Name: General_fail_Dialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &674968138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 674968137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 1872657160}
+    line_Swedish: "Nej, Det g\xE5r inte."
+    line_English: No, That doesn't work.
+    time: 2
+  - speaker: {fileID: 1872657160}
+    line_Swedish: Den passar inte.
+    line_English: It doesn't fit.
+    time: 2
+  - speaker: {fileID: 1872657160}
+    line_Swedish: Fel nyckel.
+    line_English: Wrong key.
+    time: 2
+  - speaker: {fileID: 1872657160}
+    line_Swedish: "Det var inte r\xE4tt."
+    line_English: That wasn't right.
+    time: 2
+  - speaker: {fileID: 1872657160}
+    line_Swedish: Jaha, det var fel.
+    line_English: Alright, that was wrong.
+    time: 2
+  - speaker: {fileID: 1872657160}
+    line_Swedish: "Fel. Ivar g\xF6r inte detta l\xE4tt."
+    line_English: Wrong. Ivar isn't making this easy.
+    time: 4
+  - speaker: {fileID: 1872657160}
+    line_Swedish: Hmm, fel.
+    line_English: Hmm. Wrong.
+    time: 2
+  - speaker: {fileID: 1872657160}
+    line_Swedish: Fel.
+    line_English: Wrong.
+    time: 2
+  - speaker: {fileID: 1872657160}
+    line_Swedish: "Bara att forts\xE4tta leta d\xE5."
+    line_English: I'll just continue looking then.
+    time: 2
+  - speaker: {fileID: 1872657160}
+    line_Swedish: Nej.
+    line_English: Nope.
+    time: 2
+--- !u!4 &674968139
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 674968137}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.9781858, y: 1.432058, z: 0.08305625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1945770326}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &680850854
 GameObject:
@@ -39661,6 +39732,7 @@ Transform:
   - {fileID: 1388281436}
   - {fileID: 1464203176}
   - {fileID: 1368752864}
+  - {fileID: 674968139}
   m_Father: {fileID: 241637446}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -546,7 +546,7 @@ MonoBehaviour:
   UnlockSound: {fileID: 8300000, guid: a1fc80f0b42402a4fae9f3596800894b, type: 3}
   enterSound: {fileID: 8300000, guid: 84a5a828d0d2a3b46aa24d3c3362d593, type: 3}
   lockedSound: {fileID: 8300000, guid: b50418c6712271848997451f79e4e69a, type: 3}
-  dialogue: {fileID: 0}
+  dialogue: {fileID: 674968138}
 --- !u!61 &134301048
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -887,7 +887,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 49.676018, y: 311.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 674968139}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1341,7 +1342,6 @@ Transform:
   m_Children:
   - {fileID: 1970392281}
   - {fileID: 680118421}
-  - {fileID: 1860618530}
   m_Father: {fileID: 1969368}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3480,6 +3480,87 @@ Transform:
   m_Father: {fileID: 873725345}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &674968137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 674968139}
+  - component: {fileID: 674968138}
+  m_Layer: 0
+  m_Name: General_fail_Dialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &674968138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 674968137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be17aba002753442813c99561a3095f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - speaker: {fileID: 1170233795}
+    line_Swedish: "Nej, Det g\xE5r inte."
+    line_English: No, That doesn't work.
+    time: 2
+  - speaker: {fileID: 1170233795}
+    line_Swedish: Den passar inte.
+    line_English: It doesn't fit.
+    time: 2
+  - speaker: {fileID: 459138232}
+    line_Swedish: Fel nyckel.
+    line_English: Wrong key.
+    time: 2
+  - speaker: {fileID: 1170233795}
+    line_Swedish: "Det var inte r\xE4tt."
+    line_English: That wasn't right.
+    time: 2
+  - speaker: {fileID: 1932532512}
+    line_Swedish: Jaha, det var fel.
+    line_English: Alright, that was wrong.
+    time: 2
+  - speaker: {fileID: 997186557}
+    line_Swedish: "Fel. Ivar g\xF6r inte detta l\xE4tt."
+    line_English: Wrong. Ivar isn't making this easy.
+    time: 4
+  - speaker: {fileID: 773419069}
+    line_Swedish: Hmm, fel.
+    line_English: Hmm. Wrong.
+    time: 2
+  - speaker: {fileID: 869245375}
+    line_Swedish: Fel.
+    line_English: Wrong.
+    time: 2
+  - speaker: {fileID: 997186557}
+    line_Swedish: "Bara att forts\xE4tta leta d\xE5."
+    line_English: I'll just continue looking then.
+    time: 2
+  - speaker: {fileID: 1169646329}
+    line_Swedish: Nej.
+    line_English: Nope.
+    time: 2
+--- !u!4 &674968139
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 674968137}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -50.654205, y: -310.06793, z: 0.08305625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 160935877}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &680118420
 GameObject:
   m_ObjectHideFlags: 0
@@ -3606,7 +3687,19 @@ MonoBehaviour:
     jonathanUse: 1
   interactionEvents:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 664258180}
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 8d382a522427d024aa35757cc0f09893,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   cantUseEvents:
     m_PersistentCalls:
@@ -3684,7 +3777,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.35, y: 1}
+  m_Size: {x: 4.3, y: 2.7}
   m_EdgeRadius: 0
 --- !u!1 &702687635
 GameObject:
@@ -5373,7 +5466,6 @@ GameObject:
   - component: {fileID: 1076349806}
   - component: {fileID: 1076349808}
   - component: {fileID: 1076349807}
-  - component: {fileID: 1076349809}
   m_Layer: 8
   m_Name: Kitchen wall scratch
   m_TagString: Untagged
@@ -5493,20 +5585,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.2}
   m_EdgeRadius: 0
---- !u!114 &1076349809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1076349804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c73b7f1ad5d5d8146b19cb20064e0c77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  alternativeSprite: {fileID: 21300000, guid: 4825caca755840c4f8767922b66fea71, type: 3}
-  switchToDefaultEachFrame: 1
-  spriteRendererOverride: {fileID: 0}
 --- !u!1 &1097269056
 GameObject:
   m_ObjectHideFlags: 0
@@ -6182,7 +6260,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.35, y: 1}
+  m_Size: {x: 4.3, y: 2.7}
   m_EdgeRadius: 0
 --- !u!1 &1169646329
 GameObject:
@@ -8769,11 +8847,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1860618528}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.7379975, y: -4.695015, z: 0}
-  m_LocalScale: {x: 0.9888694, y: 0.8831825, z: 1}
+  m_LocalPosition: {x: 0.31799746, y: 0.35498524, z: 0}
+  m_LocalScale: {x: 0.98886937, y: 0.8831825, z: 1}
   m_Children: []
-  m_Father: {fileID: 248482533}
-  m_RootOrder: 2
+  m_Father: {fileID: 1970392281}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1884474331
 GameObject:
@@ -9467,6 +9545,7 @@ GameObject:
   - component: {fileID: 1970392281}
   - component: {fileID: 1970392283}
   - component: {fileID: 1970392282}
+  - component: {fileID: 1970392284}
   m_Layer: 8
   m_Name: Keyspawn
   m_TagString: Untagged
@@ -9483,7 +9562,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.42, y: -5.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1860618530}
   m_Father: {fileID: 248482533}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9574,6 +9654,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.355671, y: 0.56137085}
   m_EdgeRadius: 0
+--- !u!114 &1970392284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1970392280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73b7f1ad5d5d8146b19cb20064e0c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alternativeSprite: {fileID: 21300000, guid: cd9717c566fcf934bbbe57c9f7c46083, type: 3}
+  switchToDefaultEachFrame: 1
+  spriteRendererOverride: {fileID: 0}
 --- !u!1 &1994450911
 GameObject:
   m_ObjectHideFlags: 0
