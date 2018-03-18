@@ -29,6 +29,21 @@ public class Credits : MonoBehaviour
     [SerializeField]
     GameObject imagePrefab;
 
+    [SerializeField]
+    string[] randomFirstName;
+
+    [SerializeField]
+    string[] randomLastName;
+
+    [SerializeField]
+    string[] randomTitle;
+
+    [SerializeField]
+    string[] randomRole;
+ 
+    [SerializeField]
+    int extraCredits;
+
     float timer = 0;
     float duration = 5;
 
@@ -49,13 +64,33 @@ public class Credits : MonoBehaviour
                 currentText.GetComponent<Text>().text += (creditCatagory[i].names[j]);
             }
         }
+
+        for (int k = 0; k < extraCredits; k++)
+        {
+            GenerateCredits();
+        }
+    }
+
+    private void GenerateCredits()
+    {
+        GameObject currentHeader = Instantiate(textPrefab, transform);
+        int r = Random.Range(0, 100);
+
+        if (r > 10)
+        {
+            currentHeader.GetComponent<Text>().text = randomTitle[Random.Range(0, randomTitle.Length)] + "   " + "-" + "   " + randomFirstName[Random.Range(0, randomFirstName.Length)] + " " + randomLastName[Random.Range(0, randomLastName.Length)];
+        }
+        else
+        {
+            currentHeader.GetComponent<Text>().text = randomRole[Random.Range(0, randomRole.Length)] + " " + randomTitle[Random.Range(0, randomTitle.Length)] + "   " + "-" + "   " + randomFirstName[Random.Range(0, randomFirstName.Length)] + " " + randomLastName[Random.Range(0, randomLastName.Length)];
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.position += new Vector3(0, creditsSpeed, 0);
-        transform.SetAsFirstSibling();
+        //transform.SetAsFirstSibling();
 
         ImageTimer();
     }
@@ -74,7 +109,11 @@ public class Credits : MonoBehaviour
     {
         Image image;
         const float fadeAmount = 255;
-        GameObject go = Instantiate(imagePrefab, (new Vector2(Random.Range(Screen.width/2 + 100, Screen.width), Random.Range(0, Screen.height))), transform.rotation, FindObjectOfType<Canvas>().transform);
+
+        Vector3 screenPosition = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(Screen.width/2, Screen.width), Random.Range(0, Screen.height), Camera.main.farClipPlane / 2));
+
+        GameObject go = Instantiate(imagePrefab, screenPosition, transform.rotation, FindObjectOfType<Canvas>().transform);
+
         image = go.GetComponent<Image>();
         image.sprite = images[Random.Range(0, images.Length)];
         image.canvasRenderer.SetAlpha(0);
