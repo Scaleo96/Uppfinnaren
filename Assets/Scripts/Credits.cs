@@ -50,6 +50,8 @@ public class Credits : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        transform.position = new Vector2(Screen.width / 4, -100);
+
         for (int i = 0; i < creditCatagory.Length; i++)
         {
             GameObject currentHeader = Instantiate(textPrefab, transform);
