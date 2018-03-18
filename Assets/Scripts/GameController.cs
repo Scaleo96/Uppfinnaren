@@ -208,11 +208,14 @@ public class GameController : MonoBehaviour
         {
             if (throwCursor != null)
             {
+                const float scaleModifier = 4;
+                const float scale = 0.25f;
+
                 throwCursor.gameObject.SetActive(true);
                 throwCursor.transform.position = new Vector3(cameraComponent.ScreenToWorldPoint(Input.mousePosition).x, cameraComponent.ScreenToWorldPoint(Input.mousePosition).y, 0);
                 throwCursor.transform.rotation = Quaternion.LookRotation(Vector3.forward ,cameraComponent.ScreenToWorldPoint(Input.mousePosition) - currentCharacter.transform.position);
                 throwCursor.transform.rotation = throwCursor.transform.rotation * Quaternion.Euler(0, 0, -90);
-                throwCursor.transform.localScale = new Vector3(Vector3.Distance((Vector2)cameraComponent.ScreenToWorldPoint(Input.mousePosition), (Vector2)currentCharacter.transform.position) /2, 0.5f, 1);
+                throwCursor.transform.localScale = new Vector3(Vector3.Distance((Vector2)cameraComponent.ScreenToWorldPoint(Input.mousePosition), (Vector2)currentCharacter.transform.position) /scaleModifier, scale, 1);
             }
         }
         else
