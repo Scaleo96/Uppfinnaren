@@ -580,6 +580,16 @@ Prefab:
       value: 
       objectReference: {fileID: 1860331399059390, guid: ebffb8c1abb3735418ca3ed707d094ea,
         type: 2}
+    - target: {fileID: 114079674495217004, guid: a84274ecbf2149e49bba669b2a887149,
+        type: 2}
+      propertyPath: creditCatagory.Array.data[11].header
+      value: Additional Mentions
+      objectReference: {fileID: 0}
+    - target: {fileID: 114079674495217004, guid: a84274ecbf2149e49bba669b2a887149,
+        type: 2}
+      propertyPath: creditsTime
+      value: 238
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a84274ecbf2149e49bba669b2a887149, type: 2}
   m_IsPrefabParent: 0

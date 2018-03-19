@@ -88,7 +88,6 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -10647,7 +10646,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  inventorySprite: {fileID: 21300000, guid: 0a9730b2e705c8d46a7117cc8fac52d7, type: 3}
+  inventorySprite: {fileID: 21300000, guid: 97e5d77a706358047b34e4b0d3c9a5a5, type: 3}
 --- !u!50 &471427603
 Rigidbody2D:
   serializedVersion: 4
@@ -10656,9 +10655,9 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 471427601}
   m_BodyType: 0
-  m_Simulated: 1
+  m_Simulated: 0
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
+  m_UseAutoMass: 1
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
@@ -10684,7 +10683,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.48, y: 10.48}
+    oldSize: {x: 4.97, y: 7.09}
     newSize: {x: 10.48, y: 10.48}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -10727,7 +10726,7 @@ SpriteRenderer:
   m_SortingLayerID: -1370378791
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0a9730b2e705c8d46a7117cc8fac52d7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 97e5d77a706358047b34e4b0d3c9a5a5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -12085,7 +12084,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -32453,12 +32451,12 @@ Prefab:
     - target: {fileID: 224549810366154436, guid: 725daacbc8f12d844a499d6af5624ffe,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 268
       objectReference: {fileID: 0}
     - target: {fileID: 224549810366154436, guid: 725daacbc8f12d844a499d6af5624ffe,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 151
       objectReference: {fileID: 0}
     - target: {fileID: 224549810366154436, guid: 725daacbc8f12d844a499d6af5624ffe,
         type: 2}
