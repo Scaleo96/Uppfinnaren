@@ -3979,9 +3979,9 @@ MonoBehaviour:
   transitionTime: 1
   setExitManually: 0
   manualExit: {fileID: 0}
-  fXMiniManager: {fileID: 0}
+  fXMiniManager: {fileID: 763384082}
   UnlockSound: {fileID: 0}
-  enterSound: {fileID: 0}
+  enterSound: {fileID: 8300000, guid: 84a5a828d0d2a3b46aa24d3c3362d593, type: 3}
   lockedSound: {fileID: 0}
   dialogue: {fileID: 0}
 --- !u!61 &211177526
@@ -30406,6 +30406,16 @@ Prefab:
       propertyPath: m_Size.x
       value: 4.954915
       objectReference: {fileID: 0}
+    - target: {fileID: 114414455525823648, guid: f03572871ef9e3a44a57f1062ee2da2d,
+        type: 2}
+      propertyPath: fXMiniManager
+      value: 
+      objectReference: {fileID: 763384082}
+    - target: {fileID: 114414455525823648, guid: f03572871ef9e3a44a57f1062ee2da2d,
+        type: 2}
+      propertyPath: enterSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 84a5a828d0d2a3b46aa24d3c3362d593, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f03572871ef9e3a44a57f1062ee2da2d, type: 2}
   m_IsPrefabParent: 0
@@ -32378,7 +32388,7 @@ Prefab:
     - target: {fileID: 114656746579007672, guid: 725daacbc8f12d844a499d6af5624ffe,
         type: 2}
       propertyPath: ContinueEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114511777464100250, guid: 725daacbc8f12d844a499d6af5624ffe,
         type: 2}
@@ -34516,6 +34526,36 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 8300000, guid: c40f678d3e281a04c9dd3a8a6af79447, type: 3}
+    - target: {fileID: 114656746579007672, guid: 725daacbc8f12d844a499d6af5624ffe,
+        type: 2}
+      propertyPath: ContinueEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114656746579007672, guid: 725daacbc8f12d844a499d6af5624ffe,
+        type: 2}
+      propertyPath: ContinueEvent.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114656746579007672, guid: 725daacbc8f12d844a499d6af5624ffe,
+        type: 2}
+      propertyPath: ContinueEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 763384082}
+    - target: {fileID: 114656746579007672, guid: 725daacbc8f12d844a499d6af5624ffe,
+        type: 2}
+      propertyPath: ContinueEvent.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: PlaySound
+      objectReference: {fileID: 0}
+    - target: {fileID: 114656746579007672, guid: 725daacbc8f12d844a499d6af5624ffe,
+        type: 2}
+      propertyPath: ContinueEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.AudioClip, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114656746579007672, guid: 725daacbc8f12d844a499d6af5624ffe,
+        type: 2}
+      propertyPath: ContinueEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 8300000, guid: e821fb1e066e022408a7da8861d9c017, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 725daacbc8f12d844a499d6af5624ffe, type: 2}
   m_IsPrefabParent: 0
