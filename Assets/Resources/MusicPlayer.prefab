@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4878420192613426}
   - component: {fileID: 82584821815260786}
   m_Layer: 0
-  m_Name: pussel 1 ida
+  m_Name: pussel 3-4 ida
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4337693886821880}
   - component: {fileID: 82299940957025414}
   m_Layer: 0
-  m_Name: pussel 1 base track
+  m_Name: pussel 3-4 base track
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4016989225617562}
   - component: {fileID: 82030717028876516}
   m_Layer: 0
-  m_Name: uppfinnaren mys jonatan loop
+  m_Name: Outside - jonatan loop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 4541553306027854}
   - component: {fileID: 82954682434676508}
   m_Layer: 0
-  m_Name: uppfinnaren mys ida loop
+  m_Name: Outside - ida loop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 4628592508426870}
   - component: {fileID: 82622013977461776}
   m_Layer: 0
-  m_Name: pussel 1 jonatan
+  m_Name: pussel 3-4 jonatan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 4144078454971936}
   - component: {fileID: 82145857648838062}
   m_Layer: 0
-  m_Name: pussel 1 amina
+  m_Name: pussel 3-4 amina
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 4742264206057478}
   - component: {fileID: 82605705149860418}
   m_Layer: 0
-  m_Name: uppfinnaren mys amina loop
+  m_Name: Outside - amina loop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 4805061873579030}
   - component: {fileID: 82237408952747676}
   m_Layer: 0
-  m_Name: uppfinnaren mys base track loop
+  m_Name: Outside - base track loop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
