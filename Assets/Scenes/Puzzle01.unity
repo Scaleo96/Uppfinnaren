@@ -3979,9 +3979,9 @@ MonoBehaviour:
   transitionTime: 1
   setExitManually: 0
   manualExit: {fileID: 0}
-  fXMiniManager: {fileID: 0}
+  fXMiniManager: {fileID: 763384082}
   UnlockSound: {fileID: 0}
-  enterSound: {fileID: 0}
+  enterSound: {fileID: 8300000, guid: 84a5a828d0d2a3b46aa24d3c3362d593, type: 3}
   lockedSound: {fileID: 0}
   dialogue: {fileID: 0}
 --- !u!61 &211177526
@@ -30406,6 +30406,16 @@ Prefab:
       propertyPath: m_Size.x
       value: 4.954915
       objectReference: {fileID: 0}
+    - target: {fileID: 114414455525823648, guid: f03572871ef9e3a44a57f1062ee2da2d,
+        type: 2}
+      propertyPath: fXMiniManager
+      value: 
+      objectReference: {fileID: 763384082}
+    - target: {fileID: 114414455525823648, guid: f03572871ef9e3a44a57f1062ee2da2d,
+        type: 2}
+      propertyPath: enterSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 84a5a828d0d2a3b46aa24d3c3362d593, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f03572871ef9e3a44a57f1062ee2da2d, type: 2}
   m_IsPrefabParent: 0
