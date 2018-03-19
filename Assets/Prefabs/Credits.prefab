@@ -1,0 +1,440 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1270728121322462}
+  m_IsPrefabParent: 1
+--- !u!1 &1270728121322462
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 224104239272062590}
+  - component: {fileID: 114079674495217004}
+  - component: {fileID: 114693047129485670}
+  m_Layer: 5
+  m_Name: Credits
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &114079674495217004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1270728121322462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e28cc3a67c5d26147a7184e2bd5d8780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creditCatagory:
+  - header: Project Lead
+    names:
+    - "Pernilla J\xF6nson"
+  - header: Leads
+    names:
+    - Music Lead - Erik Gudmunson
+    - Design Lead - Sean Falk
+    - Graphic Lead - Benjamin Persson
+    - Writing Lead - Sandra Alexanderson
+    - Programming Lead - Johan Hallberg
+  - header: Art Director
+    names:
+    - Fredrik Johansson
+  - header: Design
+    names:
+    - "Pernilla J\xF6nson"
+    - Sean Falk
+  - header: Graphic
+    names:
+    - Benjamin Persson
+    - Egle Petrulyte
+    - Fredrik Johansson
+    - "Ellinor \xD6gren"
+  - header: Music
+    names:
+    - Erik Gudmundson
+    - Rickard Willners
+  - header: Sound
+    names:
+    - Christina Karlsson
+  - header: Programming
+    names:
+    - Aksel Jensen
+    - "Marcus Kar\xE5ker"
+    - Janne Pettersson-Gull
+    - Johan Hallberg
+  - header: Writers
+    names:
+    - Sandra Alexanderson
+    - "Emma Lind\xE9n"
+  - header: Song Vocals/Text
+    names:
+    - "Elin Norrg\xE5rd"
+    - "Mikael Norrg\xE5rd"
+  - header: Special Thanks
+    names:
+    - "Peter Sj\xF6berg"
+    - '"Couldn''t have done it without you"'
+  - header: Extra crew
+    names: []
+  textPrefab: {fileID: 1967079835026700, guid: cb6d3b8dc58ad954891176449df3e82a, type: 2}
+  headerPrefab: {fileID: 1094880966389306, guid: 32c234ebaf4953d4e8fa9d8df3e3f525,
+    type: 2}
+  logo: {fileID: 1965659705027948, guid: ebffb8c1abb3735418ca3ed707d094ea, type: 2}
+  creditsSpeed: 2
+  images:
+  - {fileID: 21300000, guid: 954ede46692793b479cde39998d9f2e4, type: 3}
+  - {fileID: 21300000, guid: 4a85eb16b0404ef4985e9b0aed5c16bc, type: 3}
+  - {fileID: 21300000, guid: 841cecb8f7efff04abac6c4cd4b1784c, type: 3}
+  - {fileID: 21300000, guid: 6193cfa55c016c54f92dff423002d2e0, type: 3}
+  - {fileID: 21300000, guid: 8dd0ff6c7c9791c449d2c249729674d1, type: 3}
+  - {fileID: 21300000, guid: 78541af4de630c74882daf92df8f6f33, type: 3}
+  - {fileID: 21300000, guid: 8cf73b93254744649aa14f38e596f2f4, type: 3}
+  - {fileID: 21300000, guid: 0f73aaf606478b64ba1fc113404b382a, type: 3}
+  - {fileID: 21300000, guid: c2fa749c08087ad4eae7e274409b93b3, type: 3}
+  - {fileID: 21300000, guid: cee0496f35c58a44fb95e53a6e174556, type: 3}
+  - {fileID: 21300000, guid: 10559bca2907ca44682c3c6a2cf55f29, type: 3}
+  - {fileID: 21300000, guid: 0c5317e545c45ad4290b5395c384ca24, type: 3}
+  - {fileID: 21300000, guid: da1f2ccacc84db7459e66c490eab8d6a, type: 3}
+  - {fileID: 21300000, guid: a67724b757c2e8e47aadea22d83f0e20, type: 3}
+  - {fileID: 21300000, guid: d837ed6b5213d1b4fb4d4a756d223826, type: 3}
+  - {fileID: 21300000, guid: 5e712553087cd754bbe5300227575d99, type: 3}
+  - {fileID: 21300000, guid: 7a8ac69c95ae93c4eaf8ffc5cb7ab89b, type: 3}
+  - {fileID: 21300000, guid: 341eb8df762c5114ab4ef3e22c3206f1, type: 3}
+  - {fileID: 21300000, guid: 3be2a237e1eef774fb12ce80c39506b8, type: 3}
+  - {fileID: 21300000, guid: 13c1ed605e4928f4ab427b51a0bde610, type: 3}
+  - {fileID: 21300000, guid: 4616ddb08d874764eb1150bd6f0593d0, type: 3}
+  - {fileID: 21300000, guid: 990e2b5b5f1928e4d9dc81a184b6c30f, type: 3}
+  - {fileID: 21300000, guid: cadddab37ee228a4d94a8ed4d7292e2c, type: 3}
+  - {fileID: 21300000, guid: 0a9730b2e705c8d46a7117cc8fac52d7, type: 3}
+  - {fileID: 21300000, guid: 7de20ff5f241c4c4c822ab420912366d, type: 3}
+  - {fileID: 21300000, guid: 0bf790678b3810042b4e3f60fdec7594, type: 3}
+  - {fileID: 21300000, guid: 981175a06f1bb224eb6fbfc177a10abf, type: 3}
+  - {fileID: 21300000, guid: ba0791bb1526ce243bb50b9e81908aba, type: 3}
+  - {fileID: 21300000, guid: f68dad920275fc14fb1a09cfb8141bfc, type: 3}
+  - {fileID: 21300000, guid: f20d2f8d3c393d648b4a733c31f98eb2, type: 3}
+  imagePrefab: {fileID: 1947245038323932, guid: eb7587e911fa0a341917e35d1802a419,
+    type: 2}
+  randomName:
+  - Johan Hallberg
+  - Sean Falk
+  - Janne Petterson-Gull
+  - "Marcus Kar\xE5ker"
+  - "Pernilla J\xF6nson"
+  - Fredrik Johansson
+  - Benjamin Persson
+  - Egle Petrulyte
+  - "Ellinor \xD6gren"
+  - Erik Gudmundson
+  - Rickard Willners
+  - Christina Karlsson
+  - Aksel Jensen
+  - Sandra Alexanderson
+  - "Emma Lind\xE9n"
+  randomTitle:
+  - Pet
+  - Monster
+  - Programming
+  - Design
+  - VFX
+  - Genji Main
+  - Spy
+  - Sound
+  - Cleaner
+  - Doctor
+  - Big Bad Guy
+  - Hero
+  - Villian
+  - Producer
+  - Assistant
+  - Manager
+  - Assistant Manager
+  - Johans Personal Assistant
+  - Pernillas Personal Assistant
+  - Rubiks cube
+  - Fika delivery
+  - Insperation
+  - Adapted By
+  - Score
+  - Featuring
+  - Chorus Master
+  - Conductor
+  - Leader
+  - Repetiteur
+  - Executive-Producer
+  - Curated By
+  - Compiled By
+  - Recording Supervisor
+  - Supervisor
+  - Remix
+  - DJ Mix
+  - CGI Artist
+  - Film Director
+  - Director
+  - Editor
+  - Film Technician
+  - Gaffer
+  - Layout
+  - Lighting
+  - Realization
+  - Stage Manager
+  - Interviewer
+  - Narrator
+  - Voice Actor
+  - Crew
+  - Choir
+  - Human Beatbox
+  - Rap
+  - Whistling
+  - Yodeling
+  - God of thunder
+  - God
+  - Priest
+  - Some Guy
+  - Who?
+  - Toy
+  - Overlord
+  - Destroyer
+  - Credit Manager
+  - The Chosen One
+  - Creepy guy
+  - Probably someone
+  - RNG
+  - Credits shuffler
+  - Are you reading this?
+  - 1/80
+  - Lizard man
+  - The one
+  - Script
+  - IT
+  - "Peter Sj\xF6bergs Personal Assistant"
+  - Uppfinnaren
+  - The Inventor
+  - '...'
+  - Who?
+  - Crackadoodle
+  - Mercy Main
+  - Veronaceps Calyx Egg Handler
+  - Traitor
+  - Master Chief
+  - Inquisitor
+  - Champion
+  - Lead Distractor
+  - Cube Master
+  - Best Hanzo EU
+  - Perv
+  - Spiderman
+  - Batman
+  - Undead Constabulary
+  - Puzzle Cube Cleaner
+  - Minor Moose Detective
+  - Major Moose Detective
+  - Dolphin Wrangler
+  - Barnacle Scrubber
+  - Pluto Immigration Officer
+  - Alchemist
+  - Ventriloquist
+  - Headbanger
+  - Stapler
+  - Amina
+  - Ida's Actor
+  - Ivar's Actor
+  - Jonathan's Actor
+  - Ghost Butler
+  - Orphan
+  - Sad Orphan
+  - Horse Thief
+  - Polyphonic Ringtone Enthusiast
+  - A normal human, not a martian spy
+  - Captain
+  - Robot Devil
+  - Ghost trombone player
+  - Cookie thief
+  - Pastry purveyor
+  - MVP
+  - Dinosaur Escape Preventer
+  - The Chosen One
+  - Mouse Lint Cleaner
+  - CPU Seperatist
+  - Rainbow Robber
+  - Hamburglar
+  - Darth Vader Impersonator
+  - Dirty Mime
+  - Sanguine Purveyor (Totally Not a Vampire)
+  - Apparition Catcher
+  - Landlord
+  - MemeLord
+  - Myspace Writer
+  - Key Grip
+  - Tape Rewinder
+  - Small Bad Guy
+  - Cube Scrambler
+  - Cube Solver
+  - Layabout
+  - Did nothing
+  - Baker
+  - Executor
+  - Bagle Stalker
+  - Cat Picture Fetcher
+  - Tank
+  - DPS
+  - Healer
+  - DM
+  - MurderHobo
+  - Emotional Support
+  - Munchkin
+  - Swear Jar Collector
+  - Salmon Impersonator
+  - Salmon Impersonator Inspector
+  - Inspector Gadget
+  - Dr Claw
+  - Scarface
+  - The Boss
+  - Long Haired White Cat
+  - Dream Partner
+  - Hunk
+  - Sexiest man of the Year
+  - Sexiest Woman of the Year
+  - Shark Rider
+  - Time Travel Paradox Consultant
+  - Golden Unicorn
+  - Marshmellow Baby
+  - Lead Role Assigner
+  - Influencer
+  - Beyond Time and Space
+  - Tester
+  - Bug Fixer
+  - Bug Maker
+  - Homeowner
+  - Saboteur
+  - Discord DJ
+  - Server Owner
+  - Gif Creator
+  - Gif Master
+  - Selfie Ruiner
+  - Spell Chekker
+  - Credits writer
+  - Credits Shuffler
+  - Help I Don't Understand Computers How Do I Get Out of Here
+  - '[Redacted]'
+  - Kingslayer
+  - Kinglayer
+  - Kink shamer
+  - Queen Fondler
+  - Queen Receptionist
+  - Small Rotund Ball of Shame
+  - King Shamer
+  - Shampoo Evangelist
+  - Liar
+  - Egg Layer
+  - Crazy German Doctor
+  - Hull leak Repairer
+  - Technical Engineer
+  - Nitroglycerin Handler
+  - Frug Mule
+  - Helpdesk Helper
+  - The Helpdesk Helpers Helper
+  - Drug Mule
+  - Burgiose
+  - Frog Mule
+  - Siege Weapons
+  - WeaponSmith
+  - Swordmaster
+  - Bouncer
+  - Advocado Toast Supplier
+  - Security Officer
+  - Drug Injector
+  - Fredriks hair
+  - Just Plain Cool
+  - Clown
+  - Clowning supplies
+  - Infected Clown
+  - Husk
+  - Platapus Herder
+  - Idea Guy
+  - Illusionist
+  - Illusion of the Year
+  - Sexiest doctor of 1996
+  - Cable Remover
+  - Evil Mastermind
+  - Shuttle Driver
+  - Merger
+  - Conflict Resolution
+  - GIT Conflict Resolver
+  - Rebaser
+  - Debaser
+  - GIT Pusher
+  - Cookie Pusher
+  - Headphone Licker
+  - Nap Inspector
+  - Keyboard Lint Gourmand
+  - Cube Supplier
+  - Dejection Detector
+  - Eldritch Horror
+  - Art
+  randomRole:
+  - Lead
+  - God
+  - Chief
+  - Head
+  - Sub -
+  - Demi
+  - The
+  - 1/2
+  - Master
+  - Super
+  extraCredits: 400
+  creditsTime: 240
+--- !u!114 &114693047129485670
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1270728121322462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1297475563, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 7
+  m_Spacing: -20
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+--- !u!224 &224104239272062590
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1270728121322462}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -500, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -500}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
