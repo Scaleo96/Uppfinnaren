@@ -24,6 +24,7 @@ public class CursorController : MonoBehaviour
 
     Texture2D currentCursorTexture;
 
+
     bool isHovering;
     bool isHoveringUI;
 
