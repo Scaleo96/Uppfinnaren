@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace MusicMixer
 {
@@ -11,7 +12,11 @@ namespace MusicMixer
         public int selectedComposition = 0;
 
         // Shared layer for camera and triggers. Invasive
-        int gameObjectLayer = 13;
+        private int gameObjectLayer = 13;
+
+        [SerializeField]
+        [Tooltip("Optional delay for when to trigger the change")]
+        private float startDelay;
 
         private void Start()
         {
@@ -71,7 +76,7 @@ namespace MusicMixer
         {
             if (collision.gameObject.CompareTag("MainCamera"))
             {
-                ChangeMusic();
+                StartCoroutine(PrepareToChangeMusic(startDelay));
             }
         }
 
@@ -90,7 +95,14 @@ namespace MusicMixer
             if (gameObject.layer != gameObjectLayer)
             {
                 gameObject.layer = gameObjectLayer;
-            }            
+            }
+        }
+
+        private IEnumerator PrepareToChangeMusic(float delay = 0f)
+        {
+            Debug.Log("Logsssss");
+            yield return new WaitForSecondsRealtime(delay);
+            ChangeMusic();
         }
     }
 }

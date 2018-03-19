@@ -351,6 +351,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnOffMusicDuringCutscene: 1
-  englishClip: {fileID: 32900000, guid: 8b15ed2e559d56140ae4acc230036730, type: 3}
-  swedishClip: {fileID: 32900000, guid: 8b15ed2e559d56140ae4acc230036730, type: 3}
+  englishClip: {fileID: 32900000, guid: e1b41cfb86dd1894680a7de46b3ba6a6, type: 3}
+  swedishClip: {fileID: 32900000, guid: e1b41cfb86dd1894680a7de46b3ba6a6, type: 3}
   sceneBuildIndex: 9

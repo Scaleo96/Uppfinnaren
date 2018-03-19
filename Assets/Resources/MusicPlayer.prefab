@@ -1050,7 +1050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa351c2fdc6b4349ba1e1e2ee6f4ed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showAdvancedSettings: 0
+  showAdvancedSettings: 1
   verbose: 0
   musicMixerBaseTracks: {fileID: 243397838039039640, guid: 0da65e85ae3e14541bb9ef961581f29c,
     type: 2}
@@ -1099,7 +1099,7 @@ MonoBehaviour:
     trackClip: {fileID: 8300000, guid: 3590ed8871a20e34a8b868148e652737, type: 3}
     currentVolume: 0
     targetVolume: 0
-    fadeDuration: 2
+    fadeDuration: 0.3
     expandInEditor: 1
   - trackSource: {fileID: 82237408952747676}
     trackClip: {fileID: 8300000, guid: 85be94e8c55c0c143a7ce20d30e751d0, type: 3}
@@ -1131,4 +1131,4 @@ MonoBehaviour:
   CompositionsWaitsForFadeOut: 1
   compositionFadeTolerance: 0.2
   compositionStopTimer: 30
-  expandMusicTracks: 0
+  expandMusicTracks: 1

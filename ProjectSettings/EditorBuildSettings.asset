@@ -38,3 +38,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Puzzle04.unity
     guid: 44097d9e0829f224aabdd78e7aae4068
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 48f10062c3d767b488add00aea4f996a
