@@ -88,6 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -3973,6 +3974,7 @@ MonoBehaviour:
   doorLocked: 0
   key: {fileID: 0}
   tagName: 
+  doorTag: 
   useTags: 0
   destroyKeyOnUse: 0
   transitionTime: 1
@@ -7941,6 +7943,11 @@ Prefab:
       propertyPath: lockedSound
       value: 
       objectReference: {fileID: 8300000, guid: b50418c6712271848997451f79e4e69a, type: 3}
+    - target: {fileID: 114129971231030468, guid: a67d6a251af81fb40860033374698927,
+        type: 2}
+      propertyPath: doorTag
+      value: DoorOutside
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a67d6a251af81fb40860033374698927, type: 2}
   m_IsPrefabParent: 0
@@ -11404,7 +11411,7 @@ GameObject:
   - component: {fileID: 497960312}
   - component: {fileID: 497960311}
   - component: {fileID: 497960313}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12084,6 +12091,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -13600,12 +13608,12 @@ Prefab:
     - target: {fileID: 224600040539976638, guid: 131176a22e85037458e405d4952b4e76,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -13
+      value: -12.89
       objectReference: {fileID: 0}
     - target: {fileID: 224600040539976638, guid: 131176a22e85037458e405d4952b4e76,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 1.49
+      value: 0.61
       objectReference: {fileID: 0}
     - target: {fileID: 224600040539976638, guid: 131176a22e85037458e405d4952b4e76,
         type: 2}
@@ -13968,11 +13976,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4631552628258688, guid: 0a21799549a92c44a8243abe15072150, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -14.62
+      value: -14.48
       objectReference: {fileID: 0}
     - target: {fileID: 4631552628258688, guid: 0a21799549a92c44a8243abe15072150, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.44
+      value: 1.07
       objectReference: {fileID: 0}
     - target: {fileID: 4631552628258688, guid: 0a21799549a92c44a8243abe15072150, type: 2}
       propertyPath: m_LocalPosition.z
@@ -14434,7 +14442,7 @@ GameObject:
   - component: {fileID: 657251730}
   - component: {fileID: 657251733}
   - component: {fileID: 657251732}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: House - bottom middle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38785,11 +38793,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4790733292953386, guid: a05db187807bfda4fa72d535dbb98ade, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -10.66
+      value: -11.84
       objectReference: {fileID: 0}
     - target: {fileID: 4790733292953386, guid: a05db187807bfda4fa72d535dbb98ade, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.32
+      value: 1.06
       objectReference: {fileID: 0}
     - target: {fileID: 4790733292953386, guid: a05db187807bfda4fa72d535dbb98ade, type: 2}
       propertyPath: m_LocalPosition.z

@@ -12,6 +12,7 @@ TagManager:
   - Climbable
   - Attickey
   - Inventory
+  - DoorOutside
   layers:
   - Default
   - TransparentFX

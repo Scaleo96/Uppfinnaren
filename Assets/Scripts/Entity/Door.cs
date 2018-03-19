@@ -25,6 +25,9 @@ public class Door : Entity
     public string tagName;
 
     [SerializeField]
+    public string doorTag;
+
+    [SerializeField]
     bool useTags;
 
     [SerializeField]
@@ -86,6 +89,14 @@ public class Door : Entity
                 if (exitDoor != null)
                 {
                     exitDoor.SetLock(false);
+                }
+                else
+                {
+                    if (doorTag != null && doorTag.Length > 0)
+                    {
+                        GameObject door = GameObject.FindWithTag(doorTag);
+                        door.GetComponent<Door>().SetLock(false);
+                    }
                 }
 
                 if (destroyKeyOnUse)
