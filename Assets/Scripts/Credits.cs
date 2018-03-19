@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public struct CreditCatagory
@@ -21,6 +22,9 @@ public class Credits : MonoBehaviour
     GameObject textPrefab;
 
     [SerializeField]
+    GameObject headerPrefab;
+
+    [SerializeField]
     float creditsSpeed = 5;
 
     [SerializeField]
@@ -30,10 +34,7 @@ public class Credits : MonoBehaviour
     GameObject imagePrefab;
 
     [SerializeField]
-    string[] randomFirstName;
-
-    [SerializeField]
-    string[] randomLastName;
+    string[] randomName;
 
     [SerializeField]
     string[] randomTitle;
@@ -44,24 +45,31 @@ public class Credits : MonoBehaviour
     [SerializeField]
     int extraCredits;
 
+    [SerializeField]
+    float creditsTime;
+    float creditsTimer = 0;
+
+    VerticalLayoutGroup verticalLayoutGroup;
+
     float timer = 0;
     float duration = 5;
 
     // Use this for initialization
     void Start()
     {
+        verticalLayoutGroup = GetComponent<VerticalLayoutGroup>();
+
         transform.position = new Vector2(Screen.width / 4, -100);
 
         for (int i = 0; i < creditCatagory.Length; i++)
         {
-            GameObject currentHeader = Instantiate(textPrefab, transform);
+            GameObject currentHeader = Instantiate(headerPrefab, transform);
 
-            currentHeader.GetComponent<Text>().fontStyle = FontStyle.Bold;
-            currentHeader.GetComponent<Text>().fontSize *= 2;
             currentHeader.GetComponent<Text>().text = (creditCatagory[i].header);
 
             for (int j = 0; j < creditCatagory[i].names.Length; j++)
             {
+
                 GameObject currentText = Instantiate(textPrefab, transform);
                 currentText.GetComponent<Text>().text += (creditCatagory[i].names[j]);
             }
@@ -80,11 +88,11 @@ public class Credits : MonoBehaviour
 
         if (r > 10)
         {
-            currentHeader.GetComponent<Text>().text = randomTitle[Random.Range(0, randomTitle.Length)] + "   " + "-" + "   " + randomFirstName[Random.Range(0, randomFirstName.Length)] + " " + randomLastName[Random.Range(0, randomLastName.Length)];
+            currentHeader.GetComponent<Text>().text = randomTitle[Random.Range(0, randomTitle.Length)] + "   " + "-" + "   " + randomName[Random.Range(0, randomName.Length)];
         }
         else
         {
-            currentHeader.GetComponent<Text>().text = randomRole[Random.Range(0, randomRole.Length)] + " " + randomTitle[Random.Range(0, randomTitle.Length)] + "   " + "-" + "   " + randomFirstName[Random.Range(0, randomFirstName.Length)] + " " + randomLastName[Random.Range(0, randomLastName.Length)];
+            currentHeader.GetComponent<Text>().text = randomRole[Random.Range(0, randomRole.Length)] + " " + randomTitle[Random.Range(0, randomTitle.Length)] + "   " + "-" + "   " + randomName[Random.Range(0, randomName.Length)];
         }
     }
 
@@ -92,9 +100,29 @@ public class Credits : MonoBehaviour
     void Update()
     {
         transform.position += new Vector3(0, creditsSpeed, 0);
-        //transform.SetAsFirstSibling();
+        transform.SetAsLastSibling();
 
         ImageTimer();
+        Countdown();
+        CancelCredits();
+    }
+
+    private void Countdown()
+    {
+        creditsTimer += Time.deltaTime;
+
+        if (creditsTimer >= creditsTime)
+        {
+            SceneManager.LoadScene("Main", LoadSceneMode.Single);
+        }
+    }
+
+    private void CancelCredits()
+    {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            SceneManager.LoadScene("Main", LoadSceneMode.Single);
+        }
     }
 
     private void ImageTimer()
@@ -112,7 +140,9 @@ public class Credits : MonoBehaviour
         Image image;
         const float fadeAmount = 255;
 
-        Vector3 screenPosition = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(Screen.width/2, Screen.width), Random.Range(0, Screen.height), Camera.main.farClipPlane / 2));
+        Vector3 screenPosition = new Vector3(Random.Range(Screen.width/2 + 200, Screen.width - 200), Random.Range(0 + 200, Screen.height - 200));
+
+        Debug.Log(screenPosition);
 
         GameObject go = Instantiate(imagePrefab, screenPosition, transform.rotation, FindObjectOfType<Canvas>().transform);
 
