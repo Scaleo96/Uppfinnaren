@@ -25,6 +25,9 @@ public class Credits : MonoBehaviour
     GameObject headerPrefab;
 
     [SerializeField]
+    GameObject logo;
+
+    [SerializeField]
     float creditsSpeed = 5;
 
     [SerializeField]
@@ -60,6 +63,8 @@ public class Credits : MonoBehaviour
         verticalLayoutGroup = GetComponent<VerticalLayoutGroup>();
 
         transform.position = new Vector2(Screen.width / 4, -100);
+
+        Instantiate(logo, transform);
 
         for (int i = 0; i < creditCatagory.Length; i++)
         {
