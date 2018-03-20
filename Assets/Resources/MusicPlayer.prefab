@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 4077480347285432}
   - component: {fileID: 82940820046332986}
   m_Layer: 0
-  m_Name: Uppfinnaren_Menu_v2
+  m_Name: Uppfinnaren_Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1293,7 +1293,7 @@ MonoBehaviour:
     expandInEditor: 0
   - baseTrackIndex: 9
     accompanyingTracks: 
-    expandInEditor: 1
+    expandInEditor: 0
   startFadingIn: 0
   tracks:
   - trackSource: {fileID: 82299940957025414}
