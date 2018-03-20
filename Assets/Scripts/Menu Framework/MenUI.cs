@@ -253,7 +253,10 @@ namespace MenUI
                     EnableMenu(topMenu);
 
                     // Select a Selectable
-                    topMenu.firstSelected.Select();
+                    if (topMenu.firstSelected != null)
+                    {
+                        topMenu.firstSelected.Select();
+                    }
 
                     // Check if parent is hidden, if not...
                     if (!topMenu.isParentHidden)
