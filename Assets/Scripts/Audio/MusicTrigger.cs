@@ -100,7 +100,6 @@ namespace MusicMixer
 
         private IEnumerator PrepareToChangeMusic(float delay = 0f)
         {
-            Debug.Log("Logsssss");
             yield return new WaitForSecondsRealtime(delay);
             ChangeMusic();
         }
