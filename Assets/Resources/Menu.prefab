@@ -2278,7 +2278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMenuParameters:
     menuGameObject: {fileID: 1804944447249192}
-    firstSelected: {fileID: 114924454539047710}
+    firstSelected: {fileID: 0}
     isParentHidden: 1
 --- !u!114 &114055514603371052
 MonoBehaviour:
@@ -2391,7 +2391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newMenuParameters:
     menuGameObject: {fileID: 1804944447249192}
-    firstSelected: {fileID: 114942564784036660}
+    firstSelected: {fileID: 0}
     isParentHidden: 1
 --- !u!114 &114106400675759866
 MonoBehaviour:
@@ -6014,7 +6014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   englishText: Begin Journey
-  swedishText: "B\xF6rja resan"
+  swedishText: "B\xF6rja Resan"
 --- !u!114 &114942564784036660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7821,7 +7821,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1597943430710372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.0074997, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224263249539687632}
@@ -7829,8 +7829,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -4, y: -4}
+  m_AnchoredPosition: {x: 1.0075, y: -1}
+  m_SizeDelta: {x: -2.015, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224403594153912624
 RectTransform:
