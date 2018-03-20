@@ -45,7 +45,6 @@ public class SpriteSwapper : MonoBehaviour
     {
         if (switchToDefaultEachFrame)
         {
-            Debug.Log(isAlternative);
             if (isAlternative)
             {
                 spriteRenderer.sprite = AlternativeSprite;
