@@ -52,7 +52,8 @@ public class Credits : MonoBehaviour
     float creditsTime;
     float creditsTimer = 0;
 
-    VerticalLayoutGroup verticalLayoutGroup;
+    // DEPRECATED
+    // VerticalLayoutGroup verticalLayoutGroup;
 
     float timer = 0;
     float duration = 5;
@@ -60,7 +61,8 @@ public class Credits : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        verticalLayoutGroup = GetComponent<VerticalLayoutGroup>();
+        // DEPRECATED
+        // verticalLayoutGroup = GetComponent<VerticalLayoutGroup>();
 
         transform.position = new Vector2(Screen.width / 4, -100);
 

@@ -90,7 +90,8 @@ public class GameController : MonoBehaviour
     [SerializeField]
     GameObject throwCursor;
 
-    Quaternion quaternion;
+    // DEPRECATED
+    // Quaternion quaternion;
 
     /// <summary>
     /// The entity that the mouse is hovering over.
@@ -139,7 +140,8 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        quaternion = new Quaternion();
+        // DEPRECATED
+        // quaternion = new Quaternion();
 
         hoverText = hoverTextObject.GetComponentInChildren<Text>();
         hoverImage = hoverImageObject.GetComponentInChildren<Image>();
