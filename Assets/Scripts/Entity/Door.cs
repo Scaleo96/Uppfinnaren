@@ -113,7 +113,7 @@ public class Door : Entity
                     fXMiniManager.PlaySound(lockedSound);
                 }
 
-                if (dialogue != null)
+                if (dialogue != null && values.item != null)
                 {
                     int i = Random.Range(0, dialogue.dialogue.Length);
 
